@@ -1,0 +1,6 @@
+function startAssessment() {
+    document.getElementById('welcome').classList.add('hidden');
+    document.getElementById('assessment').classList.remove('hidden');
+    document.getElementById('assessment').classList.add('fade-in');
+}
+

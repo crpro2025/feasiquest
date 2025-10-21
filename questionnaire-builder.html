@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Builder - FeasiQuest</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="questionnaire-builder-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>🎯 FeasiQuest</h1>
+        </div>
+        <div class="nav-center">
+            <h2>Questionnaire Builder</h2>
+        </div>
+        <div class="nav-right">
+            <button onclick="saveQuestionnaire()" class="btn-secondary">💾 Save Draft</button>
+            <button onclick="previewQuestionnaire()" class="btn-secondary">👁️ Preview</button>
+            <button onclick="window.location.href='app.html'" class="btn-secondary">← Back</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="builder-container">
+        <!-- Left Sidebar - Question Types -->
+        <div class="question-types-sidebar">
+            <h3>Question Types</h3>
+            <p class="sidebar-desc">Drag or click to add</p>
+            
+            <div class="question-type-category">
+                <h4>📝 Text Input</h4>
+                <div class="question-type-item" draggable="true" data-type="short-text">
+                    <span class="type-icon">📄</span>
+                    <div class="type-info">
+                        <div class="type-name">Short Text</div>
+                        <div class="type-desc">Single line input</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="long-text">
+                    <span class="type-icon">📋</span>
+                    <div class="type-info">
+                        <div class="type-name">Long Text</div>
+                        <div class="type-desc">Multi-line textarea</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="email">
+                    <span class="type-icon">📧</span>
+                    <div class="type-info">
+                        <div class="type-name">Email</div>
+                        <div class="type-desc">Email validation</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="phone">
+                    <span class="type-icon">📱</span>
+                    <div class="type-info">
+                        <div class="type-name">Phone</div>
+                        <div class="type-desc">Phone number</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="url">
+                    <span class="type-icon">🔗</span>
+                    <div class="type-info">
+                        <div class="type-name">URL</div>
+                        <div class="type-desc">Website link</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-type-category">
+                <h4>☑️ Choice</h4>
+                <div class="question-type-item" draggable="true" data-type="multiple-choice">
+                    <span class="type-icon">🔘</span>
+                    <div class="type-info">
+                        <div class="type-name">Multiple Choice</div>
+                        <div class="type-desc">Single selection</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="checkboxes">
+                    <span class="type-icon">☑️</span>
+                    <div class="type-info">
+                        <div class="type-name">Checkboxes</div>
+                        <div class="type-desc">Multiple selections</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="dropdown">
+                    <span class="type-icon">📥</span>
+                    <div class="type-info">
+                        <div class="type-name">Dropdown</div>
+                        <div class="type-desc">Select from list</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="yes-no">
+                    <span class="type-icon">✅</span>
+                    <div class="type-info">
+                        <div class="type-name">Yes/No</div>
+                        <div class="type-desc">Binary choice</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-type-category">
+                <h4>🔢 Numbers & Dates</h4>
+                <div class="question-type-item" draggable="true" data-type="number">
+                    <span class="type-icon">🔢</span>
+                    <div class="type-info">
+                        <div class="type-name">Number</div>
+                        <div class="type-desc">Numeric input</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="date">
+                    <span class="type-icon">📅</span>
+                    <div class="type-info">
+                        <div class="type-name">Date</div>
+                        <div class="type-desc">Date picker</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="date-range">
+                    <span class="type-icon">📆</span>
+                    <div class="type-info">
+                        <div class="type-name">Date Range</div>
+                        <div class="type-desc">Start and end dates</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="time">
+                    <span class="type-icon">⏰</span>
+                    <div class="type-info">
+                        <div class="type-name">Time</div>
+                        <div class="type-desc">Time picker</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-type-category">
+                <h4>⭐ Rating & Scale</h4>
+                <div class="question-type-item" draggable="true" data-type="rating">
+                    <span class="type-icon">⭐</span>
+                    <div class="type-info">
+                        <div class="type-name">Star Rating</div>
+                        <div class="type-desc">1-5 stars</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="scale">
+                    <span class="type-icon">📊</span>
+                    <div class="type-info">
+                        <div class="type-name">Linear Scale</div>
+                        <div class="type-desc">1-10 scale</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="likert">
+                    <span class="type-icon">📈</span>
+                    <div class="type-info">
+                        <div class="type-name">Likert Scale</div>
+                        <div class="type-desc">Agree/Disagree</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-type-category">
+                <h4>📎 Files & Media</h4>
+                <div class="question-type-item" draggable="true" data-type="file-upload">
+                    <span class="type-icon">📎</span>
+                    <div class="type-info">
+                        <div class="type-name">File Upload</div>
+                        <div class="type-desc">Upload documents</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="image-upload">
+                    <span class="type-icon">🖼️</span>
+                    <div class="type-info">
+                        <div class="type-name">Image Upload</div>
+                        <div class="type-desc">Upload images</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-type-category">
+                <h4>🎯 Advanced</h4>
+                <div class="question-type-item" draggable="true" data-type="matrix">
+                    <span class="type-icon">📊</span>
+                    <div class="type-info">
+                        <div class="type-name">Matrix</div>
+                        <div class="type-desc">Grid of questions</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="ranking">
+                    <span class="type-icon">🏆</span>
+                    <div class="type-info">
+                        <div class="type-name">Ranking</div>
+                        <div class="type-desc">Order items</div>
+                    </div>
+                </div>
+                <div class="question-type-item" draggable="true" data-type="section">
+                    <span class="type-icon">📑</span>
+                    <div class="type-info">
+                        <div class="type-name">Section Break</div>
+                        <div class="type-desc">Organize content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Area - Canvas -->
+        <div class="builder-canvas">
+            <!-- Questionnaire Header -->
+            <div class="questionnaire-header">
+                <input type="text" id="questionnaireTitle" class="title-input" placeholder="Untitled Questionnaire" value="">
+                <textarea id="questionnaireDescription" class="description-input" placeholder="Add a description..." rows="2"></textarea>
+                
+                <div class="questionnaire-meta">
+                    <div class="meta-item">
+                        <label>Study:</label>
+                        <select id="studySelect">
+                            <option value="">Select study...</option>
+                            <option value="study1">ADVANCE-2024 - Oncology Phase III</option>
+                            <option value="study2">CARDIO-TRIAL - Cardiovascular Phase II</option>
+                            <option value="study3">NEURO-STUDY - Neurology Phase III</option>
+                        </select>
+                    </div>
+                    <div class="meta-item">
+                        <label>Due Date:</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions Container -->
+            <div id="questionsContainer" class="questions-container">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <h3>Start Building Your Questionnaire</h3>
+                    <p>Drag question types from the left sidebar or click to add them</p>
+                </div>
+            </div>
+
+            <!-- Add Question Button -->
+            <button class="add-question-btn" onclick="showQuestionTypeMenu()">
+                ➕ Add Question
+            </button>
+        </div>
+
+        <!-- Right Sidebar - Question Settings -->
+        <div class="question-settings-sidebar">
+            <div id="noQuestionSelected" class="no-selection">
+                <div class="no-selection-icon">⚙️</div>
+                <p>Select a question to edit its settings</p>
+            </div>
+
+            <div id="questionSettings" class="settings-panel" style="display: none;">
+                <h3>Question Settings</h3>
+                
+                <div class="settings-section">
+                    <h4>General</h4>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingRequired">
+                            Required
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingDescription">
+                            Show description
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Validation</h4>
+                    <div class="setting-item">
+                        <label>Minimum length:</label>
+                        <input type="number" id="settingMinLength" placeholder="0">
+                    </div>
+                    <div class="setting-item">
+                        <label>Maximum length:</label>
+                        <input type="number" id="settingMaxLength" placeholder="Unlimited">
+                    </div>
+                    <div class="setting-item">
+                        <label>Pattern validation:</label>
+                        <input type="text" id="settingPattern" placeholder="Regex pattern">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Logic</h4>
+                    <div class="setting-item">
+                        <label>Show if:</label>
+                        <select id="settingCondition">
+                            <option value="">Always show</option>
+                            <option value="conditional">Conditional</option>
+                        </select>
+                    </div>
+                    <div id="conditionalLogic" style="display: none;">
+                        <div class="setting-item">
+                            <label>Question:</label>
+                            <select id="conditionQuestion"></select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Operator:</label>
+                            <select id="conditionOperator">
+                                <option value="equals">Equals</option>
+                                <option value="not-equals">Not equals</option>
+                                <option value="contains">Contains</option>
+                                <option value="greater">Greater than</option>
+                                <option value="less">Less than</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Value:</label>
+                            <input type="text" id="conditionValue" placeholder="Value">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Scoring</h4>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingScored">
+                            Enable scoring
+                        </label>
+                    </div>
+                    <div id="scoringOptions" style="display: none;">
+                        <div class="setting-item">
+                            <label>Points:</label>
+                            <input type="number" id="settingPoints" placeholder="0">
+                        </div>
+                        <div class="setting-item">
+                            <label>Weight:</label>
+                            <input type="number" id="settingWeight" placeholder="1.0" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-actions">
+                    <button class="btn-danger" onclick="deleteSelectedQuestion()">🗑️ Delete Question</button>
+                    <button class="btn-secondary" onclick="duplicateSelectedQuestion()">📋 Duplicate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Type Menu Modal -->
+    <div id="questionTypeMenu" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Question Type</h3>
+                <button class="close-btn" onclick="closeQuestionTypeMenu()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="question-type-grid" id="questionTypeGrid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal" style="display: none;">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Questionnaire Preview</h3>
+                <button class="close-btn" onclick="closePreview()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="previewContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePreview()">Close</button>
+                <button class="btn-primary" onclick="publishQuestionnaire()">📤 Publish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Library Modal -->
+    <div id="templateLibrary" class="modal" style="display: none;">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Question Templates</h3>
+                <button class="close-btn" onclick="closeTemplateLibrary()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="template-categories">
+                    <button class="template-category active" data-category="all">All Templates</button>
+                    <button class="template-category" data-category="site">Site Capabilities</button>
+                    <button class="template-category" data-category="experience">Experience</button>
+                    <button class="template-category" data-category="equipment">Equipment</button>
+                    <button class="template-category" data-category="staff">Staffing</button>
+                    <button class="template-category" data-category="regulatory">Regulatory</button>
+                </div>
+                <div id="templateGrid" class="template-grid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questionnaire-builder.js"></script>
+</body>
+</html>

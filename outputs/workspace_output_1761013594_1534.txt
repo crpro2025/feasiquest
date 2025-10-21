@@ -1,0 +1,71 @@
+                <div class="hero-text">
+                    <h1 class="hero-title">Find the Perfect Clinical Trial Sites in <span class="highlight">Days, Not Months</span></h1>
+                    <p class="hero-subtitle">AI-powered platform that reduces site selection time by 70% while improving match quality. Join 500+ sponsors and 2,000+ research sites transforming clinical trial feasibility.</p>
+                    <div class="hero-cta">
+                        <a href="app.html" class="btn-hero-primary">Start Free Trial</a>
+                        <a href="#demo" class="btn-hero-secondary">Watch Demo</a>
+                    </div>
+                    <p class="hero-note">✓ No credit card required  ✓ 30-day free trial  ✓ Cancel anytime</p>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-stats-card">
+                        <div class="stat-item">
+                            <div class="stat-number">70%</div>
+                            <div class="stat-label">Time Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-label">Better Matches</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">$2M+</div>
+                            <div class="stat-label">Avg. Savings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <p class="trust-text">Trusted by leading organizations:</p>
+            <div class="trust-logos">
+                <div class="trust-logo">BioPharma Solutions</div>
+                <div class="trust-logo">Global CRO Partners</div>
+                <div class="trust-logo">City Medical Research</div>
+                <div class="trust-logo">Metro Health Institute</div>
+                <div class="trust-logo">West Coast Trials</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Site Selection Challenge</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Too Slow</h3>
+                    <p>Traditional site selection takes 3-6 months, delaying study start and increasing costs.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Too Expensive</h3>
+                    <p>Poor site selection costs $500K-$2M per study in delays, screen failures, and dropouts.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎯</div>
+                    <h3>Poor Matches</h3>
+                    <p>Manual processes miss critical factors, leading to underperforming sites and enrollment failures.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>No Data</h3>
+                    <p>Lack of real-time data and analytics makes it impossible to make informed decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>

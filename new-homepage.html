@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest - Clinical Trial Site Feasibility Assessment Platform</title>
+    <link rel="stylesheet" href="platform-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="platform-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">FEASIQUEST</span>
+                <span class="logo-tagline">Site Feasibility Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="https://www.clinicalresearchpro.com" target="_blank" class="nav-link">Clinical Research Pro</a>
+                <a href="https://www.clinopsatsea.com" target="_blank" class="nav-link">Clin Ops at Sea</a>
+                <button class="nav-btn login-btn" onclick="showLogin()">Login</button>
+                <button class="nav-btn signup-btn" onclick="showSignup()">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Connect Research Sites with 
+                    <span class="gradient-text">Clinical Trial Sponsors</span>
+                </h1>
+                <p class="hero-description">
+                    The industry's most comprehensive platform for clinical trial feasibility assessment. 
+                    Sites showcase capabilities. Sponsors find perfect matches. Everyone saves time and money.
+                </p>
+                
+                <!-- User Type Selection -->
+                <div class="user-type-selector">
+                    <h3>I am a...</h3>
+                    <div class="user-type-cards">
+                        <div class="user-type-card" onclick="selectUserType('site')">
+                            <div class="user-icon">🏥</div>
+                            <h4>Research Site</h4>
+                            <p>Showcase your capabilities and connect with sponsors</p>
+                            <button class="type-btn">Register as Site</button>
+                        </div>
+                        <div class="user-type-card" onclick="selectUserType('sponsor')">
+                            <div class="user-icon">💼</div>
+                            <h4>Sponsor</h4>
+                            <p>Find qualified sites and streamline feasibility</p>
+                            <button class="type-btn">Register as Sponsor</button>
+                        </div>
+                        <div class="user-type-card" onclick="selectUserType('cro')">
+                            <div class="user-icon">🔬</div>
+                            <h4>CRO</h4>
+                            <p>Manage multiple studies and coordinate site selection</p>
+                            <button class="type-btn">Register as CRO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Research Sites</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Sponsors & CROs</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Feasibility Assessments</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Faster Site Selection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How FeasiQuest Works</h2>
+            <p class="section-subtitle">Three simple steps to transform your feasibility process</p>
+
+            <!-- For Sites -->
+            <div class="workflow-section">
+                <h3 class="workflow-title">🏥 For Research Sites</h3>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Create Your Profile</h4>
+                            <p>Complete comprehensive site profile with capabilities, staff, equipment, patient populations, and trial experience</p>
+                            <ul>
+                                <li>Upload photos and videos of your facility</li>
+                                <li>Add staff CVs and qualifications</li>
+                                <li>List therapeutic areas and specialties</li>
+                                <li>Document patient database demographics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Receive Feasibility Questionnaires</h4>
+                            <p>Get notified when sponsors send feasibility assessments for relevant studies</p>
+                            <ul>
+                                <li>Review protocol summaries</li>
+                                <li>Answer detailed feasibility questions</li>
+                                <li>Upload supporting documents</li>
+                                <li>Collaborate with your team</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Connect & Win Studies</h4>
+                            <p>Communicate directly with sponsors and secure trial opportunities</p>
+                            <ul>
+                                <li>Message sponsors directly</li>
+                                <li>Schedule site visits</li>
+                                <li>Negotiate terms</li>
+                                <li>Track your success rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For Sponsors/CROs -->
+            <div class="workflow-section">
+                <h3 class="workflow-title">💼 For Sponsors & CROs</h3>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Create Your Study</h4>
+                            <p>Upload protocol and define site requirements</p>
+                            <ul>
+                                <li>Upload protocol synopsis</li>
+                                <li>Define inclusion/exclusion criteria</li>
+                                <li>Set geographic requirements</li>
+                                <li>Specify capabilities needed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Find & Evaluate Sites</h4>
+                            <p>Use AI-powered search to find qualified sites</p>
+                            <ul>
+                                <li>Advanced search with 20+ filters</li>
+                                <li>AI-powered site recommendations</li>
+                                <li>View comprehensive site profiles</li>
+                                <li>Compare sites side-by-side</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Send Questionnaires & Select</h4>
+                            <p>Streamline feasibility assessment and site selection</p>
+                            <ul>
+                                <li>Send custom questionnaires</li>
+                                <li>Track response status</li>
+                                <li>Score and rank sites</li>
+                                <li>Make data-driven decisions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Platform Features</h2>
+            <p class="section-subtitle">Everything you need for efficient feasibility assessment</p>
+
+            <div class="features-grid">
+                <!-- Site Features -->
+                <div class="feature-category">
+                    <h3>🏥 For Sites</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Comprehensive profile management</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Photo & video uploads</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Staff CV management</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Patient database tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Equipment inventory</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Certification management</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Questionnaire inbox</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Performance analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sponsor Features -->
+                <div class="feature-category">
+                    <h3>💼 For Sponsors</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Study management dashboard</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Advanced site search (20+ filters)</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>AI-powered recommendations</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Custom questionnaire builder</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Site comparison tool</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Response tracking & scoring</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Analytics & reporting</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Export to PDF/Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Features -->
+                <div class="feature-category">
+                    <h3>🚀 Platform Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Real-time messaging</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Document sharing</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Calendar integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Notification system</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Feasibility calculators</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Mobile responsive</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Secure & compliant</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>API integrations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculators Section (Keep existing) -->
+    <section class="calculators-teaser">
+        <div class="container">
+            <h2 class="section-title">Built-in Feasibility Calculators</h2>
+            <p class="section-subtitle">Professional tools for accurate feasibility assessment</p>
+            <div class="calculator-preview">
+                <div class="calc-item">👥 Patient Pool Estimator</div>
+                <div class="calc-item">🏥 Site Capacity Calculator</div>
+                <div class="calc-item">💰 Budget Estimator</div>
+                <div class="calc-item">📅 Timeline Predictor</div>
+                <div class="calc-item">⚠️ Risk Score Calculator</div>
+                <div class="calc-item">🔍 Screen Failure Analyzer</div>
+            </div>
+            <button class="cta-btn" onclick="showSignup()">Access Calculators</button>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the plan that works for you</p>
+
+            <div class="pricing-grid">
+                <!-- Site Pricing -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Research Sites</h3>
+                        <div class="price">FREE</div>
+                        <p>Forever</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">✓ Complete site profile</div>
+                        <div class="pricing-feature">✓ Unlimited questionnaire responses</div>
+                        <div class="pricing-feature">✓ Photo & video uploads</div>
+                        <div class="pricing-feature">✓ Direct messaging</div>
+                        <div class="pricing-feature">✓ Performance analytics</div>
+                        <div class="pricing-feature">✓ Access to calculators</div>
+                    </div>
+                    <button class="pricing-btn" onclick="selectUserType('site')">Get Started Free</button>
+                </div>
+
+                <!-- Sponsor Pricing -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Sponsors</h3>
+                        <div class="price">$2,500</div>
+                        <p>per study</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">✓ Unlimited site search</div>
+                        <div class="pricing-feature">✓ AI-powered recommendations</div>
+                        <div class="pricing-feature">✓ Custom questionnaires</div>
+                        <div class="pricing-feature">✓ Send to unlimited sites</div>
+                        <div class="pricing-feature">✓ Advanced analytics</div>
+                        <div class="pricing-feature">✓ Priority support</div>
+                    </div>
+                    <button class="pricing-btn primary" onclick="selectUserType('sponsor')">Start Free Trial</button>
+                </div>
+
+                <!-- CRO Pricing -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>CROs</h3>
+                        <div class="price">$5,000</div>
+                        <p>per month</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">✓ Unlimited studies</div>
+                        <div class="pricing-feature">✓ Multi-user accounts</div>
+                        <div class="pricing-feature">✓ White-label options</div>
+                        <div class="pricing-feature">✓ API access</div>
+                        <div class="pricing-feature">✓ Dedicated account manager</div>
+                        <div class="pricing-feature">✓ Custom integrations</div>
+                    </div>
+                    <button class="pricing-btn" onclick="selectUserType('cro')">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Feasibility Process?</h2>
+            <p>Join thousands of sites and sponsors using FeasiQuest</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary" onclick="showSignup()">Get Started Free</button>
+                <button class="cta-btn secondary" onclick="showDemo()">Schedule Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Keep existing) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">FEASIQUEST</span>
+                    </div>
+                    <p class="footer-tagline">Clinical Trial Site Feasibility Platform</p>
+                    <p class="footer-description">Connecting research sites with sponsors for efficient feasibility assessment.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#" onclick="showLogin(); return false;">Login</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Partners</h4>
+                        <a href="https://www.clinicalresearchpro.com" target="_blank" rel="noopener">Clinical Research Pro</a>
+                        <a href="https://www.clinopsatsea.com" target="_blank" rel="noopener">Clin Ops at Sea</a>
+                        <a href="mailto:info@clinicalresearchpro.com">Contact Us</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#" onclick="showLegalDisclosure('privacy'); return false;">Privacy Policy</a>
+                        <a href="#" onclick="showLegalDisclosure('terms'); return false;">Terms of Service</a>
+                        <a href="#" onclick="showLegalDisclosure('disclaimer'); return false;">Disclaimer</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#" onclick="showLegalDisclosure('faq'); return false;">FAQ</a>
+                        <a href="#" onclick="showLegalDisclosure('support'); return false;">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clinical Research Pro. All rights reserved. | FeasiQuest is a trademark of Clinical Research Pro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="platform-main.js"></script>
+</body>
+</html>

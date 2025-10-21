@@ -1,0 +1,26 @@
+    const startButtons = [
+        document.getElementById('navStartBtn'),
+        document.getElementById('heroStartBtn'),
+        document.getElementById('finalStartBtn')
+    ];
+    
+    // Get all explore/module buttons
+    const exploreButtons = [
+        document.getElementById('heroExploreBtn'),
+        document.getElementById('finalExploreBtn')
+    ];
+    
+    // Attach event listeners to all start buttons
+    startButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🔘 Start button clicked:', button.id);
+                if (typeof window.startAssessment === 'function') {
+                    window.startAssessment();
+                }
+            });
+        }
+    });
+    
+    // Attach event listeners to all explore buttons

@@ -1,0 +1,51 @@
+        <section class="assessment-section hidden" id="assessment">
+            <div class="assessment-container">
+                <h2>Personalize Your Learning Experience</h2>
+                <p class="section-intro">Help us tailor the training to your needs</p>
+
+                <div class="question-block">
+                    <h3>What's your primary role?</h3>
+                    <div class="role-options">
+                        <label class="option-card">
+                            <input type="radio" name="role" value="cra">
+                            <div class="option-content">
+                                <div class="option-icon">👨‍⚕️</div>
+                                <div class="option-title">Clinical Research Associate</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="pm">
+                            <div class="option-content">
+                                <div class="option-icon">📊</div>
+                                <div class="option-title">Project/Study Manager</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="medical">
+                            <div class="option-content">
+                                <div class="option-icon">🔬</div>
+                                <div class="option-title">Medical Affairs</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="bd">
+                            <div class="option-content">
+                                <div class="option-icon">💼</div>
+                                <div class="option-title">Business Development</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="site">
+                            <div class="option-content">
+                                <div class="option-icon">🏥</div>
+                                <div class="option-title">Site Personnel</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="regulatory">
+                            <div class="option-content">
+                                <div class="option-icon">📋</div>
+                                <div class="option-title">Regulatory Affairs</div>
+                            </div>
+                        </label>
+                    </div>

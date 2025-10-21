@@ -1,0 +1,23 @@
+window.skipToModules = function() {
+    console.log('=== SKIP TO MODULES FUNCTION CALLED ===');
+    // Set default profile if skipping assessment
+    if (!appState.userProfile.role) {
+        appState.userProfile.role = 'pm';
+        appState.userProfile.experience = 'intermediate';
+        appState.userProfile.objective = 'assessment';
+    }
+    
+    document.getElementById('welcome').classList.add('hidden');
+    document.getElementById('assessment').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('fade-in');
+    
+    saveUserProgress();
+}
+
+// Submit Assessment
+function submitAssessment() {
+    const role = document.querySelector('input[name="role"]:checked');
+    const experience = document.querySelector('input[name="experience"]:checked');
+    const objective = document.querySelector('input[name="objective"]:checked');
+

@@ -1,0 +1,1 @@
+82:                    <button class="primary-btn" id="heroStartBtn">

@@ -1,0 +1,7 @@
+
+.page-wrapper.app-mode .navbar,
+.page-wrapper.app-mode .animated-background,
+.page-wrapper.app-mode footer {
+    display: none !important;
+}
+

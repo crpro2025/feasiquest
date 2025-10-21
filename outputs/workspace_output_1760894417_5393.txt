@@ -1,0 +1,10 @@
+760:    <script src="ai-features.js"></script>
+762:    <script>
+960:    <script src="script.js"></script>
+961:    <script src="modules.js"></script>
+962:    <script src="ai-features.js"></script>
+963:    <script src="auth.js"></script>
+964:    <script src="dashboard.js"></script>
+965:    <script src="ai-advanced.js"></script>
+966:    <script src="practice-scenarios.js"></script>
+967:    <script src="homepage_animations.js"></script>

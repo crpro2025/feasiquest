@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="global-navigation.css">
+    <link rel="stylesheet" href="enhanced-messages.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Global Header -->
+    <header class="global-header">
+        <div class="global-header-container">
+            <a href="homepage-futuristic.html" class="global-logo">
+                <div>
+                    <div class="logo-text-main">FeasiQuest</div>
+                    <div class="logo-text-sub">by Clinical Research Pro</div>
+                </div>
+            </a>
+            <nav class="global-nav">
+                <a href="app.html">Dashboard</a>
+                <a href="#">Sites</a>
+                <a href="#">Studies</a>
+                <a href="#" class="active">Messages</a>
+                <a href="help-center.html">Help</a>
+            </nav>
+            <div class="user-menu">
+                <div class="user-menu-trigger">
+                    <div class="user-avatar">JD</div>
+                    <span>John Doe</span>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Messages Container -->
+    <div class="messages-container">
+        <!-- Sidebar -->
+        <div class="messages-sidebar">
+            <div class="sidebar-header">
+                <h2>Messages</h2>
+                <button class="btn-compose" onclick="composeMessage()">
+                    ✏️ Compose
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" placeholder="Search messages..." id="searchInput" oninput="searchMessages()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <!-- Filters -->
+            <div class="message-filters">
+                <button class="filter-btn active" onclick="filterMessages('all')">
+                    All <span class="filter-count">12</span>
+                </button>
+                <button class="filter-btn" onclick="filterMessages('unread')">
+                    Unread <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" onclick="filterMessages('starred')">
+                    Starred <span class="filter-count">5</span>
+                </button>
+                <button class="filter-btn" onclick="filterMessages('archived')">
+                    Archived <span class="filter-count">8</span>
+                </button>
+            </div>
+
+            <!-- Conversation List -->
+            <div class="conversations-list" id="conversationsList">
+                <div class="conversation-item active unread" onclick="openConversation(1)">
+                    <div class="conversation-avatar">
+                        <img src="pfizer-logo.png" alt="Pfizer" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>P</div>'">
+                    </div>
+                    <div class="conversation-content">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Pfizer Inc.</span>
+                            <span class="conversation-time">2m ago</span>
+                        </div>
+                        <div class="conversation-preview">
+                            <span class="preview-text">Thank you for your interest in our Phase III diabetes trial...</span>
+                        </div>
+                        <div class="conversation-meta">
+                            <span class="meta-badge study">Study: DM-2025-003</span>
+                            <span class="unread-badge">2</span>
+                        </div>
+                    </div>
+                    <button class="star-btn" onclick="toggleStar(1, event)">☆</button>
+                </div>
+
+                <div class="conversation-item starred" onclick="openConversation(2)">
+                    <div class="conversation-avatar">
+                        <div class="avatar-placeholder">N</div>
+                    </div>
+                    <div class="conversation-content">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Novartis</span>
+                            <span class="conversation-time">1h ago</span>
+                        </div>
+                        <div class="conversation-preview">
+                            <span class="preview-text">We would like to schedule a site visit next week...</span>
+                        </div>
+                        <div class="conversation-meta">
+                            <span class="meta-badge study">Study: CARD-2025-012</span>
+                        </div>
+                    </div>
+                    <button class="star-btn starred" onclick="toggleStar(2, event)">★</button>
+                </div>
+
+                <div class="conversation-item" onclick="openConversation(3)">
+                    <div class="conversation-avatar">
+                        <div class="avatar-placeholder">M</div>
+                    </div>
+                    <div class="conversation-content">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Merck & Co.</span>
+                            <span class="conversation-time">3h ago</span>
+                        </div>
+                        <div class="conversation-preview">
+                            <span class="preview-text">Your feasibility questionnaire response has been received...</span>
+                        </div>
+                        <div class="conversation-meta">
+                            <span class="meta-badge questionnaire">Questionnaire</span>
+                        </div>
+                    </div>
+                    <button class="star-btn" onclick="toggleStar(3, event)">☆</button>
+                </div>
+
+                <div class="conversation-item unread" onclick="openConversation(4)">
+                    <div class="conversation-avatar">
+                        <div class="avatar-placeholder">J</div>
+                    </div>
+                    <div class="conversation-content">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Johnson & Johnson</span>
+                            <span class="conversation-time">Yesterday</span>
+                        </div>
+                        <div class="conversation-preview">
+                            <span class="preview-text">Invitation to participate in oncology trial...</span>
+                        </div>
+                        <div class="conversation-meta">
+                            <span class="meta-badge invitation">Invitation</span>
+                            <span class="unread-badge">1</span>
+                        </div>
+                    </div>
+                    <button class="star-btn" onclick="toggleStar(4, event)">☆</button>
+                </div>
+
+                <!-- More conversations... -->
+            </div>
+        </div>
+
+        <!-- Message View -->
+        <div class="message-view">
+            <div class="message-header">
+                <div class="header-info">
+                    <div class="recipient-avatar">
+                        <div class="avatar-placeholder">P</div>
+                    </div>
+                    <div class="recipient-info">
+                        <h3>Pfizer Inc.</h3>
+                        <p>Study: Phase III Diabetes Trial (DM-2025-003)</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="action-btn" onclick="archiveConversation()" title="Archive">
+                        📦
+                    </button>
+                    <button class="action-btn" onclick="deleteConversation()" title="Delete">
+                        🗑️
+                    </button>
+                    <button class="action-btn" onclick="showConversationInfo()" title="Info">
+                        ℹ️
+                    </button>
+                </div>
+            </div>
+
+            <div class="messages-thread" id="messagesThread">
+                <!-- Date Divider -->
+                <div class="date-divider">
+                    <span>Today</span>
+                </div>
+
+                <!-- Received Message -->
+                <div class="message-bubble received">
+                    <div class="message-avatar">
+                        <div class="avatar-placeholder">P</div>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-sender">Sarah Johnson - Clinical Operations Manager</div>
+                        <div class="message-text">
+                            <p>Hello,</p>
+                            <p>Thank you for your interest in our Phase III diabetes trial. We've reviewed your site profile and believe you would be an excellent fit for this study.</p>
+                            <p>Could you please complete the attached feasibility questionnaire by February 15th?</p>
+                        </div>
+                        <div class="message-attachments">
+                            <div class="attachment-item">
+                                <span class="attachment-icon">📄</span>
+                                <div class="attachment-info">
+                                    <div class="attachment-name">Feasibility_Questionnaire_DM2025.pdf</div>
+                                    <div class="attachment-size">2.3 MB</div>
+                                </div>
+                                <button class="attachment-download">⬇️</button>
+                            </div>
+                        </div>
+                        <div class="message-time">10:30 AM</div>
+                    </div>
+                </div>
+
+                <!-- Sent Message -->
+                <div class="message-bubble sent">
+                    <div class="message-content">
+                        <div class="message-text">
+                            <p>Hi Sarah,</p>
+                            <p>Thank you for reaching out. We're very interested in participating in this trial. I'll review the questionnaire and have it completed by the deadline.</p>
+                            <p>A few quick questions:</p>
+                            <ul>
+                                <li>What is the expected enrollment timeline?</li>
+                                <li>How many patients are you looking to enroll at our site?</li>
+                                <li>Will there be a site initiation visit?</li>
+                            </ul>
+                        </div>
+                        <div class="message-time">11:15 AM</div>
+                        <div class="message-status">✓✓ Read</div>
+                    </div>
+                </div>
+
+                <!-- Received Message -->
+                <div class="message-bubble received">
+                    <div class="message-avatar">
+                        <div class="avatar-placeholder">P</div>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-sender">Sarah Johnson</div>
+                        <div class="message-text">
+                            <p>Great questions! Here are the answers:</p>
+                            <ol>
+                                <li><strong>Timeline:</strong> We're planning to start enrollment in March 2025, with first patient in by April.</li>
+                                <li><strong>Enrollment target:</strong> We're looking for 20-25 patients per site.</li>
+                                <li><strong>SIV:</strong> Yes, we'll schedule a site initiation visit in late February/early March.</li>
+                            </ol>
+                            <p>I'm also attaching the study protocol for your review.</p>
+                        </div>
+                        <div class="message-attachments">
+                            <div class="attachment-item">
+                                <span class="attachment-icon">📄</span>
+                                <div class="attachment-info">
+                                    <div class="attachment-name">Protocol_DM2025_v2.0.pdf</div>
+                                    <div class="attachment-size">5.8 MB</div>
+                                </div>
+                                <button class="attachment-download">⬇️</button>
+                            </div>
+                        </div>
+                        <div class="message-time">2:45 PM</div>
+                    </div>
+                </div>
+
+                <!-- System Message -->
+                <div class="system-message">
+                    <span class="system-icon">✓</span>
+                    <span class="system-text">You completed the feasibility questionnaire</span>
+                    <span class="system-time">3:30 PM</span>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" style="display: none;">
+                    <div class="message-avatar">
+                        <div class="avatar-placeholder">P</div>
+                    </div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-container">
+                <div class="input-toolbar">
+                    <button class="toolbar-btn" onclick="attachFile()" title="Attach file">
+                        📎
+                    </button>
+                    <button class="toolbar-btn" onclick="insertEmoji()" title="Insert emoji">
+                        😊
+                    </button>
+                    <button class="toolbar-btn" onclick="formatText('bold')" title="Bold">
+                        <strong>B</strong>
+                    </button>
+                    <button class="toolbar-btn" onclick="formatText('italic')" title="Italic">
+                        <em>I</em>
+                    </button>
+                </div>
+                <div class="input-area">
+                    <textarea id="messageInput" placeholder="Type your message..." rows="3"></textarea>
+                    <button class="btn-send" onclick="sendMessage()">
+                        Send ➤
+                    </button>
+                </div>
+                <div class="attached-files" id="attachedFiles"></div>
+            </div>
+        </div>
+
+        <!-- Conversation Info Panel (Hidden by default) -->
+        <div class="info-panel" id="infoPanel" style="display: none;">
+            <div class="info-header">
+                <h3>Conversation Details</h3>
+                <button class="close-btn" onclick="closeInfoPanel()">×</button>
+            </div>
+            <div class="info-content">
+                <div class="info-section">
+                    <h4>Study Information</h4>
+                    <div class="info-item">
+                        <span class="info-label">Study ID:</span>
+                        <span class="info-value">DM-2025-003</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Study Name:</span>
+                        <span class="info-value">Phase III Diabetes Trial</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Sponsor:</span>
+                        <span class="info-value">Pfizer Inc.</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h4>Participants</h4>
+                    <div class="participant-item">
+                        <div class="participant-avatar">P</div>
+                        <div class="participant-info">
+                            <div class="participant-name">Sarah Johnson</div>
+                            <div class="participant-role">Clinical Operations Manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h4>Shared Files (3)</h4>
+                    <div class="shared-file">
+                        <span class="file-icon">📄</span>
+                        <span class="file-name">Feasibility_Questionnaire.pdf</span>
+                    </div>
+                    <div class="shared-file">
+                        <span class="file-icon">📄</span>
+                        <span class="file-name">Protocol_DM2025_v2.0.pdf</span>
+                    </div>
+                    <div class="shared-file">
+                        <span class="file-icon">📄</span>
+                        <span class="file-name">Site_Agreement.pdf</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="global-footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-text">
+                    <h3>FeasiQuest</h3>
+                    <p class="footer-tagline">by Clinical Research Pro</p>
+                </div>
+                <p class="footer-description">AI-powered clinical trial feasibility assessment platform.</p>
+                <div class="footer-badges">
+                    <span>🔒 HIPAA</span>
+                    <span>✓ SOC 2</span>
+                    <span>📋 FDA</span>
+                    <span>🌍 GDPR</span>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="help-center.html">Help Center</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Compliance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="crpro-logo">
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="enhanced-messages.js"></script>
+</body>
+</html>

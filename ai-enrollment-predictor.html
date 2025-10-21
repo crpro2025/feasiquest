@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Enrollment Predictor - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="ai-features.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">FeasiQuest</span>
+                <span class="nav-subtitle">by Clinical Research Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#" class="active">AI Predictor</a>
+                <a href="app.html" class="btn-login">Back to App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="ai-feature-container">
+        <div class="feature-header">
+            <div class="feature-badge">
+                <span class="badge-icon">🤖</span>
+                <span>AI-Powered Intelligence</span>
+            </div>
+            <h1 class="feature-title">AI Enrollment Predictor</h1>
+            <p class="feature-description">
+                Advanced machine learning model that analyzes 50+ variables to predict enrollment success with 85% accuracy. 
+                Get real-time insights, timeline predictions, and optimization recommendations.
+            </p>
+        </div>
+
+        <div class="feature-content">
+            <!-- Input Section -->
+            <div class="predictor-input-section">
+                <div class="section-card">
+                    <h2>Study Parameters</h2>
+                    <form id="predictorForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Study Name</label>
+                                <input type="text" id="studyName" value="Phase III Diabetes Trial" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Therapeutic Area</label>
+                                <select id="therapeuticArea" required>
+                                    <option value="oncology">Oncology</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="diabetes" selected>Diabetes</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="respiratory">Respiratory</option>
+                                    <option value="rare-disease">Rare Disease</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Target Enrollment</label>
+                                <input type="number" id="targetEnrollment" value="500" min="10" max="10000" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Sites</label>
+                                <input type="number" id="numSites" value="25" min="1" max="500" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Study Duration (months)</label>
+                                <input type="number" id="studyDuration" value="18" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Geographic Regions</label>
+                                <select id="regions" multiple>
+                                    <option value="north-america" selected>North America</option>
+                                    <option value="europe" selected>Europe</option>
+                                    <option value="asia">Asia Pacific</option>
+                                    <option value="latin-america">Latin America</option>
+                                    <option value="middle-east">Middle East</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Protocol Complexity</label>
+                                <select id="complexity" required>
+                                    <option value="low">Low (Simple procedures)</option>
+                                    <option value="medium" selected>Medium (Standard trial)</option>
+                                    <option value="high">High (Complex procedures)</option>
+                                    <option value="very-high">Very High (Rare disease/specialized)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Inclusion Criteria Count</label>
+                                <input type="number" id="inclusionCriteria" value="8" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Exclusion Criteria Count</label>
+                                <input type="number" id="exclusionCriteria" value="12" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Patient Population Size</label>
+                                <select id="populationSize" required>
+                                    <option value="very-large">Very Large (>1M patients)</option>
+                                    <option value="large" selected>Large (100K-1M patients)</option>
+                                    <option value="medium">Medium (10K-100K patients)</option>
+                                    <option value="small">Small (1K-10K patients)</option>
+                                    <option value="rare">Rare (<1K patients)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Competitive Studies</label>
+                                <input type="number" id="competitiveStudies" value="3" min="0" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Budget per Patient</label>
+                                <input type="number" id="budgetPerPatient" value="15000" min="1000" max="500000" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-predict">
+                            <span>🤖 Generate AI Prediction</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="predictor-results-section" id="resultsSection" style="display: none;">
+                <!-- Overall Score -->
+                <div class="section-card score-card">
+                    <h2>Enrollment Success Prediction</h2>
+                    <div class="score-display">
+                        <div class="score-circle" id="scoreCircle">
+                            <svg viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+                                <circle cx="100" cy="100" r="90" class="score-fill" id="scoreFill"></circle>
+                            </svg>
+                            <div class="score-value" id="scoreValue">0%</div>
+                        </div>
+                        <div class="score-details">
+                            <div class="score-label" id="scoreLabel">Calculating...</div>
+                            <div class="confidence-interval">
+                                <span>Confidence Interval:</span>
+                                <span id="confidenceInterval">±0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Prediction -->
+                <div class="section-card">
+                    <h2>Predicted Timeline</h2>
+                    <div class="timeline-visualization">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">📅</div>
+                            <div class="timeline-content">
+                                <h3>First Patient In (FPI)</h3>
+                                <p class="timeline-date" id="fpiDate">Month 3</p>
+                                <p class="timeline-confidence">Confidence: <span id="fpiConfidence">85%</span></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">📊</div>
+                            <div class="timeline-content">
+                                <h3>50% Enrollment</h3>
+                                <p class="timeline-date" id="halfwayDate">Month 10</p>
+                                <p class="timeline-confidence">Confidence: <span id="halfwayConfidence">78%</span></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">✅</div>
+                            <div class="timeline-content">
+                                <h3>Last Patient In (LPI)</h3>
+                                <p class="timeline-date" id="lpiDate">Month 18</p>
+                                <p class="timeline-confidence">Confidence: <span id="lpiConfidence">72%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-chart" id="timelineChart"></div>
+                </div>
+
+                <!-- Risk Factors -->
+                <div class="section-card">
+                    <h2>Risk Analysis</h2>
+                    <div class="risk-grid">
+                        <div class="risk-item risk-high" id="risk1">
+                            <div class="risk-icon">⚠️</div>
+                            <div class="risk-content">
+                                <h3>High Competition</h3>
+                                <p>3 competing studies in same therapeutic area</p>
+                                <div class="risk-impact">Impact: High</div>
+                            </div>
+                        </div>
+                        <div class="risk-item risk-medium" id="risk2">
+                            <div class="risk-icon">⚡</div>
+                            <div class="risk-content">
+                                <h3>Protocol Complexity</h3>
+                                <p>Medium complexity may slow enrollment</p>
+                                <div class="risk-impact">Impact: Medium</div>
+                            </div>
+                        </div>
+                        <div class="risk-item risk-low" id="risk3">
+                            <div class="risk-icon">✓</div>
+                            <div class="risk-content">
+                                <h3>Patient Population</h3>
+                                <p>Large patient pool available</p>
+                                <div class="risk-impact">Impact: Low</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="section-card">
+                    <h2>Key Performance Indicators</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-value" id="patientsPerSite">20</div>
+                            <div class="metric-label">Patients per Site</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">📈</div>
+                            <div class="metric-value" id="enrollmentRate">2.3</div>
+                            <div class="metric-label">Patients per Month</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">⏱️</div>
+                            <div class="metric-value" id="screenFailRate">35%</div>
+                            <div class="metric-label">Screen Fail Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">🎯</div>
+                            <div class="metric-value" id="dropoutRate">12%</div>
+                            <div class="metric-label">Expected Dropout</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optimization Recommendations -->
+                <div class="section-card recommendations-card">
+                    <h2>AI-Powered Recommendations</h2>
+                    <div class="recommendations-list">
+                        <div class="recommendation-item">
+                            <div class="rec-icon">💡</div>
+                            <div class="rec-content">
+                                <h3>Increase Site Count</h3>
+                                <p>Adding 5 more sites could reduce enrollment time by 3 months</p>
+                                <div class="rec-impact">
+                                    <span class="impact-label">Potential Impact:</span>
+                                    <span class="impact-value positive">+15% Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-icon">🌍</div>
+                            <div class="rec-content">
+                                <h3>Expand to Asia Pacific</h3>
+                                <p>Lower competition and larger patient pool in APAC region</p>
+                                <div class="rec-impact">
+                                    <span class="impact-label">Potential Impact:</span>
+                                    <span class="impact-value positive">+22% Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-icon">📋</div>
+                            <div class="rec-content">
+                                <h3>Simplify Exclusion Criteria</h3>
+                                <p>Reducing 3 exclusion criteria could increase eligible patient pool by 40%</p>
+                                <div class="rec-impact">
+                                    <span class="impact-label">Potential Impact:</span>
+                                    <span class="impact-value positive">+18% Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-icon">💰</div>
+                            <div class="rec-content">
+                                <h3>Increase Patient Stipend</h3>
+                                <p>Competitive compensation could improve recruitment by 25%</p>
+                                <div class="rec-impact">
+                                    <span class="impact-label">Potential Impact:</span>
+                                    <span class="impact-value positive">+12% Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison with Similar Studies -->
+                <div class="section-card">
+                    <h2>Benchmark Comparison</h2>
+                    <div class="benchmark-chart">
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Your Study</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" id="yourStudyBar" style="width: 0%"></div>
+                                <span class="bar-value" id="yourStudyValue">0%</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Similar Studies Avg</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" style="width: 68%; background: #7c3aed;"></div>
+                                <span class="bar-value">68%</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Top Performers</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" style="width: 92%; background: #10b981;"></div>
+                                <span class="bar-value">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-action btn-primary" onclick="exportReport()">
+                        📄 Export Full Report
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="saveScenario()">
+                        💾 Save Scenario
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="shareResults()">
+                        📤 Share with Team
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="runNewPrediction()">
+                        🔄 New Prediction
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="ai-enrollment-predictor.js"></script>
+</body>
+</html>

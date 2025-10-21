@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - FeasiQuest</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="help-center-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>🎯 FeasiQuest</h1>
+        </div>
+        <div class="nav-center">
+            <h2>Help Center</h2>
+        </div>
+        <div class="nav-right">
+            <button onclick="window.location.href='app.html'" class="btn-secondary">← Back to Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Help Center Container -->
+    <div class="help-container">
+        <!-- Hero Section -->
+        <div class="help-hero">
+            <h1>How can we help you?</h1>
+            <div class="search-box">
+                <input type="text" id="helpSearch" placeholder="Search for help articles, guides, and FAQs..." onkeyup="searchHelp()">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="quick-links">
+                <a href="#getting-started">Getting Started</a>
+                <a href="#video-tutorials">Video Tutorials</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact-support">Contact Support</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="help-content">
+            <!-- Getting Started Section -->
+            <section id="getting-started" class="help-section">
+                <h2>🚀 Getting Started</h2>
+                <div class="cards-grid">
+                    <div class="help-card" onclick="showArticle('quick-start')">
+                        <div class="card-icon">⚡</div>
+                        <h3>Quick Start Guide</h3>
+                        <p>Get up and running in 5 minutes</p>
+                    </div>
+                    <div class="help-card" onclick="showArticle('create-account')">
+                        <div class="card-icon">👤</div>
+                        <h3>Creating Your Account</h3>
+                        <p>Step-by-step account setup</p>
+                    </div>
+                    <div class="help-card" onclick="showArticle('first-study')">
+                        <div class="card-icon">📋</div>
+                        <h3>Your First Study</h3>
+                        <p>Create and launch your first study</p>
+                    </div>
+                    <div class="help-card" onclick="showArticle('site-registration')">
+                        <div class="card-icon">🏥</div>
+                        <h3>Site Registration</h3>
+                        <p>Complete guide for research sites</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- For Sponsors Section -->
+            <section id="for-sponsors" class="help-section">
+                <h2>💼 For Sponsors</h2>
+                <div class="article-list">
+                    <div class="article-item" onclick="showArticle('create-study')">
+                        <div class="article-icon">📝</div>
+                        <div class="article-info">
+                            <h4>How to Create a Study</h4>
+                            <p>Complete guide to the 8-step study creation wizard</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('build-questionnaire')">
+                        <div class="article-icon">📋</div>
+                        <div class="article-info">
+                            <h4>Building Questionnaires</h4>
+                            <p>Create custom feasibility questionnaires with 20+ question types</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('search-sites')">
+                        <div class="article-icon">🔍</div>
+                        <div class="article-info">
+                            <h4>Searching for Sites</h4>
+                            <p>Find the perfect research sites for your study</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('evaluate-responses')">
+                        <div class="article-icon">📊</div>
+                        <div class="article-info">
+                            <h4>Evaluating Site Responses</h4>
+                            <p>Review and compare site feasibility responses</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('ai-matching')">
+                        <div class="article-icon">🤖</div>
+                        <div class="article-info">
+                            <h4>AI Site Matching</h4>
+                            <p>Leverage AI to find the best site matches</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- For Sites Section -->
+            <section id="for-sites" class="help-section">
+                <h2>🏥 For Research Sites</h2>
+                <div class="article-list">
+                    <div class="article-item" onclick="showArticle('complete-profile')">
+                        <div class="article-icon">✏️</div>
+                        <div class="article-info">
+                            <h4>Completing Your Profile</h4>
+                            <p>Showcase your capabilities with a comprehensive profile</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('respond-questionnaire')">
+                        <div class="article-icon">📝</div>
+                        <div class="article-info">
+                            <h4>Responding to Questionnaires</h4>
+                            <p>Best practices for feasibility questionnaire responses</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('upload-documents')">
+                        <div class="article-icon">📎</div>
+                        <div class="article-info">
+                            <h4>Uploading Documents</h4>
+                            <p>Add certifications, licenses, and supporting documents</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('improve-visibility')">
+                        <div class="article-icon">⭐</div>
+                        <div class="article-info">
+                            <h4>Improving Your Visibility</h4>
+                            <p>Tips to get noticed by sponsors and CROs</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                    <div class="article-item" onclick="showArticle('manage-team')">
+                        <div class="article-icon">👥</div>
+                        <div class="article-info">
+                            <h4>Managing Your Team</h4>
+                            <p>Add and manage team members on your profile</p>
+                        </div>
+                        <span class="article-arrow">→</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Tutorials Section -->
+            <section id="video-tutorials" class="help-section">
+                <h2>🎥 Video Tutorials</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400" alt="Tutorial">
+                        </div>
+                        <h4>Platform Overview (5:30)</h4>
+                        <p>Complete walkthrough of FeasiQuest features</p>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Tutorial">
+                        </div>
+                        <h4>Creating Your First Study (8:15)</h4>
+                        <p>Step-by-step study creation tutorial</p>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400" alt="Tutorial">
+                        </div>
+                        <h4>Questionnaire Builder (6:45)</h4>
+                        <p>Master the questionnaire builder</p>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400" alt="Tutorial">
+                        </div>
+                        <h4>Site Profile Setup (10:20)</h4>
+                        <p>Complete site registration walkthrough</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="help-section">
+                <h2>❓ Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>How do I get started with FeasiQuest?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Getting started is easy! First, create an account by clicking "Sign Up" and selecting your user type (Research Site, Sponsor, or CRO). Complete your profile with relevant information, and you'll be ready to start using the platform. For sponsors, you can immediately create studies and questionnaires. For sites, complete your profile to start receiving study opportunities.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>What are the different user types?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>FeasiQuest supports three user types:</p>
+                            <ul>
+                                <li><strong>Research Sites:</strong> Clinical research facilities that conduct trials</li>
+                                <li><strong>Sponsors:</strong> Pharmaceutical companies or organizations funding studies</li>
+                                <li><strong>CROs:</strong> Contract Research Organizations managing trials for sponsors</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>How does the questionnaire builder work?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The questionnaire builder offers 20+ question types including text, multiple choice, ratings, file uploads, and more. You can drag-and-drop questions, set up conditional logic, add scoring, and use pre-built templates. Questions can be organized into sections, and you can preview the questionnaire before publishing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Can I edit my site profile after registration?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! You can edit your profile anytime by going to your dashboard and clicking "Edit Profile" or navigating to the profile editor. You can update all information including capabilities, team members, photos, and documents.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>How does AI site matching work?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our AI analyzes your study requirements and matches them against site capabilities, experience, location, and performance metrics. The algorithm considers therapeutic area expertise, patient population, equipment availability, and historical performance to provide scored recommendations.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Is my data secure?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we take security seriously. FeasiQuest uses industry-standard encryption, secure data storage, and complies with HIPAA, GDPR, and other relevant regulations. All data is encrypted in transit and at rest. We never share your data without explicit permission.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>What file formats can I upload?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We support common file formats including PDF, Word (DOC/DOCX), Excel (XLS/XLSX), PowerPoint (PPT/PPTX), images (JPG, PNG, GIF), and videos (MP4, MOV). Maximum file size is 25MB per file.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>How do I contact support?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can reach our support team via:</p>
+                            <ul>
+                                <li>Email: support@feasiquest.com</li>
+                                <li>Phone: 1-800-FEASIQUEST</li>
+                                <li>Live chat (available 9am-5pm EST)</li>
+                                <li>Contact form below</li>
+                            </ul>
+                            <p>We typically respond within 24 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>Can I export my data?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! You can export studies, questionnaires, responses, and reports in various formats including PDF, Excel, and CSV. Look for the export button in each section.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h4>What are the pricing plans?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer flexible pricing for different user types:</p>
+                            <ul>
+                                <li><strong>Sites:</strong> Free to $799/month based on features</li>
+                                <li><strong>Sponsors:</strong> $499 to $4,999/month based on studies</li>
+                                <li><strong>CROs:</strong> Custom enterprise pricing</li>
+                            </ul>
+                            <p>Visit our pricing page for detailed information.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Support Section -->
+            <section id="contact-support" class="help-section">
+                <h2>📞 Contact Support</h2>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email Support</h3>
+                        <p>support@feasiquest.com</p>
+                        <small>Response within 24 hours</small>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📱</div>
+                        <h3>Phone Support</h3>
+                        <p>1-800-FEASIQUEST</p>
+                        <small>Mon-Fri 9am-5pm EST</small>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">💬</div>
+                        <h3>Live Chat</h3>
+                        <p>Click the chat icon</p>
+                        <small>Available 9am-5pm EST</small>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Send us a message</h3>
+                    <form class="support-form" onsubmit="submitSupportTicket(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select>
+                                <option>Technical Issue</option>
+                                <option>Account Question</option>
+                                <option>Feature Request</option>
+                                <option>Billing Question</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources" class="help-section">
+                <h2>📚 Additional Resources</h2>
+                <div class="resources-grid">
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">📖</div>
+                        <h4>User Guide (PDF)</h4>
+                        <p>Complete platform documentation</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Training Webinars</h4>
+                        <p>Live and recorded training sessions</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">💡</div>
+                        <h4>Best Practices</h4>
+                        <p>Tips from industry experts</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">🔄</div>
+                        <h4>What's New</h4>
+                        <p>Latest features and updates</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">🐛</div>
+                        <h4>Report a Bug</h4>
+                        <p>Help us improve the platform</p>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-icon">💬</div>
+                        <h4>Community Forum</h4>
+                        <p>Connect with other users</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="help-center.js"></script>
+</body>
+</html>

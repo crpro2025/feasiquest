@@ -1,0 +1,31 @@
+        return;
+    }
+
+    appState.userProfile.role = role.value;
+    appState.userProfile.experience = experience.value;
+    appState.userProfile.objective = objective.value;
+
+    saveUserProgress();
+
+    // Hide assessment
+    const assessmentSection = document.getElementById('assessment');
+    assessmentSection.style.display = 'none';
+    assessmentSection.classList.add('hidden');
+    
+    // Show dashboard
+    const dashboardSection = document.getElementById('dashboard');
+    dashboardSection.style.display = 'block';
+    dashboardSection.classList.remove('hidden');
+    dashboardSection.classList.add('fade-in');
+    
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    console.log('Assessment completed, dashboard shown');
+}
+
+// Start Module
+function startModule(moduleNumber) {

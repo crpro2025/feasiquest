@@ -1,0 +1,13 @@
+total 224
+drwxr-xr-x 3 root root  4096 Oct 14 16:24 .
+drwxr-xr-x 1 root root   162 Oct 14 16:11 ..
+-rw-r--r-- 1 root root 19139 Oct 14 16:23 IMPLEMENTATION_GUIDE.md
+-rw-r--r-- 1 root root 38182 Oct 14 16:11 New CRPro Logo.png
+-rw-r--r-- 1 root root 11946 Oct 14 16:24 PROJECT_SUMMARY.md
+-rw-r--r-- 1 root root 11181 Oct 14 16:21 README.md
+-rw-r--r-- 1 root root 33106 Oct 14 16:20 TRAINING_CONTENT_GUIDE.md
+-rw-r--r-- 1 root root 17665 Oct 14 16:13 index.html
+drwxr-xr-x 2 root root    58 Oct 14 16:24 outputs
+-rw-r--r-- 1 root root 57496 Oct 14 16:17 script.js
+-rw-r--r-- 1 root root 15427 Oct 14 16:14 styles.css
+-rw-r--r-- 1 root root  1343 Oct 14 16:23 todo.md

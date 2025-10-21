@@ -1,0 +1,14 @@
+[4.0K]  .
+├── [ 19K]  IMPLEMENTATION_GUIDE.md
+├── [ 37K]  New CRPro Logo.png
+├── [ 12K]  PROJECT_SUMMARY.md
+├── [ 11K]  README.md
+├── [ 32K]  TRAINING_CONTENT_GUIDE.md
+├── [ 17K]  index.html
+├── [  58]  outputs
+│   └── [ 665]  workspace_output_1760459074_5947.txt
+├── [ 56K]  script.js
+├── [ 15K]  styles.css
+└── [1.3K]  todo.md
+
+2 directories, 10 files

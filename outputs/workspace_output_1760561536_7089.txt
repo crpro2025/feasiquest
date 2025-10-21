@@ -1,0 +1,11 @@
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="ai-advanced.js"></script>
+    <script src="practice-scenarios.js"></script>
+    <script src="script.js"></script>
+    <script src="modules.js"></script>
+    <script src="ai-features.js"></script>
+    
+    <script>
+        // Update auth button based on login state

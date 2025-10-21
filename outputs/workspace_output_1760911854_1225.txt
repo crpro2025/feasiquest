@@ -1,0 +1,15 @@
+function startModule(moduleNumber) {
+    const moduleCard = event.currentTarget;
+    if (moduleCard.classList.contains('locked')) {
+        alert('Complete previous modules to unlock this one.');
+        return;
+    }
+
+    appState.currentModule = moduleNumber;
+    
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('moduleContent').classList.remove('hidden');
+    
+    loadModuleContent(moduleNumber);
+}
+

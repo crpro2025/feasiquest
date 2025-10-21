@@ -1,0 +1,27 @@
+function completeModule1() {
+    if (Object.keys(quizAnswers).length < 5) {
+        alert('Please complete the assessment before finishing the module.');
+        return;
+    }
+
+    appState.userProfile.completedModules.push(1);
+    awardXP(100);
+    unlockBadge('First Steps');
+    
+    showFeedback(`
+        <h2>🎉 Module 1 Complete!</h2>
+        <p>Congratulations! You've completed Feasibility Foundations.</p>
+        <p>You've earned the <strong>"First Steps"</strong> badge!</p>
+        <p>Module 2 is now unlocked.</p>
+    `, 'success');
+
+    saveUserProgress();
+
+    setTimeout(() => {
+        returnToDashboard();
+        unlockModule(2);
+    }, 3000);
+}
+
+// Helper Functions
+function updateStepIndicator(currentStep) {

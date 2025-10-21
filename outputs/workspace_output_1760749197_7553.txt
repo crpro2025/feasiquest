@@ -1,0 +1,10 @@
+    document.querySelectorAll('.module-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const moduleNumber = this.dataset.module;
+            console.log('📖 Module clicked:', moduleNumber);
+            
+            // Store module selection and navigate to dashboard
+            localStorage.setItem('selectedModule', moduleNumber);
+            skipToModules();
+        });
+    });

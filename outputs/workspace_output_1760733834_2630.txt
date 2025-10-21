@@ -1,0 +1,11 @@
+                    <button class="cta-button" id="beginJourneyBtn" onclick="window.startAssessment()">
+                        <span style="font-size: 20px;">🚀</span> Start Your Training
+                    </button>
+                    <p style="margin-top: 20px; font-size: 15px; color: #666;">
+                        <a href="#" onclick="window.skipToModules(); return false;" style="color: #dc2626; text-decoration: none; font-weight: 600;">Or skip to modules directly →</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entry Assessment -->

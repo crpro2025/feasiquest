@@ -1,0 +1,14 @@
+        skipToModules();
+        // Then start the specific module
+        setTimeout(() => {
+            startModule(parseInt(startModuleId));
+        }, 100);
+    }
+});
+
+// Start Assessment
+window.startAssessment = function() {
+    console.log('startAssessment called');
+    const welcomeSection = document.getElementById('welcome');
+    const assessmentSection = document.getElementById('assessment');
+    

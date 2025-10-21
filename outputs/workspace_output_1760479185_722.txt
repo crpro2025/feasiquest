@@ -1,0 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserProgress();
+    updateProgressDisplay();
+});
+
+// Start Assessment
+function startAssessment() {
+    document.getElementById('welcome').classList.add('hidden');
+    document.getElementById('assessment').classList.remove('hidden');
+    document.getElementById('assessment').classList.add('fade-in');
+}
+
+// Skip directly to modules (for quick access)
+function skipToModules() {
+    // Set default profile if skipping assessment
+    if (!appState.userProfile.role) {

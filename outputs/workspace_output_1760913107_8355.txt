@@ -1,0 +1,25 @@
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">FEASIQUEST</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#modules" class="nav-link">Modules</a>
+                    <a href="#ai" class="nav-link">AI Assistant</a>
+                    <button class="nav-cta" id="navStartBtn">Launch Training</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="welcome">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Next-Generation Clinical Research Training</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Master Clinical Trial

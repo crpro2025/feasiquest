@@ -1,0 +1,34 @@
+function startModule(moduleNumber) {
+    const moduleCard = event.currentTarget;
+    if (moduleCard && moduleCard.classList.contains('locked')) {
+        alert('Complete previous modules to unlock this one.');
+        return;
+    }
+
+    appState.currentModule = moduleNumber;
+    
+    // Hide dashboard
+    const dashboardSection = document.getElementById('dashboard');
+    dashboardSection.style.display = 'none';
+    dashboardSection.classList.add('hidden');
+    
+    // Show module content
+    const moduleContent = document.getElementById('moduleContent');
+    moduleContent.style.display = 'block';
+    moduleContent.classList.remove('hidden');
+    moduleContent.classList.add('fade-in');
+    
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    loadModuleContent(moduleNumber);
+    
+    console.log('Module ' + moduleNumber + ' started');
+}
+// Load Module Content
+function loadModuleContent(moduleNumber) {
+    const contentArea = document.getElementById('moduleContent');
+    

@@ -1,0 +1,2 @@
+43:window.startAssessment = function() {
+44:    console.log('startAssessment called');

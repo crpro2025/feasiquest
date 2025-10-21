@@ -1,0 +1,10 @@
+962:    <script src="script.js"></script>
+963:    <script src="modules.js"></script>
+964:    <script src="ai-features.js"></script>
+965:    <script src="auth.js"></script>
+966:    <script src="dashboard.js"></script>
+967:    <script src="ai-advanced.js"></script>
+968:    <script src="practice-scenarios.js"></script>
+969:    <script src="homepage_animations.js"></script>
+970:    <script src="advanced-features.js"></script>
+971:    <script src="enhanced-content.js"></script>

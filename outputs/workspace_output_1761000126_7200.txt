@@ -1,0 +1,151 @@
+        </div>
+    `;
+}
+
+function getSponsorDashboard() {
+    return `
+        <div class="dashboard-header">
+            <h2>Welcome back, ${currentUser.name}! 👋</h2>
+            <p>${currentUser.organization}</p>
+        </div>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button class="btn btn-primary" onclick="showAnalyticsDashboard()">📊 View Analytics</button>
+            <button class="btn btn-secondary" onclick="openQuestionnaireBuilder()">📋 Create Questionnaire</button>
+            <button class="btn btn-outline" onclick="showAIRecommendations('study_001')">🤖 AI Site Matching</button>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🧪</div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Active Studies</div>
+                <div class="stat-change positive">↑ 2 new this quarter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏥</div>
+                <div class="stat-value">43</div>
+                <div class="stat-label">Active Sites</div>
+                <div class="stat-change positive">↑ 8 sites added</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Questionnaire Responses</div>
+                <div class="stat-change positive">↑ 5 this week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-label">Total Enrolled</div>
+                <div class="stat-change positive">↑ 12% vs target</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>🧪 Active Studies</h3>
+                <button class="btn btn-primary btn-sm" onclick="openCreateStudyModal()">+ New Study</button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Study Title</th>
+                            <th>Protocol</th>
+                            <th>Phase</th>
+                            <th>Sites</th>
+                            <th>Enrollment</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${getActiveStudiesHTML()}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>📊 Enrollment Overview</h3>
+            </div>
+            <div style="padding: 20px;">
+                ${getSponsorEnrollmentHTML()}
+            </div>
+        </div>
+    `;
+}
+
+function getCRODashboard() {
+    return `
+        <div class="dashboard-header">
+            <h2>Welcome back, ${currentUser.name}! 👋</h2>
+            <p>${currentUser.organization}</p>
+        </div>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button class="btn btn-primary" onclick="showAnalyticsDashboard()">📊 Portfolio Analytics</button>
+            <button class="btn btn-secondary" onclick="showSection('search')">🔍 Site Network</button>
+            <button class="btn btn-outline" onclick="openQuestionnaireBuilder()">📋 Create Questionnaire</button>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🧪</div>
+                <div class="stat-value">45</div>
+                <div class="stat-label">Managed Studies</div>
+                <div class="stat-change positive">↑ 5 new this quarter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏥</div>
+                <div class="stat-value">500</div>
+                <div class="stat-label">Site Network</div>
+                <div class="stat-change positive">↑ 25 sites added</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-value">15</div>
+                <div class="stat-label">Active Sponsors</div>
+                <div class="stat-change positive">↑ 3 new partnerships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">8,450</div>
+                <div class="stat-label">Total Enrolled</div>
+                <div class="stat-change positive">↑ 18% vs target</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>🧪 Study Portfolio</h3>
+                <button class="btn btn-primary btn-sm" onclick="showSection('studies')">View All Studies</button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Study</th>
+                            <th>Sponsor</th>
+                            <th>Phase</th>
+                            <th>Sites</th>
+                            <th>Enrollment</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${getCROStudiesHTML()}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>🌍 Global Site Network</h3>
+            </div>
+            <div style="padding: 20px;">
+                ${getSiteNetworkHTML()}
+            </div>

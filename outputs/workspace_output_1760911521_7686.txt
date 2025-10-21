@@ -1,0 +1,21 @@
+    // Attach event listeners to all start buttons
+    startButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🔘 Start button clicked:', button.id);
+                if (typeof window.startAssessment === 'function') {
+                    window.startAssessment();
+                }
+            });
+        }
+    });
+    
+    // Attach event listeners to all explore buttons
+    exploreButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🔘 Explore button clicked:', button.id);
+                if (typeof window.skipToModules === 'function') {
+                    window.skipToModules();

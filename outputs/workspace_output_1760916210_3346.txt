@@ -1,0 +1,8 @@
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#modules" class="nav-link">Modules</a>
+                    <a href="#ai" class="nav-link">AI Assistant</a>
+                    <a href="https://www.clinicalresearchpro.com" target="_blank" class="nav-link">Clinical Research Pro</a>
+                    <a href="https://www.clinopsatsea.com" target="_blank" class="nav-link">Clin Ops at Sea</a>
+                    <button class="nav-cta" id="navStartBtn">Launch Training</button>
+                </div>

@@ -1,0 +1,124 @@
+function showDashboard() {
+    showSection('dashboard');
+    loadDashboard();
+}
+
+function showSection(sectionName) {
+    // Update active nav button
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.closest('.nav-btn').classList.add('active');
+    
+    // Hide all sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Show selected section
+    const section = document.getElementById(sectionName + 'Section');
+    if (section) {
+        section.classList.add('active');
+        currentSection = sectionName;
+        
+        // Load content based on section
+        switch(sectionName) {
+            case 'dashboard':
+                loadDashboard();
+                break;
+            case 'questionnaires':
+                loadQuestionnaires();
+                break;
+            case 'search':
+                loadSiteSearch();
+                break;
+            case 'studies':
+                loadStudies();
+                break;
+            case 'messages':
+                loadMessages();
+                break;
+            case 'documents':
+                loadDocuments();
+                break;
+        }
+    }
+}
+
+// ===== DASHBOARD LOADING =====
+function loadDashboard() {
+    const dashboardSection = document.getElementById('dashboardSection');
+    
+    if (currentUser.role === 'site') {
+        dashboardSection.innerHTML = getSiteDashboard();
+    } else if (currentUser.role === 'sponsor') {
+        dashboardSection.innerHTML = getSponsorDashboard();
+    } else if (currentUser.role === 'cro') {
+        dashboardSection.innerHTML = getCRODashboard();
+    }
+}
+
+function getSiteDashboard() {
+    return `
+        <div class="dashboard-header">
+            <h2>Welcome back, ${currentUser.name}! 👋</h2>
+            <p>${currentUser.organization}</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Pending Questionnaires</div>
+                <div class="stat-change positive">↑ 2 new this week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Active Studies</div>
+                <div class="stat-change positive">↑ 15% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">287</div>
+                <div class="stat-label">Enrolled Patients</div>
+                <div class="stat-change positive">↑ 23 this month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">Site Rating</div>
+                <div class="stat-change positive">↑ 0.2 points</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>📋 Recent Questionnaires</h3>
+                <button class="btn btn-primary btn-sm" onclick="showSection('questionnaires')">View All</button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Study</th>
+                            <th>Protocol</th>
+                            <th>Sponsor</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${getRecentQuestionnairesHTML()}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>📊 Enrollment Progress</h3>
+            </div>
+            <div style="padding: 20px;">
+                ${getEnrollmentProgressHTML()}
+            </div>
+        </div>

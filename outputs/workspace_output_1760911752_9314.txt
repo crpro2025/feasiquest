@@ -1,0 +1,26 @@
+function submitAssessment() {
+    const role = document.querySelector('input[name="role"]:checked');
+    const experience = document.querySelector('input[name="experience"]:checked');
+    const objective = document.querySelector('input[name="objective"]:checked');
+
+    if (!role || !experience || !objective) {
+        alert('Please complete all questions before continuing.');
+        return;
+    }
+
+    appState.userProfile.role = role.value;
+    appState.userProfile.experience = experience.value;
+    appState.userProfile.objective = objective.value;
+
+    saveUserProgress();
+
+    document.getElementById('assessment').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('fade-in');
+}
+
+// Start Module
+function startModule(moduleNumber) {
+    const moduleCard = event.currentTarget;
+    if (moduleCard.classList.contains('locked')) {
+        alert('Complete previous modules to unlock this one.');

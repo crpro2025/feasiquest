@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feasibility Questionnaire - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="global-navigation.css">
+    <link rel="stylesheet" href="enhanced-questionnaire.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Global Header -->
+    <header class="global-header">
+        <div class="global-header-container">
+            <a href="homepage-futuristic.html" class="global-logo">
+                <div>
+                    <div class="logo-text-main">FeasiQuest</div>
+                    <div class="logo-text-sub">by Clinical Research Pro</div>
+                </div>
+            </a>
+            <nav class="global-nav">
+                <a href="app.html">Dashboard</a>
+                <a href="#">Sites</a>
+                <a href="#">Studies</a>
+                <a href="#" class="active">Questionnaires</a>
+                <a href="help-center.html">Help</a>
+            </nav>
+            <div class="user-menu">
+                <div class="user-menu-trigger">
+                    <div class="user-avatar">JD</div>
+                    <span>John Doe</span>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="questionnaire-container">
+        <!-- Header -->
+        <div class="questionnaire-header">
+            <div class="header-content">
+                <div class="study-info">
+                    <h1>Phase III Diabetes Trial - Feasibility Questionnaire</h1>
+                    <div class="study-meta">
+                        <span class="meta-item">📋 Study ID: DM-2025-003</span>
+                        <span class="meta-item">🏢 Sponsor: Pfizer Inc.</span>
+                        <span class="meta-item">📅 Due: February 15, 2025</span>
+                        <span class="meta-item status-pending">⏰ Status: In Progress</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-action btn-secondary" onclick="saveDraft()">
+                        💾 Save Draft
+                    </button>
+                    <button class="btn-action btn-primary" onclick="submitQuestionnaire()">
+                        ✓ Submit Response
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>Progress: <strong id="progressPercent">0%</strong></span>
+                    <span><span id="answeredCount">0</span> of <span id="totalCount">50</span> questions answered</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questionnaire Navigation -->
+        <div class="questionnaire-nav">
+            <button class="nav-section active" onclick="showSection('site-info')">
+                <span class="nav-icon">🏥</span>
+                <span class="nav-label">Site Information</span>
+                <span class="nav-count">0/8</span>
+            </button>
+            <button class="nav-section" onclick="showSection('capabilities')">
+                <span class="nav-icon">⚕️</span>
+                <span class="nav-label">Capabilities</span>
+                <span class="nav-count">0/10</span>
+            </button>
+            <button class="nav-section" onclick="showSection('patient-pool')">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Patient Pool</span>
+                <span class="nav-count">0/8</span>
+            </button>
+            <button class="nav-section" onclick="showSection('experience')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Experience</span>
+                <span class="nav-count">0/7</span>
+            </button>
+            <button class="nav-section" onclick="showSection('resources')">
+                <span class="nav-icon">🔬</span>
+                <span class="nav-label">Resources</span>
+                <span class="nav-count">0/9</span>
+            </button>
+            <button class="nav-section" onclick="showSection('timeline')">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Timeline</span>
+                <span class="nav-count">0/5</span>
+            </button>
+            <button class="nav-section" onclick="showSection('documents')">
+                <span class="nav-icon">📄</span>
+                <span class="nav-label">Documents</span>
+                <span class="nav-count">0/3</span>
+            </button>
+        </div>
+
+        <!-- Questionnaire Content -->
+        <div class="questionnaire-content">
+            <!-- Site Information Section -->
+            <div id="site-info-section" class="question-section active">
+                <div class="section-header">
+                    <h2>🏥 Site Information</h2>
+                    <p>Please provide basic information about your research site.</p>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q1</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">What is your site's full legal name?</label>
+                    <input type="text" class="question-input" placeholder="Enter site name" data-question="1">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q2</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Site Type</label>
+                    <select class="question-select" data-question="2">
+                        <option value="">Select site type</option>
+                        <option value="academic">Academic Medical Center</option>
+                        <option value="community">Community Hospital</option>
+                        <option value="private">Private Practice</option>
+                        <option value="specialty">Specialty Clinic</option>
+                        <option value="research">Dedicated Research Site</option>
+                    </select>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q3</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">How many years has your site been conducting clinical research?</label>
+                    <input type="number" class="question-input" placeholder="Years" min="0" data-question="3">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q4</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Total number of research staff at your site?</label>
+                    <input type="number" class="question-input" placeholder="Number of staff" min="1" data-question="4">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q5</span>
+                        <span class="question-optional">Optional</span>
+                    </div>
+                    <label class="question-text">Upload your site's organizational chart</label>
+                    <div class="file-upload-area" onclick="document.getElementById('file-q5').click()">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p class="upload-hint">PDF, PNG, JPG up to 10MB</p>
+                        </div>
+                        <input type="file" id="file-q5" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" onchange="handleFileUpload(this, 5)">
+                    </div>
+                    <div id="file-preview-5" class="file-preview"></div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q6</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Is your site GCP certified?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="q6" value="yes" data-question="6">
+                            <span class="radio-label">Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q6" value="no" data-question="6">
+                            <span class="radio-label">No</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q6" value="pending" data-question="6">
+                            <span class="radio-label">Pending</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q7</span>
+                        <span class="question-optional">Optional</span>
+                    </div>
+                    <label class="question-text">Upload GCP certification document</label>
+                    <div class="file-upload-area" onclick="document.getElementById('file-q7').click()">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p class="upload-hint">PDF up to 10MB</p>
+                        </div>
+                        <input type="file" id="file-q7" accept=".pdf" style="display: none;" onchange="handleFileUpload(this, 7)">
+                    </div>
+                    <div id="file-preview-7" class="file-preview"></div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q8</span>
+                        <span class="question-optional">Optional</span>
+                    </div>
+                    <label class="question-text">Upload photos of your facility (up to 5 photos)</label>
+                    <div class="file-upload-area multi-upload" onclick="document.getElementById('file-q8').click()">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p class="upload-hint">PNG, JPG up to 5MB each (max 5 files)</p>
+                        </div>
+                        <input type="file" id="file-q8" accept=".png,.jpg,.jpeg" multiple style="display: none;" onchange="handleMultipleFileUpload(this, 8)">
+                    </div>
+                    <div id="file-preview-8" class="file-preview multi-preview"></div>
+                </div>
+            </div>
+
+            <!-- Capabilities Section -->
+            <div id="capabilities-section" class="question-section">
+                <div class="section-header">
+                    <h2>⚕️ Capabilities</h2>
+                    <p>Tell us about your site's therapeutic expertise and capabilities.</p>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q9</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Do you have experience in Diabetes/Endocrinology trials?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="q9" value="yes" data-question="9">
+                            <span class="radio-label">Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q9" value="no" data-question="9">
+                            <span class="radio-label">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q10</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">How many diabetes trials have you completed in the last 3 years?</label>
+                    <input type="number" class="question-input" placeholder="Number of trials" min="0" data-question="10">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q11</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Select all therapeutic areas where you have experience (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="oncology" data-question="11">
+                            <span class="checkbox-label">Oncology</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="cardiology" data-question="11">
+                            <span class="checkbox-label">Cardiology</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="neurology" data-question="11">
+                            <span class="checkbox-label">Neurology</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="diabetes" data-question="11">
+                            <span class="checkbox-label">Diabetes/Endocrinology</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="respiratory" data-question="11">
+                            <span class="checkbox-label">Respiratory</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" value="rheumatology" data-question="11">
+                            <span class="checkbox-label">Rheumatology</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q12</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Do you have an on-site laboratory?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="q12" value="yes" data-question="12">
+                            <span class="radio-label">Yes, fully equipped</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q12" value="partial" data-question="12">
+                            <span class="radio-label">Yes, limited capabilities</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q12" value="no" data-question="12">
+                            <span class="radio-label">No, use external lab</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q13</span>
+                        <span class="question-optional">Optional</span>
+                    </div>
+                    <label class="question-text">Upload photos of your laboratory facilities</label>
+                    <div class="file-upload-area multi-upload" onclick="document.getElementById('file-q13').click()">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p class="upload-hint">PNG, JPG up to 5MB each (max 5 files)</p>
+                        </div>
+                        <input type="file" id="file-q13" accept=".png,.jpg,.jpeg" multiple style="display: none;" onchange="handleMultipleFileUpload(this, 13)">
+                    </div>
+                    <div id="file-preview-13" class="file-preview multi-preview"></div>
+                </div>
+
+                <!-- More capability questions... -->
+            </div>
+
+            <!-- Patient Pool Section -->
+            <div id="patient-pool-section" class="question-section">
+                <div class="section-header">
+                    <h2>👥 Patient Pool</h2>
+                    <p>Information about your patient database and recruitment capabilities.</p>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q19</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">Total size of your patient database</label>
+                    <input type="number" class="question-input" placeholder="Number of patients" min="0" data-question="19">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q20</span>
+                        <span class="question-required">Required</span>
+                    </div>
+                    <label class="question-text">How many patients with Type 2 Diabetes do you have in your database?</label>
+                    <input type="number" class="question-input" placeholder="Number of diabetes patients" min="0" data-question="20">
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-number">Q21</span>
+                        <span class="question-optional">Optional</span>
+                    </div>
+                    <label class="question-text">Upload a video tour of your patient recruitment process (optional)</label>
+                    <div class="file-upload-area" onclick="document.getElementById('file-q21').click()">
+                        <div class="upload-icon">🎥</div>
+                        <div class="upload-text">
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p class="upload-hint">MP4, MOV up to 100MB</p>
+                        </div>
+                        <input type="file" id="file-q21" accept=".mp4,.mov,.avi" style="display: none;" onchange="handleFileUpload(this, 21)">
+                    </div>
+                    <div id="file-preview-21" class="file-preview"></div>
+                </div>
+
+                <!-- More patient pool questions... -->
+            </div>
+
+            <!-- Other sections would follow similar pattern -->
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="questionnaire-footer">
+            <button class="btn-nav btn-secondary" onclick="previousSection()" id="prevBtn" disabled>
+                ← Previous Section
+            </button>
+            <button class="btn-nav btn-primary" onclick="nextSection()" id="nextBtn">
+                Next Section →
+            </button>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="global-footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-text">
+                    <h3>FeasiQuest</h3>
+                    <p class="footer-tagline">by Clinical Research Pro</p>
+                </div>
+                <p class="footer-description">AI-powered clinical trial feasibility assessment platform.</p>
+                <div class="footer-badges">
+                    <span>🔒 HIPAA</span>
+                    <span>✓ SOC 2</span>
+                    <span>📋 FDA</span>
+                    <span>🌍 GDPR</span>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="help-center.html">Help Center</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Compliance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="crpro-logo">
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="enhanced-questionnaire.js"></script>
+</body>
+</html>

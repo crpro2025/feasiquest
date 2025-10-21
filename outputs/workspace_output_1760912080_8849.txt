@@ -1,0 +1,11 @@
+        font-size: 36px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}.assessment-section {
+    background: var(--bg-white);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);

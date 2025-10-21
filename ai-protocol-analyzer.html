@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Protocol Analyzer - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="ai-features.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">FeasiQuest</span>
+                <span class="nav-subtitle">by Clinical Research Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#" class="active">Protocol Analyzer</a>
+                <a href="app.html" class="btn-login">Back to App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="ai-feature-container">
+        <div class="feature-header">
+            <div class="feature-badge">
+                <span class="badge-icon">🧠</span>
+                <span>NLP-Powered Analysis</span>
+            </div>
+            <h1 class="feature-title">Smart Protocol Analyzer</h1>
+            <p class="feature-description">
+                Advanced natural language processing that analyzes study protocols and automatically identifies feasibility concerns, 
+                restrictive criteria, and optimization opportunities. Save 10+ hours of manual review.
+            </p>
+        </div>
+
+        <div class="feature-content">
+            <!-- Upload Section -->
+            <div class="section-card" id="uploadSection">
+                <h2>Upload Protocol Document</h2>
+                <div class="protocol-upload-zone" id="uploadZone">
+                    <div class="upload-icon">📄</div>
+                    <h3>Drop protocol file here or click to browse</h3>
+                    <p>Supports PDF, DOCX, TXT (Max 50MB)</p>
+                    <input type="file" id="fileInput" accept=".pdf,.docx,.txt" style="display: none;">
+                    <button class="btn-predict" onclick="document.getElementById('fileInput').click()" style="max-width: 300px; margin: 1rem auto 0;">
+                        Select Protocol File
+                    </button>
+                </div>
+                
+                <!-- Quick Demo Button -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-action btn-secondary" onclick="runDemoAnalysis()">
+                        ⚡ Run Demo Analysis (Sample Protocol)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analysis Progress -->
+            <div class="section-card" id="progressSection" style="display: none;">
+                <h2>Analyzing Protocol...</h2>
+                <div class="analysis-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="analysis-steps">
+                        <div class="analysis-step" id="step1">
+                            <span>📄</span>
+                            <span>Extracting Text</span>
+                        </div>
+                        <div class="analysis-step" id="step2">
+                            <span>🔍</span>
+                            <span>Analyzing Criteria</span>
+                        </div>
+                        <div class="analysis-step" id="step3">
+                            <span>⚠️</span>
+                            <span>Identifying Risks</span>
+                        </div>
+                        <div class="analysis-step" id="step4">
+                            <span>💡</span>
+                            <span>Generating Insights</span>
+                        </div>
+                        <div class="analysis-step" id="step5">
+                            <span>✅</span>
+                            <span>Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" style="display: none;">
+                <!-- Overall Feasibility Score -->
+                <div class="section-card score-card">
+                    <h2>Protocol Feasibility Score</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <svg viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+                                <circle cx="100" cy="100" r="90" class="score-fill" id="protocolScoreFill"></circle>
+                            </svg>
+                            <div class="score-value" id="protocolScoreValue">0</div>
+                        </div>
+                        <div class="score-details">
+                            <div class="score-label" id="protocolScoreLabel">Calculating...</div>
+                            <p style="color: var(--gray-light); margin-top: 1rem;">
+                                Based on analysis of inclusion/exclusion criteria, procedure complexity, 
+                                patient burden, and competitive landscape.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Protocol Summary -->
+                <div class="section-card">
+                    <h2>Protocol Summary</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">📋</div>
+                            <div class="metric-value" id="inclusionCount">12</div>
+                            <div class="metric-label">Inclusion Criteria</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">🚫</div>
+                            <div class="metric-value" id="exclusionCount">18</div>
+                            <div class="metric-label">Exclusion Criteria</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">🔬</div>
+                            <div class="metric-value" id="procedureCount">8</div>
+                            <div class="metric-label">Study Procedures</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">📅</div>
+                            <div class="metric-value" id="visitCount">15</div>
+                            <div class="metric-label">Study Visits</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Red Flags -->
+                <div class="section-card">
+                    <h2>🚨 Feasibility Red Flags</h2>
+                    <div class="recommendations-list" id="redFlagsList">
+                        <!-- Red flags will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Restrictive Criteria -->
+                <div class="section-card">
+                    <h2>⚠️ Overly Restrictive Criteria</h2>
+                    <div class="risk-grid" id="restrictiveCriteria">
+                        <!-- Restrictive criteria will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Complex Procedures -->
+                <div class="section-card">
+                    <h2>🔬 Complex Procedures Analysis</h2>
+                    <div class="timeline-visualization" id="proceduresList">
+                        <!-- Procedures will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Patient Burden Assessment -->
+                <div class="section-card">
+                    <h2>👥 Patient Burden Assessment</h2>
+                    <div class="benchmark-chart">
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Time Commitment</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" id="timeBar" style="width: 0%; background: #f59e0b;"></div>
+                                <span class="bar-value" id="timeValue">0 hours</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Visit Frequency</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" id="frequencyBar" style="width: 0%; background: #7c3aed;"></div>
+                                <span class="bar-value" id="frequencyValue">0 visits/month</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Procedure Invasiveness</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" id="invasivenessBar" style="width: 0%; background: #dc2626;"></div>
+                                <span class="bar-value" id="invasivenessValue">Medium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optimization Recommendations -->
+                <div class="section-card recommendations-card">
+                    <h2>💡 Protocol Optimization Recommendations</h2>
+                    <div class="recommendations-list" id="optimizationList">
+                        <!-- Recommendations will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Competitive Analysis -->
+                <div class="section-card">
+                    <h2>🔍 Competitive Landscape</h2>
+                    <div class="risk-grid">
+                        <div class="risk-item risk-medium">
+                            <div class="risk-icon">📊</div>
+                            <div class="risk-content">
+                                <h3>Similar Active Studies</h3>
+                                <p>4 competing studies identified in same therapeutic area</p>
+                                <div class="risk-impact">Impact: Medium</div>
+                            </div>
+                        </div>
+                        <div class="risk-item risk-low">
+                            <div class="risk-icon">🌍</div>
+                            <div class="risk-content">
+                                <h3>Geographic Opportunities</h3>
+                                <p>Low competition in APAC and Latin America regions</p>
+                                <div class="risk-impact">Impact: Positive</div>
+                            </div>
+                        </div>
+                        <div class="risk-item risk-high">
+                            <div class="risk-icon">⏰</div>
+                            <div class="risk-content">
+                                <h3>Timing Considerations</h3>
+                                <p>2 major competitors launching in next 6 months</p>
+                                <div class="risk-impact">Impact: High</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison with Similar Protocols -->
+                <div class="section-card">
+                    <h2>📈 Comparison with Similar Protocols</h2>
+                    <div class="benchmark-chart">
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Your Protocol</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" id="yourProtocolBar" style="width: 0%"></div>
+                                <span class="bar-value" id="yourProtocolValue">0/100</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Similar Protocols Avg</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" style="width: 72%; background: #7c3aed;"></div>
+                                <span class="bar-value">72/100</span>
+                            </div>
+                        </div>
+                        <div class="benchmark-item">
+                            <div class="benchmark-label">Best-in-Class</div>
+                            <div class="benchmark-bar">
+                                <div class="bar-fill" style="width: 88%; background: #10b981;"></div>
+                                <span class="bar-value">88/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-action btn-primary" onclick="exportAnalysis()">
+                        📄 Export Full Analysis
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="saveAnalysis()">
+                        💾 Save Analysis
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="shareAnalysis()">
+                        📤 Share with Team
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="analyzeNewProtocol()">
+                        🔄 Analyze New Protocol
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="ai-protocol-analyzer.js"></script>
+</body>
+</html>

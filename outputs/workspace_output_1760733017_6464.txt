@@ -1,0 +1,3 @@
+30:    const beginJourneyBtn = document.getElementById('beginJourneyBtn');
+31:    if (beginJourneyBtn) {
+32:        beginJourneyBtn.addEventListener('click', function() {

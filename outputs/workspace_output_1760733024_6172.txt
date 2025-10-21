@@ -1,0 +1,11 @@
+    const beginJourneyBtn = document.getElementById('beginJourneyBtn');
+    if (beginJourneyBtn) {
+        beginJourneyBtn.addEventListener('click', function() {
+            console.log('Begin Your Journey clicked');
+            startAssessment();
+        });
+    }
+    
+    // Check if we should start a specific module
+    const startModuleId = localStorage.getItem('startModule');
+    if (startModuleId) {

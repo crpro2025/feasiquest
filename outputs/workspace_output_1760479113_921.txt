@@ -1,0 +1,2 @@
+45:                <button class="cta-button" onclick="window.location.href='auth-ui.html'">Begin Your Journey</button>
+167:                <button class="cta-button" onclick="submitAssessment()">Start Training</button>

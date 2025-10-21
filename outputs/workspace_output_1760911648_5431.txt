@@ -1,0 +1,4 @@
+996:.hidden {
+1392:.hidden {
+1814:.ai-chat-widget.hidden {
+1967:.ai-insights-panel.hidden {

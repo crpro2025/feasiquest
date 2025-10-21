@@ -1,0 +1,11 @@
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <button class="primary-btn" id="heroStartBtn">
+                        <span class="btn-icon">🎯</span>
+                        <span class="btn-text">Start Learning Now</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <button class="secondary-btn" id="heroExploreBtn">
+                        <span class="btn-icon">📚</span>
+                        <span class="btn-text">Explore Modules</span>

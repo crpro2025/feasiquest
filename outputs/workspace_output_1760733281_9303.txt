@@ -1,0 +1,31 @@
+                        <span style="font-size: 20px;">🚀</span> Start Your Training
+                    </button>
+                    <p style="margin-top: 15px; font-size: 14px; color: #999;">
+                        <a href="#" onclick="skipToModules(); return false;" style="color: #dc2626; text-decoration: none;">Skip assessment and go directly to modules →</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entry Assessment -->
+        <section class="assessment-section hidden" id="assessment">
+            <div class="assessment-container">
+                <h2>Personalize Your Learning Experience</h2>
+                <p class="section-intro">Help us tailor the training to your needs</p>
+
+                <div class="question-block">
+                    <h3>What's your primary role?</h3>
+                    <div class="role-options">
+                        <label class="option-card">
+                            <input type="radio" name="role" value="cra">
+                            <div class="option-content">
+                                <div class="option-icon">👨‍⚕️</div>
+                                <div class="option-title">Clinical Research Associate</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="pm">
+                            <div class="option-content">
+                                <div class="option-icon">📊</div>
+                                <div class="option-title">Project/Study Manager</div>
+                            </div>

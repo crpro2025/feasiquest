@@ -1,0 +1,2 @@
+11:    <div class="page-wrapper">
+969:    <script src="homepage_animations.js"></script>

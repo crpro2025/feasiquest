@@ -1,0 +1,19 @@
+function returnToDashboard() {
+    document.getElementById('moduleContent').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    updateProgressDisplay();
+}
+
+function unlockModule(moduleNumber) {
+    const moduleCards = document.querySelectorAll('.module-card');
+    if (moduleCards[moduleNumber - 1]) {
+        moduleCards[moduleNumber - 1].classList.remove('locked');
+        const statusIcon = moduleCards[moduleNumber - 1].querySelector('.module-status');
+        statusIcon.textContent = '🔓';
+        statusIcon.classList.add('unlocked');
+    }
+}
+
+function awardXP(amount) {
+    appState.userProfile.xp += amount;
+    updateLevel();

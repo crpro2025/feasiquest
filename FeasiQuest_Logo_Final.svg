@@ -1,0 +1,79 @@
+<svg width="450" height="120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b91c1c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="darkRedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7f1d1d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#dc2626" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="450" height="120" fill="#ffffff" rx="0"/>
+  
+  <!-- Icon Section - Stylized "F" with target/compass -->
+  <g transform="translate(60, 60)">
+    <!-- Outer circle -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="url(#redGrad)" stroke-width="4" filter="url(#shadow)"/>
+    
+    <!-- Inner rings -->
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.4"/>
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.3"/>
+    
+    <!-- Stylized "F" in center -->
+    <g transform="translate(-15, -20)">
+      <rect x="0" y="0" width="8" height="45" fill="url(#redGrad)" rx="2"/>
+      <rect x="0" y="0" width="25" height="8" fill="url(#redGrad)" rx="2"/>
+      <rect x="0" y="18" width="20" height="7" fill="url(#redGrad)" rx="2"/>
+    </g>
+    
+    <!-- Compass points -->
+    <g opacity="0.6">
+      <circle cx="0" cy="-40" r="3" fill="#dc2626"/>
+      <circle cx="40" cy="0" r="3" fill="#dc2626"/>
+      <circle cx="0" cy="40" r="3" fill="#dc2626"/>
+      <circle cx="-40" cy="0" r="3" fill="#dc2626"/>
+    </g>
+    
+    <!-- Crosshair lines -->
+    <line x1="0" y1="-45" x2="0" y2="-35" stroke="#dc2626" stroke-width="2"/>
+    <line x1="0" y1="45" x2="0" y2="35" stroke="#dc2626" stroke-width="2"/>
+    <line x1="-45" y1="0" x2="-35" y2="0" stroke="#dc2626" stroke-width="2"/>
+    <line x1="45" y1="0" x2="35" y2="0" stroke="#dc2626" stroke-width="2"/>
+  </g>
+  
+  <!-- Text Section -->
+  <g transform="translate(130, 45)">
+    <!-- FeasiQuest text -->
+    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" fill="url(#redGrad)" letter-spacing="-1">
+      FeasiQuest
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="25" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#666" letter-spacing="1">
+      MASTERING CLINICAL TRIAL FEASIBILITY
+    </text>
+    
+    <!-- Underline accent -->
+    <rect x="0" y="30" width="280" height="2" fill="url(#darkRedGrad)" opacity="0.5"/>
+  </g>
+  
+  <!-- Version badge -->
+  <g transform="translate(400, 20)">
+    <rect x="0" y="0" width="40" height="20" fill="#dc2626" rx="4"/>
+    <text x="20" y="14" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">v2.0</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserProgress();
+    updateProgressDisplay();
+    
+    // Check if we should start a specific module
+    const startModuleId = localStorage.getItem('startModule');
+    if (startModuleId) {
+        localStorage.removeItem('startModule');
+        // Skip to modules view first
+        skipToModules();
+        // Then start the specific module

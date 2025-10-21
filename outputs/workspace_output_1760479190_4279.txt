@@ -1,0 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('prevalence')) {
+        calculatePatientPool();
+    }
+});
+
+function continueToModule2Step2() {
+    const contentDiv = document.getElementById('module2-content');
+    updateStepIndicator(2);
+    
+    contentDiv.innerHTML = `
+        <div class="interactive-card">
+            <h2>🎯 Branching Scenario: The Recruitment Dilemma</h2>
+            <p style="margin: 20px 0; font-size: 1.1rem;">
+                You're the feasibility lead for an oncology trial targeting 300 patients 

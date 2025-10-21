@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Study - FeasiQuest</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="study-creation-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>🎯 FeasiQuest</h1>
+        </div>
+        <div class="nav-center">
+            <h2>Create New Study</h2>
+        </div>
+        <div class="nav-right">
+            <button onclick="window.location.href='app.html'" class="btn-secondary">
+                ← Back to Dashboard
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="study-creation-container">
+        <!-- Progress Sidebar -->
+        <div class="progress-sidebar">
+            <h3>Study Creation Progress</h3>
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <div class="step-title">Basic Information</div>
+                        <div class="step-desc">Study details</div>
+                    </div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <div class="step-title">Protocol Details</div>
+                        <div class="step-desc">Design & objectives</div>
+                    </div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <div class="step-title">Patient Criteria</div>
+                        <div class="step-desc">Inclusion/exclusion</div>
+                    </div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <div class="step-title">Site Requirements</div>
+                        <div class="step-desc">Capabilities needed</div>
+                    </div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-info">
+                        <div class="step-title">Budget & Timeline</div>
+                        <div class="step-desc">Financial planning</div>
+                    </div>
+                </div>
+                <div class="step" data-step="6">
+                    <div class="step-number">6</div>
+                    <div class="step-info">
+                        <div class="step-title">Study Team</div>
+                        <div class="step-desc">Roles & members</div>
+                    </div>
+                </div>
+                <div class="step" data-step="7">
+                    <div class="step-number">7</div>
+                    <div class="step-info">
+                        <div class="step-title">Documents</div>
+                        <div class="step-desc">Upload files</div>
+                    </div>
+                </div>
+                <div class="step" data-step="8">
+                    <div class="step-number">8</div>
+                    <div class="step-info">
+                        <div class="step-title">Review & Submit</div>
+                        <div class="step-desc">Final check</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressPercent">0%</span> Complete
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <!-- Step 1: Basic Information -->
+            <div class="step-content active" id="step1">
+                <h2>Basic Study Information</h2>
+                <p class="step-description">Provide the fundamental details about your clinical trial</p>
+                
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Study Title *</label>
+                        <input type="text" id="studyTitle" placeholder="Enter the full study title" required>
+                        <small>Official protocol title</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Short Title / Acronym</label>
+                        <input type="text" id="studyAcronym" placeholder="e.g., ADVANCE-2024">
+                        <small>Brief identifier for the study</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Protocol Number *</label>
+                            <input type="text" id="protocolNumber" placeholder="e.g., PRO-2024-001" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Protocol Version</label>
+                            <input type="text" id="protocolVersion" placeholder="e.g., 2.0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Therapeutic Area *</label>
+                            <select id="therapeuticArea" required>
+                                <option value="">Select therapeutic area...</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="diabetes">Diabetes & Endocrinology</option>
+                                <option value="respiratory">Respiratory</option>
+                                <option value="immunology">Immunology</option>
+                                <option value="infectious">Infectious Diseases</option>
+                                <option value="rare">Rare Diseases</option>
+                                <option value="psychiatry">Psychiatry</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="gastro">Gastroenterology</option>
+                                <option value="nephrology">Nephrology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Study Phase *</label>
+                            <select id="studyPhase" required>
+                                <option value="">Select phase...</option>
+                                <option value="phase1">Phase I</option>
+                                <option value="phase1-2">Phase I/II</option>
+                                <option value="phase2">Phase II</option>
+                                <option value="phase2-3">Phase II/III</option>
+                                <option value="phase3">Phase III</option>
+                                <option value="phase4">Phase IV</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Indication / Disease *</label>
+                        <input type="text" id="indication" placeholder="e.g., Non-Small Cell Lung Cancer" required>
+                        <small>Specific disease or condition being studied</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Type *</label>
+                        <select id="studyType" required>
+                            <option value="">Select study type...</option>
+                            <option value="interventional">Interventional</option>
+                            <option value="observational">Observational</option>
+                            <option value="expanded-access">Expanded Access</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Design *</label>
+                        <select id="studyDesign" required>
+                            <option value="">Select design...</option>
+                            <option value="parallel">Parallel Assignment</option>
+                            <option value="crossover">Crossover Assignment</option>
+                            <option value="factorial">Factorial Assignment</option>
+                            <option value="single-group">Single Group Assignment</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Blinding *</label>
+                            <select id="blinding" required>
+                                <option value="">Select blinding...</option>
+                                <option value="open">Open Label</option>
+                                <option value="single">Single Blind</option>
+                                <option value="double">Double Blind</option>
+                                <option value="triple">Triple Blind</option>
+                                <option value="quadruple">Quadruple Blind</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Randomization</label>
+                            <select id="randomization">
+                                <option value="">Select...</option>
+                                <option value="yes">Randomized</option>
+                                <option value="no">Non-Randomized</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Description *</label>
+                        <textarea id="studyDescription" rows="5" placeholder="Provide a comprehensive description of the study objectives, methodology, and expected outcomes..." required></textarea>
+                        <small>Detailed overview of the study (minimum 100 characters)</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Protocol Details -->
+            <div class="step-content" id="step2">
+                <h2>Protocol Details</h2>
+                <p class="step-description">Define the study objectives, endpoints, and methodology</p>
+                
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Primary Objective *</label>
+                        <textarea id="primaryObjective" rows="3" placeholder="State the primary objective of the study..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Secondary Objectives</label>
+                        <div id="secondaryObjectives">
+                            <div class="objective-item">
+                                <textarea placeholder="Secondary objective 1..." rows="2"></textarea>
+                                <button type="button" class="btn-icon" onclick="removeObjective(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addObjective()">+ Add Secondary Objective</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Endpoint *</label>
+                        <input type="text" id="primaryEndpoint" placeholder="e.g., Overall Survival (OS)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Secondary Endpoints</label>
+                        <div id="secondaryEndpoints">
+                            <div class="endpoint-item">
+                                <input type="text" placeholder="Secondary endpoint 1...">
+                                <button type="button" class="btn-icon" onclick="removeEndpoint(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addEndpoint()">+ Add Secondary Endpoint</button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Target Enrollment *</label>
+                            <input type="number" id="targetEnrollment" placeholder="e.g., 300" required>
+                            <small>Total number of subjects</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Arms *</label>
+                            <input type="number" id="numberOfArms" placeholder="e.g., 2" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Arms / Groups *</label>
+                        <div id="studyArms">
+                            <div class="arm-item">
+                                <input type="text" placeholder="Arm name (e.g., Experimental)" class="arm-name">
+                                <input type="text" placeholder="Intervention (e.g., Drug X 100mg)" class="arm-intervention">
+                                <input type="number" placeholder="N" class="arm-size">
+                                <button type="button" class="btn-icon" onclick="removeArm(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addArm()">+ Add Study Arm</button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Study Duration (months) *</label>
+                            <input type="number" id="studyDuration" placeholder="e.g., 24" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Treatment Duration (weeks)</label>
+                            <input type="number" id="treatmentDuration" placeholder="e.g., 12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Study Visits *</label>
+                        <input type="number" id="numberOfVisits" placeholder="e.g., 10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Investigational Product(s) *</label>
+                        <textarea id="investigationalProducts" rows="3" placeholder="List all investigational products, dosages, and administration routes..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Comparator / Control</label>
+                        <input type="text" id="comparator" placeholder="e.g., Placebo, Standard of Care">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Patient Criteria -->
+            <div class="step-content" id="step3">
+                <h2>Patient Eligibility Criteria</h2>
+                <p class="step-description">Define who can participate in the study</p>
+                
+                <div class="form-section">
+                    <h3>Demographics</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Minimum Age *</label>
+                            <input type="number" id="minAge" placeholder="e.g., 18" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Maximum Age</label>
+                            <input type="number" id="maxAge" placeholder="e.g., 75">
+                        </div>
+                        <div class="form-group">
+                            <label>Age Unit</label>
+                            <select id="ageUnit">
+                                <option value="years">Years</option>
+                                <option value="months">Months</option>
+                                <option value="days">Days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sex *</label>
+                        <select id="sex" required>
+                            <option value="all">All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Accepts Healthy Volunteers?</label>
+                        <select id="healthyVolunteers">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <h3>Inclusion Criteria *</h3>
+                    <div class="form-group">
+                        <div id="inclusionCriteria">
+                            <div class="criteria-item">
+                                <span class="criteria-number">1.</span>
+                                <textarea placeholder="Enter inclusion criterion..." rows="2"></textarea>
+                                <button type="button" class="btn-icon" onclick="removeCriteria(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addInclusionCriteria()">+ Add Inclusion Criterion</button>
+                    </div>
+
+                    <h3>Exclusion Criteria *</h3>
+                    <div class="form-group">
+                        <div id="exclusionCriteria">
+                            <div class="criteria-item">
+                                <span class="criteria-number">1.</span>
+                                <textarea placeholder="Enter exclusion criterion..." rows="2"></textarea>
+                                <button type="button" class="btn-icon" onclick="removeCriteria(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addExclusionCriteria()">+ Add Exclusion Criterion</button>
+                    </div>
+
+                    <h3>Special Populations</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="pregnant"> Pregnant women eligible</label>
+                        <label><input type="checkbox" id="nursing"> Nursing mothers eligible</label>
+                        <label><input type="checkbox" id="pediatric"> Pediatric population</label>
+                        <label><input type="checkbox" id="geriatric"> Geriatric population</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Site Requirements -->
+            <div class="step-content" id="step4">
+                <h2>Site Requirements & Capabilities</h2>
+                <p class="step-description">Specify what sites need to participate</p>
+                
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Number of Sites Needed *</label>
+                            <input type="number" id="numberOfSites" placeholder="e.g., 25" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Patients per Site (avg)</label>
+                            <input type="number" id="patientsPerSite" placeholder="e.g., 12">
+                        </div>
+                    </div>
+
+                    <h3>Geographic Requirements</h3>
+                    <div class="form-group">
+                        <label>Countries *</label>
+                        <select id="countries" multiple size="5" required>
+                            <option value="usa">United States</option>
+                            <option value="canada">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="germany">Germany</option>
+                            <option value="france">France</option>
+                            <option value="spain">Spain</option>
+                            <option value="italy">Italy</option>
+                            <option value="australia">Australia</option>
+                            <option value="japan">Japan</option>
+                            <option value="china">China</option>
+                            <option value="india">India</option>
+                            <option value="brazil">Brazil</option>
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple</small>
+                    </div>
+
+                    <h3>Required Certifications</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="gcp"> GCP Certified</label>
+                        <label><input type="checkbox" value="clia"> CLIA Certified</label>
+                        <label><input type="checkbox" value="cap"> CAP Accredited</label>
+                        <label><input type="checkbox" value="aaalac"> AAALAC Accredited</label>
+                        <label><input type="checkbox" value="jci"> JCI Accredited</label>
+                        <label><input type="checkbox" value="iso"> ISO Certified</label>
+                    </div>
+
+                    <h3>Required Equipment & Facilities</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="mri"> MRI</label>
+                        <label><input type="checkbox" value="ct"> CT Scanner</label>
+                        <label><input type="checkbox" value="pet"> PET Scanner</label>
+                        <label><input type="checkbox" value="lab"> On-site Laboratory</label>
+                        <label><input type="checkbox" value="pharmacy"> Research Pharmacy</label>
+                        <label><input type="checkbox" value="icu"> ICU Beds</label>
+                        <label><input type="checkbox" value="infusion"> Infusion Center</label>
+                        <label><input type="checkbox" value="storage"> Cold Storage (-80°C)</label>
+                    </div>
+
+                    <h3>Required Experience</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Minimum Completed Studies</label>
+                            <input type="number" id="minCompletedStudies" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label>Experience in Phase</label>
+                            <select id="experiencePhase">
+                                <option value="">Any phase</option>
+                                <option value="phase1">Phase I</option>
+                                <option value="phase2">Phase II</option>
+                                <option value="phase3">Phase III</option>
+                                <option value="phase4">Phase IV</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Experience in Therapeutic Area</label>
+                        <select id="experienceTherapeutic">
+                            <option value="">Any area</option>
+                            <option value="oncology">Oncology</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="respiratory">Respiratory</option>
+                            <option value="immunology">Immunology</option>
+                        </select>
+                    </div>
+
+                    <h3>Staffing Requirements</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Minimum Research Staff</label>
+                            <input type="number" id="minResearchStaff" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label>Dedicated Study Coordinator</label>
+                            <select id="dedicatedCoordinator">
+                                <option value="no">Not Required</option>
+                                <option value="yes">Required</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Requirements</label>
+                        <textarea id="additionalRequirements" rows="4" placeholder="Any other specific requirements for participating sites..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Budget & Timeline -->
+            <div class="step-content" id="step5">
+                <h2>Budget & Timeline Planning</h2>
+                <p class="step-description">Financial and scheduling details</p>
+                
+                <div class="form-section">
+                    <h3>Budget Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Study Budget</label>
+                            <input type="number" id="totalBudget" placeholder="e.g., 5000000">
+                            <small>USD</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Budget per Site</label>
+                            <input type="number" id="budgetPerSite" placeholder="e.g., 200000">
+                            <small>USD</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Budget per Patient</label>
+                            <input type="number" id="budgetPerPatient" placeholder="e.g., 15000">
+                            <small>USD</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Screen Failure Budget</label>
+                            <input type="number" id="screenFailureBudget" placeholder="e.g., 2000">
+                            <small>USD per screen failure</small>
+                        </div>
+                    </div>
+
+                    <h3>Timeline</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Planned Start Date *</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Planned End Date</label>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Key Milestones</label>
+                        <div id="milestones">
+                            <div class="milestone-item">
+                                <input type="text" placeholder="Milestone name" class="milestone-name">
+                                <input type="date" class="milestone-date">
+                                <button type="button" class="btn-icon" onclick="removeMilestone(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addMilestone()">+ Add Milestone</button>
+                    </div>
+
+                    <h3>Recruitment Timeline</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Enrollment Start</label>
+                            <input type="date" id="enrollmentStart">
+                        </div>
+                        <div class="form-group">
+                            <label>Enrollment End</label>
+                            <input type="date" id="enrollmentEnd">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expected Enrollment Rate</label>
+                            <input type="number" id="enrollmentRate" placeholder="e.g., 5">
+                            <small>Patients per month per site</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Screen Failure Rate (%)</label>
+                            <input type="number" id="screenFailureRate" placeholder="e.g., 30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Study Team -->
+            <div class="step-content" id="step6">
+                <h2>Study Team</h2>
+                <p class="step-description">Define roles and assign team members</p>
+                
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Sponsor Contact *</label>
+                        <input type="text" id="sponsorContact" placeholder="Name" required>
+                        <input type="email" id="sponsorEmail" placeholder="Email" required>
+                        <input type="tel" id="sponsorPhone" placeholder="Phone">
+                    </div>
+
+                    <h3>Key Study Personnel</h3>
+                    <div id="studyTeam">
+                        <div class="team-member">
+                            <select class="member-role">
+                                <option value="">Select role...</option>
+                                <option value="medical-monitor">Medical Monitor</option>
+                                <option value="project-manager">Project Manager</option>
+                                <option value="clinical-lead">Clinical Lead</option>
+                                <option value="data-manager">Data Manager</option>
+                                <option value="safety-officer">Safety Officer</option>
+                                <option value="regulatory-lead">Regulatory Lead</option>
+                                <option value="biostatistician">Biostatistician</option>
+                                <option value="pharmacovigilance">Pharmacovigilance</option>
+                            </select>
+                            <input type="text" placeholder="Name" class="member-name">
+                            <input type="email" placeholder="Email" class="member-email">
+                            <button type="button" class="btn-icon" onclick="removeTeamMember(this)">🗑️</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addTeamMember()">+ Add Team Member</button>
+
+                    <h3>CRO Information (if applicable)</h3>
+                    <div class="form-group">
+                        <label>CRO Name</label>
+                        <input type="text" id="croName" placeholder="Contract Research Organization">
+                    </div>
+                    <div class="form-group">
+                        <label>CRO Contact</label>
+                        <input type="text" id="croContact" placeholder="Name">
+                        <input type="email" id="croEmail" placeholder="Email">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Documents -->
+            <div class="step-content" id="step7">
+                <h2>Study Documents</h2>
+                <p class="step-description">Upload essential study documents</p>
+                
+                <div class="form-section">
+                    <div class="upload-section">
+                        <h3>Protocol Document *</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('protocolFile').click()">
+                            <div class="upload-icon">📄</div>
+                            <p>Click to upload protocol (PDF)</p>
+                            <input type="file" id="protocolFile" accept=".pdf" style="display: none;" onchange="handleFileUpload(this, 'protocol')">
+                        </div>
+                        <div id="protocolFileInfo" class="file-info"></div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Informed Consent Form</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('icfFile').click()">
+                            <div class="upload-icon">📋</div>
+                            <p>Click to upload ICF (PDF)</p>
+                            <input type="file" id="icfFile" accept=".pdf" style="display: none;" onchange="handleFileUpload(this, 'icf')">
+                        </div>
+                        <div id="icfFileInfo" class="file-info"></div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Investigator's Brochure</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('ibFile').click()">
+                            <div class="upload-icon">📘</div>
+                            <p>Click to upload IB (PDF)</p>
+                            <input type="file" id="ibFile" accept=".pdf" style="display: none;" onchange="handleFileUpload(this, 'ib')">
+                        </div>
+                        <div id="ibFileInfo" class="file-info"></div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Budget Template</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('budgetFile').click()">
+                            <div class="upload-icon">💰</div>
+                            <p>Click to upload budget (Excel/PDF)</p>
+                            <input type="file" id="budgetFile" accept=".pdf,.xlsx,.xls" style="display: none;" onchange="handleFileUpload(this, 'budget')">
+                        </div>
+                        <div id="budgetFileInfo" class="file-info"></div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Additional Documents</h3>
+                        <div class="file-upload-area" onclick="document.getElementById('additionalFiles').click()">
+                            <div class="upload-icon">📎</div>
+                            <p>Click to upload additional files</p>
+                            <input type="file" id="additionalFiles" multiple style="display: none;" onchange="handleFileUpload(this, 'additional')">
+                        </div>
+                        <div id="additionalFilesInfo" class="file-info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: Review & Submit -->
+            <div class="step-content" id="step8">
+                <h2>Review & Submit</h2>
+                <p class="step-description">Review all information before submitting</p>
+                
+                <div class="form-section">
+                    <div class="review-section">
+                        <h3>Study Summary</h3>
+                        <div id="studySummary" class="summary-content">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="confirmAccuracy" required>
+                            I confirm that all information provided is accurate and complete
+                        </label>
+                        <label>
+                            <input type="checkbox" id="confirmAuthority" required>
+                            I have the authority to submit this study on behalf of my organization
+                        </label>
+                        <label>
+                            <input type="checkbox" id="confirmTerms" required>
+                            I agree to the FeasiQuest Terms of Service and Privacy Policy
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Notes</label>
+                        <textarea id="additionalNotes" rows="4" placeholder="Any additional information or special instructions..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="step-navigation">
+                <button type="button" class="btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">
+                    ← Previous
+                </button>
+                <button type="button" class="btn-primary" id="nextBtn" onclick="nextStep()">
+                    Next →
+                </button>
+                <button type="button" class="btn-success" id="submitBtn" onclick="submitStudy()" style="display: none;">
+                    🚀 Submit Study
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="study-creation.js"></script>
+</body>
+</html>

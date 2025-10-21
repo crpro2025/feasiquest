@@ -1,0 +1,27 @@
+        <!-- Welcome Section -->
+        <section class="welcome-section" id="welcome">
+            <div class="hero-content">
+                <h2>Welcome to Your Feasibility Journey</h2>
+                <p class="hero-text">Master the art and science of clinical trial feasibility assessment through interactive scenarios, real-world challenges, and expert guidance.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">68%</div>
+                        <div class="stat-label">of trials fail to meet enrollment targets</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$2.6B</div>
+                        <div class="stat-label">average cost to bring a drug to market</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">of trial costs are site-related</div>
+                    </div>
+                </div>
+
+                <button class="cta-button" id="beginJourneyBtn">Begin Your Journey</button>
+            </div>
+        </section>
+
+        <!-- Entry Assessment -->
+        <section class="assessment-section hidden" id="assessment">

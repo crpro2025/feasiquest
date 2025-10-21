@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest - Master Clinical Trial Feasibility</title>
+    <link rel="stylesheet" href="styles_new.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Animated Background -->
+        <div class="animated-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">FEASIQUEST</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#modules" class="nav-link">Modules</a>
+                    <a href="#ai" class="nav-link">AI Assistant</a>
+                    <button class="nav-cta" id="navStartBtn">Launch Training</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="welcome">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Next-Generation Clinical Research Training</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Master Clinical Trial
+                    <span class="gradient-text">Feasibility Assessment</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Transform your career with AI-powered, interactive training designed for the future of clinical research. 
+                    Join thousands of professionals mastering feasibility assessment through cutting-edge technology.
+                </p>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-value" data-target="10000">0</div>
+                        <div class="stat-label">Professionals Trained</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-target="95">0</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-target="4">0</div>
+                        <div class="stat-label">Hours to Master</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <button class="primary-btn" id="heroStartBtn">
+                        <span class="btn-icon">🎯</span>
+                        <span class="btn-text">Start Learning Now</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <button class="secondary-btn" id="heroExploreBtn">
+                        <span class="btn-icon">📚</span>
+                        <span class="btn-text">Explore Modules</span>
+                    </button>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="scroll-text">Scroll to explore</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stats Section -->
+        <section class="impact-section">
+            <div class="container">
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">⚠️</div>
+                        <div class="impact-stat">85%</div>
+                        <div class="impact-label">of trials fail to meet enrollment timelines</div>
+                        <div class="impact-description">Poor feasibility assessment is the #1 cause</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">💰</div>
+                        <div class="impact-stat">$2.6B</div>
+                        <div class="impact-label">average cost to bring a drug to market</div>
+                        <div class="impact-description">Feasibility errors cost millions</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🎯</div>
+                        <div class="impact-stat">30%</div>
+                        <div class="impact-label">of trial costs are site-related</div>
+                        <div class="impact-description">Proper site selection is critical</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Cutting-Edge Learning Experience</h2>
+                    <p class="section-subtitle">Advanced features designed for maximum impact</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🤖</div>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Assistant</h3>
+                        <p class="feature-description">24/7 intelligent support with conversation memory, personalized recommendations, and predictive analytics</p>
+                        <ul class="feature-list">
+                            <li>Real-time Q&A support</li>
+                            <li>Performance analysis</li>
+                            <li>Success prediction</li>
+                            <li>Adaptive learning paths</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🎮</div>
+                        </div>
+                        <h3 class="feature-title">Gamified Learning</h3>
+                        <p class="feature-description">Earn XP, unlock achievements, and compete on leaderboards while mastering critical skills</p>
+                        <ul class="feature-list">
+                            <li>4,650+ XP to earn</li>
+                            <li>9 achievement badges</li>
+                            <li>Level progression system</li>
+                            <li>Global leaderboards</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🎯</div>
+                        </div>
+                        <h3 class="feature-title">Real-World Scenarios</h3>
+                        <p class="feature-description">Practice with 13 authentic case studies from actual clinical trials across multiple therapeutic areas</p>
+                        <ul class="feature-list">
+                            <li>39 practice questions</li>
+                            <li>Multiple difficulty levels</li>
+                            <li>Instant feedback</li>
+                            <li>Expert explanations</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">📊</div>
+                        </div>
+                        <h3 class="feature-title">Advanced Analytics</h3>
+                        <p class="feature-description">Track your progress with detailed insights, performance metrics, and personalized recommendations</p>
+                        <ul class="feature-list">
+                            <li>Learning velocity tracking</li>
+                            <li>Strength/weakness analysis</li>
+                            <li>Peer benchmarking</li>
+                            <li>Certification readiness</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🏆</div>
+                        </div>
+                        <h3 class="feature-title">Professional Certification</h3>
+                        <p class="feature-description">Earn industry-recognized credentials from Clinical Research Pro upon completion</p>
+                        <ul class="feature-list">
+                            <li>FeasiQuest Master badge</li>
+                            <li>Digital certificate</li>
+                            <li>LinkedIn integration</li>
+                            <li>CE credits (pending)</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">⚡</div>
+                        </div>
+                        <h3 class="feature-title">Self-Paced Learning</h3>
+                        <p class="feature-description">Learn on your schedule with lifetime access, mobile support, and offline capabilities</p>
+                        <ul class="feature-list">
+                            <li>100% self-paced</li>
+                            <li>Mobile responsive</li>
+                            <li>Offline mode</li>
+                            <li>Lifetime access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Preview Section -->
+        <section class="modules-section" id="modules">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">9 Comprehensive Modules</h2>
+                    <p class="section-subtitle">Master every aspect of clinical trial feasibility</p>
+                </div>
+
+                <div class="modules-grid">
+                    <div class="module-card" data-module="1">
+                        <div class="module-number">01</div>
+                        <h3 class="module-title">Feasibility Foundations</h3>
+                        <p class="module-description">Five Pillars framework, Red Flag Radar, case studies</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+                            <span class="module-xp">⭐ 200 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="2">
+                        <div class="module-number">02</div>
+                        <h3 class="module-title">Patient Population & Recruitment</h3>
+                        <p class="module-description">Pool calculator, criteria optimization, engagement strategies</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 20-25 min</span>
+                            <span class="module-xp">⭐ 250 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="3">
+                        <div class="module-number">03</div>
+                        <h3 class="module-title">Site Selection & Capability</h3>
+                        <p class="module-description">Criteria ranking, capability assessment, evaluation scenarios</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 20-25 min</span>
+                            <span class="module-xp">⭐ 250 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="4">
+                        <div class="module-number">04</div>
+                        <h3 class="module-title">Budget & Resource Planning</h3>
+                        <p class="module-description">Cost analysis, resource allocation, contingency planning</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+                            <span class="module-xp">⭐ 200 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="5">
+                        <div class="module-number">05</div>
+                        <h3 class="module-title">Timeline Development</h3>
+                        <p class="module-description">Critical path analysis, milestone planning, delay mitigation</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+                            <span class="module-xp">⭐ 200 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="6">
+                        <div class="module-number">06</div>
+                        <h3 class="module-title">Risk Assessment & Mitigation</h3>
+                        <p class="module-description">Risk matrices, mitigation strategies, contingency plans</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 20-25 min</span>
+                            <span class="module-xp">⭐ 250 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="7">
+                        <div class="module-number">07</div>
+                        <h3 class="module-title">Regulatory Considerations</h3>
+                        <p class="module-description">FDA/EMA guidelines, IRB processes, compliance requirements</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+                            <span class="module-xp">⭐ 200 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card" data-module="8">
+                        <div class="module-number">08</div>
+                        <h3 class="module-title">Technology & Data Management</h3>
+                        <p class="module-description">EDC systems, data quality, system integration</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+                            <span class="module-xp">⭐ 200 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card featured" data-module="9">
+                        <div class="module-number">09</div>
+                        <h3 class="module-title">Final Assessment & Certification</h3>
+                        <p class="module-description">Comprehensive exam, case study, master certification</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 30-40 min</span>
+                            <span class="module-xp">⭐ 500 XP</span>
+                        </div>
+                        <div class="featured-badge">🏆 Certification</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant Showcase -->
+        <section class="ai-section" id="ai">
+            <div class="container">
+                <div class="ai-content">
+                    <div class="ai-visual">
+                        <div class="ai-avatar">
+                            <div class="avatar-ring"></div>
+                            <div class="avatar-core">🤖</div>
+                            <div class="ai-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="ai-info">
+                        <h2 class="ai-title">Meet Your AI Learning Companion</h2>
+                        <p class="ai-description">
+                            Our advanced AI assistant provides personalized support throughout your learning journey, 
+                            adapting to your pace and style for maximum effectiveness.
+                        </p>
+                        <div class="ai-features">
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">💬</div>
+                                <div class="ai-feature-text">
+                                    <strong>Intelligent Q&A</strong>
+                                    <p>Get instant answers with context-aware responses</p>
+                                </div>
+                            </div>
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">📈</div>
+                                <div class="ai-feature-text">
+                                    <strong>Performance Tracking</strong>
+                                    <p>Real-time analytics and progress insights</p>
+                                </div>
+                            </div>
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">🎯</div>
+                                <div class="ai-feature-text">
+                                    <strong>Personalized Recommendations</strong>
+                                    <p>Adaptive learning paths based on your goals</p>
+                                </div>
+                            </div>
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">🔮</div>
+                                <div class="ai-feature-text">
+                                    <strong>Success Prediction</strong>
+                                    <p>AI-powered forecasting of certification readiness</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Career?</h2>
+                    <p class="cta-description">
+                        Join thousands of clinical research professionals who have mastered feasibility assessment 
+                        through FeasiQuest. Start your journey today.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="cta-primary" id="finalStartBtn">
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">Begin Your Journey</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                        <button class="cta-secondary" id="finalExploreBtn">
+                            <span class="btn-icon">📚</span>
+                            <span class="btn-text">Browse Modules</span>
+                        </button>
+                    </div>
+                    <div class="cta-guarantee">
+                        <span class="guarantee-icon">✓</span>
+                        <span class="guarantee-text">100% Self-Paced • Lifetime Access • Professional Certification</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <span class="logo-icon">⚡</span>
+                            <span class="logo-text">FEASIQUEST</span>
+                        </div>
+                        <p class="footer-tagline">Master Clinical Trial Feasibility</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Platform</h4>
+                            <a href="#features">Features</a>
+                            <a href="#modules">Modules</a>
+                            <a href="#ai">AI Assistant</a>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Company</h4>
+                            <a href="https://www.clinicalresearchpro.com">Clinical Research Pro</a>
+                            <a href="mailto:info@clinicalresearchpro.com">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Clinical Research Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Hidden Sections (Original Content) -->
+    <section class="assessment-section hidden" id="assessment">
+        <!-- Keep existing assessment content -->
+    </section>
+
+    <section class="dashboard-section hidden" id="dashboard">
+        <!-- Keep existing dashboard content -->
+    </section>
+
+    <script src="script.js"></script>
+    <script src="homepage_animations.js"></script>
+</body>
+</html>

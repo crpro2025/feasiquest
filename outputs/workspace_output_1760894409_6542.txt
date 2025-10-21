@@ -1,0 +1,11 @@
+    startButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🔘 Start button clicked:', button.id);
+                if (typeof window.startAssessment === 'function') {
+                    window.startAssessment();
+                }
+            });
+        }
+    });

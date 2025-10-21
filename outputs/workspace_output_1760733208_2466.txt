@@ -1,0 +1,2 @@
+88:.hero-content h2 {
+510:    .hero-content h2 {

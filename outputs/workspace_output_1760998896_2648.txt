@@ -1,0 +1,50 @@
+// ===== DEMO DATA =====
+
+// Demo Users
+const DEMO_USERS = {
+    site: {
+        id: 'site_001',
+        role: 'site',
+        name: 'Dr. Sarah Johnson',
+        email: 'sarah.johnson@citymedical.com',
+        organization: 'City Medical Research Center',
+        avatar: 'SJ',
+        profile: {
+            siteName: 'City Medical Research Center',
+            location: 'Boston, MA, USA',
+            established: '2005',
+            principalInvestigator: 'Dr. Sarah Johnson',
+            phone: '+1 (617) 555-0123',
+            email: 'research@citymedical.com',
+            website: 'www.citymedical.com/research',
+            therapeuticAreas: ['Oncology', 'Cardiology', 'Neurology', 'Diabetes'],
+            phases: ['Phase I', 'Phase II', 'Phase III', 'Phase IV'],
+            bedCount: 450,
+            icuBeds: 50,
+            researchStaff: 25,
+            activeStudies: 12,
+            completedStudies: 87,
+            enrollmentCapacity: 500,
+            certifications: ['GCP', 'CLIA', 'CAP', 'AAALAC'],
+            equipment: ['MRI', 'CT Scanner', 'PET Scanner', 'Laboratory'],
+            specialties: ['Clinical Trials', 'Patient Recruitment', 'Data Management']
+        }
+    },
+    sponsor: {
+        id: 'sponsor_001',
+        role: 'sponsor',
+        name: 'Michael Chen',
+        email: 'michael.chen@biopharma.com',
+        organization: 'BioPharma Solutions Inc.',
+        avatar: 'MC',
+        profile: {
+            companyName: 'BioPharma Solutions Inc.',
+            location: 'San Francisco, CA, USA',
+            founded: '2010',
+            employees: '500-1000',
+            phone: '+1 (415) 555-0199',
+            email: 'trials@biopharma.com',
+            website: 'www.biopharma.com',
+            therapeuticFocus: ['Oncology', 'Immunology', 'Rare Diseases'],
+            pipelineSize: 15,
+            activeTrials: 8,

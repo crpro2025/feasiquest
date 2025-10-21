@@ -1,0 +1,20 @@
+    // BULLETPROOF BUTTON HANDLERS - Multiple approaches for maximum reliability
+    
+    // Approach 1: Direct event listeners
+    const startAssessmentBtn = document.getElementById('startAssessmentBtn');
+    const skipToModulesBtn = document.getElementById('skipToModulesBtn');
+    const beginJourneyBtn = document.getElementById('beginJourneyBtn');
+    
+    if (startAssessmentBtn) {
+        console.log('Start Assessment button found');
+        startAssessmentBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Start Assessment clicked via event listener');
+            startAssessment();
+        });
+    }
+    
+    if (skipToModulesBtn) {
+        console.log('Skip to Modules button found');
+        skipToModulesBtn.addEventListener('click', function(e) {
+            e.preventDefault();

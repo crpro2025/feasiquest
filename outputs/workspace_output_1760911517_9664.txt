@@ -1,0 +1,11 @@
+        document.getElementById('heroStartBtn'),
+        document.getElementById('finalStartBtn')
+    ];
+    
+    // Get all explore/module buttons
+    const exploreButtons = [
+        document.getElementById('heroExploreBtn'),
+        document.getElementById('finalExploreBtn')
+    ];
+    
+    // Attach event listeners to all start buttons

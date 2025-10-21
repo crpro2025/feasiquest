@@ -1,0 +1,2 @@
+221:    document.querySelectorAll('.module-card').forEach(card => {
+248:    document.querySelectorAll('.feature-card, .module-card, .impact-card').forEach(card => {

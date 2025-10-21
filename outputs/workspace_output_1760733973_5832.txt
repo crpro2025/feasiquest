@@ -1,0 +1,20 @@
+        }
+    });
+    
+    // Check if we should start a specific module
+    const startModuleId = localStorage.getItem('startModule');
+    if (startModuleId) {
+        localStorage.removeItem('startModule');
+        // Skip to modules view first
+        skipToModules();
+        // Then start the specific module
+        setTimeout(() => {
+            startModule(parseInt(startModuleId));
+        }, 100);
+    }
+    
+    console.log('FeasiQuest initialization complete');
+});
+
+// Start Assessment - BULLETPROOF VERSION
+window.startAssessment = function() {

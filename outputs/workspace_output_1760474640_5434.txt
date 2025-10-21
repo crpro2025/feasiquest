@@ -1,0 +1,20 @@
+        🤖 AI Help
+    </button>
+
+    <!-- AI Insights Panel -->
+    <div id="ai-insights-panel" class="ai-insights-panel hidden">
+        <div class="insights-header">
+            <h3>📊 AI-Powered Insights</h3>
+            <button class="insights-close" onclick="toggleInsights()">×</button>
+        </div>
+        <div class="insights-content" id="insightsContent">
+            <!-- Dynamic insights will be loaded here -->
+        </div>
+    </div>
+
+    <!-- AI Insights Toggle Button -->
+    <button class="ai-insights-toggle" onclick="toggleInsights()" title="View AI Insights">
+        📊 Insights
+    </button>
+</body>
+</html>

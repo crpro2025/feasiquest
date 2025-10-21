@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Profile - FeasiQuest</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="site-profile-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>🎯 FeasiQuest</h1>
+        </div>
+        <div class="nav-right">
+            <button onclick="window.location.href='app.html'" class="btn-secondary">← Back to Search</button>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Hero Section -->
+        <div class="profile-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="site-logo">
+                    <img src="https://via.placeholder.com/120" alt="Site Logo" id="siteLogo">
+                </div>
+                <div class="site-header-info">
+                    <h1 id="siteName">City Medical Research Center</h1>
+                    <div class="site-location">
+                        <span class="icon">📍</span>
+                        <span id="siteLocation">Boston, MA, USA</span>
+                    </div>
+                    <div class="site-badges">
+                        <span class="badge badge-verified">✓ Verified</span>
+                        <span class="badge badge-gcp">GCP Certified</span>
+                        <span class="badge badge-rating">⭐ 4.8 Rating</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="contactSite()">📧 Contact Site</button>
+                    <button class="btn-secondary" onclick="requestFeasibility()">📋 Request Feasibility</button>
+                    <button class="btn-icon" onclick="saveSite()">🔖</button>
+                    <button class="btn-icon" onclick="shareSite()">🔗</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Bar -->
+        <div class="quick-stats">
+            <div class="stat-item">
+                <div class="stat-icon">🏥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="bedCount">450</div>
+                    <div class="stat-label">Total Beds</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="researchStaff">25</div>
+                    <div class="stat-label">Research Staff</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="activeStudies">12</div>
+                    <div class="stat-label">Active Studies</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="completedStudies">87</div>
+                    <div class="stat-label">Completed Studies</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">👤</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="enrollmentCapacity">500</div>
+                    <div class="stat-label">Enrollment Capacity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-content">
+            <!-- Left Sidebar - Navigation -->
+            <div class="profile-sidebar">
+                <div class="sidebar-nav">
+                    <a href="#overview" class="nav-item active" onclick="showSection('overview')">
+                        <span class="nav-icon">📋</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="#capabilities" class="nav-item" onclick="showSection('capabilities')">
+                        <span class="nav-icon">🎯</span>
+                        <span>Capabilities</span>
+                    </a>
+                    <a href="#experience" class="nav-item" onclick="showSection('experience')">
+                        <span class="nav-icon">📈</span>
+                        <span>Experience</span>
+                    </a>
+                    <a href="#facilities" class="nav-item" onclick="showSection('facilities')">
+                        <span class="nav-icon">🏢</span>
+                        <span>Facilities</span>
+                    </a>
+                    <a href="#team" class="nav-item" onclick="showSection('team')">
+                        <span class="nav-icon">👥</span>
+                        <span>Team</span>
+                    </a>
+                    <a href="#patients" class="nav-item" onclick="showSection('patients')">
+                        <span class="nav-icon">👤</span>
+                        <span>Patient Database</span>
+                    </a>
+                    <a href="#media" class="nav-item" onclick="showSection('media')">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Photos & Videos</span>
+                    </a>
+                    <a href="#reviews" class="nav-item" onclick="showSection('reviews')">
+                        <span class="nav-icon">⭐</span>
+                        <span>Reviews</span>
+                    </a>
+                    <a href="#contact" class="nav-item" onclick="showSection('contact')">
+                        <span class="nav-icon">📞</span>
+                        <span>Contact</span>
+                    </a>
+                </div>
+
+                <!-- Contact Card -->
+                <div class="contact-card">
+                    <h3>Quick Contact</h3>
+                    <div class="contact-item">
+                        <span class="icon">📧</span>
+                        <a href="mailto:research@citymedical.com">research@citymedical.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <a href="tel:+16175550123">+1 (617) 555-0123</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🌐</span>
+                        <a href="https://citymedical.com" target="_blank">citymedical.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="profile-main">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section active">
+                    <h2>About This Site</h2>
+                    <div class="content-card">
+                        <p class="site-description">
+                            City Medical Research Center is a leading academic medical center with over 15 years of experience in clinical research. 
+                            We specialize in oncology, cardiology, and neurology trials, with a proven track record of successful study completion 
+                            and patient recruitment. Our state-of-the-art facilities and dedicated research team ensure the highest quality data 
+                            collection and patient care.
+                        </p>
+                    </div>
+
+                    <h3>Key Highlights</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🏆</div>
+                            <h4>Award-Winning</h4>
+                            <p>Recognized for excellence in clinical research by ACRP</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">⚡</div>
+                            <h4>Fast Enrollment</h4>
+                            <p>Average enrollment rate 20% above target</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🎯</div>
+                            <h4>High Retention</h4>
+                            <p>95% patient retention rate across all studies</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">📊</div>
+                            <h4>Quality Data</h4>
+                            <p>Less than 2% query rate on submitted data</p>
+                        </div>
+                    </div>
+
+                    <h3>Certifications & Accreditations</h3>
+                    <div class="certifications-grid">
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">GCP Certified</div>
+                        </div>
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">CLIA Certified</div>
+                        </div>
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">CAP Accredited</div>
+                        </div>
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">AAALAC Accredited</div>
+                        </div>
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">JCI Accredited</div>
+                        </div>
+                        <div class="cert-badge">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">ISO 9001</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Capabilities Section -->
+                <section id="capabilities" class="content-section">
+                    <h2>Research Capabilities</h2>
+                    
+                    <div class="content-card">
+                        <h3>Therapeutic Areas</h3>
+                        <div class="tags-container">
+                            <span class="tag tag-primary">Oncology</span>
+                            <span class="tag tag-primary">Cardiology</span>
+                            <span class="tag tag-primary">Neurology</span>
+                            <span class="tag tag-secondary">Diabetes</span>
+                            <span class="tag tag-secondary">Respiratory</span>
+                            <span class="tag tag-secondary">Immunology</span>
+                            <span class="tag tag-secondary">Gastroenterology</span>
+                            <span class="tag tag-secondary">Nephrology</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Study Phases</h3>
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-name">Phase I</div>
+                                <div class="phase-bar">
+                                    <div class="phase-fill" style="width: 60%;"></div>
+                                </div>
+                                <div class="phase-count">15 studies</div>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-name">Phase II</div>
+                                <div class="phase-bar">
+                                    <div class="phase-fill" style="width: 80%;"></div>
+                                </div>
+                                <div class="phase-count">32 studies</div>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-name">Phase III</div>
+                                <div class="phase-bar">
+                                    <div class="phase-fill" style="width: 90%;"></div>
+                                </div>
+                                <div class="phase-count">35 studies</div>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-name">Phase IV</div>
+                                <div class="phase-bar">
+                                    <div class="phase-fill" style="width: 40%;"></div>
+                                </div>
+                                <div class="phase-count">5 studies</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Special Capabilities</h3>
+                        <div class="capabilities-list">
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>First-in-Human Studies</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>Pediatric Trials</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>Oncology Dose Escalation</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>Biomarker Studies</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>Pharmacokinetic Studies</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✓</span>
+                                <span>Adaptive Trial Designs</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience" class="content-section">
+                    <h2>Research Experience</h2>
+                    
+                    <div class="experience-stats">
+                        <div class="exp-stat-card">
+                            <div class="exp-stat-value">87</div>
+                            <div class="exp-stat-label">Completed Studies</div>
+                        </div>
+                        <div class="exp-stat-card">
+                            <div class="exp-stat-value">12</div>
+                            <div class="exp-stat-label">Active Studies</div>
+                        </div>
+                        <div class="exp-stat-card">
+                            <div class="exp-stat-value">2,450</div>
+                            <div class="exp-stat-label">Patients Enrolled</div>
+                        </div>
+                        <div class="exp-stat-card">
+                            <div class="exp-stat-value">15+</div>
+                            <div class="exp-stat-label">Years Experience</div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Performance Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">Enrollment Rate</span>
+                                    <span class="metric-value">120%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 100%; background: #10b981;"></div>
+                                </div>
+                                <div class="metric-desc">Average vs. target enrollment</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">Retention Rate</span>
+                                    <span class="metric-value">95%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 95%; background: #10b981;"></div>
+                                </div>
+                                <div class="metric-desc">Patient completion rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">Protocol Compliance</span>
+                                    <span class="metric-value">98%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 98%; background: #10b981;"></div>
+                                </div>
+                                <div class="metric-desc">Protocol adherence score</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">Data Quality</span>
+                                    <span class="metric-value">98%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 98%; background: #10b981;"></div>
+                                </div>
+                                <div class="metric-desc">Clean data submission rate</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Recent Studies</h3>
+                        <div class="studies-list">
+                            <div class="study-item">
+                                <div class="study-header">
+                                    <h4>ADVANCE-2024 - Oncology Phase III</h4>
+                                    <span class="study-status status-active">Active</span>
+                                </div>
+                                <p>Non-Small Cell Lung Cancer treatment study</p>
+                                <div class="study-meta">
+                                    <span>Enrolled: 45/50 patients</span>
+                                    <span>Started: Jan 2024</span>
+                                </div>
+                            </div>
+                            <div class="study-item">
+                                <div class="study-header">
+                                    <h4>CARDIO-TRIAL - Cardiovascular Phase II</h4>
+                                    <span class="study-status status-completed">Completed</span>
+                                </div>
+                                <p>Heart failure medication efficacy study</p>
+                                <div class="study-meta">
+                                    <span>Enrolled: 30/30 patients</span>
+                                    <span>Completed: Dec 2023</span>
+                                </div>
+                            </div>
+                            <div class="study-item">
+                                <div class="study-header">
+                                    <h4>NEURO-STUDY - Neurology Phase III</h4>
+                                    <span class="study-status status-active">Active</span>
+                                </div>
+                                <p>Alzheimer's disease progression study</p>
+                                <div class="study-meta">
+                                    <span>Enrolled: 28/40 patients</span>
+                                    <span>Started: Mar 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Facilities Section -->
+                <section id="facilities" class="content-section">
+                    <h2>Facilities & Equipment</h2>
+                    
+                    <div class="content-card">
+                        <h3>Imaging Equipment</h3>
+                        <div class="equipment-grid">
+                            <div class="equipment-item">
+                                <div class="equipment-icon">🔬</div>
+                                <div class="equipment-name">MRI Scanner</div>
+                                <div class="equipment-spec">3T Siemens</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="equipment-icon">🔬</div>
+                                <div class="equipment-name">CT Scanner</div>
+                                <div class="equipment-spec">64-slice GE</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="equipment-icon">🔬</div>
+                                <div class="equipment-name">PET Scanner</div>
+                                <div class="equipment-spec">Philips Vereos</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="equipment-icon">🔬</div>
+                                <div class="equipment-name">X-Ray</div>
+                                <div class="equipment-spec">Digital DR</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Laboratory Capabilities</h3>
+                        <div class="lab-capabilities">
+                            <div class="lab-item">
+                                <span class="lab-icon">✓</span>
+                                <div class="lab-info">
+                                    <div class="lab-name">Hematology Lab</div>
+                                    <div class="lab-desc">Complete blood count, coagulation studies</div>
+                                </div>
+                            </div>
+                            <div class="lab-item">
+                                <span class="lab-icon">✓</span>
+                                <div class="lab-info">
+                                    <div class="lab-name">Chemistry Lab</div>
+                                    <div class="lab-desc">Comprehensive metabolic panel, lipid panel</div>
+                                </div>
+                            </div>
+                            <div class="lab-item">
+                                <span class="lab-icon">✓</span>
+                                <div class="lab-info">
+                                    <div class="lab-name">Microbiology Lab</div>
+                                    <div class="lab-desc">Culture, sensitivity testing</div>
+                                </div>
+                            </div>
+                            <div class="lab-item">
+                                <span class="lab-icon">✓</span>
+                                <div class="lab-info">
+                                    <div class="lab-name">Molecular Diagnostics</div>
+                                    <div class="lab-desc">PCR, genetic testing, biomarker analysis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Specialized Facilities</h3>
+                        <div class="facilities-list">
+                            <div class="facility-item">
+                                <div class="facility-icon">🏥</div>
+                                <div class="facility-info">
+                                    <h4>Research Pharmacy</h4>
+                                    <p>Dedicated pharmacy for investigational products with temperature-controlled storage</p>
+                                </div>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-icon">❄️</div>
+                                <div class="facility-info">
+                                    <h4>Cold Storage</h4>
+                                    <p>-80°C freezers, liquid nitrogen storage for biological samples</p>
+                                </div>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-icon">💉</div>
+                                <div class="facility-info">
+                                    <h4>Infusion Center</h4>
+                                    <p>12-bed infusion center with monitoring capabilities</p>
+                                </div>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-icon">🛏️</div>
+                                <div class="facility-info">
+                                    <h4>Clinical Research Unit</h4>
+                                    <p>Dedicated 20-bed unit for inpatient research studies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team Section -->
+                <section id="team" class="content-section">
+                    <h2>Research Team</h2>
+                    
+                    <div class="team-grid">
+                        <div class="team-member-card">
+                            <div class="member-photo">
+                                <img src="https://via.placeholder.com/150" alt="Dr. Sarah Johnson">
+                            </div>
+                            <h4>Dr. Sarah Johnson</h4>
+                            <div class="member-role">Principal Investigator</div>
+                            <p>Board-certified oncologist with 20+ years of clinical research experience</p>
+                            <div class="member-credentials">
+                                <span class="credential">MD, PhD</span>
+                                <span class="credential">GCP Certified</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="member-photo">
+                                <img src="https://via.placeholder.com/150" alt="Emily Chen">
+                            </div>
+                            <h4>Emily Chen, RN</h4>
+                            <div class="member-role">Clinical Research Coordinator</div>
+                            <p>Experienced CRC specializing in oncology and cardiology trials</p>
+                            <div class="member-credentials">
+                                <span class="credential">CCRC</span>
+                                <span class="credential">ACRP Certified</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="member-photo">
+                                <img src="https://via.placeholder.com/150" alt="Dr. Michael Rodriguez">
+                            </div>
+                            <h4>Dr. Michael Rodriguez</h4>
+                            <div class="member-role">Sub-Investigator</div>
+                            <p>Cardiologist with expertise in cardiovascular clinical trials</p>
+                            <div class="member-credentials">
+                                <span class="credential">MD</span>
+                                <span class="credential">FACC</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="member-photo">
+                                <img src="https://via.placeholder.com/150" alt="Lisa Thompson">
+                            </div>
+                            <h4>Lisa Thompson</h4>
+                            <div class="member-role">Research Manager</div>
+                            <p>Oversees all research operations and regulatory compliance</p>
+                            <div class="member-credentials">
+                                <span class="credential">MBA</span>
+                                <span class="credential">RAC</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Patient Database Section -->
+                <section id="patients" class="content-section">
+                    <h2>Patient Database</h2>
+                    
+                    <div class="content-card">
+                        <h3>Database Overview</h3>
+                        <div class="database-stats">
+                            <div class="db-stat">
+                                <div class="db-stat-value">50,000+</div>
+                                <div class="db-stat-label">Total Patients</div>
+                            </div>
+                            <div class="db-stat">
+                                <div class="db-stat-value">15,000</div>
+                                <div class="db-stat-label">Research-Ready</div>
+                            </div>
+                            <div class="db-stat">
+                                <div class="db-stat-value">3,500</div>
+                                <div class="db-stat-label">Monthly Visits</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Demographics</h3>
+                        <div class="demographics-grid">
+                            <div class="demo-chart">
+                                <h4>Age Distribution</h4>
+                                <div class="chart-bars">
+                                    <div class="chart-bar">
+                                        <div class="bar-label">18-30</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 15%;"></div>
+                                        </div>
+                                        <div class="bar-value">15%</div>
+                                    </div>
+                                    <div class="chart-bar">
+                                        <div class="bar-label">31-50</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 35%;"></div>
+                                        </div>
+                                        <div class="bar-value">35%</div>
+                                    </div>
+                                    <div class="chart-bar">
+                                        <div class="bar-label">51-65</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 30%;"></div>
+                                        </div>
+                                        <div class="bar-value">30%</div>
+                                    </div>
+                                    <div class="chart-bar">
+                                        <div class="bar-label">65+</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 20%;"></div>
+                                        </div>
+                                        <div class="bar-value">20%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo-chart">
+                                <h4>Gender Distribution</h4>
+                                <div class="chart-bars">
+                                    <div class="chart-bar">
+                                        <div class="bar-label">Male</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 48%;"></div>
+                                        </div>
+                                        <div class="bar-value">48%</div>
+                                    </div>
+                                    <div class="chart-bar">
+                                        <div class="bar-label">Female</div>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 52%;"></div>
+                                        </div>
+                                        <div class="bar-value">52%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Media Section -->
+                <section id="media" class="content-section">
+                    <h2>Photos & Videos</h2>
+                    
+                    <div class="media-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400" alt="Research Facility">
+                            <div class="gallery-caption">Main Research Building</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400" alt="Laboratory">
+                            <div class="gallery-caption">State-of-the-art Laboratory</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400" alt="Infusion Center">
+                            <div class="gallery-caption">Infusion Center</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400" alt="Research Team">
+                            <div class="gallery-caption">Research Team</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400" alt="Patient Care">
+                            <div class="gallery-caption">Patient Care Area</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400" alt="Equipment">
+                            <div class="gallery-caption">Medical Equipment</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reviews Section -->
+                <section id="reviews" class="content-section">
+                    <h2>Reviews & Ratings</h2>
+                    
+                    <div class="rating-summary">
+                        <div class="overall-rating">
+                            <div class="rating-number">4.8</div>
+                            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                            <div class="rating-count">Based on 24 reviews</div>
+                        </div>
+                        <div class="rating-breakdown">
+                            <div class="rating-row">
+                                <span>5 stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 75%;"></div>
+                                </div>
+                                <span>18</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>4 stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 20%;"></div>
+                                </div>
+                                <span>5</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>3 stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 4%;"></div>
+                                </div>
+                                <span>1</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>2 stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 0%;"></div>
+                                </div>
+                                <span>0</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>1 star</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 0%;"></div>
+                                </div>
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-list">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Dr. James Wilson</div>
+                                    <div class="reviewer-org">BioPharma Solutions</div>
+                                </div>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="review-date">2 months ago</div>
+                            <p class="review-text">
+                                Excellent site with professional staff and outstanding patient recruitment capabilities. 
+                                They exceeded our enrollment targets and maintained high data quality throughout the study.
+                            </p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Maria Garcia</div>
+                                    <div class="reviewer-org">Global CRO Partners</div>
+                                </div>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="review-date">4 months ago</div>
+                            <p class="review-text">
+                                Very responsive team with great communication. The PI is highly engaged and the coordinators 
+                                are well-trained. Would definitely work with them again.
+                            </p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Dr. Robert Chen</div>
+                                    <div class="reviewer-org">MedTech Innovations</div>
+                                </div>
+                                <div class="review-rating">⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="review-date">6 months ago</div>
+                            <p class="review-text">
+                                Good experience overall. Site has excellent facilities and experienced staff. 
+                                Minor delays in startup but enrollment was strong once initiated.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="content-section">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="contact-grid">
+                        <div class="content-card">
+                            <h3>Primary Contact</h3>
+                            <div class="contact-details">
+                                <div class="contact-person">
+                                    <div class="person-name">Dr. Sarah Johnson</div>
+                                    <div class="person-title">Principal Investigator</div>
+                                </div>
+                                <div class="contact-info-list">
+                                    <div class="info-item">
+                                        <span class="info-icon">📧</span>
+                                        <span>sarah.johnson@citymedical.com</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-icon">📱</span>
+                                        <span>+1 (617) 555-0123</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card">
+                            <h3>Research Coordinator</h3>
+                            <div class="contact-details">
+                                <div class="contact-person">
+                                    <div class="person-name">Emily Chen, RN</div>
+                                    <div class="person-title">Clinical Research Coordinator</div>
+                                </div>
+                                <div class="contact-info-list">
+                                    <div class="info-item">
+                                        <span class="info-icon">📧</span>
+                                        <span>emily.chen@citymedical.com</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-icon">📱</span>
+                                        <span>+1 (617) 555-0124</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Send a Message</h3>
+                        <form class="contact-form" onsubmit="sendMessage(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Your Name *</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Email *</label>
+                                    <input type="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject *</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message *</label>
+                                <textarea rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="site-profile.js"></script>
+</body>
+</html>

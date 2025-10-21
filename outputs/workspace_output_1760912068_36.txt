@@ -1,0 +1,36 @@
+.dashboard-section {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+.progress-overview {
+    display: flex;
+    gap: 30px;
+}
+
+.xp-display,
+.level-display {
+    background: var(--bg-light);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.xp-label,
+.level-label {

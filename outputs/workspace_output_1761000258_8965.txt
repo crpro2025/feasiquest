@@ -1,0 +1,118 @@
+function loadSiteSearch() {
+    const section = document.getElementById('searchSection');
+    const sites = window.DEMO_DATA.sites;
+    
+    section.innerHTML = `
+        <div class="dashboard-header">
+            <h2>🔍 Find Research Sites</h2>
+            <p>Search and evaluate sites for your clinical trials</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Search Filters</h3>
+                <button class="btn btn-secondary btn-sm" onclick="resetFilters()">Reset Filters</button>
+            </div>
+            <div style="padding: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" placeholder="City, State, Country" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Therapeutic Area</label>
+                        <select class="form-control">
+                            <option value="">All Areas</option>
+                            <option>Oncology</option>
+                            <option>Cardiology</option>
+                            <option>Neurology</option>
+                            <option>Diabetes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Study Phase</label>
+                        <select class="form-control">
+                            <option value="">All Phases</option>
+                            <option>Phase I</option>
+                            <option>Phase II</option>
+                            <option>Phase III</option>
+                            <option>Phase IV</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Rating</label>
+                        <select class="form-control">
+                            <option value="">Any Rating</option>
+                            <option>4.5+</option>
+                            <option>4.0+</option>
+                            <option>3.5+</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 20px;">🔍 Search Sites</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Search Results (${sites.length} sites)</h3>
+                <div class="card-actions">
+                    <button class="btn btn-outline btn-sm" onclick="compareSelectedSites()">Compare Selected</button>
+                    <button class="btn btn-primary btn-sm" onclick="sendQuestionnaireToSelected()">Send Questionnaire</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" onclick="toggleAllSites(this)"></th>
+                            <th>Site Name</th>
+                            <th>Location</th>
+                            <th>PI</th>
+                            <th>Rating</th>
+                            <th>Active Studies</th>
+                            <th>Capacity</th>
+                            <th>Therapeutic Areas</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${sites.map(site => `
+                            <tr>
+                                <td><input type="checkbox" class="site-checkbox" data-site-id="${site.id}"></td>
+                                <td><strong>${site.name}</strong></td>
+                                <td>${site.location}</td>
+                                <td>${site.pi}</td>
+                                <td>⭐ ${site.rating}</td>
+                                <td>${site.activeStudies}</td>
+                                <td>${site.enrollmentCapacity}</td>
+                                <td>${site.therapeuticAreas.slice(0, 2).join(', ')}${site.therapeuticAreas.length > 2 ? '...' : ''}</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm" onclick="viewSiteProfile('${site.id}')">View Profile</button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+}
+
+// ===== MESSAGES =====
+function loadMessages() {
+    const section = document.getElementById('messagesSection');
+    const messages = window.DEMO_DATA.messages;
+    
+    section.innerHTML = `
+        <div class="dashboard-header">
+            <h2>💬 Messages</h2>
+            <p>Communicate with sponsors, CROs, and sites</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 20px;">
+            <div class="card" style="margin: 0;">
+                <div class="card-header">
+                    <h3>Inbox</h3>
+                    <button class="btn btn-primary btn-sm" onclick="composeMessage()">+ New</button>
+                </div>

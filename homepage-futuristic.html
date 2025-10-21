@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest - AI-Powered Clinical Trial Feasibility Platform</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">FeasiQuest</span>
+                <span class="nav-subtitle">by Clinical Research Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#feasibility">Feasibility</a>
+                <a href="#platform">Platform</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#ai-demo">AI Demo</a>
+                <a href="app.html" class="btn-login">Login</a>
+                <a href="#signup" class="btn-signup">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>AI-Powered Feasibility Assessment</span>
+                </div>
+                <h1 class="hero-title">
+                    Transform Clinical Trial
+                    <span class="gradient-text">Feasibility Assessment</span>
+                </h1>
+                <p class="hero-description">
+                    Connect research sites with sponsors through intelligent matching, comprehensive feasibility questionnaires, and AI-powered analytics. Reduce study startup time by 70% and improve site selection accuracy by 40%.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2,000+</div>
+                        <div class="stat-label">Research Sites</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Active Studies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Faster Startup</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$2M+</div>
+                        <div class="stat-label">Cost Savings</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#signup" class="btn-primary">
+                        <span>Start Your Free Trial</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <a href="#demo" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 7l5 3-5 3V7z" fill="currentColor"/>
+                        </svg>
+                        <span>Watch Demo</span>
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <p>Trusted by leading organizations:</p>
+                    <div class="trust-badges">
+                        <span>FDA Compliant</span>
+                        <span>ICH GCP Aligned</span>
+                        <span>HIPAA Secure</span>
+                        <span>SOC 2 Certified</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="platform-preview">
+                    <div class="preview-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="window-title">FeasiQuest Dashboard</div>
+                        </div>
+                        <div class="window-content">
+                            <img src="dashboard-preview.png" alt="Platform Preview" onerror="this.style.display='none'">
+                            <div class="preview-placeholder">
+                                <div class="placeholder-grid">
+                                    <div class="placeholder-card"></div>
+                                    <div class="placeholder-card"></div>
+                                    <div class="placeholder-card"></div>
+                                    <div class="placeholder-card"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card card-1">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-text">95% Match Score</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-text">Real-time Analytics</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-text">AI-Powered</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feasibility Deep Dive Section -->
+    <section id="feasibility" class="feasibility-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Understanding Feasibility</span>
+                <h2 class="section-title">What is Clinical Trial Feasibility?</h2>
+                <p class="section-description">
+                    Clinical trial feasibility assessment is the critical process of evaluating whether a proposed study can be successfully conducted. It determines if the right patients, sites, and resources are available to meet enrollment goals within budget and timeline constraints.
+                </p>
+            </div>
+
+            <div class="feasibility-grid">
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">👥</div>
+                        <h3>Patient Population</h3>
+                    </div>
+                    <p>Assess the availability and accessibility of eligible patients. Analyze epidemiology data, prevalence rates, and patient databases to determine if sufficient patients exist in target geographies.</p>
+                    <ul class="card-list">
+                        <li>Disease prevalence analysis</li>
+                        <li>Inclusion/exclusion criteria impact</li>
+                        <li>Patient database size</li>
+                        <li>Geographic distribution</li>
+                        <li>Recruitment velocity predictions</li>
+                    </ul>
+                </div>
+
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">🏥</div>
+                        <h3>Site Capabilities</h3>
+                    </div>
+                    <p>Evaluate research sites' infrastructure, experience, and capacity to conduct the study. Assess therapeutic expertise, staff qualifications, and facility requirements.</p>
+                    <ul class="card-list">
+                        <li>Therapeutic area experience</li>
+                        <li>Staff certifications & training</li>
+                        <li>Equipment & facilities</li>
+                        <li>Regulatory compliance history</li>
+                        <li>Current study load capacity</li>
+                    </ul>
+                </div>
+
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">💰</div>
+                        <h3>Budget & Resources</h3>
+                    </div>
+                    <p>Determine if adequate financial resources and operational support are available. Calculate costs for procedures, staff, patient compensation, and site payments.</p>
+                    <ul class="card-list">
+                        <li>Procedure cost estimation</li>
+                        <li>Site payment budgets</li>
+                        <li>Patient stipend planning</li>
+                        <li>Operational overhead</li>
+                        <li>Contingency reserves</li>
+                    </ul>
+                </div>
+
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">📅</div>
+                        <h3>Timeline Feasibility</h3>
+                    </div>
+                    <p>Assess whether enrollment and study milestones can be achieved within proposed timelines. Factor in site activation, patient recruitment rates, and study duration.</p>
+                    <ul class="card-list">
+                        <li>Site activation timelines</li>
+                        <li>Enrollment rate projections</li>
+                        <li>Study duration estimates</li>
+                        <li>Regulatory approval timing</li>
+                        <li>Milestone achievement probability</li>
+                    </ul>
+                </div>
+
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">⚠️</div>
+                        <h3>Risk Assessment</h3>
+                    </div>
+                    <p>Identify potential obstacles and develop mitigation strategies. Evaluate competitive studies, regulatory challenges, and operational risks.</p>
+                    <ul class="card-list">
+                        <li>Competitive study landscape</li>
+                        <li>Regulatory pathway risks</li>
+                        <li>Recruitment challenges</li>
+                        <li>Site performance variability</li>
+                        <li>Protocol complexity factors</li>
+                    </ul>
+                </div>
+
+                <div class="feasibility-card">
+                    <div class="card-header">
+                        <div class="card-icon-large">🌍</div>
+                        <h3>Geographic Strategy</h3>
+                    </div>
+                    <p>Determine optimal countries and regions for study conduct. Consider patient availability, regulatory environment, and site infrastructure.</p>
+                    <ul class="card-list">
+                        <li>Country selection criteria</li>
+                        <li>Regional patient density</li>
+                        <li>Regulatory complexity</li>
+                        <li>Site network availability</li>
+                        <li>Cultural & language factors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feasibility-cta">
+                <h3>Ready to Transform Your Feasibility Process?</h3>
+                <p>Join 500+ sponsors and 2,000+ sites using FeasiQuest for smarter, faster feasibility assessment.</p>
+                <a href="#signup" class="btn-primary">Start Free Trial - No Credit Card Required</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section id="platform" class="platform-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Powerful Platform</span>
+                <h2 class="section-title">Everything You Need for Feasibility Success</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Matching</h3>
+                    <p>Intelligent algorithms analyze 50+ criteria to match studies with optimal sites, achieving 95% accuracy in site selection.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Smart Questionnaires</h3>
+                    <p>Build comprehensive feasibility questionnaires with 20+ question types, conditional logic, and automated scoring.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track responses, analyze trends, and generate insights with interactive dashboards and predictive analytics.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Advanced Search</h3>
+                    <p>Filter 2,000+ sites by therapeutic area, patient database size, certifications, equipment, and 50+ other criteria.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Secure Messaging</h3>
+                    <p>Communicate directly with sites, share documents, and collaborate in real-time with HIPAA-compliant messaging.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Predictive Insights</h3>
+                    <p>Forecast enrollment timelines, identify risks, and optimize site selection with machine learning algorithms.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Document Management</h3>
+                    <p>Centralize study documents, site credentials, and regulatory files with version control and audit trails.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Site Comparison</h3>
+                    <p>Compare multiple sites side-by-side across capabilities, experience, performance metrics, and costs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Enterprise Security</h3>
+                    <p>SOC 2 certified, HIPAA compliant, with role-based access control and comprehensive audit logging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Simple Process</span>
+                <h2 class="section-title">How FeasiQuest Works</h2>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Study</h3>
+                    <p>Input study details, protocol requirements, and site criteria using our intuitive 8-step wizard.</p>
+                </div>
+
+                <div class="step-arrow">→</div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI Matches Sites</h3>
+                    <p>Our algorithm analyzes 2,000+ sites and recommends the best matches based on 50+ criteria.</p>
+                </div>
+
+                <div class="step-arrow">→</div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Send Questionnaires</h3>
+                    <p>Deploy custom feasibility questionnaires to selected sites and track responses in real-time.</p>
+                </div>
+
+                <div class="step-arrow">→</div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Analyze & Select</h3>
+                    <p>Review AI-powered insights, compare sites, and make data-driven selection decisions.</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Start Your Feasibility Assessment Today</h3>
+                <p>Join hundreds of sponsors achieving 70% faster study startup</p>
+                <a href="#signup" class="btn-primary">Get Started Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Demo Section -->
+    <section id="ai-demo" class="platform-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Live AI Demos</span>
+                <h2 class="section-title">Experience Our AI Features</h2>
+                <p class="section-description">
+                    Try our cutting-edge AI features with interactive demos. See how artificial intelligence 
+                    transforms clinical trial feasibility assessment.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" style="cursor: pointer;" onclick="window.location.href='ai-enrollment-predictor.html'">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Enrollment Predictor</h3>
+                    <p>Predict enrollment success with 85% accuracy. Analyzes 50+ variables to forecast timelines, identify risks, and optimize strategies.</p>
+                    <button class="btn-action btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Try Live Demo →
+                    </button>
+                </div>
+
+                <div class="feature-card" style="cursor: pointer;" onclick="window.location.href='ai-protocol-analyzer.html'">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart Protocol Analyzer</h3>
+                    <p>NLP-powered analysis that identifies feasibility concerns, restrictive criteria, and optimization opportunities in seconds.</p>
+                    <button class="btn-action btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Try Live Demo →
+                    </button>
+                </div>
+
+                <div class="feature-card" style="cursor: pointer;" onclick="window.location.href='ai-site-recommender.html'">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Intelligent Site Recommender</h3>
+                    <p>ML algorithm analyzes 100+ criteria to recommend optimal sites with 95%+ accuracy. Instant matches based on real-time data.</p>
+                    <button class="btn-action btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Try Live Demo →
+                    </button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.125rem; color: var(--gray-light); margin-bottom: 1.5rem;">
+                    🚀 These are just 3 of our 22 planned AI features. See the full roadmap below.
+                </p>
+                <a href="#signup" class="btn-primary">Get Early Access to All AI Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Flexible Pricing</span>
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-description">Start free, upgrade as you grow. No hidden fees.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Research Sites</h3>
+                        <div class="plan-price">
+                            <span class="price">$0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Complete site profile</li>
+                        <li>✓ Receive questionnaires</li>
+                        <li>✓ Respond to opportunities</li>
+                        <li>✓ Basic analytics</li>
+                        <li>✓ Secure messaging</li>
+                    </ul>
+                    <a href="#signup" class="btn-plan">Create Free Profile</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Sponsors</h3>
+                        <div class="plan-price">
+                            <span class="price">$1,999</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Unlimited studies</li>
+                        <li>✓ AI-powered matching</li>
+                        <li>✓ Custom questionnaires</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Document management</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <a href="#signup" class="btn-plan">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>CROs</h3>
+                        <div class="plan-price">
+                            <span class="price">$4,999</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Everything in Sponsors</li>
+                        <li>✓ Multi-study management</li>
+                        <li>✓ White-label options</li>
+                        <li>✓ API access</li>
+                        <li>✓ Dedicated account manager</li>
+                        <li>✓ Custom integrations</li>
+                    </ul>
+                    <a href="#signup" class="btn-plan">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="signup-section">
+        <div class="signup-container">
+            <div class="signup-content">
+                <h2>Start Your Free Trial Today</h2>
+                <p>No credit card required. Full access for 14 days.</p>
+            </div>
+            <div class="signup-form">
+                <form id="signupForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" placeholder="Work Email" required>
+                    <input type="text" placeholder="Organization" required>
+                    <select required>
+                        <option value="">I am a...</option>
+                        <option value="sponsor">Sponsor</option>
+                        <option value="cro">CRO</option>
+                        <option value="site">Research Site</option>
+                    </select>
+                    <button type="submit" class="btn-submit">Start Free Trial</button>
+                    <p class="form-note">By signing up, you agree to our Terms of Service and Privacy Policy</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-text">
+                    <h3>FeasiQuest</h3>
+                    <p class="footer-tagline">by Clinical Research Pro</p>
+                </div>
+                <p class="footer-description">AI-powered clinical trial feasibility assessment platform connecting research sites with sponsors.</p>
+                <div class="footer-badges">
+                    <span>🔒 HIPAA</span>
+                    <span>✓ SOC 2</span>
+                    <span>📋 FDA</span>
+                    <span>🌍 GDPR</span>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="#features">Features</a>
+                <a href="#feasibility">Feasibility</a>
+                <a href="#pricing">Pricing</a>
+                <a href="app.html">Login</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="help-center.html">Help Center</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Compliance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="crpro-logo">
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage-futuristic.js"></script>
+</body>
+</html>

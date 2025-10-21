@@ -1,0 +1,13 @@
+function skipToModules() {
+    // Set default profile if skipping assessment
+    if (!appState.userProfile.role) {
+        appState.userProfile.role = 'pm';
+        appState.userProfile.experience = 'intermediate';
+        appState.userProfile.objective = 'assessment';
+    }
+    
+    document.getElementById('welcome').classList.add('hidden');
+    document.getElementById('assessment').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('fade-in');
+    

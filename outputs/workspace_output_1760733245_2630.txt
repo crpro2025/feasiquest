@@ -1,0 +1,18 @@
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.cta-section {
+    margin-top: 60px;
+    padding: 50px;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-radius: 20px;
+    border: 3px solid #fecaca;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+}
+
+.stats-grid {
+    display: grid;

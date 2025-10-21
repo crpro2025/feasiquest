@@ -1,0 +1,5 @@
+function returnToDashboard() {$
+    document.getElementById('moduleContent').classList.add('hidden');$
+    document.getElementById('dashboard').classList.remove('hidden');$
+    updateProgressDisplay();$
+}$

@@ -1,0 +1,20 @@
+        <section class="hero-section" id="welcome">
+        </section>
+        <section class="impact-section">
+        </section>
+        <section class="features-section" id="features">
+                <div class="section-header">
+                    <h2 class="section-title">Cutting-Edge Learning Experience</h2>
+                    <p class="section-subtitle">Advanced features designed for maximum impact</p>
+        </section>
+        <section class="modules-section" id="modules">
+                <div class="section-header">
+                    <h2 class="section-title">9 Comprehensive Modules</h2>
+                    <p class="section-subtitle">Master every aspect of clinical trial feasibility</p>
+        </section>
+        <section class="ai-section" id="ai">
+        </section>
+        <section class="final-cta-section">
+        </section>
+        <section class="assessment-section hidden" id="assessment">
+                <p class="section-intro">Help us tailor the training to your needs</p>

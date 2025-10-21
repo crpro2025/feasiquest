@@ -1,0 +1,4 @@
+25:        <section class="welcome-section" id="welcome">
+50:        <section class="assessment-section hidden" id="assessment">
+172:        <section class="dashboard-section hidden" id="dashboard">
+366:        <section class="module-content hidden" id="moduleContent">

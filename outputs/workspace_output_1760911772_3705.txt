@@ -1,0 +1,35 @@
+    // Show dashboard
+    const dashboardSection = document.getElementById('dashboard');
+    dashboardSection.style.display = 'block';
+    dashboardSection.classList.remove('hidden');
+    dashboardSection.classList.add('fade-in');
+    
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    console.log('Assessment completed, dashboard shown');
+}
+
+// Start Module
+function startModule(moduleNumber) {
+    const moduleCard = event.currentTarget;
+    if (moduleCard.classList.contains('locked')) {
+        alert('Complete previous modules to unlock this one.');
+        return;
+    }
+
+    appState.currentModule = moduleNumber;
+    
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('moduleContent').classList.remove('hidden');
+    
+    loadModuleContent(moduleNumber);
+}
+
+// Load Module Content
+function loadModuleContent(moduleNumber) {
+    const contentArea = document.getElementById('moduleContent');
+    

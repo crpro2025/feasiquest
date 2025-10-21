@@ -1,0 +1,16 @@
+:root {
+    --primary: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fca5a5;
+    --secondary: #7c3aed;
+    --accent: #f59e0b;
+    --dark: #0f172a;
+    --dark-light: #1e293b;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --gradient-1: linear-gradient(135deg, #dc2626 0%, #7c3aed 100%);
+    --gradient-2: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    --gradient-3: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+}
+
+* {

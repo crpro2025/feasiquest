@@ -1,0 +1,11 @@
+    // Scroll to top
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    console.log('Assessment completed, dashboard shown');
+}
+
+// Start Module
+function startModule(moduleNumber) {

@@ -1,0 +1,4 @@
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Loading page (1/2)
+[>                                                           ] 0%[==========>                                                 ] 18%[========================>                                   ] 41%[============================================================] 100%Printing pages (2/2)                                               
+[>                                                           ] Done                                                           

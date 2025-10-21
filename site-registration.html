@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Registration - FeasiQuest by Clinical Research Pro</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="site-registration-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 class="logo">FeasiQuest</h1>
+                    <p class="tagline">by Clinical Research Pro</p>
+                </div>
+                <div class="header-right">
+                    <a href="homepage.html" class="btn-outline">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Registration Container -->
+    <div class="registration-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Basic Info</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Location</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Capabilities</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Facilities</div>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-circle">5</div>
+                    <div class="step-label">Equipment</div>
+                </div>
+                <div class="progress-step" data-step="6">
+                    <div class="step-circle">6</div>
+                    <div class="step-label">Team</div>
+                </div>
+                <div class="progress-step" data-step="7">
+                    <div class="step-circle">7</div>
+                    <div class="step-label">Experience</div>
+                </div>
+                <div class="progress-step" data-step="8">
+                    <div class="step-circle">8</div>
+                    <div class="step-label">Certifications</div>
+                </div>
+                <div class="progress-step" data-step="9">
+                    <div class="step-circle">9</div>
+                    <div class="step-label">Demographics</div>
+                </div>
+                <div class="progress-step" data-step="10">
+                    <div class="step-circle">10</div>
+                    <div class="step-label">Media</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Step 1: Basic Information -->
+            <div class="form-step active" id="step1">
+                <h2>Basic Site Information</h2>
+                <p class="step-description">Let's start with the essential details about your research site.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Site Name <span class="required">*</span></label>
+                        <input type="text" id="siteName" required placeholder="e.g., City Medical Research Center">
+                        <span class="field-help">Official name of your research facility</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Principal Investigator <span class="required">*</span></label>
+                        <input type="text" id="piName" required placeholder="Dr. John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label>PI Email <span class="required">*</span></label>
+                        <input type="email" id="piEmail" required placeholder="pi@site.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site Phone <span class="required">*</span></label>
+                        <input type="tel" id="sitePhone" required placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site Email <span class="required">*</span></label>
+                        <input type="email" id="siteEmail" required placeholder="contact@site.com">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Website</label>
+                        <input type="url" id="website" placeholder="https://www.yoursite.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Year Established <span class="required">*</span></label>
+                        <input type="number" id="yearEstablished" required min="1900" max="2025" placeholder="2005">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site Type <span class="required">*</span></label>
+                        <select id="siteType" required>
+                            <option value="">Select type...</option>
+                            <option value="academic">Academic Medical Center</option>
+                            <option value="hospital">Hospital-Based</option>
+                            <option value="private">Private Practice</option>
+                            <option value="dedicated">Dedicated Research Site</option>
+                            <option value="community">Community Clinic</option>
+                            <option value="specialty">Specialty Center</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Location & Contact -->
+            <div class="form-step" id="step2">
+                <h2>Location & Contact Information</h2>
+                <p class="step-description">Provide detailed location information for your site.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Street Address <span class="required">*</span></label>
+                        <input type="text" id="address" required placeholder="123 Medical Plaza">
+                    </div>
+
+                    <div class="form-group">
+                        <label>City <span class="required">*</span></label>
+                        <input type="text" id="city" required placeholder="Boston">
+                    </div>
+
+                    <div class="form-group">
+                        <label>State/Province <span class="required">*</span></label>
+                        <input type="text" id="state" required placeholder="MA">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ZIP/Postal Code <span class="required">*</span></label>
+                        <input type="text" id="zipCode" required placeholder="02101">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country <span class="required">*</span></label>
+                        <select id="country" required>
+                            <option value="">Select country...</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="ES">Spain</option>
+                            <option value="IT">Italy</option>
+                            <option value="JP">Japan</option>
+                            <option value="CN">China</option>
+                            <option value="IN">India</option>
+                            <option value="BR">Brazil</option>
+                            <option value="MX">Mexico</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Time Zone <span class="required">*</span></label>
+                        <select id="timezone" required>
+                            <option value="">Select timezone...</option>
+                            <option value="EST">Eastern (EST/EDT)</option>
+                            <option value="CST">Central (CST/CDT)</option>
+                            <option value="MST">Mountain (MST/MDT)</option>
+                            <option value="PST">Pacific (PST/PDT)</option>
+                            <option value="AKST">Alaska (AKST/AKDT)</option>
+                            <option value="HST">Hawaii (HST)</option>
+                            <option value="GMT">GMT</option>
+                            <option value="CET">Central European Time</option>
+                            <option value="JST">Japan Standard Time</option>
+                            <option value="AEST">Australian Eastern Time</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Contact Name <span class="required">*</span></label>
+                        <input type="text" id="contactName" required placeholder="Jane Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Contact Title <span class="required">*</span></label>
+                        <input type="text" id="contactTitle" required placeholder="Clinical Research Coordinator">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Contact Phone <span class="required">*</span></label>
+                        <input type="tel" id="contactPhone" required placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Contact Email <span class="required">*</span></label>
+                        <input type="email" id="contactEmail" required placeholder="coordinator@site.com">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Capabilities & Therapeutic Areas -->
+            <div class="form-step" id="step3">
+                <h2>Site Capabilities & Therapeutic Areas</h2>
+                <p class="step-description">Select all therapeutic areas and study phases you can support.</p>
+                
+                <div class="capability-section">
+                    <h3>Therapeutic Areas <span class="required">*</span></h3>
+                    <p class="section-note">Select all areas where you have experience (minimum 3 required)</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="oncology">
+                            <span>Oncology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="cardiology">
+                            <span>Cardiology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="neurology">
+                            <span>Neurology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="diabetes">
+                            <span>Diabetes/Endocrinology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="respiratory">
+                            <span>Respiratory</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="gastro">
+                            <span>Gastroenterology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="rheumatology">
+                            <span>Rheumatology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="dermatology">
+                            <span>Dermatology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="psychiatry">
+                            <span>Psychiatry</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="infectious">
+                            <span>Infectious Disease</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="immunology">
+                            <span>Immunology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="nephrology">
+                            <span>Nephrology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="ophthalmology">
+                            <span>Ophthalmology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="pediatrics">
+                            <span>Pediatrics</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="womens">
+                            <span>Women's Health</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="rare">
+                            <span>Rare Diseases</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="pain">
+                            <span>Pain Management</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="therapeutic" value="vaccines">
+                            <span>Vaccines</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Study Phases <span class="required">*</span></h3>
+                    <p class="section-note">Select all phases you can conduct (minimum 1 required)</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="phase1">
+                            <span>Phase I</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="phase2">
+                            <span>Phase II</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="phase3">
+                            <span>Phase III</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="phase4">
+                            <span>Phase IV</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="bioequivalence">
+                            <span>Bioequivalence</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="phase" value="observational">
+                            <span>Observational</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Special Populations</h3>
+                    <p class="section-note">Select any special populations you can recruit</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="pediatric">
+                            <span>Pediatric (0-17 years)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="geriatric">
+                            <span>Geriatric (65+ years)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="pregnant">
+                            <span>Pregnant Women</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="nursing">
+                            <span>Nursing Mothers</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="renal">
+                            <span>Renal Impairment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="hepatic">
+                            <span>Hepatic Impairment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="healthy">
+                            <span>Healthy Volunteers</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="population" value="minorities">
+                            <span>Minority Populations</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Facilities & Infrastructure -->
+            <div class="form-step" id="step4">
+                <h2>Facilities & Infrastructure</h2>
+                <p class="step-description">Provide details about your physical facilities and infrastructure.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Total Facility Size (sq ft) <span class="required">*</span></label>
+                        <input type="number" id="facilitySize" required placeholder="10000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Exam Rooms <span class="required">*</span></label>
+                        <input type="number" id="examRooms" required placeholder="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Procedure Rooms</label>
+                        <input type="number" id="procedureRooms" placeholder="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Infusion Chairs</label>
+                        <input type="number" id="infusionChairs" placeholder="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Bed Count</label>
+                        <input type="number" id="bedCount" placeholder="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ICU Beds</label>
+                        <input type="number" id="icuBeds" placeholder="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Parking Spaces <span class="required">*</span></label>
+                        <input type="number" id="parkingSpaces" required placeholder="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Wheelchair Accessible <span class="required">*</span></label>
+                        <select id="wheelchairAccessible" required>
+                            <option value="">Select...</option>
+                            <option value="yes">Yes - Fully Accessible</option>
+                            <option value="partial">Partially Accessible</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>On-Site Facilities <span class="required">*</span></h3>
+                    <p class="section-note">Select all facilities available on-site</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="laboratory">
+                            <span>Clinical Laboratory</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="pharmacy">
+                            <span>Pharmacy</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="radiology">
+                            <span>Radiology/Imaging</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="emergency">
+                            <span>Emergency Department</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="surgery">
+                            <span>Surgical Suite</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="icu">
+                            <span>ICU</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="cafeteria">
+                            <span>Cafeteria</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="waiting">
+                            <span>Waiting Areas</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="storage">
+                            <span>Cold Storage (-20°C)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="ultracold">
+                            <span>Ultra-Cold Storage (-80°C)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="nitrogen">
+                            <span>Liquid Nitrogen Storage</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="facility" value="biosafety">
+                            <span>Biosafety Cabinet</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Facility Photos</label>
+                    <div class="file-upload-area" id="facilityPhotosUpload">
+                        <input type="file" id="facilityPhotos" multiple accept="image/*" onchange="handleFileUpload(this, 'facilityPhotosList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📸</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PNG, JPG, JPEG up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="facilityPhotosList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 5: Equipment & Technology -->
+            <div class="form-step" id="step5">
+                <h2>Equipment & Technology</h2>
+                <p class="step-description">List all major equipment and technology available at your site.</p>
+                
+                <div class="capability-section">
+                    <h3>Imaging Equipment</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="xray">
+                            <span>X-Ray</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="ct">
+                            <span>CT Scanner</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="mri">
+                            <span>MRI</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="pet">
+                            <span>PET Scanner</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="ultrasound">
+                            <span>Ultrasound</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="mammography">
+                            <span>Mammography</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="dexa">
+                            <span>DEXA Scan</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="imaging" value="fluoroscopy">
+                            <span>Fluoroscopy</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Laboratory Equipment</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="hematology">
+                            <span>Hematology Analyzer</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="chemistry">
+                            <span>Chemistry Analyzer</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="centrifuge">
+                            <span>Centrifuge</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="microscope">
+                            <span>Microscope</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="pcr">
+                            <span>PCR Machine</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="elisa">
+                            <span>ELISA Reader</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="flowcytometry">
+                            <span>Flow Cytometry</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="lab" value="spectrophotometer">
+                            <span>Spectrophotometer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Cardiac Equipment</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="cardiac" value="ecg">
+                            <span>ECG/EKG</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="cardiac" value="holter">
+                            <span>Holter Monitor</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="cardiac" value="echo">
+                            <span>Echocardiogram</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="cardiac" value="stress">
+                            <span>Stress Test Equipment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="cardiac" value="telemetry">
+                            <span>Telemetry</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Respiratory Equipment</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="respiratory" value="spirometry">
+                            <span>Spirometry</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="respiratory" value="pulseox">
+                            <span>Pulse Oximetry</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="respiratory" value="nebulizer">
+                            <span>Nebulizer</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="respiratory" value="ventilator">
+                            <span>Ventilator</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Other Equipment</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="eeg">
+                            <span>EEG</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="emg">
+                            <span>EMG</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="bonedens">
+                            <span>Bone Densitometry</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="endoscopy">
+                            <span>Endoscopy</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="colonoscopy">
+                            <span>Colonoscopy</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="other" value="dialysis">
+                            <span>Dialysis</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Equipment Photos/Documentation</label>
+                    <div class="file-upload-area" id="equipmentDocsUpload">
+                        <input type="file" id="equipmentDocs" multiple accept="image/*,.pdf" onchange="handleFileUpload(this, 'equipmentDocsList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📄</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">Images or PDF documents up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="equipmentDocsList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 6: Team & Staff -->
+            <div class="form-step" id="step6">
+                <h2>Team & Staff</h2>
+                <p class="step-description">Tell us about your research team and staff capabilities.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Total Research Staff <span class="required">*</span></label>
+                        <input type="number" id="totalStaff" required placeholder="25">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Sub-Investigators</label>
+                        <input type="number" id="subInvestigators" placeholder="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Clinical Research Coordinators <span class="required">*</span></label>
+                        <input type="number" id="coordinators" required placeholder="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Research Nurses</label>
+                        <input type="number" id="researchNurses" placeholder="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data Managers</label>
+                        <input type="number" id="dataManagers" placeholder="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Regulatory Specialists</label>
+                        <input type="number" id="regulatoryStaff" placeholder="2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pharmacists</label>
+                        <input type="number" id="pharmacists" placeholder="2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Lab Technicians</label>
+                        <input type="number" id="labTechs" placeholder="5">
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Staff Certifications & Training</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="gcp">
+                            <span>GCP Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="ccrp">
+                            <span>CCRP Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="ccrc">
+                            <span>CCRC Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="socra">
+                            <span>SOCRA Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="acrp">
+                            <span>ACRP Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="citi">
+                            <span>CITI Training</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="bls">
+                            <span>BLS/CPR Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="staffCert" value="acls">
+                            <span>ACLS Certified</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Language Capabilities</h3>
+                    <p class="section-note">Select all languages your staff can communicate in</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="english">
+                            <span>English</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="spanish">
+                            <span>Spanish</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="french">
+                            <span>French</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="german">
+                            <span>German</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="mandarin">
+                            <span>Mandarin</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="cantonese">
+                            <span>Cantonese</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="japanese">
+                            <span>Japanese</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="korean">
+                            <span>Korean</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="arabic">
+                            <span>Arabic</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="hindi">
+                            <span>Hindi</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="portuguese">
+                            <span>Portuguese</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="russian">
+                            <span>Russian</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Team CVs/Credentials</label>
+                    <div class="file-upload-area" id="teamCVsUpload">
+                        <input type="file" id="teamCVs" multiple accept=".pdf,.doc,.docx" onchange="handleFileUpload(this, 'teamCVsList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📋</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PDF or Word documents up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="teamCVsList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 7: Experience & Track Record -->
+            <div class="form-step" id="step7">
+                <h2>Experience & Track Record</h2>
+                <p class="step-description">Share your site's research experience and performance history.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Years Conducting Clinical Trials <span class="required">*</span></label>
+                        <input type="number" id="yearsExperience" required placeholder="15">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Studies Completed <span class="required">*</span></label>
+                        <input type="number" id="studiesCompleted" required placeholder="87">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Currently Active Studies <span class="required">*</span></label>
+                        <input type="number" id="activeStudies" required placeholder="12">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Maximum Concurrent Studies</label>
+                        <input type="number" id="maxConcurrent" placeholder="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Patients Enrolled (All Time)</label>
+                        <input type="number" id="totalEnrolled" placeholder="2500">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Enrollment Capacity <span class="required">*</span></label>
+                        <input type="number" id="enrollmentCapacity" required placeholder="500">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Average Screen Failure Rate (%) <span class="required">*</span></label>
+                        <input type="number" id="screenFailureRate" required placeholder="25" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Average Patient Retention Rate (%) <span class="required">*</span></label>
+                        <input type="number" id="retentionRate" required placeholder="92" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Average Enrollment Rate (patients/month)</label>
+                        <input type="number" id="enrollmentRate" placeholder="15">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Protocol Deviation Rate (%)</label>
+                        <input type="number" id="deviationRate" placeholder="2" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Query Response Time (days)</label>
+                        <input type="number" id="queryResponseTime" placeholder="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data Entry Timeliness (days)</label>
+                        <input type="number" id="dataEntryTime" placeholder="5">
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Experience with Sponsors/CROs</h3>
+                    <p class="section-note">Select organizations you've worked with (optional)</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="pfizer">
+                            <span>Pfizer</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="novartis">
+                            <span>Novartis</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="roche">
+                            <span>Roche</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="merck">
+                            <span>Merck</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="jnj">
+                            <span>Johnson & Johnson</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="abbvie">
+                            <span>AbbVie</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="bms">
+                            <span>Bristol Myers Squibb</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="astrazeneca">
+                            <span>AstraZeneca</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="gsk">
+                            <span>GSK</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="lilly">
+                            <span>Eli Lilly</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="amgen">
+                            <span>Amgen</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sponsor" value="gilead">
+                            <span>Gilead</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Performance Reports/Metrics</label>
+                    <div class="file-upload-area" id="performanceDocsUpload">
+                        <input type="file" id="performanceDocs" multiple accept=".pdf,.xlsx,.xls" onchange="handleFileUpload(this, 'performanceDocsList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📊</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PDF or Excel documents up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="performanceDocsList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 8: Certifications & Compliance -->
+            <div class="form-step" id="step8">
+                <h2>Certifications & Compliance</h2>
+                <p class="step-description">Provide information about your site's certifications and regulatory compliance.</p>
+                
+                <div class="capability-section">
+                    <h3>Site Certifications <span class="required">*</span></h3>
+                    <p class="section-note">Select all applicable certifications (minimum 1 required)</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="gcp">
+                            <span>GCP Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="clia">
+                            <span>CLIA Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="cap">
+                            <span>CAP Accredited</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="jcaho">
+                            <span>Joint Commission (JCAHO)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="aaalac">
+                            <span>AAALAC Accredited</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="iso">
+                            <span>ISO Certified</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="aahrpp">
+                            <span>AAHRPP Accredited</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="certification" value="fda">
+                            <span>FDA Inspected</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>IRB/IEC Type <span class="required">*</span></label>
+                        <select id="irbType" required>
+                            <option value="">Select type...</option>
+                            <option value="central">Central IRB</option>
+                            <option value="local">Local IRB</option>
+                            <option value="commercial">Commercial IRB</option>
+                            <option value="both">Both Central and Local</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Average IRB Approval Time <span class="required">*</span></label>
+                        <select id="irbApprovalTime" required>
+                            <option value="">Select timeframe...</option>
+                            <option value="2-4">2-4 weeks</option>
+                            <option value="4-6">4-6 weeks</option>
+                            <option value="6-8">6-8 weeks</option>
+                            <option value="8+">8+ weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last FDA Inspection Date</label>
+                        <input type="date" id="lastFDAInspection">
+                    </div>
+
+                    <div class="form-group">
+                        <label>FDA Inspection Result</label>
+                        <select id="fdaInspectionResult">
+                            <option value="">Select result...</option>
+                            <option value="no-findings">No Findings (NAI)</option>
+                            <option value="voluntary">Voluntary Action Indicated (VAI)</option>
+                            <option value="official">Official Action Indicated (OAI)</option>
+                            <option value="never">Never Inspected</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Insurance Coverage <span class="required">*</span></label>
+                        <select id="insuranceCoverage" required>
+                            <option value="">Select coverage...</option>
+                            <option value="1m">$1 Million</option>
+                            <option value="2m">$2 Million</option>
+                            <option value="5m">$5 Million</option>
+                            <option value="10m">$10 Million+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Compliance & Quality Systems</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="sop">
+                            <span>Written SOPs</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="qa">
+                            <span>QA/QC Program</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="training">
+                            <span>Training Program</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="audit">
+                            <span>Internal Audit Program</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="capa">
+                            <span>CAPA System</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="document">
+                            <span>Document Control System</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="edc">
+                            <span>EDC Experience</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="compliance" value="ctms">
+                            <span>CTMS System</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Certification Documents <span class="required">*</span></label>
+                    <div class="file-upload-area" id="certDocsUpload">
+                        <input type="file" id="certDocs" multiple accept=".pdf" onchange="handleFileUpload(this, 'certDocsList')" required>
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📜</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PDF documents up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="certDocsList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 9: Patient Demographics & Database -->
+            <div class="form-step" id="step9">
+                <h2>Patient Demographics & Database</h2>
+                <p class="step-description">Provide information about your patient population and database.</p>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Total Patients in Database <span class="required">*</span></label>
+                        <input type="number" id="totalPatients" required placeholder="50000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Active Patients (seen in last 12 months) <span class="required">*</span></label>
+                        <input type="number" id="activePatients" required placeholder="15000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>New Patients per Month</label>
+                        <input type="number" id="newPatientsMonth" placeholder="500">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Electronic Medical Records System <span class="required">*</span></label>
+                        <select id="emrSystem" required>
+                            <option value="">Select system...</option>
+                            <option value="epic">Epic</option>
+                            <option value="cerner">Cerner</option>
+                            <option value="meditech">Meditech</option>
+                            <option value="allscripts">Allscripts</option>
+                            <option value="eclinicalworks">eClinicalWorks</option>
+                            <option value="athenahealth">athenahealth</option>
+                            <option value="nextgen">NextGen</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Age Distribution</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>0-17 years (%)</label>
+                            <input type="number" id="age0to17" placeholder="10" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>18-34 years (%)</label>
+                            <input type="number" id="age18to34" placeholder="20" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>35-54 years (%)</label>
+                            <input type="number" id="age35to54" placeholder="35" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>55-74 years (%)</label>
+                            <input type="number" id="age55to74" placeholder="25" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>75+ years (%)</label>
+                            <input type="number" id="age75plus" placeholder="10" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Gender Distribution</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Male (%)</label>
+                            <input type="number" id="genderMale" placeholder="48" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Female (%)</label>
+                            <input type="number" id="genderFemale" placeholder="52" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Racial/Ethnic Distribution</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>White/Caucasian (%)</label>
+                            <input type="number" id="raceWhite" placeholder="60" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Black/African American (%)</label>
+                            <input type="number" id="raceBlack" placeholder="15" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Hispanic/Latino (%)</label>
+                            <input type="number" id="raceHispanic" placeholder="15" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Asian (%)</label>
+                            <input type="number" id="raceAsian" placeholder="8" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Other (%)</label>
+                            <input type="number" id="raceOther" placeholder="2" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Insurance Coverage</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Commercial Insurance (%)</label>
+                            <input type="number" id="insuranceCommercial" placeholder="50" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Medicare (%)</label>
+                            <input type="number" id="insuranceMedicare" placeholder="30" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Medicaid (%)</label>
+                            <input type="number" id="insuranceMedicaid" placeholder="15" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Uninsured (%)</label>
+                            <input type="number" id="insuranceUninsured" placeholder="5" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Upload Patient Database Statistics</label>
+                    <div class="file-upload-area" id="databaseStatsUpload">
+                        <input type="file" id="databaseStats" multiple accept=".pdf,.xlsx,.xls" onchange="handleFileUpload(this, 'databaseStatsList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📈</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PDF or Excel documents up to 10MB each</p>
+                        </div>
+                    </div>
+                    <div id="databaseStatsList" class="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Step 10: Media & Marketing -->
+            <div class="form-step" id="step10">
+                <h2>Media & Marketing Materials</h2>
+                <p class="step-description">Upload photos, videos, and marketing materials to showcase your site.</p>
+                
+                <div class="form-group full-width">
+                    <label>Site Photos <span class="required">*</span></label>
+                    <p class="field-help">Upload high-quality photos of your facility (minimum 5 photos required)</p>
+                    <div class="file-upload-area" id="sitePhotosUpload">
+                        <input type="file" id="sitePhotos" multiple accept="image/*" onchange="handleFileUpload(this, 'sitePhotosList')" required>
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📸</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">JPG, PNG up to 10MB each (minimum 5 photos)</p>
+                        </div>
+                    </div>
+                    <div id="sitePhotosList" class="file-list"></div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Site Videos</label>
+                    <p class="field-help">Upload videos showcasing your facility and capabilities (optional)</p>
+                    <div class="file-upload-area" id="siteVideosUpload">
+                        <input type="file" id="siteVideos" multiple accept="video/*" onchange="handleFileUpload(this, 'siteVideosList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">🎥</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">MP4, MOV up to 100MB each</p>
+                        </div>
+                    </div>
+                    <div id="siteVideosList" class="file-list"></div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Site Brochure/Marketing Materials</label>
+                    <p class="field-help">Upload any brochures, flyers, or marketing materials</p>
+                    <div class="file-upload-area" id="marketingMaterialsUpload">
+                        <input type="file" id="marketingMaterials" multiple accept=".pdf,.ppt,.pptx" onchange="handleFileUpload(this, 'marketingMaterialsList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📑</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PDF or PowerPoint up to 20MB each</p>
+                        </div>
+                    </div>
+                    <div id="marketingMaterialsList" class="file-list"></div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Site Logo</label>
+                    <p class="field-help">Upload your site's logo for use in the platform</p>
+                    <div class="file-upload-area" id="siteLogoUpload">
+                        <input type="file" id="siteLogo" accept="image/*" onchange="handleFileUpload(this, 'siteLogoList')">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">🏢</span>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-note">PNG or SVG (transparent background preferred)</p>
+                        </div>
+                    </div>
+                    <div id="siteLogoList" class="file-list"></div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Additional Notes/Comments</label>
+                    <textarea id="additionalNotes" rows="6" placeholder="Any additional information you'd like to share about your site..."></textarea>
+                </div>
+
+                <div class="capability-section">
+                    <h3>Marketing Preferences</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="marketing" value="featured">
+                            <span>Feature my site in search results</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="marketing" value="newsletter">
+                            <span>Include in FeasiQuest newsletter</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="marketing" value="directory">
+                            <span>List in public site directory</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="marketing" value="notifications">
+                            <span>Receive study opportunity notifications</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 30px; padding: 20px; background: var(--gray-50); border-radius: 8px;">
+                    <label class="checkbox-item" style="background: transparent; border: none; padding: 0;">
+                        <input type="checkbox" id="termsAccept" required>
+                        <span style="font-size: 0.95rem;">
+                            I certify that all information provided is accurate and complete. I agree to the 
+                            <a href="#" style="color: var(--primary); text-decoration: underline;">Terms of Service</a> and 
+                            <a href="#" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.
+                            <span class="required">*</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" class="btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">
+                    ← Previous
+                </button>
+                <button type="button" class="btn-primary" id="nextBtn" onclick="nextStep()">
+                    Next →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="site-registration.js"></script>
+</body>
+</html>

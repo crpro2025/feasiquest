@@ -1,0 +1,9 @@
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button class="btn btn-primary" onclick="showAnalyticsDashboard()">📊 View Analytics</button>
+            <button class="btn btn-secondary" onclick="openQuestionnaireBuilder()">📋 Create Questionnaire</button>
+            <button class="btn btn-outline" onclick="showAIRecommendations('study_001')">🤖 AI Site Matching</button>
+--
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button class="btn btn-primary" onclick="showAnalyticsDashboard()">📊 Portfolio Analytics</button>
+            <button class="btn btn-secondary" onclick="showSection('search')">🔍 Site Network</button>
+            <button class="btn btn-outline" onclick="openQuestionnaireBuilder()">📋 Create Questionnaire</button>

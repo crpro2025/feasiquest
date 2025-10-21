@@ -1,0 +1,5 @@
+9:    --primary-color: #2563eb;
+69:    color: var(--primary-color);
+110:    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+218:    border-color: var(--primary-color);
+224:    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));

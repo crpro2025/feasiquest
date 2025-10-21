@@ -1,0 +1,30 @@
+// Global State Management
+const appState = {
+    userProfile: {
+        role: null,
+        experience: null,
+        objective: null,
+        xp: 0,
+        level: 'Novice',
+        completedModules: [],
+        badges: []
+    },
+    currentModule: null,
+    moduleProgress: {}
+};
+
+// Level thresholds
+const levelThresholds = {
+    'Novice': 0,
+    'Analyst': 500,
+    'Expert': 1500,
+    'Feasibility Master': 3000
+};
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserProgress();
+    updateProgressDisplay();
+    
+    // Check if we should start a specific module
+    const startModuleId = localStorage.getItem('startModule');

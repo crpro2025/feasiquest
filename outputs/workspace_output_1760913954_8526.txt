@@ -1,0 +1,16 @@
+                section.classList.add('hidden');
+                console.log('Hidden section: ' + sectionId);
+            }
+        });
+        
+        // Hide sections by class
+        const sectionsByClass = document.querySelectorAll('.impact-section, .final-cta-section, footer');
+        sectionsByClass.forEach(section => {
+            section.style.display = 'none';
+            section.classList.add('hidden');
+        });
+        
+        // Hide navbar
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.display = 'none';

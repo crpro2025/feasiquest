@@ -1,0 +1,50 @@
+                    <span class="icon">🔍</span> Find Sites
+                </button>
+                <button class="nav-btn" onclick="showSection('studies')" id="navStudies" style="display: none;">
+                    <span class="icon">🧪</span> Studies
+                </button>
+                <button class="nav-btn" onclick="showSection('messages')">
+                    <span class="icon">💬</span> Messages
+                    <span class="badge" id="messageBadge">3</span>
+                </button>
+                <button class="nav-btn" onclick="showSection('documents')">
+                    <span class="icon">📁</span> Documents
+                </button>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn" onclick="showNotifications()">
+                    <span class="icon">🔔</span>
+                    <span class="badge" id="notificationBadge">5</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <span class="user-avatar" id="userAvatar">JD</span>
+                        <span id="userName">John Doe</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="showProfile()">👤 Profile</a>
+                        <a href="#" onclick="showSettings()">⚙️ Settings</a>
+                        <a href="#" onclick="showHelp()">❓ Help</a>
+                        <hr>
+                        <a href="#" onclick="logout()">🚪 Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Dashboard Section -->
+            <div id="dashboardSection" class="content-section active">
+                <!-- Content will be dynamically loaded based on user role -->
+            </div>
+
+            <!-- Questionnaires Section -->
+            <div id="questionnairesSection" class="content-section">
+                <!-- Content will be dynamically loaded -->
+            </div>
+
+            <!-- Search Section (Sponsors/CROs only) -->
+            <div id="searchSection" class="content-section">
+                <!-- Content will be dynamically loaded -->
+            </div>

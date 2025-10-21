@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest - Practice Scenarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .practice-header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .practice-header h1 {
+            margin: 0 0 10px 0;
+            color: #1e293b;
+        }
+
+        .practice-header p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .stat-item .label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .scenario-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+        }
+
+        .scenario-header h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .scenario-body {
+            padding: 20px;
+        }
+
+        .scenario-body p {
+            color: #64748b;
+            margin: 0 0 15px 0;
+        }
+
+        .scenario-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .scenario-meta span {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .scenario-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-start {
+            flex: 1;
+            padding: 12px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-review {
+            padding: 12px 20px;
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .attempt-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .scenario-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .scenario-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+        }
+
+        .modal-header h2 {
+            margin: 0 0 10px 0;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .protocol-section {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .protocol-section h4 {
+            margin: 0 0 15px 0;
+            color: #1e293b;
+        }
+
+        .protocol-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .protocol-list li {
+            padding: 8px 0;
+            color: #64748b;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .protocol-list li:last-child {
+            border-bottom: none;
+        }
+
+        .question-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-card h4 {
+            margin: 0 0 15px 0;
+            color: #1e293b;
+        }
+
+        .option {
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .option.selected {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .option.correct {
+            border-color: #10b981;
+            background: #d1fae5;
+        }
+
+        .option.incorrect {
+            border-color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .results-modal {
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 72px;
+            font-weight: bold;
+            color: #dc2626;
+            margin: 30px 0;
+        }
+
+        .xp-earned {
+            font-size: 24px;
+            color: #10b981;
+            margin: 20px 0;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="practice-container">
+        <!-- Header -->
+        <div class="practice-header">
+            <h1>🎯 Practice Scenarios</h1>
+            <p>Test your knowledge with real-world feasibility challenges</p>
+            
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <div class="value" style="color: #dc2626;">0</div>
+                    <div class="label">Total Attempts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value">0%</div>
+                    <div class="label">Pass Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value">0</div>
+                    <div class="label">Avg Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value">0</div>
+                    <div class="label">XP Earned</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-section">
+            <h3 style="margin: 0 0 15px 0;">Filter by:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterScenarios('all')">All Scenarios</button>
+                <button class="filter-btn" onclick="filterScenarios('beginner')">Beginner</button>
+                <button class="filter-btn" onclick="filterScenarios('intermediate')">Intermediate</button>
+                <button class="filter-btn" onclick="filterScenarios('advanced')">Advanced</button>
+                <button class="filter-btn" onclick="filterScenarios('module1')">Module 1: Foundations</button>
+                <button class="filter-btn" onclick="filterScenarios('module2')">Module 2: Recruitment</button>
+                <button class="filter-btn" onclick="filterScenarios('module3')">Module 3: Site Selection</button>
+                <button class="filter-btn" onclick="filterScenarios('module4')">Module 4: Budget</button>
+                <button class="filter-btn" onclick="filterScenarios('module5')">Module 5: Timeline</button>
+                <button class="filter-btn" onclick="filterScenarios('module6')">Module 6: Risk</button>
+            </div>
+        </div>
+
+        <!-- Scenarios Grid -->
+        <div class="scenarios-grid" id="scenariosGrid">
+            <!-- Scenarios will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Scenario Modal -->
+    <div class="scenario-modal" id="scenarioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Scenario Title</h2>
+                <p id="modalDescription">Description</p>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Scenario content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn-start" id="submitBtn" onclick="submitScenario()">Submit Answers</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="practice-scenarios.js"></script>
+    <script>
+        let currentScenario = null;
+        let userAnswers = {};
+        let currentFilter = 'all';
+
+        // Load practice stats
+        function loadStats() {
+            const stats = practiceScenarios.getPracticeStats();
+            if (stats.success) {
+                const statsBar = document.getElementById('statsBar');
+                statsBar.innerHTML = `
+                    <div class="stat-item">
+                        <div class="value">${stats.stats.totalAttempts}</div>
+                        <div class="label">Total Attempts</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">${stats.stats.passRate}%</div>
+                        <div class="label">Pass Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">${stats.stats.averageScore}</div>
+                        <div class="label">Avg Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">${stats.stats.totalXPEarned}</div>
+                        <div class="label">XP Earned</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Load scenarios
+        function loadScenarios() {
+            const grid = document.getElementById('scenariosGrid');
+            let html = '';
+
+            // Get all scenarios
+            const allScenarios = [
+                ...practiceScenarios.getModuleScenarios(1),
+                ...practiceScenarios.getModuleScenarios(2),
+                ...practiceScenarios.getModuleScenarios(3),
+                ...practiceScenarios.getModuleScenarios(4),
+                ...practiceScenarios.getModuleScenarios(5),
+                ...practiceScenarios.getModuleScenarios(6)
+            ];
+
+            // Filter scenarios
+            let filteredScenarios = allScenarios;
+            if (currentFilter !== 'all') {
+                if (currentFilter === 'beginner' || currentFilter === 'intermediate' || currentFilter === 'advanced') {
+                    filteredScenarios = allScenarios.filter(s => s.difficulty === currentFilter);
+                } else if (currentFilter.startsWith('module')) {
+                    const moduleNum = currentFilter.replace('module', '');
+                    filteredScenarios = practiceScenarios.getModuleScenarios(parseInt(moduleNum));
+                }
+            }
+
+            filteredScenarios.forEach(scenario => {
+                const attempts = practiceScenarios.getUserAttempts(scenario.id);
+                const attemptCount = attempts.success ? attempts.attempts.length : 0;
+                const bestScore = attemptCount > 0 ? Math.max(...attempts.attempts.map(a => a.score)) : 0;
+
+                html += `
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <h3>${scenario.title}</h3>
+                            <span class="difficulty-badge">${scenario.difficulty}</span>
+                        </div>
+                        <div class="scenario-body">
+                            <p>${scenario.description}</p>
+                            <div class="scenario-meta">
+                                <span>💎 ${scenario.xpReward} XP</span>
+                                <span>❓ ${scenario.questions.length} Questions</span>
+                            </div>
+                            ${attemptCount > 0 ? `
+                                <div style="margin-bottom: 15px;">
+                                    <span class="attempt-badge">Best: ${bestScore}%</span>
+                                    <span class="attempt-badge">${attemptCount} attempt${attemptCount > 1 ? 's' : ''}</span>
+                                </div>
+                            ` : ''}
+                            <div class="scenario-actions">
+                                <button class="btn-start" onclick="startScenario('${scenario.id}')">
+                                    ${attemptCount > 0 ? 'Try Again' : 'Start Scenario'}
+                                </button>
+                                ${attemptCount > 0 ? `
+                                    <button class="btn-review" onclick="reviewAttempts('${scenario.id}')">Review</button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html || '<p style="text-align: center; color: #64748b;">No scenarios found</p>';
+        }
+
+        // Filter scenarios
+        function filterScenarios(filter) {
+            currentFilter = filter;
+            
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            loadScenarios();
+        }
+
+        // Start scenario
+        function startScenario(scenarioId) {
+            currentScenario = practiceScenarios.getScenario(scenarioId);
+            userAnswers = {};
+
+            if (!currentScenario) {
+                alert('Scenario not found');
+                return;
+            }
+
+            // Update modal
+            document.getElementById('modalTitle').textContent = currentScenario.title;
+            document.getElementById('modalDescription').textContent = currentScenario.description;
+
+            // Build scenario content
+            let html = '';
+
+            // Protocol information
+            if (currentScenario.protocol) {
+                html += '<div class="protocol-section">';
+                html += '<h4>📋 Protocol Information</h4>';
+                
+                for (const [key, value] of Object.entries(currentScenario.protocol)) {
+                    if (Array.isArray(value)) {
+                        html += `<p><strong>${formatKey(key)}:</strong></p>`;
+                        html += '<ul class="protocol-list">';
+                        value.forEach(item => {
+                            html += `<li>${item}</li>`;
+                        });
+                        html += '</ul>';
+                    } else {
+                        html += `<p><strong>${formatKey(key)}:</strong> ${value}</p>`;
+                    }
+                }
+                
+                html += '</div>';
+            }
+
+            // Questions
+            currentScenario.questions.forEach((question, index) => {
+                html += `
+                    <div class="question-card">
+                        <h4>Question ${index + 1}: ${question.question}</h4>
+                        ${question.options.map((option, optIndex) => `
+                            <div class="option" onclick="selectOption('${question.id}', ${optIndex})">
+                                <input type="radio" name="${question.id}" value="${optIndex}" style="margin-right: 10px;">
+                                ${option}
+                            </div>
+                        `).join('')}
+                        <div class="explanation" id="explanation_${question.id}">
+                            <strong>Explanation:</strong> ${question.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('scenarioModal').classList.add('active');
+        }
+
+        // Select option
+        function selectOption(questionId, optionIndex) {
+            userAnswers[questionId] = optionIndex;
+            
+            // Update UI
+            const options = document.querySelectorAll(`input[name="${questionId}"]`);
+            options.forEach((opt, idx) => {
+                opt.checked = idx === optionIndex;
+                opt.parentElement.classList.toggle('selected', idx === optionIndex);
+            });
+        }
+
+        // Submit scenario
+        function submitScenario() {
+            if (Object.keys(userAnswers).length < currentScenario.questions.length) {
+                alert('Please answer all questions before submitting');
+                return;
+            }
+
+            const result = practiceScenarios.submitAttempt(currentScenario.id, userAnswers);
+
+            if (!result.success) {
+                alert(result.error);
+                return;
+            }
+
+            // Show results
+            showResults(result);
+        }
+
+        // Show results
+        function showResults(result) {
+            // Hide submit button
+            document.getElementById('submitBtn').style.display = 'none';
+
+            // Show explanations and mark answers
+            result.results.forEach(r => {
+                const explanation = document.getElementById(`explanation_${r.questionId}`);
+                if (explanation) {
+                    explanation.classList.add('show');
+                }
+
+                const options = document.querySelectorAll(`input[name="${r.questionId}"]`);
+                options.forEach((opt, idx) => {
+                    if (idx === r.correctAnswer) {
+                        opt.parentElement.classList.add('correct');
+                    } else if (idx === r.userAnswer && !r.isCorrect) {
+                        opt.parentElement.classList.add('incorrect');
+                    }
+                    opt.disabled = true;
+                });
+            });
+
+            // Show score modal
+            setTimeout(() => {
+                const scoreColor = result.score >= 80 ? '#10b981' : result.score >= 70 ? '#f59e0b' : '#ef4444';
+                const emoji = result.score >= 80 ? '🌟' : result.score >= 70 ? '👍' : '📚';
+                
+                alert(`${emoji} Score: ${result.score}%\n\n${result.feedback}\n\n💎 XP Earned: +${result.xpEarned}`);
+                
+                // Reload stats and scenarios
+                loadStats();
+                loadScenarios();
+            }, 500);
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('scenarioModal').classList.remove('active');
+            currentScenario = null;
+            userAnswers = {};
+        }
+
+        // Review attempts
+        function reviewAttempts(scenarioId) {
+            const attempts = practiceScenarios.getUserAttempts(scenarioId);
+            if (attempts.success && attempts.attempts.length > 0) {
+                let message = 'Your Attempts:\n\n';
+                attempts.attempts.forEach((attempt, index) => {
+                    message += `Attempt ${index + 1}: ${attempt.score}% (${attempt.passed ? 'Passed' : 'Failed'})\n`;
+                    message += `XP Earned: ${attempt.xpEarned}\n`;
+                    message += `Date: ${new Date(attempt.timestamp).toLocaleDateString()}\n\n`;
+                });
+                alert(message);
+            }
+        }
+
+        // Format key
+        function formatKey(key) {
+            return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        }
+
+        // Initialize
+        if (authSystem.isAuthenticated()) {
+            loadStats();
+            loadScenarios();
+        } else {
+            alert('Please login to access practice scenarios');
+            window.location.href = 'auth-ui.html';
+        }
+    </script>
+</body>
+</html>

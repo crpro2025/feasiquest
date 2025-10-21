@@ -1,0 +1,46 @@
+window.startAssessment = function() {
+    console.log('=== START ASSESSMENT FUNCTION CALLED ===');
+    
+    const welcomeSection = document.getElementById('welcome');
+    const assessmentSection = document.getElementById('assessment');
+    
+    console.log('Welcome section:', welcomeSection);
+    console.log('Assessment section:', assessmentSection);
+    
+    if (!welcomeSection) {
+        console.error('ERROR: Welcome section not found!');
+        alert('Error: Welcome section not found. Please refresh the page.');
+        return;
+    }
+    
+    if (!assessmentSection) {
+        console.error('ERROR: Assessment section not found!');
+        alert('Error: Assessment section not found. Please refresh the page.');
+        return;
+    }
+    
+    try {
+        // Hide welcome section
+        welcomeSection.style.display = 'none';
+        welcomeSection.classList.add('hidden');
+        console.log('Welcome section hidden');
+        
+        // Show assessment section
+        assessmentSection.style.display = 'block';
+        assessmentSection.classList.remove('hidden');
+        assessmentSection.classList.add('fade-in');
+        console.log('Assessment section shown');
+        
+        // Scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        console.log('Scrolled to top');
+        
+        console.log('=== ASSESSMENT STARTED SUCCESSFULLY ===');
+    } catch (error) {
+        console.error('ERROR in startAssessment:', error);
+        alert('An error occurred. Please refresh the page and try again.');
+    }
+}

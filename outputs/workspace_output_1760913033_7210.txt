@@ -1,0 +1,10 @@
+401:        <footer class="footer">
+403:                <div class="footer-content">
+404:                    <div class="footer-brand">
+405:                        <div class="footer-logo">
+409:                        <p class="footer-tagline">Master Clinical Trial Feasibility</p>
+411:                    <div class="footer-links">
+412:                        <div class="footer-column">
+418:                        <div class="footer-column">
+425:                <div class="footer-bottom">
+429:        </footer>

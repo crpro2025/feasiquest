@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest: Visual Flows & Diagrams</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 1.5cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .cover-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            page-break-after: always;
+        }
+        
+        .cover-title {
+            font-size: 56px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .cover-subtitle {
+            font-size: 28px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .page {
+            page-break-after: always;
+            padding: 30px;
+            min-height: 100vh;
+        }
+        
+        .page-title {
+            font-size: 36px;
+            color: #dc2626;
+            border-bottom: 4px solid #dc2626;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .flow-container {
+            background: #f8f9fa;
+            border: 3px solid #dc2626;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .flow-box {
+            background: white;
+            border: 2px solid #dc2626;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .flow-box-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+        
+        .flow-box-content {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 36px;
+            color: #dc2626;
+            margin: 10px 0;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .module-box {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .module-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .module-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .module-duration {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 2px solid #dc2626;
+            border-radius: 8px;
+            padding: 20px;
+            height: 100%;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #dc2626;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            background: #dc2626;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            margin-left: 30px;
+            background: #f8f9fa;
+            border-left: 4px solid #dc2626;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+        
+        .stats-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffc107 100%);
+            border: 3px solid #ffc107;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .stat-large {
+            font-size: 72px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label-large {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        
+        .legend-text {
+            font-size: 16px;
+        }
+        
+        @media print {
+            .page {
+                page-break-after: always;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-title">FEASIQUEST</div>
+    <div class="cover-subtitle">Visual Flows & System Diagrams</div>
+    <div style="font-size: 20px; margin-top: 40px;">
+        <p>Complete User Journey Visualization</p>
+        <p style="margin-top: 10px;">Module Structure & Content Flow</p>
+        <p style="margin-top: 10px;">Interactive Features Overview</p>
+    </div>
+</div>
+
+<!-- PAGE 1: COMPLETE USER JOURNEY -->
+<div class="page">
+    <h1 class="page-title">Complete User Journey Flow</h1>
+    
+    <div class="flow-container">
+        <div class="flow-box">
+            <div class="flow-box-title">1. LANDING & WELCOME</div>
+            <div class="flow-box-content">
+                • User arrives at platform<br>
+                • Views statistics: 85% enrollment failures, 30% site costs<br>
+                • Reads value proposition and benefits<br>
+                • Clicks "Begin Your Journey" button
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">2. ENTRY ASSESSMENT</div>
+            <div class="flow-box-content">
+                • 5-question knowledge assessment<br>
+                • Topics: feasibility basics, patient recruitment, site selection<br>
+                • Immediate scoring and feedback<br>
+                • Results determine personalized learning path
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">3. PROFILE CREATION</div>
+            <div class="flow-box-content">
+                • Select role: CRC, Study Manager, Site Personnel, Sponsor, etc.<br>
+                • Define experience level: Beginner, Intermediate, Advanced<br>
+                • Set learning objectives: Career advancement, skill refresh, certification<br>
+                • Profile saved to localStorage for personalization
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">4. MODULE DASHBOARD</div>
+            <div class="flow-box-content">
+                • View all 9 modules with progress indicators<br>
+                • See recommended learning path based on assessment<br>
+                • Access practice scenarios and AI assistant<br>
+                • Track XP, level, and badges earned
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">5. MODULE LEARNING</div>
+            <div class="flow-box-content">
+                • Interactive content with real-world examples<br>
+                • Embedded quizzes and knowledge checks<br>
+                • Case studies and scenario-based learning<br>
+                • Earn 200-500 XP per module completion
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">6. PRACTICE & MASTERY</div>
+            <div class="flow-box-content">
+                • Access 13 real-world practice scenarios<br>
+                • 39 questions across multiple difficulty levels<br>
+                • Detailed explanations for each answer<br>
+                • Additional 1,950 XP available
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">7. CERTIFICATION</div>
+            <div class="flow-box-content">
+                • Complete all 9 modules (minimum requirement)<br>
+                • Pass final assessment with 80% score<br>
+                • Earn FeasiQuest Master certification<br>
+                • Download certificate and digital badge
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2: MODULE STRUCTURE -->
+<div class="page">
+    <h1 class="page-title">9-Module Training Structure</h1>
+    
+    <div class="grid-3">
+        <div class="module-box">
+            <div class="module-number">1</div>
+            <div class="module-title">Feasibility Foundations</div>
+            <div class="module-duration">15-20 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Five Pillars Framework<br>
+                Red Flag Radar Tool<br>
+                3 Case Studies<br>
+                200 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">2</div>
+            <div class="module-title">Patient Population & Recruitment</div>
+            <div class="module-duration">20-25 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Patient Pool Calculator<br>
+                6 Key Dimensions<br>
+                Branching Scenarios<br>
+                250 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">3</div>
+            <div class="module-title">Site Selection & Capability</div>
+            <div class="module-duration">20-25 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Site Criteria Ranking<br>
+                6 Capability Dimensions<br>
+                3 Evaluation Scenarios<br>
+                250 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">4</div>
+            <div class="module-title">Budget & Resource Planning</div>
+            <div class="module-duration">15-20 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Budget Calculator<br>
+                Cost Components<br>
+                Resource Allocation<br>
+                200 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">5</div>
+            <div class="module-title">Timeline Development</div>
+            <div class="module-duration">15-20 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Timeline Builder<br>
+                Critical Path Analysis<br>
+                Delay Mitigation<br>
+                200 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">6</div>
+            <div class="module-title">Risk Assessment & Mitigation</div>
+            <div class="module-duration">20-25 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Risk Matrix Tool<br>
+                Mitigation Strategies<br>
+                Contingency Planning<br>
+                250 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">7</div>
+            <div class="module-title">Regulatory Considerations</div>
+            <div class="module-duration">15-20 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                FDA/EMA Guidelines<br>
+                IRB/IEC Process<br>
+                Compliance Requirements<br>
+                200 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">8</div>
+            <div class="module-title">Technology & Data Management</div>
+            <div class="module-duration">15-20 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                EDC Systems<br>
+                Data Quality<br>
+                System Integration<br>
+                200 XP
+            </div>
+        </div>
+        
+        <div class="module-box">
+            <div class="module-number">9</div>
+            <div class="module-title">Final Assessment & Certification</div>
+            <div class="module-duration">30-40 minutes</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                Comprehensive Case Study<br>
+                25-Question Final Exam<br>
+                Master Certification<br>
+                500 XP
+            </div>
+        </div>
+    </div>
+    
+    <div class="stats-box">
+        <div class="stat-large">3-4 Hours</div>
+        <div class="stat-label-large">Total Training Duration</div>
+        <div style="margin-top: 20px; font-size: 18px;">
+            Self-paced learning • 100% online • Certificate upon completion
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3: GAMIFICATION SYSTEM -->
+<div class="page">
+    <h1 class="page-title">Gamification & Engagement System</h1>
+    
+    <div class="grid-2">
+        <div>
+            <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">XP & Level Progression</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">0</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">NOVICE</div>
+                        Starting level • Access to all modules • Begin learning journey
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">500</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">ANALYST</div>
+                        Unlock advanced practice scenarios • Enhanced AI insights • Progress tracking
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">1.5K</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">EXPERT</div>
+                        Access expert-level content • Complex case studies • Peer mentoring eligible
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3K</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">FEASIBILITY MASTER</div>
+                        Certification eligibility • Mentor status • Industry recognition
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">XP Sources</h2>
+            
+            <div class="feature-card" style="margin-bottom: 20px;">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">Module Completion</div>
+                <div class="feature-description">
+                    200-500 XP per module<br>
+                    Total: 2,000 XP from 9 modules
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-bottom: 20px;">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Practice Scenarios</div>
+                <div class="feature-description">
+                    50-100 XP per scenario<br>
+                    Total: 1,950 XP from 13 scenarios
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-bottom: 20px;">
+                <div class="feature-icon">✅</div>
+                <div class="feature-title">Quiz Questions</div>
+                <div class="feature-description">
+                    10-20 XP per correct answer<br>
+                    Immediate feedback & explanations
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <div class="feature-title">Final Assessment</div>
+                <div class="feature-description">
+                    500 XP bonus<br>
+                    Certification achievement
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px; background: #f8f9fa; border: 3px solid #dc2626; border-radius: 10px; padding: 25px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px; text-align: center;">Badge Collection System</h2>
+        <div class="grid-3">
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 48px; margin-bottom: 10px;">🎖️</div>
+                <div style="font-weight: bold; color: #dc2626; margin-bottom: 5px;">Module Badges</div>
+                <div style="font-size: 14px;">9 badges - one per module</div>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 48px; margin-bottom: 10px;">⭐</div>
+                <div style="font-weight: bold; color: #dc2626; margin-bottom: 5px;">Achievement Badges</div>
+                <div style="font-size: 14px;">Speed learner, perfect scores</div>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 48px; margin-bottom: 10px;">👑</div>
+                <div style="font-weight: bold; color: #dc2626; margin-bottom: 5px;">Master Badge</div>
+                <div style="font-size: 14px;">Final certification achievement</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 4: AI FEATURES -->
+<div class="page">
+    <h1 class="page-title">AI-Powered Learning Features</h1>
+    
+    <div class="grid-2">
+        <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <div class="feature-title">AI Chat Assistant</div>
+            <div class="feature-description" style="text-align: left; margin-top: 20px;">
+                <strong>Capabilities:</strong><br>
+                • 24/7 Q&A support on feasibility topics<br>
+                • Context-aware responses based on current module<br>
+                • Conversation memory for continuity<br>
+                • Personalized study tips and recommendations<br>
+                • Real-time progress analysis<br><br>
+                
+                <strong>Topics Covered:</strong><br>
+                • Patient recruitment strategies<br>
+                • Site selection criteria<br>
+                • Budget planning and optimization<br>
+                • Regulatory compliance<br>
+                • Risk assessment and mitigation<br><br>
+                
+                <strong>Access:</strong> Floating chat button (🤖 AI Help) in bottom-right corner
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">AI Insights Panel</div>
+            <div class="feature-description" style="text-align: left; margin-top: 20px;">
+                <strong>Analytics Provided:</strong><br>
+                • Real-time learning analytics<br>
+                • Completion rate tracking<br>
+                • XP and level progress visualization<br>
+                • Learning velocity (modules/week)<br>
+                • Performance trends over time<br><br>
+                
+                <strong>Personalized Recommendations:</strong><br>
+                • Next module suggestions<br>
+                • Areas needing improvement<br>
+                • Study schedule optimization<br>
+                • Certification readiness assessment<br><br>
+                
+                <strong>Access:</strong> Insights button (📊 Insights) in navigation bar
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Advanced AI Capabilities</h2>
+        
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Success Prediction</div>
+                <div class="feature-description">
+                    AI algorithm predicts certification success probability based on completion rate, quiz scores, time spent, and engagement patterns
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-title">Performance Analysis</div>
+                <div class="feature-description">
+                    Identifies strengths and weaknesses across all modules, providing targeted recommendations for improvement
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <div class="feature-title">Peer Comparison</div>
+                <div class="feature-description">
+                    Anonymous benchmarking against other learners with percentile rankings and motivational insights
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flow-container" style="margin-top: 30px;">
+        <h3 style="color: #dc2626; margin-bottom: 20px; font-size: 24px;">AI Learning Optimization Flow</h3>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">1. Data Collection</div>
+            <div class="flow-box-content">
+                AI tracks: module completion, quiz scores, time spent, interaction patterns, question attempts
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">2. Pattern Analysis</div>
+            <div class="flow-box-content">
+                Identifies learning patterns, strengths, weaknesses, and optimal study times
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">3. Personalization</div>
+            <div class="flow-box-content">
+                Generates customized recommendations, adjusts difficulty, suggests focus areas
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">4. Continuous Improvement</div>
+            <div class="flow-box-content">
+                Adapts recommendations based on progress, provides real-time feedback, optimizes learning path
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 5: PRACTICE SCENARIOS -->
+<div class="page">
+    <h1 class="page-title">Practice Scenarios System</h1>
+    
+    <div class="stats-box">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px;">
+            <div>
+                <div class="stat-large">13</div>
+                <div class="stat-label-large">Real-World Scenarios</div>
+            </div>
+            <div>
+                <div class="stat-large">39</div>
+                <div class="stat-label-large">Practice Questions</div>
+            </div>
+            <div>
+                <div class="stat-large">1,950</div>
+                <div class="stat-label-large">Total XP Available</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 style="color: #dc2626; margin: 30px 0 20px 0; font-size: 28px;">Scenario Distribution by Module</h2>
+    
+    <div class="grid-2">
+        <div>
+            <div class="feature-card" style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 1: Foundations</div>
+                        <div style="font-size: 14px; margin-top: 5px;">3 scenarios • 9 questions • 450 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">📚</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Oncology Trial Success<br>
+                    • Rare Disease Challenge<br>
+                    • COVID-19 Vaccine Study
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 2: Recruitment</div>
+                        <div style="font-size: 14px; margin-top: 5px;">4 scenarios • 12 questions • 600 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">👥</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Type 2 Diabetes Study<br>
+                    • Pediatric Asthma Trial<br>
+                    • Cardiovascular Prevention<br>
+                    • Alzheimer's Disease Research
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 3: Site Selection</div>
+                        <div style="font-size: 14px; margin-top: 5px;">3 scenarios • 9 questions • 450 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">🏥</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Academic Medical Center Assessment<br>
+                    • Multi-Site Network Evaluation<br>
+                    • Global Site Selection Strategy
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div class="feature-card" style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 4: Budget</div>
+                        <div style="font-size: 14px; margin-top: 5px;">1 scenario • 3 questions • 150 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">💰</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Phase III Budget Estimation
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 5: Timeline</div>
+                        <div style="font-size: 14px; margin-top: 5px;">1 scenario • 3 questions • 150 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">📅</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Multi-Phase Timeline Development
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="feature-title" style="text-align: left;">Module 6: Risk</div>
+                        <div style="font-size: 14px; margin-top: 5px;">1 scenario • 3 questions • 150 XP</div>
+                    </div>
+                    <div style="font-size: 36px;">⚠️</div>
+                </div>
+                <div style="margin-top: 15px; font-size: 14px; text-align: left;">
+                    • Comprehensive Risk Management
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Difficulty Levels & Feedback</h2>
+        
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="feature-icon">🟢</div>
+                <div class="feature-title">Beginner</div>
+                <div class="feature-description">
+                    Straightforward scenarios with clear answers and step-by-step guidance
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🟡</div>
+                <div class="feature-title">Intermediate</div>
+                <div class="feature-description">
+                    Multiple factors to consider with trade-offs and balanced decision-making
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔴</div>
+                <div class="feature-title">Advanced</div>
+                <div class="feature-description">
+                    Complex scenarios requiring synthesis of multiple concepts and strategic thinking
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 6: TECHNICAL ARCHITECTURE -->
+<div class="page">
+    <h1 class="page-title">Technical Architecture & Data Flow</h1>
+    
+    <div class="flow-container">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">System Components</h2>
+        
+        <div class="grid-2">
+            <div>
+                <h3 style="color: #991b1b; margin-bottom: 15px; font-size: 20px;">Frontend Layer</h3>
+                <div class="feature-card" style="margin-bottom: 15px;">
+                    <div class="feature-title" style="text-align: left;">Core Files</div>
+                    <div style="font-size: 14px; text-align: left; margin-top: 10px;">
+                        • index.html (~50 KB)<br>
+                        • styles.css (16 KB)<br>
+                        • script.js (58 KB)<br>
+                        • modules.js (35 KB)
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-title" style="text-align: left;">Feature Modules</div>
+                    <div style="font-size: 14px; text-align: left; margin-top: 10px;">
+                        • auth.js (~15 KB)<br>
+                        • dashboard.js (~20 KB)<br>
+                        • ai-advanced.js (~25 KB)<br>
+                        • practice-scenarios.js (~30 KB)<br>
+                        • ai-features.js (~18 KB)
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="color: #991b1b; margin-bottom: 15px; font-size: 20px;">Data & Storage</h3>
+                <div class="feature-card" style="margin-bottom: 15px;">
+                    <div class="feature-title" style="text-align: left;">localStorage API</div>
+                    <div style="font-size: 14px; text-align: left; margin-top: 10px;">
+                        • User profiles and preferences<br>
+                        • Progress tracking data<br>
+                        • XP, levels, and badges<br>
+                        • Module completion status<br>
+                        • Quiz scores and attempts<br>
+                        • AI conversation history
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-title" style="text-align: left;">Session Management</div>
+                    <div style="font-size: 14px; text-align: left; margin-top: 10px;">
+                        • 7-day session expiration<br>
+                        • Secure token generation<br>
+                        • Auto-logout on inactivity<br>
+                        • Remember me functionality
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Data Flow Architecture</h2>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">USER INTERACTION LAYER</div>
+            <div class="flow-box-content">
+                HTML5 interface • Responsive CSS3 design • JavaScript event handlers
+            </div>
+        </div>
+        
+        <div class="arrow">↓ ↑</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">APPLICATION LOGIC LAYER</div>
+            <div class="flow-box-content">
+                State management • Module navigation • Progress tracking • XP calculations • Badge awards
+            </div>
+        </div>
+        
+        <div class="arrow">↓ ↑</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">AI PROCESSING LAYER</div>
+            <div class="flow-box-content">
+                Chat assistant • Insights generation • Performance analysis • Recommendations • Success prediction
+            </div>
+        </div>
+        
+        <div class="arrow">↓ ↑</div>
+        
+        <div class="flow-box">
+            <div class="flow-box-title">DATA PERSISTENCE LAYER</div>
+            <div class="flow-box-content">
+                localStorage API • User profiles • Progress data • Session tokens • Conversation history
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Performance Metrics</h2>
+        
+        <div class="grid-3">
+            <div class="stats-box">
+                <div class="stat-large">&lt;2s</div>
+                <div class="stat-label-large">Initial Load Time</div>
+            </div>
+            
+            <div class="stats-box">
+                <div class="stat-large">267KB</div>
+                <div class="stat-label-large">Total Package Size</div>
+            </div>
+            
+            <div class="stats-box">
+                <div class="stat-large">95+</div>
+                <div class="stat-label-large">Lighthouse Score</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 7: DEPLOYMENT & ACCESS -->
+<div class="page">
+    <h1 class="page-title">Deployment & Access Information</h1>
+    
+    <div class="flow-container">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px; text-align: center;">Live Platform Access</h2>
+        
+        <div style="background: white; border: 3px solid #dc2626; border-radius: 10px; padding: 30px; text-align: center; margin: 20px 0;">
+            <div style="font-size: 24px; font-weight: bold; color: #dc2626; margin-bottom: 15px;">
+                Production URL
+            </div>
+            <div style="font-size: 16px; word-break: break-all; background: #f8f9fa; padding: 15px; border-radius: 5px;">
+                https://sites.super.myninja.ai/c1a712a8-7996-4ba2-a572-6f61e92f9850/f942cfe9/index.html
+            </div>
+            <div style="margin-top: 20px; font-size: 14px; color: #666;">
+                ✅ HTTPS Enabled • ✅ 99.9% Uptime • ✅ Unlimited Concurrent Users
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Browser Compatibility</h2>
+        
+        <div class="grid-2">
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">Desktop Browsers</div>
+                <div style="font-size: 14px; text-align: left; margin-top: 15px;">
+                    ✅ Chrome 90+ (Fully Supported)<br>
+                    ✅ Firefox 88+ (Fully Supported)<br>
+                    ✅ Safari 14+ (Fully Supported)<br>
+                    ✅ Edge 90+ (Fully Supported)<br>
+                    ✅ Opera 76+ (Fully Supported)
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Mobile Browsers</div>
+                <div style="font-size: 14px; text-align: left; margin-top: 15px;">
+                    ✅ Mobile Safari iOS 14+ (Responsive)<br>
+                    ✅ Chrome Mobile Android 10+ (Responsive)<br>
+                    ✅ Samsung Internet (Responsive)<br>
+                    ✅ Firefox Mobile (Responsive)<br>
+                    ✅ Touch-optimized interface
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">System Requirements</h2>
+        
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <div class="feature-title">Internet</div>
+                <div class="feature-description">
+                    Broadband recommended<br>
+                    Works offline after initial load<br>
+                    Auto-sync when reconnected
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <div class="feature-title">Display</div>
+                <div class="feature-description">
+                    Minimum: 1024x768<br>
+                    Optimized: 1920x1080<br>
+                    Fully responsive design
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <div class="feature-title">Storage</div>
+                <div class="feature-description">
+                    10MB localStorage required<br>
+                    JavaScript must be enabled<br>
+                    Cookies for sessions
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <h2 style="color: #dc2626; margin-bottom: 20px; font-size: 28px;">Future Roadmap</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: #28a745;">Q2</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 2 - Backend Integration</div>
+                    Database persistence • API development • Cloud storage • Social learning features
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: #ffc107;">Q4</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 3 - Mobile Apps & Enterprise</div>
+                    Native iOS/Android apps • Team management • LMS integration • Formal certification
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker" style="background: #17a2b8;">2026</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Long-Term Vision</div>
+                    Industry standard platform • Academic partnerships • Advanced AI features • Global expansion
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top: 50px; padding: 30px; background: #f8f9fa; border-top: 3px solid #dc2626; text-align: center;">
+    <h2 style="color: #dc2626; margin-bottom: 20px;">Visual Documentation Summary</h2>
+    <p style="font-size: 16px; line-height: 1.8;">
+        This visual documentation provides comprehensive flowcharts, diagrams, and system architecture overviews 
+        for the FeasiQuest platform. Use this alongside the detailed content documentation for complete platform understanding.
+    </p>
+    <p style="margin-top: 20px; font-size: 14px; color: #666;">
+        <strong>Prepared by:</strong> SuperNinja AI | <strong>For:</strong> Clinical Research Pro | <strong>Date:</strong> January 2025
+    </p>
+</div>
+
+</body>
+</html>

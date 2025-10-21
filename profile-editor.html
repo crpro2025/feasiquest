@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - FeasiQuest</title>
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="stylesheet" href="profile-editor-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1>🎯 FeasiQuest</h1>
+        </div>
+        <div class="nav-center">
+            <h2>Edit Profile</h2>
+        </div>
+        <div class="nav-right">
+            <button onclick="window.location.href='app.html'" class="btn-secondary">← Back to Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="profile-editor-container">
+        <!-- Sidebar Navigation -->
+        <div class="editor-sidebar">
+            <div class="profile-preview">
+                <div class="profile-photo-container">
+                    <img src="https://via.placeholder.com/120" alt="Profile Photo" id="profilePhotoPreview">
+                    <button class="change-photo-btn" onclick="document.getElementById('photoUpload').click()">
+                        📷 Change Photo
+                    </button>
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this)">
+                </div>
+                <h3 id="previewName">John Doe</h3>
+                <p id="previewOrg">Organization Name</p>
+            </div>
+
+            <div class="editor-nav">
+                <a href="#basic" class="nav-item active" onclick="showEditorSection('basic')">
+                    <span class="icon">👤</span>
+                    <span>Basic Information</span>
+                </a>
+                <a href="#contact" class="nav-item" onclick="showEditorSection('contact')">
+                    <span class="icon">📧</span>
+                    <span>Contact Details</span>
+                </a>
+                <a href="#organization" class="nav-item" onclick="showEditorSection('organization')" id="navOrganization">
+                    <span class="icon">🏢</span>
+                    <span>Organization</span>
+                </a>
+                <a href="#capabilities" class="nav-item" onclick="showEditorSection('capabilities')" id="navCapabilities" style="display: none;">
+                    <span class="icon">🎯</span>
+                    <span>Capabilities</span>
+                </a>
+                <a href="#team" class="nav-item" onclick="showEditorSection('team')" id="navTeam" style="display: none;">
+                    <span class="icon">👥</span>
+                    <span>Team Members</span>
+                </a>
+                <a href="#preferences" class="nav-item" onclick="showEditorSection('preferences')">
+                    <span class="icon">⚙️</span>
+                    <span>Preferences</span>
+                </a>
+                <a href="#security" class="nav-item" onclick="showEditorSection('security')">
+                    <span class="icon">🔒</span>
+                    <span>Security</span>
+                </a>
+            </div>
+
+            <div class="editor-actions">
+                <button class="btn-primary" onclick="saveProfile()">💾 Save Changes</button>
+                <button class="btn-secondary" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Main Editor Area -->
+        <div class="editor-content">
+            <!-- Basic Information Section -->
+            <section id="basic" class="editor-section active">
+                <h2>Basic Information</h2>
+                <p class="section-description">Update your personal information</p>
+
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="lastName" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Professional Title *</label>
+                        <input type="text" id="title" placeholder="e.g., Clinical Research Coordinator, Study Director">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea id="bio" rows="4" placeholder="Tell us about yourself and your experience..."></textarea>
+                        <small>This will be visible on your public profile</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Years of Experience</label>
+                            <select id="experience">
+                                <option value="">Select...</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="11-15">11-15 years</option>
+                                <option value="16-20">16-20 years</option>
+                                <option value="20+">20+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn Profile</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Certifications</label>
+                        <div class="tags-input-container">
+                            <div class="tags-display" id="certificationsDisplay"></div>
+                            <input type="text" id="certificationInput" placeholder="Add certification (press Enter)" onkeypress="addTag(event, 'certifications')">
+                        </div>
+                        <small>e.g., CCRC, ACRP, GCP, SOCRA</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Languages</label>
+                        <div class="tags-input-container">
+                            <div class="tags-display" id="languagesDisplay"></div>
+                            <input type="text" id="languageInput" placeholder="Add language (press Enter)" onkeypress="addTag(event, 'languages')">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Details Section -->
+            <section id="contact" class="editor-section">
+                <h2>Contact Details</h2>
+                <p class="section-description">How others can reach you</p>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                        <small>This is your login email</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="tel" id="mobile" placeholder="+1 (555) 987-6543">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Time Zone</label>
+                        <select id="timezone">
+                            <option value="">Select timezone...</option>
+                            <option value="EST">Eastern Time (EST)</option>
+                            <option value="CST">Central Time (CST)</option>
+                            <option value="MST">Mountain Time (MST)</option>
+                            <option value="PST">Pacific Time (PST)</option>
+                            <option value="GMT">GMT</option>
+                            <option value="CET">Central European Time</option>
+                            <option value="JST">Japan Standard Time</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Contact Method</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="contactMethod" value="email" checked> Email</label>
+                            <label><input type="radio" name="contactMethod" value="phone"> Phone</label>
+                            <label><input type="radio" name="contactMethod" value="both"> Both</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Availability</label>
+                        <textarea id="availability" rows="3" placeholder="e.g., Monday-Friday 9am-5pm EST, Available for urgent matters on weekends"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organization Section -->
+            <section id="organization" class="editor-section">
+                <h2>Organization Information</h2>
+                <p class="section-description">Details about your organization</p>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Organization Name *</label>
+                        <input type="text" id="orgName" placeholder="Your Organization" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Organization Type</label>
+                        <select id="orgType">
+                            <option value="">Select type...</option>
+                            <option value="site">Research Site</option>
+                            <option value="sponsor">Pharmaceutical Sponsor</option>
+                            <option value="cro">Contract Research Organization</option>
+                            <option value="academic">Academic Institution</option>
+                            <option value="hospital">Hospital/Medical Center</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="url" id="website" placeholder="https://yourorganization.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="address" placeholder="Street Address">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="city" placeholder="City">
+                        </div>
+                        <div class="form-group">
+                            <label>State/Province</label>
+                            <input type="text" id="state" placeholder="State">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ZIP/Postal Code</label>
+                            <input type="text" id="zip" placeholder="12345">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select id="country">
+                                <option value="">Select country...</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="JP">Japan</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Organization Description</label>
+                        <textarea id="orgDescription" rows="5" placeholder="Describe your organization, its mission, and capabilities..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Capabilities Section (Sites Only) -->
+            <section id="capabilities" class="editor-section">
+                <h2>Site Capabilities</h2>
+                <p class="section-description">Define your research capabilities</p>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Therapeutic Areas</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" value="oncology"> Oncology</label>
+                            <label><input type="checkbox" value="cardiology"> Cardiology</label>
+                            <label><input type="checkbox" value="neurology"> Neurology</label>
+                            <label><input type="checkbox" value="diabetes"> Diabetes</label>
+                            <label><input type="checkbox" value="respiratory"> Respiratory</label>
+                            <label><input type="checkbox" value="immunology"> Immunology</label>
+                            <label><input type="checkbox" value="infectious"> Infectious Diseases</label>
+                            <label><input type="checkbox" value="rare"> Rare Diseases</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Phases</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" value="phase1"> Phase I</label>
+                            <label><input type="checkbox" value="phase2"> Phase II</label>
+                            <label><input type="checkbox" value="phase3"> Phase III</label>
+                            <label><input type="checkbox" value="phase4"> Phase IV</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Beds</label>
+                            <input type="number" id="totalBeds" placeholder="e.g., 450">
+                        </div>
+                        <div class="form-group">
+                            <label>Research Staff</label>
+                            <input type="number" id="researchStaff" placeholder="e.g., 25">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Active Studies</label>
+                            <input type="number" id="activeStudies" placeholder="e.g., 12">
+                        </div>
+                        <div class="form-group">
+                            <label>Enrollment Capacity</label>
+                            <input type="number" id="enrollmentCapacity" placeholder="e.g., 500">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="editFullProfile">
+                            Edit full site profile (opens site registration)
+                        </label>
+                        <small>For comprehensive profile editing including equipment, facilities, and media</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Members Section (Sites Only) -->
+            <section id="team" class="editor-section">
+                <h2>Team Members</h2>
+                <p class="section-description">Manage your research team</p>
+
+                <div class="form-section">
+                    <div class="team-list" id="teamList">
+                        <!-- Team members will be added here -->
+                    </div>
+
+                    <button class="btn-secondary" onclick="addTeamMember()">+ Add Team Member</button>
+                </div>
+            </section>
+
+            <!-- Preferences Section -->
+            <section id="preferences" class="editor-section">
+                <h2>Preferences</h2>
+                <p class="section-description">Customize your experience</p>
+
+                <div class="form-section">
+                    <h3>Notifications</h3>
+                    <div class="preference-group">
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Email Notifications</strong>
+                                <p>Receive email updates about your account activity</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>New Questionnaires</strong>
+                                <p>Get notified when you receive new questionnaires</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="questionnaireNotifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Study Opportunities</strong>
+                                <p>Receive alerts about relevant study opportunities</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="studyAlerts" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Messages</strong>
+                                <p>Get notified about new messages</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="messageNotifications" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Weekly Summary</strong>
+                                <p>Receive a weekly summary of your activity</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="weeklySummary">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <h3>Display</h3>
+                    <div class="preference-group">
+                        <div class="form-group">
+                            <label>Theme</label>
+                            <select id="theme">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                                <option value="auto">Auto (System)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Language</label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                                <option value="ja">Japanese</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date Format</label>
+                            <select id="dateFormat">
+                                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3>Privacy</h3>
+                    <div class="preference-group">
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Profile Visibility</strong>
+                                <p>Make your profile visible to other users</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="profileVisibility" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Show Email</strong>
+                                <p>Display your email on your public profile</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="showEmail">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="preference-item">
+                            <div class="preference-info">
+                                <strong>Show Phone</strong>
+                                <p>Display your phone number on your public profile</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="showPhone">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security" class="editor-section">
+                <h2>Security</h2>
+                <p class="section-description">Manage your account security</p>
+
+                <div class="form-section">
+                    <h3>Change Password</h3>
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Enter current password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter new password">
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                    </div>
+
+                    <button class="btn-primary" onclick="changePassword()">Update Password</button>
+
+                    <h3 style="margin-top: 40px;">Two-Factor Authentication</h3>
+                    <div class="preference-item">
+                        <div class="preference-info">
+                            <strong>Enable 2FA</strong>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twoFactorAuth">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">Active Sessions</h3>
+                    <div class="sessions-list">
+                        <div class="session-item">
+                            <div class="session-info">
+                                <strong>Current Session</strong>
+                                <p>Chrome on Windows • Boston, MA</p>
+                                <small>Active now</small>
+                            </div>
+                            <span class="session-badge current">Current</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">Danger Zone</h3>
+                    <div class="danger-zone">
+                        <button class="btn-danger" onclick="deactivateAccount()">Deactivate Account</button>
+                        <button class="btn-danger" onclick="deleteAccount()">Delete Account</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="profile-editor.js"></script>
+</body>
+</html>

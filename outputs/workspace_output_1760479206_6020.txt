@@ -1,0 +1,2 @@
+412:                        <button onclick="goToModule(${data.insights.nextModule.id})">Start Module</button>
+516:        function goToModule(moduleId) {

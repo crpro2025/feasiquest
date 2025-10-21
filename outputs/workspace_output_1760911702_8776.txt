@@ -1,0 +1,50 @@
+                        <div class="impact-stat">85%</div>
+                        <div class="impact-label">of trials fail to meet enrollment timelines</div>
+                        <div class="impact-description">Poor feasibility assessment is the #1 cause</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">💰</div>
+                        <div class="impact-stat">$2.6B</div>
+                        <div class="impact-label">average cost to bring a drug to market</div>
+                        <div class="impact-description">Feasibility errors cost millions</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🎯</div>
+                        <div class="impact-stat">30%</div>
+                        <div class="impact-label">of trial costs are site-related</div>
+                        <div class="impact-description">Proper site selection is critical</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Cutting-Edge Learning Experience</h2>
+                    <p class="section-subtitle">Advanced features designed for maximum impact</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🤖</div>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Assistant</h3>
+                        <p class="feature-description">24/7 intelligent support with conversation memory, personalized recommendations, and predictive analytics</p>
+                        <ul class="feature-list">
+                            <li>Real-time Q&A support</li>
+                            <li>Performance analysis</li>
+                            <li>Success prediction</li>
+                            <li>Adaptive learning paths</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon-wrapper">
+                            <div class="feature-icon">🎮</div>
+                        </div>
+                        <h3 class="feature-title">Gamified Learning</h3>
+                        <p class="feature-description">Earn XP, unlock achievements, and compete on leaderboards while mastering critical skills</p>
+                        <ul class="feature-list">

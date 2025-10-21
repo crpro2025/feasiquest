@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Profile - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="global-navigation.css">
+    <link rel="stylesheet" href="enhanced-profiles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Global Header -->
+    <header class="global-header">
+        <div class="global-header-container">
+            <a href="homepage-futuristic.html" class="global-logo">
+                <div>
+                    <div class="logo-text-main">FeasiQuest</div>
+                    <div class="logo-text-sub">by Clinical Research Pro</div>
+                </div>
+            </a>
+            <nav class="global-nav">
+                <a href="app.html">Dashboard</a>
+                <a href="#" class="active">Sites</a>
+                <a href="#">Studies</a>
+                <a href="#">Messages</a>
+                <a href="help-center.html">Help</a>
+            </nav>
+            <div class="user-menu">
+                <div class="user-menu-trigger">
+                    <div class="user-avatar">
+                        <img src="user-avatar.jpg" alt="User" onerror="this.style.display='none'; this.parentElement.textContent='JD'">
+                    </div>
+                    <span>John Doe</span>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header-section">
+            <div class="profile-cover-photo">
+                <button class="edit-cover-btn" onclick="uploadCoverPhoto()">
+                    📷 Change Cover Photo
+                </button>
+            </div>
+            <div class="profile-header-content">
+                <div class="profile-main-info">
+                    <div class="profile-photo-container">
+                        <div class="profile-photo">
+                            <img src="site-logo.jpg" alt="Site Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>🏥</div>'">
+                        </div>
+                        <button class="edit-photo-btn" onclick="uploadProfilePhoto()">
+                            📷
+                        </button>
+                    </div>
+                    <div class="profile-title-section">
+                        <h1>Johns Hopkins Medical Center</h1>
+                        <p class="profile-location">📍 Baltimore, Maryland, USA</p>
+                        <div class="profile-quick-stats">
+                            <span class="stat-badge">⭐ 4.8 Rating</span>
+                            <span class="stat-badge">✓ GCP Certified</span>
+                            <span class="stat-badge">🏆 Top Performer</span>
+                            <span class="stat-badge">🌟 Premium Member</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-action btn-primary" onclick="sendMessage()">
+                        💬 Send Message
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="sendQuestionnaire()">
+                        📋 Send Questionnaire
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="shareProfile()">
+                        📤 Share Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Navigation Tabs -->
+        <div class="profile-tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('capabilities')">Capabilities</button>
+            <button class="tab-btn" onclick="showTab('experience')">Experience</button>
+            <button class="tab-btn" onclick="showTab('team')">Team</button>
+            <button class="tab-btn" onclick="showTab('facilities')">Facilities</button>
+            <button class="tab-btn" onclick="showTab('patients')">Patient Database</button>
+            <button class="tab-btn" onclick="showTab('media')">Photos & Videos</button>
+            <button class="tab-btn" onclick="showTab('documents')">Documents</button>
+            <button class="tab-btn" onclick="showTab('reviews')">Reviews</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="profile-content">
+            <!-- Overview Tab -->
+            <div id="overview-tab" class="tab-content active">
+                <div class="content-grid">
+                    <!-- About Section -->
+                    <div class="content-card">
+                        <h2>About This Site</h2>
+                        <p class="site-description">
+                            Johns Hopkins Medical Center is a world-renowned academic medical center with over 100 years 
+                            of excellence in clinical research. We specialize in oncology, cardiology, and neurology trials 
+                            with state-of-the-art facilities and a dedicated research team of 50+ professionals.
+                        </p>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Established</span>
+                                <span class="info-value">1889</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Type</span>
+                                <span class="info-value">Academic Medical Center</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Beds</span>
+                                <span class="info-value">1,154</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Research Staff</span>
+                                <span class="info-value">50+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="content-card">
+                        <h2>Key Performance Metrics</h2>
+                        <div class="metrics-grid">
+                            <div class="metric-box">
+                                <div class="metric-icon">👥</div>
+                                <div class="metric-value">3,500</div>
+                                <div class="metric-label">Patient Database</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon">📊</div>
+                                <div class="metric-value">85</div>
+                                <div class="metric-label">Completed Studies</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon">📈</div>
+                                <div class="metric-value">92%</div>
+                                <div class="metric-label">Enrollment Rate</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon">⭐</div>
+                                <div class="metric-value">4.8</div>
+                                <div class="metric-label">Average Rating</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="content-card">
+                        <h2>Contact Information</h2>
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <div>
+                                    <div class="contact-label">Email</div>
+                                    <div class="contact-value">research@jhmi.edu</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <div>
+                                    <div class="contact-label">Phone</div>
+                                    <div class="contact-value">+1 (410) 955-5000</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🌐</span>
+                                <div>
+                                    <div class="contact-label">Website</div>
+                                    <div class="contact-value">www.hopkinsmedicine.org</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <div>
+                                    <div class="contact-label">Address</div>
+                                    <div class="contact-value">1800 Orleans St, Baltimore, MD 21287</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="content-card">
+                        <h2>Certifications & Accreditations</h2>
+                        <div class="cert-grid">
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">GCP Certified</div>
+                                <div class="cert-date">Valid until 2026</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">ACRP Certified</div>
+                                <div class="cert-date">Valid until 2025</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">CITI Trained</div>
+                                <div class="cert-date">Valid until 2026</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">ISO 9001</div>
+                                <div class="cert-date">Valid until 2025</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">CAP Accredited</div>
+                                <div class="cert-date">Valid until 2026</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">✓</div>
+                                <div class="cert-name">CLIA Certified</div>
+                                <div class="cert-date">Valid until 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capabilities Tab -->
+            <div id="capabilities-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Therapeutic Areas</h2>
+                    <div class="capabilities-grid">
+                        <div class="capability-item active">
+                            <div class="capability-icon">🎗️</div>
+                            <div class="capability-name">Oncology</div>
+                            <div class="capability-experience">15+ years</div>
+                            <div class="capability-studies">45 studies</div>
+                        </div>
+                        <div class="capability-item active">
+                            <div class="capability-icon">❤️</div>
+                            <div class="capability-name">Cardiology</div>
+                            <div class="capability-experience">20+ years</div>
+                            <div class="capability-studies">38 studies</div>
+                        </div>
+                        <div class="capability-item active">
+                            <div class="capability-icon">🧠</div>
+                            <div class="capability-name">Neurology</div>
+                            <div class="capability-experience">18+ years</div>
+                            <div class="capability-studies">32 studies</div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">💉</div>
+                            <div class="capability-name">Diabetes</div>
+                            <div class="capability-experience">12+ years</div>
+                            <div class="capability-studies">28 studies</div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">🫁</div>
+                            <div class="capability-name">Respiratory</div>
+                            <div class="capability-experience">10+ years</div>
+                            <div class="capability-studies">22 studies</div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-icon">🦴</div>
+                            <div class="capability-name">Rheumatology</div>
+                            <div class="capability-experience">8+ years</div>
+                            <div class="capability-studies">15 studies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>Equipment & Facilities</h2>
+                    <div class="equipment-list">
+                        <div class="equipment-category">
+                            <h3>Imaging</h3>
+                            <div class="equipment-items">
+                                <span class="equipment-tag">✓ MRI (3T)</span>
+                                <span class="equipment-tag">✓ CT Scanner</span>
+                                <span class="equipment-tag">✓ PET/CT</span>
+                                <span class="equipment-tag">✓ Ultrasound</span>
+                                <span class="equipment-tag">✓ X-Ray</span>
+                            </div>
+                        </div>
+                        <div class="equipment-category">
+                            <h3>Laboratory</h3>
+                            <div class="equipment-items">
+                                <span class="equipment-tag">✓ Clinical Lab</span>
+                                <span class="equipment-tag">✓ Molecular Lab</span>
+                                <span class="equipment-tag">✓ Pathology Lab</span>
+                                <span class="equipment-tag">✓ Biomarker Lab</span>
+                                <span class="equipment-tag">✓ Genomics Lab</span>
+                            </div>
+                        </div>
+                        <div class="equipment-category">
+                            <h3>Clinical</h3>
+                            <div class="equipment-items">
+                                <span class="equipment-tag">✓ ECG</span>
+                                <span class="equipment-tag">✓ Holter Monitor</span>
+                                <span class="equipment-tag">✓ Spirometry</span>
+                                <span class="equipment-tag">✓ DEXA Scan</span>
+                                <span class="equipment-tag">✓ Infusion Center</span>
+                            </div>
+                        </div>
+                        <div class="equipment-category">
+                            <h3>Support</h3>
+                            <div class="equipment-items">
+                                <span class="equipment-tag">✓ Pharmacy</span>
+                                <span class="equipment-tag">✓ Cold Storage</span>
+                                <span class="equipment-tag">✓ Specimen Processing</span>
+                                <span class="equipment-tag">✓ Data Management</span>
+                                <span class="equipment-tag">✓ Regulatory Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other tabs will be similar structure -->
+            <div id="experience-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Study Experience</h2>
+                    <p>Content for experience tab...</p>
+                </div>
+            </div>
+
+            <div id="team-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Research Team</h2>
+                    <p>Content for team tab...</p>
+                </div>
+            </div>
+
+            <div id="facilities-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Facilities & Infrastructure</h2>
+                    <p>Content for facilities tab...</p>
+                </div>
+            </div>
+
+            <div id="patients-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Patient Database</h2>
+                    <p>Content for patient database tab...</p>
+                </div>
+            </div>
+
+            <div id="media-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Photos & Videos</h2>
+                    <div class="media-grid">
+                        <div class="media-item">
+                            <img src="facility1.jpg" alt="Facility" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%23334155\' width=\'400\' height=\'300\'/%3E%3Ctext fill=\'%23fff\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' font-size=\'24\'%3EFacility Photo%3C/text%3E%3C/svg%3E'">
+                            <div class="media-overlay">
+                                <button onclick="viewMedia(1)">👁️ View</button>
+                            </div>
+                        </div>
+                        <!-- More media items -->
+                    </div>
+                    <button class="btn-action btn-primary" onclick="uploadMedia()">
+                        📷 Upload Photos/Videos
+                    </button>
+                </div>
+            </div>
+
+            <div id="documents-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Documents & Credentials</h2>
+                    <div class="documents-list">
+                        <div class="document-item">
+                            <div class="doc-icon">📄</div>
+                            <div class="doc-info">
+                                <div class="doc-name">GCP Certificate</div>
+                                <div class="doc-meta">PDF • 2.3 MB • Uploaded Jan 15, 2025</div>
+                            </div>
+                            <button class="btn-doc-download">⬇️ Download</button>
+                        </div>
+                        <!-- More documents -->
+                    </div>
+                    <button class="btn-action btn-primary" onclick="uploadDocument()">
+                        📄 Upload Document
+                    </button>
+                </div>
+            </div>
+
+            <div id="reviews-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>Sponsor Reviews</h2>
+                    <div class="reviews-summary">
+                        <div class="rating-overview">
+                            <div class="rating-score">4.8</div>
+                            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                            <div class="rating-count">Based on 24 reviews</div>
+                        </div>
+                    </div>
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Pfizer Inc.</div>
+                                    <div class="review-date">January 10, 2025</div>
+                                </div>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <p class="review-text">
+                                Excellent site with professional staff and outstanding patient recruitment. 
+                                Exceeded enrollment targets by 20% ahead of schedule.
+                            </p>
+                        </div>
+                        <!-- More reviews -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="global-footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-text">
+                    <h3>FeasiQuest</h3>
+                    <p class="footer-tagline">by Clinical Research Pro</p>
+                </div>
+                <p class="footer-description">AI-powered clinical trial feasibility assessment platform connecting research sites with sponsors.</p>
+                <div class="footer-badges">
+                    <span>🔒 HIPAA</span>
+                    <span>✓ SOC 2</span>
+                    <span>📋 FDA</span>
+                    <span>🌍 GDPR</span>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="help-center.html">Help Center</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Compliance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="crpro-logo">
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="enhanced-profiles.js"></script>
+</body>
+</html>

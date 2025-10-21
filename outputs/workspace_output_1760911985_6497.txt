@@ -1,0 +1,42 @@
+window.skipToModules = function() {
+    console.log('=== SKIP TO MODULES FUNCTION CALLED ===');
+    
+    try {
+        // Set default profile if skipping assessment
+        if (!appState.userProfile.role) {
+            appState.userProfile.role = 'pm';
+            appState.userProfile.experience = 'intermediate';
+            appState.userProfile.objective = 'assessment';
+        }
+        
+        const welcomeSection = document.getElementById('welcome');
+        const assessmentSection = document.getElementById('assessment');
+        const dashboardSection = document.getElementById('dashboard');
+        
+        if (welcomeSection) {
+            welcomeSection.style.display = 'none';
+            welcomeSection.classList.add('hidden');
+        }
+        
+        if (assessmentSection) {
+            assessmentSection.style.display = 'none';
+            assessmentSection.classList.add('hidden');
+        }
+        
+        if (dashboardSection) {
+            dashboardSection.style.display = 'block';
+            dashboardSection.classList.remove('hidden');
+            dashboardSection.classList.add('fade-in');
+        }
+        
+        // Scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
+        saveUserProgress();
+        console.log('=== MODULES DASHBOARD SHOWN SUCCESSFULLY ===');
+    } catch (error) {
+        console.error('ERROR in skipToModules:', error);
+        alert('An error occurred. Please refresh the page and try again.');

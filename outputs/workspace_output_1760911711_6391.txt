@@ -1,0 +1,40 @@
+    <div class="page-wrapper">
+        <!-- Animated Background -->
+        <div class="animated-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">FEASIQUEST</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#modules" class="nav-link">Modules</a>
+                    <a href="#ai" class="nav-link">AI Assistant</a>
+                    <button class="nav-cta" id="navStartBtn">Launch Training</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="welcome">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Next-Generation Clinical Research Training</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Master Clinical Trial
+                    <span class="gradient-text">Feasibility Assessment</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Transform your career with AI-powered, interactive training designed for the future of clinical research. 

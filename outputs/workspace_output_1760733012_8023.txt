@@ -1,0 +1,11 @@
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">of trial costs are site-related</div>
+                    </div>
+                </div>
+
+                <button class="cta-button" id="beginJourneyBtn">Begin Your Journey</button>
+            </div>
+        </section>
+
+        <!-- Entry Assessment -->
+        <section class="assessment-section hidden" id="assessment">

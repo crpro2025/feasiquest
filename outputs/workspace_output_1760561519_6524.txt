@@ -1,0 +1,18 @@
+window.startAssessment = function() {
+    console.log('startAssessment called');
+    const welcomeSection = document.getElementById('welcome');
+    const assessmentSection = document.getElementById('assessment');
+    
+    if (welcomeSection &amp;&amp; assessmentSection) {
+        welcomeSection.classList.add('hidden');
+        assessmentSection.classList.remove('hidden');
+        assessmentSection.classList.add('fade-in');
+        console.log('Assessment section shown');
+    } else {
+        console.error('Sections not found:', {welcomeSection, assessmentSection});
+    }
+}
+
+// Skip directly to modules (for quick access)
+function skipToModules() {
+    // Set default profile if skipping assessment

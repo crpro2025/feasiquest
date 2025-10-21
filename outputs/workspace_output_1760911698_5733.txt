@@ -1,0 +1,6 @@
+<body>
+    <div class="page-wrapper">
+        <!-- Animated Background -->
+        <div class="animated-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>

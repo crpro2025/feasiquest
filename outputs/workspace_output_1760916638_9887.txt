@@ -1,0 +1,37 @@
+                    <div class="module-card" data-module="1">
+                        <div class="module-number">01</div>
+                        <h3 class="module-title">Feasibility Foundations</h3>
+                        <p class="module-description">Five Pillars framework, Red Flag Radar, case studies</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+--
+                    <div class="module-card" data-module="2">
+                        <div class="module-number">02</div>
+                        <h3 class="module-title">Patient Population & Recruitment</h3>
+                        <p class="module-description">Pool calculator, criteria optimization, engagement strategies</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 20-25 min</span>
+--
+                    <div class="module-card" data-module="3">
+                        <div class="module-number">03</div>
+                        <h3 class="module-title">Site Selection & Capability</h3>
+                        <p class="module-description">Criteria ranking, capability assessment, evaluation scenarios</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 20-25 min</span>
+--
+                    <div class="module-card" data-module="4">
+                        <div class="module-number">04</div>
+                        <h3 class="module-title">Budget & Resource Planning</h3>
+                        <p class="module-description">Cost analysis, resource allocation, contingency planning</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+--
+                    <div class="module-card" data-module="5">
+                        <div class="module-number">05</div>
+                        <h3 class="module-title">Timeline Development</h3>
+                        <p class="module-description">Critical path analysis, milestone planning, delay mitigation</p>
+                        <div class="module-meta">
+                            <span class="module-duration">⏱️ 15-20 min</span>
+--
+                    <div class="module-card" data-module="6">
+                        <div class="module-number">06</div>

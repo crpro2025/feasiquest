@@ -1,0 +1,19 @@
+                <h1 class="hero-title">
+                    Master Clinical Trial
+                    <span class="gradient-text">Feasibility Assessment</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Transform your career with AI-powered, interactive training designed for the future of clinical research. 
+                    Join thousands of professionals mastering feasibility assessment through cutting-edge technology.
+                </p>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-value" data-target="10000">0</div>
+                        <div class="stat-label">Professionals Trained</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-target="95">0</div>

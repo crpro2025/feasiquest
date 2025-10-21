@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Site Recommender - FeasiQuest</title>
+    <link rel="stylesheet" href="homepage-futuristic.css">
+    <link rel="stylesheet" href="ai-features.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">FeasiQuest</span>
+                <span class="nav-subtitle">by Clinical Research Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="homepage-futuristic.html">Home</a>
+                <a href="app.html">Dashboard</a>
+                <a href="#" class="active">Site Recommender</a>
+                <a href="app.html" class="btn-login">Back to App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="ai-feature-container">
+        <div class="feature-header">
+            <div class="feature-badge">
+                <span class="badge-icon">🎯</span>
+                <span>ML-Powered Matching</span>
+            </div>
+            <h1 class="feature-title">Intelligent Site Recommender</h1>
+            <p class="feature-description">
+                Advanced machine learning algorithm that analyzes 100+ criteria to recommend optimal research sites 
+                with 95%+ accuracy. Get instant matches based on therapeutic expertise, patient database, 
+                performance history, and real-time availability.
+            </p>
+        </div>
+
+        <div class="feature-content">
+            <!-- Search Criteria -->
+            <div class="section-card">
+                <h2>Study Requirements</h2>
+                <form id="siteSearchForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Study Name</label>
+                            <input type="text" id="studyName" value="Phase III Diabetes Trial" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Therapeutic Area</label>
+                            <select id="therapeuticArea" required>
+                                <option value="diabetes" selected>Diabetes / Endocrinology</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="respiratory">Respiratory</option>
+                                <option value="rare-disease">Rare Disease</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Target Enrollment</label>
+                            <input type="number" id="targetEnrollment" value="500" min="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Desired Number of Sites</label>
+                            <input type="number" id="desiredSites" value="25" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Geographic Regions</label>
+                            <select id="regions" multiple required>
+                                <option value="north-america" selected>North America</option>
+                                <option value="europe" selected>Europe</option>
+                                <option value="asia">Asia Pacific</option>
+                                <option value="latin-america">Latin America</option>
+                                <option value="middle-east">Middle East</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Phase</label>
+                            <select id="phase" required>
+                                <option value="1">Phase I</option>
+                                <option value="2">Phase II</option>
+                                <option value="3" selected>Phase III</option>
+                                <option value="4">Phase IV</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Minimum Patient Database Size</label>
+                            <input type="number" id="minPatients" value="1000" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Required Certifications</label>
+                            <select id="certifications" multiple>
+                                <option value="gcp" selected>GCP Certified</option>
+                                <option value="acrp">ACRP Certified</option>
+                                <option value="citi">CITI Trained</option>
+                                <option value="iso">ISO Certified</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Equipment Requirements</label>
+                            <select id="equipment" multiple>
+                                <option value="ecg" selected>ECG</option>
+                                <option value="lab">On-site Laboratory</option>
+                                <option value="imaging">Imaging Facilities</option>
+                                <option value="pharmacy">Pharmacy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Minimum Performance Score</label>
+                            <input type="number" id="minScore" value="80" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Budget per Site (USD)</label>
+                            <input type="number" id="budgetPerSite" value="150000" min="10000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Start Timeline</label>
+                            <select id="timeline" required>
+                                <option value="immediate">Immediate (< 1 month)</option>
+                                <option value="short" selected>Short-term (1-3 months)</option>
+                                <option value="medium">Medium-term (3-6 months)</option>
+                                <option value="long">Long-term (> 6 months)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict">
+                        <span>🤖 Find Optimal Sites</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" style="display: none;">
+                <!-- Match Summary -->
+                <div class="section-card score-card">
+                    <h2>AI Matching Results</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">🎯</div>
+                            <div class="metric-value" id="matchCount">0</div>
+                            <div class="metric-label">Sites Matched</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">⭐</div>
+                            <div class="metric-value" id="avgScore">0%</div>
+                            <div class="metric-label">Avg Match Score</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-value" id="totalPatients">0</div>
+                            <div class="metric-label">Total Patient Pool</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">💰</div>
+                            <div class="metric-value" id="totalBudget">$0</div>
+                            <div class="metric-label">Estimated Budget</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Sort -->
+                <div class="section-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <h2 style="margin: 0;">Recommended Sites</h2>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <select id="sortBy" style="padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white;">
+                                <option value="score">Sort by Match Score</option>
+                                <option value="patients">Sort by Patient Database</option>
+                                <option value="experience">Sort by Experience</option>
+                                <option value="cost">Sort by Cost</option>
+                            </select>
+                            <button class="btn-action btn-secondary" onclick="compareSelected()" style="padding: 0.5rem 1rem; margin: 0;">
+                                📊 Compare Selected
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site Cards -->
+                <div class="site-cards-grid" id="siteCardsContainer">
+                    <!-- Site cards will be inserted here -->
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-action btn-primary" onclick="sendQuestionnaires()">
+                        📋 Send Questionnaires to Selected
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="exportSiteList()">
+                        📄 Export Site List
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="saveSiteSelection()">
+                        💾 Save Selection
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="newSearch()">
+                        🔄 New Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="homepage-futuristic.js"></script>
+    <script src="ai-site-recommender.js"></script>
+</body>
+</html>

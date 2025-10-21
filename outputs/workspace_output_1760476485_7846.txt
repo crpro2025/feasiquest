@@ -1,0 +1,6 @@
+        <div class="auth-header">
+            <img src="FeasiQuest_Logo_Tech.svg" alt="FeasiQuest Logo" style="width: 280px;">
+            <h1>Welcome to FeasiQuest</h1>
+            <p>Master Clinical Trial Feasibility</p>
+        </div>
+

@@ -1,0 +1,12 @@
+                <div class="module-card" onclick="startModule(1)">
+                    <div class="module-header">
+                        <div class="module-number">Module 1</div>
+                        <div class="module-status unlocked">🔓</div>
+                    </div>
+                    <h3>Feasibility Foundations</h3>
+                    <p>Why feasibility matters and the cost of getting it wrong</p>
+                    <div class="module-meta">
+                        <span class="duration">⏱️ 15-20 min</span>
+                        <span class="xp-reward">+100 XP</span>
+                    </div>
+                    <div class="progress-bar">

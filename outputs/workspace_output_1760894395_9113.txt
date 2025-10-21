@@ -1,0 +1,4 @@
+                        <span class="btn-text">Start Learning Now</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <button class="secondary-btn" id="heroExploreBtn">

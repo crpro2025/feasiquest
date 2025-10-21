@@ -1,0 +1,6 @@
+        // Hide sections by class
+        const sectionsByClass = document.querySelectorAll('.impact-section, .final-cta-section, footer');
+        sectionsByClass.forEach(section => {
+            section.style.display = 'none';
+            section.classList.add('hidden');
+        });

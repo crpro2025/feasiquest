@@ -1,0 +1,21 @@
+        <section class="dashboard-section hidden" id="dashboard">
+            <div class="dashboard-header">
+                <h2>Your Learning Path</h2>
+                <div class="progress-overview">
+                    <div class="xp-display">
+                        <span class="xp-label">XP:</span>
+                        <span class="xp-value" id="totalXP">0</span>
+                    </div>
+                    <div class="level-display">
+                        <span class="level-label">Level:</span>
+                        <span class="level-value" id="userLevel">Novice</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card" onclick="startModule(1)">
+                    <div class="module-header">
+                        <div class="module-number">Module 1</div>
+                        <div class="module-status unlocked">🔓</div>

@@ -1,0 +1,10 @@
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+--
+    <script src="script.js"></script>
+    <script src="modules.js"></script>
+    <script src="ai-features.js"></script>
+    
+    <!-- AI Assistant Chat Widget -->
+    <div id="ai-chat-widget" class="ai-chat-widget hidden">

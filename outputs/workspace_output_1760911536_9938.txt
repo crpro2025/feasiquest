@@ -1,0 +1,9 @@
+34:    const startAssessmentBtn = document.getElementById('startAssessmentBtn');
+38:    if (startAssessmentBtn) {
+40:        startAssessmentBtn.addEventListener('click', function(e) {
+43:            startAssessment();
+61:            startAssessment();
+67:        if (e.target.id === 'startAssessmentBtn' || e.target.closest('#startAssessmentBtn')) {
+70:            startAssessment();
+95:window.startAssessment = function() {
+137:        console.error('ERROR in startAssessment:', error);

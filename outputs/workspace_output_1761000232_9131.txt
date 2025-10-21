@@ -1,0 +1,2 @@
+269:const DEMO_SITES = [
+496:    sites: DEMO_SITES,

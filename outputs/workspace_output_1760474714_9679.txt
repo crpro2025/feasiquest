@@ -1,0 +1,4 @@
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="FeasiQuest_Logo_New.png" alt="FeasiQuest - by Clinical Research Pro" class="logo-main">
+            </div>

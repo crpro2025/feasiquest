@@ -1,0 +1,31 @@
+    function skipToModules() {
+        console.log('📚 Skipping to Modules...');
+        
+        try {
+            const welcomeSection = document.getElementById('welcome');
+            const assessmentSection = document.getElementById('assessment');
+            const dashboardSection = document.getElementById('dashboard');
+            
+            if (!welcomeSection || !dashboardSection) {
+                console.error('❌ Sections not found');
+                alert('Error: Unable to load modules. Please refresh the page.');
+                return;
+            }
+            
+            // Hide welcome and assessment
+            welcomeSection.style.display = 'none';
+            welcomeSection.classList.add('hidden');
+            
+            if (assessmentSection) {
+                assessmentSection.style.display = 'none';
+                assessmentSection.classList.add('hidden');
+            }
+            
+            // Show dashboard
+            dashboardSection.style.display = 'block';
+            dashboardSection.classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            console.log('✅ Modules loaded successfully');

@@ -1,0 +1,6 @@
+.hero-content h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+

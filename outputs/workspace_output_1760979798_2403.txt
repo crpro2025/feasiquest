@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeasiQuest - Clinical Trial Feasibility Platform</title>
+    <link rel="stylesheet" href="app-styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Loading FeasiQuest...</h2>
+        </div>
+    </div>
+
+    <!-- Login/Signup Screen -->
+    <div id="authScreen" class="auth-screen">
