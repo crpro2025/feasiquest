@@ -1,0 +1,5 @@
+[master a16693c] Homepage redesign: Text-only logo, removed misleading metrics, fun & exciting design
+ 4 files changed, 1917 insertions(+), 385 deletions(-)
+ create mode 100644 homepage-updated.css
+ create mode 100644 homepage-updated.html
+ create mode 100644 homepage-updated.js

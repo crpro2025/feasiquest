@@ -1,0 +1,4 @@
+[master dae700c] Add comprehensive footer redesign documentation
+ 2 files changed, 640 insertions(+)
+ create mode 100644 FOOTER_UPDATE_COMPLETE.md
+ create mode 100644 FOOTER_VISUAL_GUIDE.md

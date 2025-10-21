@@ -1,0 +1,6 @@
+56:                        <div class="stat-number">2,000+</div>
+60:                        <div class="stat-number">500+</div>
+88:                    <p>Trusted by leading organizations:</p>
+240:                <p>Join 500+ sponsors and 2,000+ sites using FeasiQuest for smarter, faster feasibility assessment.</p>
+276:                    <p>Filter 2,000+ sites by therapeutic area, patient database size, certifications, equipment, and 50+ other criteria.</p>
+332:                    <p>Our algorithm analyzes 2,000+ sites and recommends the best matches based on 50+ criteria.</p>

@@ -1,0 +1,31 @@
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">FeasiQuest</span>
+                <span class="nav-subtitle">by Clinical Research Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#feasibility">Feasibility</a>
+                <a href="#platform">Platform</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#ai-demo">AI Demo</a>
+                <a href="app.html" class="btn-login">Login</a>
+                <a href="#signup" class="btn-signup">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>AI-Powered Feasibility Assessment</span>
+                </div>
+                <h1 class="hero-title">
+                    Transform Clinical Trial
+                    <span class="gradient-text">Feasibility Assessment</span>
+                </h1>

@@ -1,0 +1,34 @@
+[master ff5c61f] Footer redesign: Modern spacious layout with CRPro logo integration
+ 34 files changed, 2235 insertions(+), 47 deletions(-)
+ create mode 100644 5.png
+ create mode 100644 FOOTER_REDESIGN_SUMMARY.md
+ create mode 100644 GITHUB_DEPLOYMENT_SUCCESS.md
+ create mode 100644 footer-new.html
+ create mode 100644 footer-redesign.css
+ create mode 100644 outputs/workspace_output_1761074182_4670.txt
+ create mode 100644 outputs/workspace_output_1761074188_4744.txt
+ create mode 100644 outputs/workspace_output_1761074546_2455.txt
+ create mode 100644 outputs/workspace_output_1761074552_9367.txt
+ create mode 100644 outputs/workspace_output_1761074557_647.txt
+ create mode 100644 outputs/workspace_output_1761074562_9106.txt
+ create mode 100644 outputs/workspace_output_1761074567_9336.txt
+ create mode 100644 outputs/workspace_output_1761074573_1860.txt
+ create mode 100644 outputs/workspace_output_1761074580_4475.txt
+ create mode 100644 outputs/workspace_output_1761074650_3079.txt
+ create mode 100644 outputs/workspace_output_1761074988_521.txt
+ create mode 100644 outputs/workspace_output_1761074996_1058.txt
+ create mode 100644 outputs/workspace_output_1761075001_8879.txt
+ create mode 100644 outputs/workspace_output_1761075464_6409.txt
+ create mode 100644 outputs/workspace_output_1761075496_2891.txt
+ create mode 100644 outputs/workspace_output_1761075501_971.txt
+ create mode 100644 outputs/workspace_output_1761075534_2074.txt
+ create mode 100644 outputs/workspace_output_1761075540_8205.txt
+ create mode 100644 outputs/workspace_output_1761075545_4992.txt
+ create mode 100644 outputs/workspace_output_1761075553_9198.txt
+ create mode 100644 outputs/workspace_output_1761075558_5426.txt
+ create mode 100644 outputs/workspace_output_1761075577_818.txt
+ create mode 100644 outputs/workspace_output_1761075591_7988.txt
+ create mode 100644 outputs/workspace_output_1761075597_5554.txt
+ create mode 100644 outputs/workspace_output_1761075612_43.txt
+ create mode 100644 outputs/workspace_output_1761075620_925.txt
+ create mode 100644 outputs/workspace_output_1761075679_1246.txt

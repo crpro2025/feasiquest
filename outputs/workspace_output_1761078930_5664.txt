@@ -1,0 +1,5 @@
+[master a7d902d] Add competitive analysis and new pricing strategy
+ 3 files changed, 1225 insertions(+)
+ create mode 100644 COMPETITIVE_ANALYSIS_PRICING_STRATEGY.md
+ create mode 100644 PRICING_IMPLEMENTATION_SUMMARY.md
+ create mode 100644 pricing-new.html

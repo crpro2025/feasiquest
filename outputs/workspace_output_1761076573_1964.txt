@@ -1,0 +1,5 @@
+            <div class="nav-brand">$
+                <span class="nav-title">FeasiQuest</span>$
+                <span class="nav-subtitle">by Clinical Research Pro</span>$
+            </div>$
+            <div class="nav-links">$

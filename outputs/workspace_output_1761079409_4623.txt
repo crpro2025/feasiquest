@@ -1,0 +1,9 @@
+[master a7c6e6e] Platform consistency & Stripe billing implementation
+ 7 files changed, 2042 insertions(+)
+ create mode 100644 CONSISTENCY_BILLING_IMPLEMENTATION.md
+ create mode 100644 PLATFORM_CONSISTENCY_PLAN.md
+ create mode 100644 billing-config.js
+ create mode 100644 checkout.html
+ create mode 100644 global-footer.html
+ create mode 100644 global-nav.html
+ create mode 100644 global-styles.css

@@ -1,0 +1,51 @@
+                </h1>
+                <p class="hero-description">
+                    Connect research sites with sponsors through intelligent matching, comprehensive feasibility questionnaires, and AI-powered analytics. Reduce study startup time by 70% and improve site selection accuracy by 40%.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2,000+</div>
+                        <div class="stat-label">Research Sites</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Active Studies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Faster Startup</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$2M+</div>
+                        <div class="stat-label">Cost Savings</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#signup" class="btn-primary">
+                        <span>Start Your Free Trial</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <a href="#demo" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 7l5 3-5 3V7z" fill="currentColor"/>
+                        </svg>
+                        <span>Watch Demo</span>
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <p>Trusted by leading organizations:</p>
+                    <div class="trust-badges">
+                        <span>FDA Compliant</span>
+                        <span>ICH GCP Aligned</span>
+                        <span>HIPAA Secure</span>
+                        <span>SOC 2 Certified</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="platform-preview">
+                    <div class="preview-window">
+                        <div class="window-header">
