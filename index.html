@@ -3,366 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeasiQuest - AI-Powered Clinical Trial Site Selection Platform</title>
-    <link rel="stylesheet" href="homepage-styles-new.css">
+    <title>FeasiQuest - AI-Powered Clinical Trial Feasibility Platform</title>
+    <link rel="stylesheet" href="homepage-updated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
+    <nav class="nav-bar">
+        <div class="nav-container">
             <div class="nav-brand">
-                <span class="brand-icon">🎯</span>
-                <span class="brand-name">FeasiQuest</span>
-                <span class="brand-tagline">by Clinical Research Pro</span>
+                <span class="nav-logo">FeasiQuest</span>
+                <span class="nav-tagline">by Clinical Research Pro</span>
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
+                <a href="#ai-tools">AI Tools</a>
                 <a href="#pricing">Pricing</a>
-                <a href="help-center.html">Help</a>
-                <a href="app.html" class="nav-login">Login</a>
+                <a href="app.html" class="btn-login">Login</a>
+                <a href="#signup" class="btn-signup">Get Started Free</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-icon">🏆</span>
-                    <span>Trusted by 500+ Sponsors & 2,000+ Research Sites</span>
+                    <span class="badge-icon">✨</span>
+                    <span>Revolutionary Feasibility Platform</span>
                 </div>
-                
-                <div class="hero-logo-large">
-                    <div class="logo-icon-large">🎯</div>
-                    <h1 class="logo-text-large">FeasiQuest</h1>
-                    <p class="logo-subtitle">AI-Powered Clinical Trial Site Selection</p>
-                </div>
-
-                <h2 class="hero-headline">
-                    Find Perfect Research Sites in <span class="highlight-text">Days, Not Months</span>
-                </h2>
-
+                <h1 class="hero-title">
+                    Make Clinical Trial
+                    <span class="gradient-text">Feasibility Fun Again</span>
+                </h1>
                 <p class="hero-description">
-                    The only platform that combines AI-powered site matching, comprehensive feasibility assessment, 
-                    and real-time collaboration to accelerate your clinical trials.
+                    Say goodbye to endless spreadsheets and hello to intelligent site matching! FeasiQuest uses AI to connect research sites with sponsors in minutes, not months. It's feasibility assessment reimagined for the modern era.
                 </p>
-
-                <!-- Dual CTAs -->
-                <div class="hero-cta-dual">
-                    <div class="cta-box sponsor-cta">
-                        <div class="cta-icon">💼</div>
-                        <h3>For Sponsors & CROs</h3>
-                        <p>Find qualified sites, send questionnaires, get AI recommendations</p>
-                        <a href="app.html" class="btn-cta-primary">🚀 Find Sites Now</a>
-                        <a href="study-creation.html" class="btn-cta-secondary">Create Your First Study</a>
+                
+                <!-- Fun Feature Pills -->
+                <div class="feature-pills">
+                    <div class="pill">
+                        <span class="pill-icon">🚀</span>
+                        <span>Launch Ready</span>
                     </div>
-                    
-                    <div class="cta-box site-cta">
-                        <div class="cta-icon">🏥</div>
-                        <h3>For Research Sites</h3>
-                        <p>Get discovered, receive opportunities, showcase your capabilities</p>
-                        <a href="site-registration.html" class="btn-cta-primary">📋 Register Your Site</a>
-                        <a href="site-profile.html" class="btn-cta-secondary">View Sample Profile</a>
+                    <div class="pill">
+                        <span class="pill-icon">🤖</span>
+                        <span>AI-Powered</span>
+                    </div>
+                    <div class="pill">
+                        <span class="pill-icon">⚡</span>
+                        <span>Lightning Fast</span>
+                    </div>
+                    <div class="pill">
+                        <span class="pill-icon">🎯</span>
+                        <span>Precision Matching</span>
                     </div>
                 </div>
 
-                <!-- Trust Indicators -->
-                <div class="trust-indicators">
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        <span>No credit card required</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        <span>30-day free trial</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        <span>Setup in 5 minutes</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        <span>Cancel anytime</span>
+                <div class="hero-cta">
+                    <a href="app.html" class="btn-primary">
+                        <span>Start Your Journey</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#demo" class="btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Watch Demo</span>
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <p>Built with industry standards in mind:</p>
+                    <div class="trust-badges">
+                        <span><i class="fas fa-shield-alt"></i> FDA Compliant</span>
+                        <span><i class="fas fa-check-circle"></i> ICH GCP Aligned</span>
+                        <span><i class="fas fa-lock"></i> HIPAA Secure</span>
+                        <span><i class="fas fa-certificate"></i> SOC 2 Certified</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Impact Stats -->
-            <div class="impact-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">⚡</div>
-                    <div class="stat-content">
-                        <div class="stat-number">70%</div>
-                        <div class="stat-label">Faster Site Selection</div>
-                        <div class="stat-detail">Complete in days instead of months</div>
+            <div class="hero-visual">
+                <div class="platform-preview">
+                    <div class="preview-card card-1">
+                        <div class="card-header">
+                            <div class="card-icon">🏥</div>
+                            <div class="card-title">Site Profile</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                            <p class="card-text">85% Match Score</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">🎯</div>
-                    <div class="stat-content">
-                        <div class="stat-number">40%</div>
-                        <div class="stat-label">Better Site Matches</div>
-                        <div class="stat-detail">AI analyzes 50+ compatibility factors</div>
+                    <div class="preview-card card-2">
+                        <div class="card-header">
+                            <div class="card-icon">🤖</div>
+                            <div class="card-title">AI Analysis</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-text">Analyzing 50+ criteria...</p>
+                            <div class="pulse-indicator"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-content">
-                        <div class="stat-number">$2M+</div>
-                        <div class="stat-label">Average Cost Savings</div>
-                        <div class="stat-detail">Per study through faster enrollment</div>
+                    <div class="preview-card card-3">
+                        <div class="card-header">
+                            <div class="card-icon">📊</div>
+                            <div class="card-title">Insights</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="mini-chart">
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 80%"></div>
+                                <div class="bar" style="height: 95%"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">🏥</div>
-                    <div class="stat-content">
-                        <div class="stat-number">2,000+</div>
-                        <div class="stat-label">Qualified Research Sites</div>
-                        <div class="stat-detail">Across 50+ countries worldwide</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="container">
-            <p class="proof-text">Trusted by leading pharmaceutical companies and research organizations</p>
-            <div class="company-logos">
-                <div class="company-logo">BioPharma Solutions</div>
-                <div class="company-logo">Global CRO Partners</div>
-                <div class="company-logo">MedTech Innovations</div>
-                <div class="company-logo">City Medical Research</div>
-                <div class="company-logo">Metro Health Institute</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Propositions -->
-    <section class="value-props">
-        <div class="container">
-            <h2 class="section-title">Why Choose FeasiQuest?</h2>
-            
-            <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-icon">🤖</div>
-                    <h3>AI-Powered Matching</h3>
-                    <p>Our advanced AI analyzes study requirements and site capabilities to recommend the perfect matches with 95% accuracy.</p>
-                    <a href="#ai-features" class="value-link">Learn about AI features →</a>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">📊</div>
-                    <h3>Comprehensive Profiles</h3>
-                    <p>Access detailed site profiles with capabilities, experience, performance metrics, team info, and real reviews.</p>
-                    <a href="site-profile.html" class="value-link">View sample profile →</a>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Create studies in 15 minutes, build questionnaires in 10 minutes, and get site recommendations instantly.</p>
-                    <a href="study-creation.html" class="value-link">Try study creator →</a>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">🔒</div>
-                    <h3>Secure & Compliant</h3>
-                    <p>HIPAA, GDPR, and GCP compliant. Bank-level encryption. SOC 2 certified. Your data is always protected.</p>
-                    <a href="#security" class="value-link">Security details →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Features Section -->
-    <section id="ai-features" class="ai-features">
+    <!-- Value Proposition -->
+    <section class="value-prop">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">🤖 Advanced AI</span>
-                <h2 class="section-title">Powered by Cutting-Edge AI Technology</h2>
-                <p class="section-subtitle">Our AI doesn't just match sites—it predicts success</p>
+                <h2>Why FeasiQuest is Different</h2>
+                <p>We're not just another database. We're your intelligent feasibility partner.</p>
             </div>
-
-            <div class="ai-features-grid">
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">🎯</div>
-                    <h3>Smart Site Matching</h3>
-                    <p>AI analyzes 50+ factors including therapeutic area expertise, patient demographics, enrollment history, and geographic location to find perfect matches.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">95% accuracy</span>
-                        <span class="ai-stat">50+ factors</span>
-                    </div>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Beautiful & Intuitive</h3>
+                    <p>No more clunky interfaces. FeasiQuest is designed to be a joy to use, with a modern UI that makes complex tasks simple.</p>
                 </div>
-
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">📈</div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Machine learning models predict enrollment success, timeline accuracy, and potential risks based on historical data from 10,000+ completed studies.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">10K+ studies analyzed</span>
-                        <span class="ai-stat">85% prediction accuracy</span>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🧠</div>
+                    <h3>Actually Intelligent</h3>
+                    <p>Our AI doesn't just match keywords. It understands context, predicts success, and learns from every interaction.</p>
                 </div>
-
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">🔮</div>
-                    <h3>Success Probability Scoring</h3>
-                    <p>Get a 0-100 success score for each site based on study complexity, site experience, patient availability, and 20+ other variables.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">Real-time scoring</span>
-                        <span class="ai-stat">20+ variables</span>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Blazing Fast</h3>
+                    <p>What used to take weeks now takes minutes. Get site recommendations, feasibility scores, and insights instantly.</p>
                 </div>
-
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">💡</div>
-                    <h3>Intelligent Recommendations</h3>
-                    <p>AI suggests optimal study design, patient criteria adjustments, and site selection strategies to maximize enrollment success.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">Personalized insights</span>
-                        <span class="ai-stat">Actionable tips</span>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Built for Collaboration</h3>
+                    <p>Sites and sponsors work together seamlessly. Real-time messaging, document sharing, and transparent communication.</p>
                 </div>
-
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">⚠️</div>
-                    <h3>Risk Detection</h3>
-                    <p>Automatically identifies potential risks like low patient pools, competing studies, regulatory issues, and suggests mitigation strategies.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">15+ risk types</span>
-                        <span class="ai-stat">Proactive alerts</span>
-                    </div>
-                </div>
-
-                <div class="ai-feature-card">
-                    <div class="ai-feature-icon">🗣️</div>
-                    <h3>Natural Language Processing</h3>
-                    <p>Ask questions in plain English like "Find oncology sites in Boston with Phase III experience" and get instant, accurate results.</p>
-                    <div class="ai-feature-stats">
-                        <span class="ai-stat">Natural language</span>
-                        <span class="ai-stat">Instant results</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ai-cta">
-                <h3>Experience AI-Powered Site Selection</h3>
-                <a href="app.html" class="btn-ai-cta">Try AI Matching Now →</a>
             </div>
         </div>
     </section>
 
-    <!-- Quick Actions -->
-    <section class="quick-actions">
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2 class="section-title">Get Started in Minutes</h2>
-            
-            <div class="actions-grid">
-                <div class="action-card">
-                    <div class="action-number">1</div>
-                    <h3>Create Your Account</h3>
-                    <p>Choose your role (Sponsor, CRO, or Site) and set up your profile in 2 minutes</p>
-                    <a href="app.html" class="action-btn">Sign Up Free →</a>
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to better feasibility assessment</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Profile</h3>
+                        <p><strong>For Sites:</strong> Showcase your capabilities, patient database, and experience in minutes.</p>
+                        <p><strong>For Sponsors:</strong> Define your study requirements and let AI do the heavy lifting.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-user-plus fa-3x"></i>
+                    </div>
                 </div>
-                
-                <div class="action-card">
-                    <div class="action-number">2</div>
-                    <h3>Define Your Study</h3>
-                    <p>Use our 8-step wizard to create a comprehensive study profile or register your site</p>
-                    <a href="study-creation.html" class="action-btn">Create Study →</a>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Intelligent Matches</h3>
+                        <p>Our AI analyzes 100+ criteria to find perfect matches. No more manual searching through endless lists.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-magic fa-3x"></i>
+                    </div>
                 </div>
-                
-                <div class="action-card">
-                    <div class="action-number">3</div>
-                    <h3>Get AI Recommendations</h3>
-                    <p>Receive instant AI-powered site matches with success scores and detailed insights</p>
-                    <a href="app.html" class="action-btn">See Matches →</a>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Connect & Collaborate</h3>
+                        <p>Send questionnaires, exchange documents, and communicate in real-time. Everything in one place.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-handshake fa-3x"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
+    <!-- AI Tools Showcase -->
+    <section class="ai-tools" id="ai-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powered by Advanced AI</h2>
+                <p>Three intelligent tools that make feasibility assessment effortless</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🎯</div>
+                    <h3>AI Enrollment Predictor</h3>
+                    <p>Predict enrollment success with 85% accuracy. Get timeline forecasts, risk analysis, and optimization recommendations.</p>
+                    <a href="ai-enrollment-predictor.html" class="tool-link">Try It Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">📄</div>
+                    <h3>Smart Protocol Analyzer</h3>
+                    <p>Upload your protocol and get instant feasibility insights. Identifies restrictive criteria and suggests optimizations.</p>
+                    <a href="ai-protocol-analyzer.html" class="tool-link">Try It Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🏥</div>
+                    <h3>Intelligent Site Recommender</h3>
+                    <p>Get personalized site recommendations based on 100+ criteria. Find your perfect match in seconds.</p>
+                    <a href="ai-site-recommender.html" class="tool-link">Try It Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that's right for you</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Research Sites</h3>
+                        <div class="price">
+                            <span class="price-amount">FREE</span>
+                            <span class="price-period">Forever</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Complete site profile</li>
+                        <li><i class="fas fa-check"></i> Receive questionnaires</li>
+                        <li><i class="fas fa-check"></i> Direct messaging</li>
+                        <li><i class="fas fa-check"></i> Document sharing</li>
+                        <li><i class="fas fa-check"></i> Unlimited responses</li>
+                    </ul>
+                    <a href="site-registration.html" class="pricing-btn">Register Your Site</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Sponsors</h3>
+                        <div class="price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">1,999</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> AI-powered site matching</li>
+                        <li><i class="fas fa-check"></i> Custom questionnaires</li>
+                        <li><i class="fas fa-check"></i> Real-time analytics</li>
+                        <li><i class="fas fa-check"></i> Document management</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <a href="#signup" class="pricing-btn">Start Free Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>CROs</h3>
+                        <div class="price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">4,999</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> All Sponsor features</li>
+                        <li><i class="fas fa-check"></i> Multi-study management</li>
+                        <li><i class="fas fa-check"></i> Team collaboration</li>
+                        <li><i class="fas fa-check"></i> Advanced reporting</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                    </ul>
+                    <a href="#signup" class="pricing-btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Clinical Trials?</h2>
-                <p>Join 500+ sponsors and 2,000+ research sites using FeasiQuest</p>
+                <h2>Ready to Transform Your Feasibility Process?</h2>
+                <p>Join the future of clinical trial feasibility assessment. Get started in minutes.</p>
                 <div class="cta-buttons">
-                    <a href="app.html" class="btn-final-primary">Start Free Trial</a>
-                    <a href="help-center.html" class="btn-final-secondary">Learn More</a>
+                    <a href="app.html" class="btn-primary-large">
+                        <span>Get Started Free</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#demo" class="btn-secondary-large">
+                        <i class="fas fa-calendar"></i>
+                        <span>Schedule a Demo</span>
+                    </a>
                 </div>
-                <p class="cta-note">No credit card required • 30-day free trial • Setup in 5 minutes</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <!-- Brand Section -->
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="brand-icon">🎯</span>
-                        <span class="brand-name">FeasiQuest</span>
+                    <a href="https://www.clinicalresearchpro.com" target="_blank" class="footer-logo-link">
+                        <img src="5.png" alt="Clinical Research Pro" class="footer-logo">
+                    </a>
+                    <p class="footer-brand-text">
+                        Clinical Research Pro is the leading provider of clinical research training, certification, and professional development. We empower research professionals worldwide with cutting-edge education and innovative technology solutions.
+                    </p>
+                    <p class="footer-brand-tagline">
+                        Collaborate • Educate • Empower
+                    </p>
+                    <!-- Social Media -->
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/clinicalresearchpro" target="_blank" class="footer-social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/clinicalrespro" target="_blank" class="footer-social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/clinicalresearchpro" target="_blank" class="footer-social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/clinicalresearchpro" target="_blank" class="footer-social-link" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
-                    <p>by Clinical Research Pro</p>
-                    <p class="footer-tagline">AI-Powered Clinical Trial Site Selection</p>
                 </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <a href="#features">Features</a>
-                        <a href="#ai-features">AI Technology</a>
-                        <a href="#pricing">Pricing</a>
-                        <a href="help-center.html">Help Center</a>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>For Sponsors</h4>
-                        <a href="study-creation.html">Create Study</a>
-                        <a href="questionnaire-builder.html">Build Questionnaire</a>
-                        <a href="app.html">Find Sites</a>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>For Sites</h4>
-                        <a href="site-registration.html">Register Site</a>
-                        <a href="site-profile.html">View Profile</a>
-                        <a href="app.html">Get Opportunities</a>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <a href="#">About Us</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
+
+                <!-- Platform Section -->
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="homepage-updated.html">Home</a></li>
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="site-registration.html">Register Site</a></li>
+                        <li><a href="study-creation.html">Create Study</a></li>
+                        <li><a href="questionnaire-builder.html">Build Questionnaire</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- AI Features Section -->
+                <div class="footer-section">
+                    <h4>AI Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="ai-enrollment-predictor.html">Enrollment Predictor</a></li>
+                        <li><a href="ai-protocol-analyzer.html">Protocol Analyzer</a></li>
+                        <li><a href="ai-site-recommender.html">Site Recommender</a></li>
+                        <li><a href="app.html#ai-features">View All AI Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.clinicalresearchpro.com/about" target="_blank">About CRPro</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/training" target="_blank">Training Programs</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/certification" target="_blank">Certifications</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/blog" target="_blank">Blog</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/events" target="_blank">Events</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/careers" target="_blank">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon">📧</span>
+                            <a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon">🌐</span>
+                            <a href="https://www.clinicalresearchpro.com" target="_blank">www.clinicalresearchpro.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon">📞</span>
+                            <span>1-800-CRP-HELP</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon">💬</span>
+                            <a href="help-center.html">Live Chat Support</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
-                <div class="footer-badges">
-                    <span class="badge">HIPAA Compliant</span>
-                    <span class="badge">SOC 2 Certified</span>
-                    <span class="badge">GDPR Ready</span>
-                    <span class="badge">FDA Aligned</span>
+                <div class="footer-copyright">
+                    © 2025 Clinical Research Pro Corporation. All rights reserved. | FeasiQuest™ is a trademark of Clinical Research Pro.
+                </div>
+                
+                <ul class="footer-legal-links">
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                </ul>
+                
+                <div class="footer-compliance">
+                    <span class="compliance-badge">
+                        <span class="compliance-badge-icon">✓</span>
+                        HIPAA Compliant
+                    </span>
+                    <span class="compliance-badge">
+                        <span class="compliance-badge-icon">✓</span>
+                        SOC 2 Certified
+                    </span>
+                    <span class="compliance-badge">
+                        <span class="compliance-badge-icon">✓</span>
+                        FDA Aligned
+                    </span>
+                    <span class="compliance-badge">
+                        <span class="compliance-badge-icon">✓</span>
+                        GDPR Compliant
+                    </span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="homepage-scripts.js"></script>
+    <script src="homepage-updated.js"></script>
 </body>
 </html>
