@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FeasiQuest by Clinical Research Pro</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Include Global Navigation -->
+    <div id="global-nav-container"></div>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-container">
+                <!-- Left Side: Plan Selection -->
+                <div class="checkout-left">
+                    <h1>Complete Your Subscription</h1>
+                    <p class="checkout-subtitle">Start your 30-day free trial today. No credit card required.</p>
+
+                    <!-- User Type Selection -->
+                    <div class="user-type-selection">
+                        <h3>I am a:</h3>
+                        <div class="user-type-buttons">
+                            <button class="user-type-btn active" data-type="sites">
+                                <i class="fas fa-hospital"></i>
+                                <span>Research Site</span>
+                            </button>
+                            <button class="user-type-btn" data-type="sponsors">
+                                <i class="fas fa-building"></i>
+                                <span>Sponsor / CRO</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Plan Selection for Sites -->
+                    <div class="plan-selection sites-plans active">
+                        <h3>Choose Your Plan</h3>
+                        <div class="plan-cards">
+                            <div class="plan-card" data-tier="professional" data-price-monthly="299" data-price-annual="239">
+                                <div class="plan-header">
+                                    <h4>Professional</h4>
+                                    <div class="plan-price">
+                                        <span class="price-amount monthly-price">$299</span>
+                                        <span class="price-amount annual-price" style="display:none;">$239</span>
+                                        <span class="price-period">/month</span>
+                                    </div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li><i class="fas fa-check"></i> Complete profile with photos/videos</li>
+                                    <li><i class="fas fa-check"></i> Unlimited feasibility requests</li>
+                                    <li><i class="fas fa-check"></i> Priority search placement</li>
+                                    <li><i class="fas fa-check"></i> 5 team members</li>
+                                </ul>
+                                <button class="select-plan-btn">Select Plan</button>
+                            </div>
+
+                            <div class="plan-card featured" data-tier="premium" data-price-monthly="599" data-price-annual="479">
+                                <div class="featured-badge">RECOMMENDED</div>
+                                <div class="plan-header">
+                                    <h4>Premium</h4>
+                                    <div class="plan-price">
+                                        <span class="price-amount monthly-price">$599</span>
+                                        <span class="price-amount annual-price" style="display:none;">$479</span>
+                                        <span class="price-period">/month</span>
+                                    </div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li><i class="fas fa-check"></i> Everything in Professional</li>
+                                    <li><i class="fas fa-check"></i> Featured placement (top of search)</li>
+                                    <li><i class="fas fa-check"></i> AI-powered recommendations</li>
+                                    <li><i class="fas fa-check"></i> Unlimited team members</li>
+                                </ul>
+                                <button class="select-plan-btn">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plan Selection for Sponsors/CROs -->
+                    <div class="plan-selection sponsors-plans">
+                        <h3>Choose Your Plan</h3>
+                        <div class="plan-cards">
+                            <div class="plan-card" data-tier="starter" data-price-monthly="999" data-price-annual="799">
+                                <div class="plan-header">
+                                    <h4>Starter</h4>
+                                    <div class="plan-price">
+                                        <span class="price-amount monthly-price">$999</span>
+                                        <span class="price-amount annual-price" style="display:none;">$799</span>
+                                        <span class="price-period">/month</span>
+                                    </div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li><i class="fas fa-check"></i> 5 active studies</li>
+                                    <li><i class="fas fa-check"></i> AI tools (limited)</li>
+                                    <li><i class="fas fa-check"></i> 5 team members</li>
+                                </ul>
+                                <button class="select-plan-btn">Select Plan</button>
+                            </div>
+
+                            <div class="plan-card featured" data-tier="professional" data-price-monthly="2499" data-price-annual="1999">
+                                <div class="featured-badge">MOST POPULAR</div>
+                                <div class="plan-header">
+                                    <h4>Professional</h4>
+                                    <div class="plan-price">
+                                        <span class="price-amount monthly-price">$2,499</span>
+                                        <span class="price-amount annual-price" style="display:none;">$1,999</span>
+                                        <span class="price-period">/month</span>
+                                    </div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li><i class="fas fa-check"></i> 20 active studies</li>
+                                    <li><i class="fas fa-check"></i> All AI tools (unlimited)</li>
+                                    <li><i class="fas fa-check"></i> 20 team members</li>
+                                </ul>
+                                <button class="select-plan-btn">Select Plan</button>
+                            </div>
+
+                            <div class="plan-card" data-tier="enterprise" data-price-monthly="4999" data-price-annual="3999">
+                                <div class="plan-header">
+                                    <h4>Enterprise</h4>
+                                    <div class="plan-price">
+                                        <span class="price-amount monthly-price">$4,999</span>
+                                        <span class="price-amount annual-price" style="display:none;">$3,999</span>
+                                        <span class="price-period">/month</span>
+                                    </div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li><i class="fas fa-check"></i> Unlimited studies</li>
+                                    <li><i class="fas fa-check"></i> White-label options</li>
+                                    <li><i class="fas fa-check"></i> Dedicated support</li>
+                                </ul>
+                                <button class="select-plan-btn">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billing Period Toggle -->
+                    <div class="billing-toggle">
+                        <span class="billing-label">Monthly</span>
+                        <label class="switch">
+                            <input type="checkbox" id="billingToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="billing-label">Annual <span class="save-badge">Save 20%</span></span>
+                    </div>
+                </div>
+
+                <!-- Right Side: Order Summary -->
+                <div class="checkout-right">
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-item">
+                            <span>User Type:</span>
+                            <span id="summary-user-type">Research Site</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Plan:</span>
+                            <span id="summary-plan">Not selected</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Billing:</span>
+                            <span id="summary-billing">Monthly</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-item total">
+                            <span>Total:</span>
+                            <span id="summary-total">$0/month</span>
+                        </div>
+                        
+                        <div class="trial-notice">
+                            <i class="fas fa-gift"></i>
+                            <div>
+                                <strong>30-Day Free Trial</strong>
+                                <p>No credit card required. Cancel anytime.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="checkout-btn" id="checkoutBtn" disabled>
+                            <i class="fas fa-lock"></i>
+                            Start Free Trial
+                        </button>
+                        
+                        <div class="security-badges">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure checkout powered by Stripe</span>
+                        </div>
+                        
+                        <div class="money-back">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day money-back guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Global Footer -->
+    <div id="global-footer-container"></div>
+
+    <script src="billing-config.js"></script>
+    <script src="checkout.js"></script>
+    <script>
+        // Load global navigation and footer
+        fetch('global-nav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('global-nav-container').innerHTML = html;
+            });
+        
+        fetch('global-footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('global-footer-container').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
