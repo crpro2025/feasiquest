@@ -1,0 +1,61 @@
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-text">
+                    <h3>FeasiQuest</h3>
+                    <p class="footer-tagline">by Clinical Research Pro</p>
+                </div>
+                <p class="footer-description">AI-powered clinical trial feasibility assessment platform connecting research sites with sponsors.</p>
+                <div class="footer-badges">
+                    <span>🔒 HIPAA</span>
+                    <span>✓ SOC 2</span>
+                    <span>📋 FDA</span>
+                    <span>🌍 GDPR</span>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="#features">Features</a>
+                <a href="#feasibility">Feasibility</a>
+                <a href="#pricing">Pricing</a>
+                <a href="app.html">Login</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="help-center.html">Help Center</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Compliance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="crpro-logo">
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage-futuristic.js"></script>
+</body>
+</html>
