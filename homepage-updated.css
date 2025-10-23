@@ -979,7 +979,7 @@ body {
 }
 
 .footer-logo {
-    height: 80px;
+    height: 120px;
     width: auto;
     display: block;
 }
@@ -1237,7 +1237,7 @@ body {
 
 @media (max-width: 480px) {
     .footer-logo {
-        height: 60px;
+        height: 90px;
     }
     
     .footer-section h4 {
