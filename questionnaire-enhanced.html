@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feasibility Questionnaire - FeasiQuest℠</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="questionnaire-enhanced.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="help-center.html">Help</a>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuBtn">
+                        <span class="user-avatar">RS</span>
+                        <span class="user-name">Research Site</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="questionnaire-container">
+        <!-- Header -->
+        <div class="questionnaire-header">
+            <div class="header-content">
+                <button class="back-button" onclick="window.location.href='app.html'">
+                    ← Back to Dashboard
+                </button>
+                <h1>Feasibility Questionnaire</h1>
+                <p class="study-info">
+                    <strong>Study:</strong> Phase III Oncology Trial - Advanced NSCLC<br>
+                    <strong>Sponsor:</strong> Global Pharma Inc.<br>
+                    <strong>Received:</strong> January 25, 2025
+                </p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" id="saveDraftBtn">
+                    💾 Save Draft
+                </button>
+                <button class="btn-secondary" id="previewBtn">
+                    👁️ Preview
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 14%"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Site Info</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Capabilities</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Recruitment</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Timeline</div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Budget</div>
+                </div>
+                <div class="step" data-step="6">
+                    <div class="step-number">6</div>
+                    <div class="step-label">Compliance</div>
+                </div>
+                <div class="step" data-step="7">
+                    <div class="step-number">7</div>
+                    <div class="step-label">Media</div>
+                </div>
+            </div>
+            <div class="progress-text">
+                <span id="progressText">Step 1 of 7 - 14% Complete</span>
+                <span class="auto-save-indicator" id="autoSaveIndicator">
+                    ✓ Auto-saved at 10:45 AM
+                </span>
+            </div>
+        </div>
+
+        <!-- Pre-fill Banner -->
+        <div class="prefill-banner" id="prefillBanner">
+            <div class="banner-content">
+                <span class="banner-icon">✨</span>
+                <div class="banner-text">
+                    <strong>Smart Pre-fill Active</strong>
+                    <p>We've pre-filled this questionnaire with information from your FeasiQuest profile. Fields with a blue border are pre-filled. Please review and update as needed.</p>
+                </div>
+                <button class="banner-action" id="verifyAllBtn">
+                    ✓ Verify All Pre-filled Data
+                </button>
+                <button class="banner-close" id="closeBannerBtn">×</button>
+            </div>
+        </div>
+
+        <!-- Questionnaire Form -->
+        <form id="questionnaireForm" class="questionnaire-form">
+            
+            <!-- Section 1: Site Information -->
+            <div class="form-section active" id="section1">
+                <div class="section-header">
+                    <h2>Section 1: Site Information</h2>
+                    <p class="section-description">Basic information about your research site</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Basic Details</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="siteName">Site Name *</label>
+                        <input type="text" id="siteName" class="prefilled" value="Metro Research Institute" required>
+                        <span class="prefill-indicator">✓ Verified from profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="siteAddress">Site Address *</label>
+                        <textarea id="siteAddress" class="prefilled" rows="3" required>123 Medical Plaza Drive
+Suite 500
+Boston, MA 02115</textarea>
+                        <span class="prefill-indicator">✓ Verified from profile</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sitePhone">Phone Number *</label>
+                            <input type="tel" id="sitePhone" class="prefilled" value="(617) 555-0123" required>
+                            <span class="prefill-indicator">✓ Verified from profile</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="siteEmail">Email Address *</label>
+                            <input type="email" id="siteEmail" class="prefilled" value="contact@metroresearch.com" required>
+                            <span class="prefill-indicator">✓ Verified from profile</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yearsExperience">Years of Research Experience *</label>
+                        <input type="number" id="yearsExperience" class="prefilled" value="15" required>
+                        <span class="prefill-indicator">✓ Calculated from profile (Est. 2010)</span>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Principal Investigator(s)</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Select Principal Investigator(s) for this study *</label>
+                        <p class="field-help">You can select multiple PIs if this is a multi-PI study</p>
+                        
+                        <div class="checkbox-group">
+                            <label class="checkbox-card prefilled">
+                                <input type="checkbox" name="pi" value="pi1" checked>
+                                <div class="checkbox-content">
+                                    <div class="pi-info">
+                                        <strong>Dr. Sarah Johnson, MD, PhD</strong>
+                                        <span class="pi-specialty">Oncology</span>
+                                    </div>
+                                    <div class="pi-details">
+                                        <span>15 years experience</span>
+                                        <span>Board Certified</span>
+                                        <span>GCP Certified</span>
+                                    </div>
+                                </div>
+                                <span class="prefill-indicator">✓ From profile</span>
+                            </label>
+
+                            <label class="checkbox-card prefilled">
+                                <input type="checkbox" name="pi" value="pi2">
+                                <div class="checkbox-content">
+                                    <div class="pi-info">
+                                        <strong>Dr. Michael Chen, MD</strong>
+                                        <span class="pi-specialty">Pulmonology</span>
+                                    </div>
+                                    <div class="pi-details">
+                                        <span>12 years experience</span>
+                                        <span>Board Certified</span>
+                                        <span>GCP Certified</span>
+                                    </div>
+                                </div>
+                                <span class="prefill-indicator">✓ From profile</span>
+                            </label>
+
+                            <label class="checkbox-card prefilled">
+                                <input type="checkbox" name="pi" value="pi3">
+                                <div class="checkbox-content">
+                                    <div class="pi-info">
+                                        <strong>Dr. Emily Rodriguez, MD</strong>
+                                        <span class="pi-specialty">Internal Medicine</span>
+                                    </div>
+                                    <div class="pi-details">
+                                        <span>10 years experience</span>
+                                        <span>Board Certified</span>
+                                        <span>GCP Certified</span>
+                                    </div>
+                                </div>
+                                <span class="prefill-indicator">✓ From profile</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="piCV">Upload PI CV(s) (Optional)</label>
+                        <div class="file-upload-area">
+                            <input type="file" id="piCV" multiple accept=".pdf,.doc,.docx">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">📄</span>
+                                <p>Drag and drop CV files here or click to browse</p>
+                                <span class="upload-hint">PDF, DOC, DOCX up to 10MB each</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Site Type & Accreditation</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Site Type *</label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="siteType" value="academic" checked>
+                                <div class="radio-content">
+                                    <strong>Academic Medical Center</strong>
+                                    <p>University-affiliated research institution</p>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="siteType" value="private">
+                                <div class="radio-content">
+                                    <strong>Private Practice</strong>
+                                    <p>Independent physician practice</p>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="siteType" value="hospital">
+                                <div class="radio-content">
+                                    <strong>Hospital-Based</strong>
+                                    <p>Hospital research department</p>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="siteType" value="dedicated">
+                                <div class="radio-content">
+                                    <strong>Dedicated Research Site</strong>
+                                    <p>Specialized clinical trial facility</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Accreditations & Certifications *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="accreditation" value="jcaho" checked>
+                                <span>Joint Commission (JCAHO) Accredited</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="accreditation" value="aahrpp" checked>
+                                <span>AAHRPP Accredited</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="accreditation" value="cap">
+                                <span>CAP Accredited Laboratory</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="accreditation" value="clia">
+                                <span>CLIA Certified</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="accreditation" value="iso">
+                                <span>ISO 9001 Certified</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Study-Specific Capabilities -->
+            <div class="form-section" id="section2">
+                <div class="section-header">
+                    <h2>Section 2: Study-Specific Capabilities</h2>
+                    <p class="section-description">Your capabilities relevant to this oncology study</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Therapeutic Area Experience</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Oncology Experience *</label>
+                        <div class="experience-grid">
+                            <div class="experience-card prefilled">
+                                <div class="experience-header">
+                                    <strong>Non-Small Cell Lung Cancer (NSCLC)</strong>
+                                    <span class="prefill-indicator">✓ From profile</span>
+                                </div>
+                                <div class="experience-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">12</span>
+                                        <span class="stat-label">Studies Completed</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">8</span>
+                                        <span class="stat-label">Years Experience</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">245</span>
+                                        <span class="stat-label">Patients Enrolled</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nsclcDetails">Additional NSCLC Experience Details</label>
+                                    <textarea id="nsclcDetails" rows="3" placeholder="Describe specific experience with advanced NSCLC, immunotherapy trials, etc."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phase III Trial Experience *</label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phase3Count">Number of Phase III Studies Completed</label>
+                                <input type="number" id="phase3Count" class="prefilled" value="18" required>
+                                <span class="prefill-indicator">✓ From profile</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phase3Oncology">Phase III Oncology Studies</label>
+                                <input type="number" id="phase3Oncology" class="prefilled" value="12" required>
+                                <span class="prefill-indicator">✓ From profile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Equipment & Facilities</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Required Equipment Available On-Site *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="ct" checked>
+                                <span>CT Scanner</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="pet" checked>
+                                <span>PET Scanner</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="mri" checked>
+                                <span>MRI</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="lab" checked>
+                                <span>On-Site Laboratory (CLIA Certified)</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="pharmacy" checked>
+                                <span>On-Site Pharmacy</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="equipment" value="infusion" checked>
+                                <span>Infusion Center</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="equipment" value="ecg">
+                                <span>ECG/EKG</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="equipment" value="storage">
+                                <span>-80°C Freezer Storage</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipmentPhotos">Upload Equipment Photos (Optional)</label>
+                        <div class="file-upload-area">
+                            <input type="file" id="equipmentPhotos" multiple accept="image/*">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">📷</span>
+                                <p>Drag and drop photos here or click to browse</p>
+                                <span class="upload-hint">JPG, PNG up to 10MB each</span>
+                            </div>
+                        </div>
+                        <div class="uploaded-files" id="equipmentPhotosList"></div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Staff & Resources</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="crcCount">Number of Clinical Research Coordinators *</label>
+                            <input type="number" id="crcCount" class="prefilled" value="8" required>
+                            <span class="prefill-indicator">✓ From profile</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="crcOncology">CRCs with Oncology Experience *</label>
+                            <input type="number" id="crcOncology" class="prefilled" value="6" required>
+                            <span class="prefill-indicator">✓ From profile</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Staff Certifications *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="staffCert" value="gcp" checked>
+                                <span>GCP Certified Staff</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="staffCert" value="acrp" checked>
+                                <span>ACRP Certified (CCRC/CCRA)</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="staffCert" value="socra" checked>
+                                <span>SOCRA Certified (CCRP)</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="staffCert" value="oncology">
+                                <span>Oncology Nursing Certification (OCN)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Patient Recruitment Strategy -->
+            <div class="form-section" id="section3">
+                <div class="section-header">
+                    <h2>Section 3: Patient Recruitment Strategy</h2>
+                    <p class="section-description">Your approach to recruiting patients for this study</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Patient Population</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientDatabase">Total Patients in Database *</label>
+                        <input type="number" id="patientDatabase" class="prefilled" value="12500" required>
+                        <span class="prefill-indicator">✓ From profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nsclcPatients">Patients with NSCLC Diagnosis *</label>
+                        <input type="number" id="nsclcPatients" class="prefilled" value="450" required>
+                        <span class="prefill-indicator">✓ Estimated from profile</span>
+                        <p class="field-help">Approximate number of patients with Non-Small Cell Lung Cancer in your database</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="advancedNSCLC">Patients with Advanced/Metastatic NSCLC *</label>
+                        <input type="number" id="advancedNSCLC" required>
+                        <p class="field-help">Patients who meet the study's stage criteria (Stage IIIB/IV)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthlyNewPatients">New NSCLC Patients per Month *</label>
+                        <input type="number" id="monthlyNewPatients" required>
+                        <p class="field-help">Average number of new NSCLC diagnoses per month at your site</p>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Enrollment Projections</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enrollmentTarget">Proposed Enrollment Target *</label>
+                        <input type="number" id="enrollmentTarget" required>
+                        <p class="field-help">Number of patients you can realistically enroll in this study</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enrollmentTimeline">Enrollment Timeline *</label>
+                        <select id="enrollmentTimeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="3">3 months</option>
+                            <option value="6">6 months</option>
+                            <option value="9">9 months</option>
+                            <option value="12">12 months</option>
+                            <option value="18">18 months</option>
+                            <option value="24">24 months</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="screenFailRate">Expected Screen Failure Rate *</label>
+                        <select id="screenFailRate" required>
+                            <option value="">Select rate...</option>
+                            <option value="10">10% or less</option>
+                            <option value="20">20%</option>
+                            <option value="30">30%</option>
+                            <option value="40">40%</option>
+                            <option value="50">50% or more</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Recruitment Methods</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Planned Recruitment Strategies *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="database">
+                                <span>Existing Patient Database</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="referrals">
+                                <span>Physician Referrals</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="advertising">
+                                <span>Local Advertising</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="social">
+                                <span>Social Media</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="community">
+                                <span>Community Outreach</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="recruitment" value="registry">
+                                <span>Patient Registry</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recruitmentDetails">Detailed Recruitment Plan</label>
+                        <textarea id="recruitmentDetails" rows="5" placeholder="Describe your specific recruitment strategy for this study..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Timeline & Availability -->
+            <div class="form-section" id="section4">
+                <div class="section-header">
+                    <h2>Section 4: Timeline & Availability</h2>
+                    <p class="section-description">Your availability and timeline for this study</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Site Availability</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="startDate">Earliest Start Date *</label>
+                        <input type="date" id="startDate" required>
+                        <p class="field-help">When can you realistically begin screening patients?</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentStudies">Current Active Studies *</label>
+                        <input type="number" id="currentStudies" class="prefilled" value="8" required>
+                        <span class="prefill-indicator">✓ From profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studyCapacity">Additional Study Capacity *</label>
+                        <select id="studyCapacity" required>
+                            <option value="">Select capacity...</option>
+                            <option value="full">Full capacity - can take this study</option>
+                            <option value="limited">Limited capacity - may need to adjust timeline</option>
+                            <option value="waitlist">At capacity - would need to waitlist</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Regulatory Timeline</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="irbTimeline">IRB Approval Timeline *</label>
+                        <select id="irbTimeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="2">2-4 weeks</option>
+                            <option value="4">4-6 weeks</option>
+                            <option value="6">6-8 weeks</option>
+                            <option value="8">8-12 weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contractTimeline">Contract Negotiation Timeline *</label>
+                        <select id="contractTimeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="2">2-4 weeks</option>
+                            <option value="4">4-6 weeks</option>
+                            <option value="6">6-8 weeks</option>
+                            <option value="8">8-12 weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budgetTimeline">Budget Approval Timeline *</label>
+                        <select id="budgetTimeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="1">1-2 weeks</option>
+                            <option value="2">2-4 weeks</option>
+                            <option value="4">4-6 weeks</option>
+                            <option value="6">6-8 weeks</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Competing Studies</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Do you have competing NSCLC studies? *</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="competingStudies" value="yes">
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="competingStudies" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="competingStudiesDetails" style="display: none;">
+                        <label for="competingStudiesInfo">Competing Studies Details</label>
+                        <textarea id="competingStudiesInfo" rows="4" placeholder="Describe competing studies, patient overlap, and how you plan to manage recruitment..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Budget & Resources -->
+            <div class="form-section" id="section5">
+                <div class="section-header">
+                    <h2>Section 5: Budget & Resources</h2>
+                    <p class="section-description">Budget requirements and resource allocation</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Budget Requirements</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="perPatientBudget">Per-Patient Budget Requirement *</label>
+                        <div class="input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="perPatientBudget" required>
+                        </div>
+                        <p class="field-help">Total cost per enrolled patient (including all visits, procedures, overhead)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startupCosts">Startup Costs *</label>
+                        <div class="input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="startupCosts" required>
+                        </div>
+                        <p class="field-help">One-time costs for study initiation (training, setup, etc.)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="screenFailureFee">Screen Failure Fee *</label>
+                        <div class="input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="screenFailureFee" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budgetJustification">Budget Justification</label>
+                        <textarea id="budgetJustification" rows="5" placeholder="Provide breakdown and justification for your budget requirements..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Payment Terms</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentSchedule">Preferred Payment Schedule *</label>
+                        <select id="paymentSchedule" required>
+                            <option value="">Select schedule...</option>
+                            <option value="milestone">Milestone-based (per patient visit)</option>
+                            <option value="monthly">Monthly holdback</option>
+                            <option value="completion">Upon study completion</option>
+                            <option value="hybrid">Hybrid (partial upfront + milestones)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="invoicingRequirements">Invoicing Requirements</label>
+                        <textarea id="invoicingRequirements" rows="3" placeholder="Describe any specific invoicing or payment requirements..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Resource Allocation</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dedicatedStaff">Dedicated Staff for This Study *</label>
+                        <input type="number" id="dedicatedStaff" step="0.5" required>
+                        <p class="field-help">Full-time equivalent (FTE) staff dedicated to this study</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spaceAllocation">Space Allocation *</label>
+                        <select id="spaceAllocation" required>
+                            <option value="">Select allocation...</option>
+                            <option value="dedicated">Dedicated exam rooms</option>
+                            <option value="shared">Shared space with scheduling priority</option>
+                            <option value="flexible">Flexible space as needed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Regulatory & Compliance -->
+            <div class="form-section" id="section6">
+                <div class="section-header">
+                    <h2>Section 6: Regulatory & Compliance</h2>
+                    <p class="section-description">Regulatory readiness and compliance capabilities</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>IRB Information</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="irbName">IRB Name *</label>
+                        <input type="text" id="irbName" class="prefilled" value="New England Institutional Review Board" required>
+                        <span class="prefill-indicator">✓ From profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="irbType">IRB Type *</label>
+                        <select id="irbType" class="prefilled" required>
+                            <option value="central" selected>Central IRB</option>
+                            <option value="local">Local IRB</option>
+                            <option value="commercial">Commercial IRB</option>
+                        </select>
+                        <span class="prefill-indicator">✓ From profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>IRB Accreditation *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item prefilled">
+                                <input type="checkbox" name="irbAccred" value="aahrpp" checked>
+                                <span>AAHRPP Accredited</span>
+                                <span class="prefill-indicator">✓</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="irbAccred" value="fda">
+                                <span>FDA Registered</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Regulatory Experience</h3>
+                        <span class="prefill-badge">Pre-filled from profile</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fdaInspections">FDA Inspections *</label>
+                        <input type="number" id="fdaInspections" class="prefilled" value="3" required>
+                        <span class="prefill-indicator">✓ From profile</span>
+                        <p class="field-help">Number of FDA inspections at your site</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inspectionOutcomes">Inspection Outcomes *</label>
+                        <select id="inspectionOutcomes" class="prefilled" required>
+                            <option value="nai" selected>No Action Indicated (NAI)</option>
+                            <option value="vai">Voluntary Action Indicated (VAI)</option>
+                            <option value="oai">Official Action Indicated (OAI)</option>
+                            <option value="none">No inspections yet</option>
+                        </select>
+                        <span class="prefill-indicator">✓ From profile</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form483">Form 483 Observations</label>
+                        <textarea id="form483" rows="3" placeholder="Describe any Form 483 observations and corrective actions taken..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Compliance & Quality</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Quality Management System *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="qms" value="sops">
+                                <span>Written SOPs for all study procedures</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="qms" value="training">
+                                <span>Documented staff training program</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="qms" value="monitoring">
+                                <span>Internal monitoring/auditing program</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="qms" value="capa">
+                                <span>CAPA (Corrective/Preventive Action) system</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="qms" value="deviation">
+                                <span>Protocol deviation tracking system</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deviationRate">Protocol Deviation Rate *</label>
+                        <select id="deviationRate" required>
+                            <option value="">Select rate...</option>
+                            <option value="low">Low (<5% of visits)</option>
+                            <option value="moderate">Moderate (5-10% of visits)</option>
+                            <option value="high">High (>10% of visits)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Data Management</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>EDC System Experience *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="edc" value="medidata">
+                                <span>Medidata Rave</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="edc" value="oracle">
+                                <span>Oracle InForm</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="edc" value="veeva">
+                                <span>Veeva Vault EDC</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="edc" value="redcap">
+                                <span>REDCap</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="edc" value="other">
+                                <span>Other EDC systems</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="queryRate">Query Resolution Rate *</label>
+                        <select id="queryRate" required>
+                            <option value="">Select rate...</option>
+                            <option value="excellent">Excellent (>95% within 48 hours)</option>
+                            <option value="good">Good (90-95% within 48 hours)</option>
+                            <option value="fair">Fair (80-90% within 48 hours)</option>
+                            <option value="needs-improvement">Needs Improvement (<80% within 48 hours)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Media & Additional Information -->
+            <div class="form-section" id="section7">
+                <div class="section-header">
+                    <h2>Section 7: Media & Additional Information</h2>
+                    <p class="section-description">Photos, videos, and supporting documentation</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Site Photos</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sitePhotos">Upload Site Photos</label>
+                        <p class="field-help">Photos of your facility, exam rooms, waiting areas, equipment, etc.</p>
+                        <div class="file-upload-area">
+                            <input type="file" id="sitePhotos" multiple accept="image/*">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">📷</span>
+                                <p>Drag and drop photos here or click to browse</p>
+                                <span class="upload-hint">JPG, PNG up to 10MB each - Maximum 20 photos</span>
+                            </div>
+                        </div>
+                        <div class="uploaded-files" id="sitePhotosList"></div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Site Videos</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="siteVideos">Upload Site Videos</label>
+                        <p class="field-help">Virtual site tour, PI introduction, facility walkthrough, etc.</p>
+                        <div class="file-upload-area">
+                            <input type="file" id="siteVideos" multiple accept="video/*">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">🎥</span>
+                                <p>Drag and drop videos here or click to browse</p>
+                                <span class="upload-hint">MP4, MOV up to 100MB each - Maximum 5 videos</span>
+                            </div>
+                        </div>
+                        <div class="uploaded-files" id="siteVideosList"></div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Supporting Documents</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="supportingDocs">Upload Supporting Documents</label>
+                        <p class="field-help">Certifications, licenses, accreditations, CVs, facility brochures, etc.</p>
+                        <div class="file-upload-area">
+                            <input type="file" id="supportingDocs" multiple accept=".pdf,.doc,.docx">
+                            <div class="upload-placeholder">
+                                <span class="upload-icon">📄</span>
+                                <p>Drag and drop documents here or click to browse</p>
+                                <span class="upload-hint">PDF, DOC, DOCX up to 25MB each - Maximum 10 documents</span>
+                            </div>
+                        </div>
+                        <div class="uploaded-files" id="supportingDocsList"></div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header">
+                        <h3>Additional Information</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Comments or Information</label>
+                        <textarea id="additionalInfo" rows="6" placeholder="Provide any additional information that would be helpful for the sponsor to know about your site's capabilities, experience, or interest in this study..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Areas of Concern or Questions *</label>
+                        <textarea id="concerns" rows="4" placeholder="List any concerns about the protocol, questions you have, or areas where you need clarification..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" class="btn-secondary" id="prevBtn" style="display: none;">
+                    ← Previous Section
+                </button>
+                <div class="nav-spacer"></div>
+                <button type="button" class="btn-primary" id="nextBtn">
+                    Next Section →
+                </button>
+                <button type="submit" class="btn-success" id="submitBtn" style="display: none;">
+                    Submit Questionnaire
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="footer-logo">
+                    <p class="footer-description">
+                        Connecting research sites with clinical trial opportunities worldwide.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="site-registration.html">Register Site</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com">www.clinicalresearchpro.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">HIPAA Compliant</span>
+                    <span class="badge">SOC 2 Certified</span>
+                    <span class="badge">FDA Aligned</span>
+                    <span class="badge">GDPR Compliant</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="questionnaire-enhanced.js"></script>
+</body>
+</html>
