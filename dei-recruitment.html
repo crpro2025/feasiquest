@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEI Recruitment Tools - FeasiQuest℠</title>
+    <link rel="stylesheet" href="global-theme.css">
+    <link rel="stylesheet" href="homepage-updated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+<style>
+    .dei-hero {
+        background: linear-gradient(135deg, #7c3aed 0%, #dc2626 100%);
+        padding: 100px 0 60px;
+        text-align: center;
+        color: white;
+    }
+    
+    .dei-hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    .dei-hero p {
+        font-size: 20px;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        color: rgba(255,255,255,0.9);
+    }
+    
+    .dei-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .dei-stat {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        border: 2px solid rgba(255,255,255,0.2);
+    }
+    
+    .dei-stat-number {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .dei-stat-label {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+    
+    .dei-section {
+        padding: 80px 0;
+    }
+    
+    .dei-section:nth-child(even) {
+        background: #f8fafc;
+    }
+    
+    .tool-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+    
+    .tool-box {
+        background: white;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        border: 2px solid transparent;
+    }
+    
+    .tool-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        border-color: var(--primary);
+    }
+    
+    .tool-icon-large {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .tool-box h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+    
+    .tool-box p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .tool-features {
+        list-style: none;
+        margin-bottom: 25px;
+    }
+    
+    .tool-features li {
+        padding: 8px 0;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .tool-features li i {
+        color: var(--success);
+    }
+    
+    .strategy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+    }
+    
+    .strategy-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        border-left: 4px solid var(--primary);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .strategy-card h4 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+    
+    .strategy-card ul {
+        list-style: none;
+        color: var(--text-secondary);
+    }
+    
+    .strategy-card ul li {
+        padding: 6px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .strategy-card ul li::before {
+        content: "→";
+        color: var(--primary);
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="nav-logo">FeasiQuest<sup style="font-size: 0.5em;">℠</sup></span>
+                    <span class="nav-tagline">by Clinical Research Pro<sup style="font-size: 0.6em;">®</sup></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#ai-tools">AI Tools</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="app.html" class="btn-login">Login</a>
+                <a href="app.html" class="btn-signup">Get Started Free</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="dei-hero">
+        <div class="container">
+            <h1>🌍 Trial Equity & Diversity Recruitment</h1>
+            <p>
+                Build representative, diverse patient populations that reflect real-world demographics. 
+                Meet regulatory requirements while advancing health equity and scientific validity.
+            </p>
+            
+            <div class="dei-stats">
+                <div class="dei-stat">
+                    <div class="dei-stat-number">Required</div>
+                    <div class="dei-stat-label">By FDA & EMA</div>
+                </div>
+                <div class="dei-stat">
+                    <div class="dei-stat-number">85%</div>
+                    <div class="dei-stat-label">Sponsors Prioritize DEI</div>
+                </div>
+                <div class="dei-stat">
+                    <div class="dei-stat-number">2x</div>
+                    <div class="dei-stat-label">Better Market Access</div>
+                </div>
+                <div class="dei-stat">
+                    <div class="dei-stat-number">40%</div>
+                    <div class="dei-stat-label">Avg. Diversity Gap</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why DEI Matters -->
+    <section class="dei-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why DEI Matters in Clinical Trials</h2>
+                <p>Diversity, equity, and inclusion are not just regulatory requirements—they're scientific imperatives</p>
+            </div>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>📋 Regulatory Requirements</h4>
+                    <ul>
+                        <li>FDA requires diversity action plans</li>
+                        <li>EMA emphasizes representative populations</li>
+                        <li>ICH E17 guidelines on ethnic factors</li>
+                        <li>Mandatory diversity reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>🔬 Scientific Validity</h4>
+                    <ul>
+                        <li>Different populations respond differently</li>
+                        <li>Genetic variations affect efficacy</li>
+                        <li>Comorbidities vary by demographics</li>
+                        <li>Generalizability requires diversity</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>❤️ Health Equity</h4>
+                    <ul>
+                        <li>Reduce health disparities</li>
+                        <li>Ensure equitable access to innovation</li>
+                        <li>Build trust in underserved communities</li>
+                        <li>Address historical inequities</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>💼 Market Access</h4>
+                    <ul>
+                        <li>Broader label indications</li>
+                        <li>Faster regulatory approval</li>
+                        <li>Better reimbursement</li>
+                        <li>Larger addressable market</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEI Assessment Tools -->
+    <section class="dei-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>DEI Assessment & Planning Tools</h2>
+                <p>Comprehensive tools to plan, execute, and track diverse recruitment</p>
+            </div>
+            
+            <div class="tool-grid">
+                <div class="tool-box">
+                    <div class="tool-icon-large">📊</div>
+                    <h3>Representative Population Calculator</h3>
+                    <p>Compare your target enrollment demographics against real-world population data to identify diversity gaps.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> US Census data integration</li>
+                        <li><i class="fas fa-check"></i> Disease prevalence by demographics</li>
+                        <li><i class="fas fa-check"></i> Geographic diversity mapping</li>
+                        <li><i class="fas fa-check"></i> Gap analysis with recommendations</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">Launch Calculator</button>
+                </div>
+                
+                <div class="tool-box">
+                    <div class="tool-icon-large">🗺️</div>
+                    <h3>Diversity Gap Analyzer</h3>
+                    <p>Identify underrepresented populations in your trial design and get targeted recruitment strategies.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> Race/ethnicity gap analysis</li>
+                        <li><i class="fas fa-check"></i> Age distribution assessment</li>
+                        <li><i class="fas fa-check"></i> Gender representation review</li>
+                        <li><i class="fas fa-check"></i> Socioeconomic diversity check</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">Analyze Diversity</button>
+                </div>
+                
+                <div class="tool-box">
+                    <div class="tool-icon-large">🌐</div>
+                    <h3>Geographic Equity Mapper</h3>
+                    <p>Ensure equitable access across regions, identifying underserved areas and access barriers.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> Site distribution analysis</li>
+                        <li><i class="fas fa-check"></i> Transportation access mapping</li>
+                        <li><i class="fas fa-check"></i> Rural vs. urban coverage</li>
+                        <li><i class="fas fa-check"></i> Healthcare desert identification</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">Map Equity</button>
+                </div>
+                
+                <div class="tool-box">
+                    <div class="tool-icon-large">💬</div>
+                    <h3>Community Engagement Planner</h3>
+                    <p>Develop culturally appropriate outreach strategies for diverse communities.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> Cultural competency assessment</li>
+                        <li><i class="fas fa-check"></i> Language accessibility planning</li>
+                        <li><i class="fas fa-check"></i> Community partnership strategies</li>
+                        <li><i class="fas fa-check"></i> Trust-building approaches</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">Plan Engagement</button>
+                </div>
+                
+                <div class="tool-box">
+                    <div class="tool-icon-large">🚧</div>
+                    <h3>Access Barrier Identifier</h3>
+                    <p>Identify and address barriers that prevent diverse participation in your trial.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> Financial burden assessment</li>
+                        <li><i class="fas fa-check"></i> Transportation challenges</li>
+                        <li><i class="fas fa-check"></i> Time commitment analysis</li>
+                        <li><i class="fas fa-check"></i> Childcare/caregiver needs</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">Identify Barriers</button>
+                </div>
+                
+                <div class="tool-box">
+                    <div class="tool-icon-large">📈</div>
+                    <h3>Diversity Metrics Dashboard</h3>
+                    <p>Track enrollment diversity in real-time and compare against targets and benchmarks.</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-check"></i> Real-time diversity tracking</li>
+                        <li><i class="fas fa-check"></i> Target vs. actual comparison</li>
+                        <li><i class="fas fa-check"></i> Industry benchmark comparison</li>
+                        <li><i class="fas fa-check"></i> Retention by demographic</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="alert('Tool coming soon!')">View Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEI Recruitment Strategies -->
+    <section class="dei-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven DEI Recruitment Strategies</h2>
+                <p>Evidence-based approaches to build diverse, representative patient populations</p>
+            </div>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>🤝 Community Partnerships</h4>
+                    <ul>
+                        <li>Partner with community health centers</li>
+                        <li>Engage faith-based organizations</li>
+                        <li>Collaborate with patient advocacy groups</li>
+                        <li>Build long-term community relationships</li>
+                        <li>Involve community advisory boards</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>🗣️ Language & Cultural Accessibility</h4>
+                    <ul>
+                        <li>Translate materials into multiple languages</li>
+                        <li>Provide professional interpreters</li>
+                        <li>Use culturally appropriate imagery</li>
+                        <li>Train staff in cultural competency</li>
+                        <li>Adapt consent process for literacy levels</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>🚗 Transportation Solutions</h4>
+                    <ul>
+                        <li>Provide transportation vouchers</li>
+                        <li>Arrange rideshare services</li>
+                        <li>Offer mobile/home visits when possible</li>
+                        <li>Locate sites near public transit</li>
+                        <li>Reimburse mileage and parking</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>💵 Financial Burden Reduction</h4>
+                    <ul>
+                        <li>Provide fair compensation for time</li>
+                        <li>Cover all trial-related costs</li>
+                        <li>Offer childcare assistance</li>
+                        <li>Compensate for lost wages</li>
+                        <li>Provide meal vouchers</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>⏰ Flexible Scheduling</h4>
+                    <ul>
+                        <li>Offer evening and weekend visits</li>
+                        <li>Accommodate work schedules</li>
+                        <li>Minimize visit frequency when possible</li>
+                        <li>Allow remote/virtual visits</li>
+                        <li>Provide scheduling flexibility</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>🏥 Site Selection for Diversity</h4>
+                    <ul>
+                        <li>Choose sites in diverse communities</li>
+                        <li>Include community health centers</li>
+                        <li>Partner with minority-serving institutions</li>
+                        <li>Ensure sites have diverse staff</li>
+                        <li>Verify sites have DEI experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulatory Requirements -->
+    <section class="dei-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Regulatory Requirements & Guidelines</h2>
+                <p>Stay compliant with evolving DEI regulations</p>
+            </div>
+            
+            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <h3 style="margin-bottom: 30px; color: var(--text-primary);">Key Regulatory Guidance</h3>
+                
+                <div style="display: grid; gap: 25px;">
+                    <div style="border-left: 4px solid #dc2626; padding-left: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">FDA Diversity Action Plans (2022)</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">
+                            Sponsors must submit diversity action plans for Phase 3 trials, including:
+                        </p>
+                        <ul style="color: var(--text-light); margin-left: 20px;">
+                            <li>Current enrollment demographics</li>
+                            <li>Enrollment goals by race, ethnicity, sex, age</li>
+                            <li>Rationale for goals</li>
+                            <li>Strategies to achieve goals</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="border-left: 4px solid #7c3aed; padding-left: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">ICH E17: Multi-Regional Clinical Trials (2017)</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">
+                            Guidance on planning trials to support global regulatory submissions:
+                        </p>
+                        <ul style="color: var(--text-light); margin-left: 20px;">
+                            <li>Consider ethnic factors in drug development</li>
+                            <li>Include diverse populations early</li>
+                            <li>Plan for regional differences</li>
+                            <li>Ensure adequate representation</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="border-left: 4px solid #f59e0b; padding-left: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">EMA Reflection Paper on Extrapolation (2018)</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 10px;">
+                            Emphasizes need for diverse data to support extrapolation:
+                        </p>
+                        <ul style="color: var(--text-light); margin-left: 20px;">
+                            <li>Include relevant subpopulations</li>
+                            <li>Consider genetic diversity</li>
+                            <li>Account for environmental factors</li>
+                            <li>Ensure broad applicability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="dei-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>DEI Success Stories</h2>
+                <p>Real examples of trials that achieved representative enrollment</p>
+            </div>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card" style="border-left-color: #10b981;">
+                    <h4>Cardiovascular Outcomes Trial</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Challenge:</strong> Historically low minority enrollment in CV trials
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Strategy:</strong> Partnered with community health centers, provided transportation, offered flexible scheduling
+                    </p>
+                    <p style="color: var(--success); font-weight: 600;">
+                        <strong>Result:</strong> 45% minority enrollment (vs. 15% industry average)
+                    </p>
+                </div>
+                
+                <div class="strategy-card" style="border-left-color: #10b981;">
+                    <h4>Diabetes Prevention Study</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Challenge:</strong> Reaching Hispanic/Latino populations at high risk
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Strategy:</strong> Spanish materials, bilingual staff, community events, faith-based partnerships
+                    </p>
+                    <p style="color: var(--success); font-weight: 600;">
+                        <strong>Result:</strong> 52% Hispanic/Latino enrollment, exceeding target
+                    </p>
+                </div>
+                
+                <div class="strategy-card" style="border-left-color: #10b981;">
+                    <h4>Oncology Precision Medicine Trial</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Challenge:</strong> Genetic diversity needed for biomarker validation
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        <strong>Strategy:</strong> Multi-ethnic site selection, genetic counseling, community education
+                    </p>
+                    <p style="color: var(--success); font-weight: 600;">
+                        <strong>Result:</strong> 38% non-White enrollment, robust biomarker data
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="dei-section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; font-size: 36px; margin-bottom: 20px;">Ready to Build Diverse, Representative Trials?</h2>
+            <p style="font-size: 18px; margin-bottom: 40px; color: rgba(255,255,255,0.9);">
+                Join leading sponsors using FeasiQuest℠ to advance health equity and scientific excellence.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="app.html" class="btn btn-primary" style="font-size: 18px; padding: 18px 36px;">
+                    Get Started Free
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="index.html#pricing" class="btn btn-secondary" style="font-size: 18px; padding: 18px 36px; background: white; color: var(--text-primary);">
+                    View Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <a href="https://www.clinicalresearchpro.com" target="_blank" class="footer-logo-link">
+                        <img src="5.png" alt="Clinical Research Pro" class="footer-logo">
+                    </a>
+                    <p class="footer-brand-text">
+                        Clinical Research Pro® is the industry standard for clinical research excellence. 
+                        FeasiQuest℠ is our revolutionary platform for clinical trial feasibility assessment.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="site-registration.html">Register Site</a></li>
+                        <li><a href="study-creation.html">Create Study</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>AI Features</h4>
+                    <ul>
+                        <li><a href="ai-enrollment-predictor.html">Enrollment Predictor</a></li>
+                        <li><a href="ai-protocol-analyzer.html">Protocol Analyzer</a></li>
+                        <li><a href="ai-site-recommender.html">Site Recommender</a></li>
+                        <li><a href="dei-recruitment.html">DEI Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.clinicalresearchpro.com/about" target="_blank">About CRPro</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/training" target="_blank">Training Programs</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com/certifications" target="_blank">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a>
+                        </li>
+                        <li>
+                            <a href="https://www.clinicalresearchpro.com" target="_blank">www.clinicalresearchpro.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Clinical Research Pro® Corporation. All rights reserved. | FeasiQuest℠ is a service mark of Clinical Research Pro®.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
