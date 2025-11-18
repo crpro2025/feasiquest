@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Upload & AI Matching - FeasiQuest℠</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="protocol-upload.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="help-center.html">Help</a>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuBtn">
+                        <span class="user-avatar">SP</span>
+                        <span class="user-name">Sponsor</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="protocol-container">
+        <!-- Header -->
+        <div class="protocol-header">
+            <button class="back-button" onclick="window.location.href='app.html'">
+                ← Back to Dashboard
+            </button>
+            <h1>🤖 AI-Powered Protocol Analysis & Site Matching</h1>
+            <p class="header-description">
+                Upload your protocol synopsis and let our AI automatically extract key criteria, 
+                generate a custom questionnaire, and match you with the best research sites.
+            </p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="step active" data-step="1">
+                <div class="step-icon">📄</div>
+                <div class="step-info">
+                    <div class="step-title">Upload Protocol</div>
+                    <div class="step-desc">PDF, Word, or paste text</div>
+                </div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="2">
+                <div class="step-icon">🤖</div>
+                <div class="step-info">
+                    <div class="step-title">AI Extraction</div>
+                    <div class="step-desc">Automatic criteria parsing</div>
+                </div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="3">
+                <div class="step-icon">📋</div>
+                <div class="step-info">
+                    <div class="step-title">Generate Questionnaire</div>
+                    <div class="step-desc">Custom questions created</div>
+                </div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="4">
+                <div class="step-icon">🎯</div>
+                <div class="step-info">
+                    <div class="step-title">Match Sites</div>
+                    <div class="step-desc">AI scoring & ranking</div>
+                </div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="5">
+                <div class="step-icon">✉️</div>
+                <div class="step-info">
+                    <div class="step-title">Send Questionnaires</div>
+                    <div class="step-desc">Bulk send to shortlist</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1: Upload Protocol -->
+        <div class="step-content active" id="step1">
+            <div class="content-card">
+                <h2>Step 1: Upload Protocol Synopsis</h2>
+                <p class="step-description">
+                    Upload your protocol synopsis document or paste the text directly. 
+                    Our AI will extract key information including therapeutic area, phase, 
+                    inclusion/exclusion criteria, equipment requirements, and more.
+                </p>
+
+                <!-- Upload Options -->
+                <div class="upload-options">
+                    <div class="upload-option active" data-option="file">
+                        <div class="option-icon">📁</div>
+                        <div class="option-title">Upload File</div>
+                        <div class="option-desc">PDF or Word document</div>
+                    </div>
+                    <div class="upload-option" data-option="paste">
+                        <div class="option-icon">📝</div>
+                        <div class="option-title">Paste Text</div>
+                        <div class="option-desc">Copy and paste synopsis</div>
+                    </div>
+                </div>
+
+                <!-- File Upload Area -->
+                <div class="upload-area" id="fileUploadArea">
+                    <input type="file" id="protocolFile" accept=".pdf,.doc,.docx" hidden>
+                    <div class="upload-placeholder" onclick="document.getElementById('protocolFile').click()">
+                        <div class="upload-icon">📄</div>
+                        <h3>Drag and drop your protocol here</h3>
+                        <p>or click to browse</p>
+                        <span class="upload-hint">Supports PDF, DOC, DOCX up to 50MB</span>
+                    </div>
+                    <div class="uploaded-file-info" id="uploadedFileInfo" style="display: none;">
+                        <div class="file-preview">
+                            <div class="file-icon-large">📄</div>
+                            <div class="file-details">
+                                <div class="file-name" id="fileName"></div>
+                                <div class="file-meta">
+                                    <span class="file-size" id="fileSize"></span>
+                                    <span class="file-type" id="fileType"></span>
+                                </div>
+                            </div>
+                            <button class="remove-file" onclick="removeFile()">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Paste Area -->
+                <div class="paste-area" id="textPasteArea" style="display: none;">
+                    <textarea id="protocolText" placeholder="Paste your protocol synopsis here...
+
+Example:
+Study Title: A Phase III, Randomized, Double-Blind Study of Drug X in Advanced NSCLC
+
+Therapeutic Area: Oncology
+Indication: Non-Small Cell Lung Cancer (NSCLC)
+Phase: III
+
+Inclusion Criteria:
+- Age ≥18 years
+- Histologically confirmed NSCLC
+- Stage IIIB or IV disease
+- ECOG performance status 0-1
+- Adequate organ function
+
+Exclusion Criteria:
+- Prior systemic therapy for advanced disease
+- Active brain metastases
+- Significant cardiovascular disease
+
+Required Equipment:
+- CT scanner
+- PET scanner
+- On-site laboratory (CLIA certified)
+- Pharmacy
+
+Timeline: 24-month enrollment period
+Target Enrollment: 300 patients globally
+Budget: $25,000 per patient"></textarea>
+                    <div class="paste-actions">
+                        <button class="btn-secondary" onclick="clearText()">Clear</button>
+                        <span class="char-count" id="charCount">0 characters</span>
+                    </div>
+                </div>
+
+                <!-- Study Information Form -->
+                <div class="study-info-form">
+                    <h3>Study Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studyTitle">Study Title *</label>
+                            <input type="text" id="studyTitle" required placeholder="Enter study title">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studyId">Study ID / Protocol Number *</label>
+                            <input type="text" id="studyId" required placeholder="e.g., ABC-123-2025">
+                        </div>
+                        <div class="form-group">
+                            <label for="sponsor">Sponsor Name *</label>
+                            <input type="text" id="sponsor" required placeholder="Your company name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="step-actions">
+                    <button class="btn-primary" onclick="analyzeProtocol()">
+                        🤖 Analyze Protocol with AI
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: AI Extraction Results -->
+        <div class="step-content" id="step2">
+            <div class="content-card">
+                <h2>Step 2: AI Extraction Results</h2>
+                <p class="step-description">
+                    Our AI has analyzed your protocol and extracted the following key information. 
+                    Review and edit as needed before proceeding.
+                </p>
+
+                <!-- Extraction Status -->
+                <div class="extraction-status" id="extractionStatus">
+                    <div class="status-icon">⏳</div>
+                    <div class="status-text">
+                        <h3>Analyzing Protocol...</h3>
+                        <p>This may take 10-15 seconds</p>
+                    </div>
+                    <div class="status-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="extractionProgress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extracted Data -->
+                <div class="extracted-data" id="extractedData" style="display: none;">
+                    <!-- Basic Information -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>📊 Basic Study Information</h3>
+                            <span class="confidence-badge high">95% Confidence</span>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <label>Therapeutic Area</label>
+                                <input type="text" id="therapeuticArea" value="Oncology">
+                            </div>
+                            <div class="data-item">
+                                <label>Indication</label>
+                                <input type="text" id="indication" value="Non-Small Cell Lung Cancer (NSCLC)">
+                            </div>
+                            <div class="data-item">
+                                <label>Phase</label>
+                                <select id="phase">
+                                    <option value="1">Phase I</option>
+                                    <option value="2">Phase II</option>
+                                    <option value="3" selected>Phase III</option>
+                                    <option value="4">Phase IV</option>
+                                </select>
+                            </div>
+                            <div class="data-item">
+                                <label>Study Design</label>
+                                <input type="text" id="studyDesign" value="Randomized, Double-Blind, Placebo-Controlled">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inclusion Criteria -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>✅ Inclusion Criteria</h3>
+                            <span class="confidence-badge high">92% Confidence</span>
+                        </div>
+                        <div class="criteria-list" id="inclusionCriteria">
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Age ≥18 years</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Histologically confirmed NSCLC</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Stage IIIB or IV disease</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>ECOG performance status 0-1</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Adequate organ function</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                        </div>
+                        <button class="add-criterion-btn" onclick="addCriterion('inclusion')">+ Add Criterion</button>
+                    </div>
+
+                    <!-- Exclusion Criteria -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>❌ Exclusion Criteria</h3>
+                            <span class="confidence-badge high">90% Confidence</span>
+                        </div>
+                        <div class="criteria-list" id="exclusionCriteria">
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Prior systemic therapy for advanced disease</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Active brain metastases</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                            <div class="criterion-item">
+                                <input type="checkbox" checked>
+                                <span>Significant cardiovascular disease</span>
+                                <button class="edit-btn">✏️</button>
+                                <button class="remove-btn">×</button>
+                            </div>
+                        </div>
+                        <button class="add-criterion-btn" onclick="addCriterion('exclusion')">+ Add Criterion</button>
+                    </div>
+
+                    <!-- Equipment Requirements -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>🔬 Required Equipment & Facilities</h3>
+                            <span class="confidence-badge high">88% Confidence</span>
+                        </div>
+                        <div class="equipment-grid">
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>CT Scanner</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>PET Scanner</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>MRI</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>On-Site Laboratory (CLIA)</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>On-Site Pharmacy</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox" checked>
+                                <span>Infusion Center</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox">
+                                <span>ECG/EKG</span>
+                            </label>
+                            <label class="equipment-item">
+                                <input type="checkbox">
+                                <span>-80°C Freezer Storage</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Timeline & Enrollment -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>📅 Timeline & Enrollment</h3>
+                            <span class="confidence-badge medium">85% Confidence</span>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <label>Enrollment Period</label>
+                                <input type="text" id="enrollmentPeriod" value="24 months">
+                            </div>
+                            <div class="data-item">
+                                <label>Target Enrollment</label>
+                                <input type="number" id="targetEnrollment" value="300">
+                            </div>
+                            <div class="data-item">
+                                <label>Study Duration</label>
+                                <input type="text" id="studyDuration" value="36 months">
+                            </div>
+                            <div class="data-item">
+                                <label>Number of Sites</label>
+                                <input type="number" id="numberOfSites" value="50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>💰 Budget Information</h3>
+                            <span class="confidence-badge medium">80% Confidence</span>
+                        </div>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <label>Per-Patient Budget</label>
+                                <div class="input-with-prefix">
+                                    <span class="prefix">$</span>
+                                    <input type="number" id="perPatientBudget" value="25000">
+                                </div>
+                            </div>
+                            <div class="data-item">
+                                <label>Startup Fee</label>
+                                <div class="input-with-prefix">
+                                    <span class="prefix">$</span>
+                                    <input type="number" id="startupFee" value="15000">
+                                </div>
+                            </div>
+                            <div class="data-item">
+                                <label>Screen Failure Fee</label>
+                                <div class="input-with-prefix">
+                                    <span class="prefix">$</span>
+                                    <input type="number" id="screenFailureFee" value="2500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Geographic Requirements -->
+                    <div class="data-section">
+                        <div class="section-header">
+                            <h3>🌍 Geographic Requirements</h3>
+                            <span class="confidence-badge low">75% Confidence</span>
+                        </div>
+                        <div class="geographic-selection">
+                            <label class="region-item">
+                                <input type="checkbox" checked>
+                                <span>North America</span>
+                            </label>
+                            <label class="region-item">
+                                <input type="checkbox" checked>
+                                <span>Europe</span>
+                            </label>
+                            <label class="region-item">
+                                <input type="checkbox">
+                                <span>Asia Pacific</span>
+                            </label>
+                            <label class="region-item">
+                                <input type="checkbox">
+                                <span>Latin America</span>
+                            </label>
+                            <label class="region-item">
+                                <input type="checkbox">
+                                <span>Middle East</span>
+                            </label>
+                            <label class="region-item">
+                                <input type="checkbox">
+                                <span>Africa</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="step-actions">
+                    <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
+                    <button class="btn-primary" onclick="generateQuestionnaire()">
+                        Generate Questionnaire →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Generated Questionnaire Preview -->
+        <div class="step-content" id="step3">
+            <div class="content-card">
+                <h2>Step 3: Generated Questionnaire</h2>
+                <p class="step-description">
+                    Based on your protocol, we've generated a custom feasibility questionnaire with 
+                    <strong id="questionCount">42</strong> questions. Review and customize before sending to sites.
+                </p>
+
+                <!-- Questionnaire Preview -->
+                <div class="questionnaire-preview">
+                    <div class="preview-header">
+                        <h3>📋 Questionnaire Preview</h3>
+                        <div class="preview-actions">
+                            <button class="btn-icon" onclick="editQuestionnaire()">✏️ Edit</button>
+                            <button class="btn-icon" onclick="previewFullQuestionnaire()">👁️ Full Preview</button>
+                        </div>
+                    </div>
+
+                    <!-- Question Sections -->
+                    <div class="question-sections">
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">1</span>
+                                <span class="section-name">Site Information & Experience</span>
+                                <span class="question-badge">8 questions</span>
+                            </div>
+                            <div class="section-questions">
+                                <div class="question-item">
+                                    <span class="q-number">1.1</span>
+                                    <span class="q-text">How many Phase III oncology studies has your site completed?</span>
+                                    <span class="q-type">Number</span>
+                                </div>
+                                <div class="question-item">
+                                    <span class="q-number">1.2</span>
+                                    <span class="q-text">How many NSCLC patients do you currently have in your database?</span>
+                                    <span class="q-type">Number</span>
+                                </div>
+                                <div class="question-item">
+                                    <span class="q-number">1.3</span>
+                                    <span class="q-text">Do you have experience with advanced/metastatic NSCLC trials?</span>
+                                    <span class="q-type">Yes/No</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">2</span>
+                                <span class="section-name">Equipment & Facilities</span>
+                                <span class="question-badge">6 questions</span>
+                            </div>
+                            <div class="section-questions">
+                                <div class="question-item">
+                                    <span class="q-number">2.1</span>
+                                    <span class="q-text">Do you have on-site CT scanning capabilities?</span>
+                                    <span class="q-type">Yes/No</span>
+                                </div>
+                                <div class="question-item">
+                                    <span class="q-number">2.2</span>
+                                    <span class="q-text">Do you have on-site PET scanning capabilities?</span>
+                                    <span class="q-type">Yes/No</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">3</span>
+                                <span class="section-name">Patient Recruitment</span>
+                                <span class="question-badge">10 questions</span>
+                            </div>
+                        </div>
+
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">4</span>
+                                <span class="section-name">Regulatory & Compliance</span>
+                                <span class="question-badge">8 questions</span>
+                            </div>
+                        </div>
+
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">5</span>
+                                <span class="section-name">Timeline & Availability</span>
+                                <span class="question-badge">6 questions</span>
+                            </div>
+                        </div>
+
+                        <div class="question-section">
+                            <div class="section-title">
+                                <span class="section-number">6</span>
+                                <span class="section-name">Budget & Resources</span>
+                                <span class="question-badge">4 questions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="step-actions">
+                    <button class="btn-secondary" onclick="goToStep(2)">← Back</button>
+                    <button class="btn-primary" onclick="matchSites()">
+                        🎯 Match Sites with AI →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: AI Site Matching -->
+        <div class="step-content" id="step4">
+            <div class="content-card">
+                <h2>Step 4: AI Site Matching Results</h2>
+                <p class="step-description">
+                    Our AI has analyzed <strong>2,847 research sites</strong> and identified the top matches 
+                    for your study based on 20+ criteria. Sites are scored 0-100 for compatibility.
+                </p>
+
+                <!-- Matching Status -->
+                <div class="matching-status" id="matchingStatus">
+                    <div class="status-icon">🎯</div>
+                    <div class="status-text">
+                        <h3>Analyzing Sites...</h3>
+                        <p>Matching against 2,847 research sites</p>
+                    </div>
+                    <div class="status-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="matchingProgress"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span id="sitesAnalyzed">0</span> / 2,847 sites analyzed
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matching Results -->
+                <div class="matching-results" id="matchingResults" style="display: none;">
+                    <!-- Filters & Sort -->
+                    <div class="results-controls">
+                        <div class="filter-group">
+                            <label>Minimum Score:</label>
+                            <select id="minScoreFilter" onchange="filterResults()">
+                                <option value="0">All Sites</option>
+                                <option value="70">70+ (Good Match)</option>
+                                <option value="80" selected>80+ (Excellent Match)</option>
+                                <option value="90">90+ (Perfect Match)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Location:</label>
+                            <select id="locationFilter" onchange="filterResults()">
+                                <option value="all">All Locations</option>
+                                <option value="north-america">North America</option>
+                                <option value="europe">Europe</option>
+                                <option value="asia">Asia Pacific</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Sort By:</label>
+                            <select id="sortBy" onchange="sortResults()">
+                                <option value="score">Match Score (High to Low)</option>
+                                <option value="experience">Experience (Most to Least)</option>
+                                <option value="capacity">Capacity (High to Low)</option>
+                                <option value="location">Location (A-Z)</option>
+                            </select>
+                        </div>
+                        <div class="results-summary">
+                            <strong id="matchedSitesCount">156</strong> sites matched
+                            <span class="separator">|</span>
+                            <strong id="selectedSitesCount">0</strong> selected
+                        </div>
+                    </div>
+
+                    <!-- Bulk Actions -->
+                    <div class="bulk-actions" id="bulkActions" style="display: none;">
+                        <button class="btn-secondary" onclick="selectAll()">Select All</button>
+                        <button class="btn-secondary" onclick="deselectAll()">Deselect All</button>
+                        <button class="btn-primary" onclick="sendToSelected()">
+                            ✉️ Send Questionnaire to Selected (<span id="selectedCount">0</span>)
+                        </button>
+                    </div>
+
+                    <!-- Site Cards -->
+                    <div class="site-cards" id="siteCards">
+                        <!-- Site cards will be dynamically generated -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="step-actions">
+                    <button class="btn-secondary" onclick="goToStep(3)">← Back</button>
+                    <button class="btn-success" onclick="sendQuestionnaires()" id="sendQuestionnaireBtn" style="display: none;">
+                        ✉️ Send Questionnaires to <span id="finalSelectedCount">0</span> Sites
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Confirmation -->
+        <div class="step-content" id="step5">
+            <div class="content-card">
+                <div class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h2>Questionnaires Sent Successfully!</h2>
+                    <p class="success-description">
+                        Your feasibility questionnaire has been sent to <strong id="sentCount">0</strong> research sites.
+                        You'll receive notifications as sites respond.
+                    </p>
+
+                    <div class="success-stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalSent">0</div>
+                            <div class="stat-label">Questionnaires Sent</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="avgScore">0</div>
+                            <div class="stat-label">Avg Match Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3-5</div>
+                            <div class="stat-label">Days to Response</div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h3>What's Next?</h3>
+                        <ul>
+                            <li>✉️ Sites will receive email notifications with questionnaire link</li>
+                            <li>📊 Track responses in real-time on your dashboard</li>
+                            <li>🔔 Get notified when sites submit their responses</li>
+                            <li>📈 Review and compare site responses</li>
+                            <li>📞 Schedule calls with top-matched sites</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-actions">
+                        <button class="btn-primary" onclick="window.location.href='app.html'">
+                            Go to Dashboard
+                        </button>
+                        <button class="btn-secondary" onclick="window.location.href='responses.html'">
+                            View Responses
+                        </button>
+                        <button class="btn-secondary" onclick="goToStep(1)">
+                            Upload Another Protocol
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="footer-logo">
+                    <p class="footer-description">
+                        AI-powered clinical trial feasibility assessment platform.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="protocol-upload.html">Upload Protocol</a></li>
+                        <li><a href="responses.html">View Responses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com">www.clinicalresearchpro.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">HIPAA Compliant</span>
+                    <span class="badge">SOC 2 Certified</span>
+                    <span class="badge">FDA Aligned</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="protocol-upload.js"></script>
+</body>
+</html>

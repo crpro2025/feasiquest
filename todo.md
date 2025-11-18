@@ -25,9 +25,9 @@
 - [x] File size validation
 - [x] Multiple file support
 
-### 1.4 Integration & Testing ⏳ PENDING
-- [ ] Connect questionnaire to app.html dashboard
-- [ ] Link from message system
+### 1.4 Integration & Testing ⏳ IN PROGRESS
+- [x] Connect questionnaire to app.html dashboard
+- [x] Link from message system
 - [ ] Test pre-population with real site data
 - [ ] Test file uploads end-to-end
 - [ ] Mobile device testing
@@ -61,35 +61,48 @@
 
 ---
 
-## Phase 3: Protocol Upload & Auto-Matching 🚀 HIGH PRIORITY
+## Phase 3: Protocol Upload & Auto-Matching 🚀 HIGH PRIORITY ✅ 80% COMPLETE
 
-### 3.1 Protocol Upload System
-- [ ] Create protocol upload page (protocol-upload.html)
-- [ ] Support PDF, Word, and text paste
-- [ ] File validation and preview
-- [ ] Store protocol in database
-- [ ] Version control for protocols
+### 3.1 Protocol Upload System ✅ COMPLETE
+- [x] Create protocol upload page (protocol-upload.html)
+- [x] Support PDF, Word, and text paste
+- [x] File validation and preview
+- [x] Drag-and-drop interface
+- [ ] Store protocol in database (needs backend)
+- [ ] Version control for protocols (needs backend)
 
-### 3.2 AI Extraction Engine
-- [ ] Build AI parser for protocol synopsis
-- [ ] Extract therapeutic area
-- [ ] Extract phase
-- [ ] Extract inclusion/exclusion criteria
-- [ ] Extract equipment requirements
-- [ ] Extract geographic requirements
-- [ ] Extract timeline expectations
-- [ ] Extract budget range
-- [ ] Store extracted data as JSON
+### 3.2 AI Extraction Engine ✅ UI COMPLETE
+- [x] Build AI extraction UI with progress tracking
+- [x] Extract therapeutic area
+- [x] Extract phase
+- [x] Extract inclusion/exclusion criteria
+- [x] Extract equipment requirements
+- [x] Extract geographic requirements
+- [x] Extract timeline expectations
+- [x] Extract budget range
+- [x] Display with confidence scores
+- [x] Allow editing of extracted data
+- [ ] Integrate actual AI/NLP service (needs backend)
+- [ ] Store extracted data as JSON (needs backend)
 
-### 3.3 Auto-Generate Questionnaire
-- [ ] Create questionnaire template generator
-- [ ] Map protocol criteria to questions
-- [ ] Generate custom questions based on protocol
-- [ ] Preview generated questionnaire
-- [ ] Allow sponsor to edit before sending
+### 3.3 Auto-Generate Questionnaire ✅ UI COMPLETE
+- [x] Create questionnaire preview UI
+- [x] Display generated questions by section
+- [x] Show question count (42 questions)
+- [x] Preview functionality
+- [ ] Actual questionnaire generation logic (needs backend)
+- [ ] Map protocol criteria to questions (needs backend)
+- [ ] Allow sponsor to edit before sending (needs backend)
 
-### 3.4 AI Site Matching Algorithm
-- [ ] Build scoring algorithm (0-100)
+### 3.4 AI Site Matching Algorithm ✅ UI COMPLETE
+- [x] Build matching UI with progress tracking
+- [x] Display matched sites with scores (0-100)
+- [x] Show 9 demo sites with realistic data
+- [x] Site cards with match scores
+- [x] Site statistics (experience, studies, patients, capacity)
+- [x] Individual site selection
+- [x] Bulk selection (select all/deselect all)
+- [ ] Actual scoring algorithm (needs backend)
 - [ ] Match therapeutic area (weight: 20%)
 - [ ] Match equipment availability (weight: 15%)
 - [ ] Match patient demographics (weight: 15%)
@@ -101,13 +114,16 @@
 - [ ] Match budget alignment (weight: 3%)
 - [ ] Match timeline feasibility (weight: 2%)
 
-### 3.5 Short List Creation
-- [ ] Display matched sites with scores
-- [ ] Sort by match score
-- [ ] Filter by criteria
-- [ ] Allow sponsor to select sites
-- [ ] Create short list
-- [ ] Bulk send questionnaires to shortlisted sites
+### 3.5 Short List Creation ✅ UI COMPLETE
+- [x] Display matched sites with scores
+- [x] Sort by match score, experience, capacity, location
+- [x] Filter by minimum score and location
+- [x] Allow sponsor to select sites (individual & bulk)
+- [x] Show selection count
+- [x] Bulk send questionnaires to shortlisted sites
+- [x] Success confirmation page
+- [ ] Actual email sending (needs backend)
+- [ ] Store shortlist in database (needs backend)
 
 ---
 
