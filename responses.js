@@ -767,26 +767,248 @@ function scheduleCallsSelected() {
 }
 
 function exportSelected() {
-    alert(`Exporting ${selectedResponses.length} responses`);
+    if (selectedResponses.length === 0) {
+        alert('Please select at least one response to export');
+        return;
+    }
+    
+    const responses = allResponses.filter(r => selectedResponses.includes(r.id));
+    exportToExcel(responses, 'selected-responses');
 }
 
 function exportResponses() {
-    alert('Exporting all responses to Excel');
+    const responses = getFilteredResponses();
+    exportToExcel(responses, 'all-responses');
 }
 
 function exportComparison() {
-    alert('Exporting comparison to PDF');
+    const comparedResponses = allResponses.filter(r => 
+        Array.from(document.querySelectorAll('.comparison-card')).some(card => 
+            card.dataset.siteId === r.id.toString()
+        )
+    );
+    
+    if (comparedResponses.length === 0) {
+        alert('Please add sites to comparison first');
+        return;
+    }
+    
+    exportComparisonToPDF(comparedResponses);
+}
+
+// Export to Excel (CSV format)
+function exportToExcel(responses, filename) {
+    // Create CSV content
+    const headers = [
+        'Site Name',
+        'Location',
+        'Score',
+        'Status',
+        'Submitted Date',
+        'Patient Pool',
+        'Enrollment Capacity',
+        'Timeline',
+        'Budget',
+        'PI Experience',
+        'Contact Name',
+        'Contact Email',
+        'Contact Phone'
+    ];
+    
+    const rows = responses.map(r => [
+        r.siteName,
+        `${r.location.city}, ${r.location.state}`,
+        r.score,
+        r.status,
+        r.submittedDate,
+        r.patientPool,
+        r.enrollmentCapacity,
+        r.timeline,
+        r.budget,
+        r.piExperience,
+        r.contact.name,
+        r.contact.email,
+        r.contact.phone
+    ]);
+    
+    // Combine headers and rows
+    const csvContent = [
+        headers.join(','),
+        ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+    ].join('\n');
+    
+    // Create blob and download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    link.setAttribute('href', url);
+    link.setAttribute('download', `${filename}-${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show success message
+    showNotification(`Exported ${responses.length} responses to Excel`, 'success');
+}
+
+// Export comparison to PDF (HTML-based)
+function exportComparisonToPDF(responses) {
+    // Create a printable HTML page
+    const printWindow = window.open('', '_blank');
+    
+    const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Site Comparison Report</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 40px;
+                    color: #1e293b;
+                }
+                .header {
+                    text-align: center;
+                    margin-bottom: 40px;
+                    border-bottom: 3px solid #dc2626;
+                    padding-bottom: 20px;
+                }
+                .header h1 {
+                    color: #dc2626;
+                    margin: 0;
+                }
+                .header p {
+                    color: #64748b;
+                    margin: 10px 0 0 0;
+                }
+                .comparison-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 30px;
+                }
+                .comparison-table th {
+                    background: #f1f5f9;
+                    padding: 15px;
+                    text-align: left;
+                    border: 1px solid #e2e8f0;
+                    font-weight: 600;
+                }
+                .comparison-table td {
+                    padding: 12px 15px;
+                    border: 1px solid #e2e8f0;
+                }
+                .score-badge {
+                    display: inline-block;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+                .score-high { background: #dcfce7; color: #166534; }
+                .score-medium { background: #fef3c7; color: #92400e; }
+                .score-low { background: #fee2e2; color: #991b1b; }
+                .status-badge {
+                    display: inline-block;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+                .status-completed { background: #dcfce7; color: #166534; }
+                .status-pending { background: #fef3c7; color: #92400e; }
+                .footer {
+                    margin-top: 40px;
+                    padding-top: 20px;
+                    border-top: 1px solid #e2e8f0;
+                    text-align: center;
+                    color: #64748b;
+                    font-size: 12px;
+                }
+                @media print {
+                    body { padding: 20px; }
+                    .no-print { display: none; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🎯 Site Comparison Report</h1>
+                <p>FeasiQuest℠ by Clinical Research Pro®</p>
+                <p>Generated: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Site Name</th>
+                        <th>Location</th>
+                        <th>Score</th>
+                        <th>Status</th>
+                        <th>Patient Pool</th>
+                        <th>Capacity</th>
+                        <th>Timeline</th>
+                        <th>Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${responses.map(r => `
+                        <tr>
+                            <td><strong>${r.siteName}</strong></td>
+                            <td>${r.location.city}, ${r.location.state}</td>
+                            <td>
+                                <span class="score-badge score-${r.score >= 80 ? 'high' : r.score >= 60 ? 'medium' : 'low'}">
+                                    ${r.score}/100
+                                </span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-${r.status.toLowerCase()}">
+                                    ${r.status}
+                                </span>
+                            </td>
+                            <td>${r.patientPool}</td>
+                            <td>${r.enrollmentCapacity}</td>
+                            <td>${r.timeline}</td>
+                            <td>${r.budget}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+            
+            <div class="footer">
+                <p>This report was generated by FeasiQuest℠ - Clinical Trial Feasibility Assessment Platform</p>
+                <p>© 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+            </div>
+            
+            <div class="no-print" style="text-align: center; margin-top: 30px;">
+                <button onclick="window.print()" style="padding: 12px 24px; background: #dc2626; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                    🖨️ Print / Save as PDF
+                </button>
+                <button onclick="window.close()" style="padding: 12px 24px; background: #64748b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-left: 10px;">
+                    ✕ Close
+                </button>
+            </div>
+        </body>
+        </html>
+    `;
+    
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+    
+    showNotification('Comparison report opened in new window', 'success');
 }
 
 // Individual actions
 function addToShortlist(id) {
     const site = allResponses.find(r => r.id === id);
-    alert(`Added ${site.siteName} to shortlist`);
+    showNotification(`Added ${site.siteName} to shortlist`, 'success');
 }
 
 function scheduleCall(id) {
     const site = allResponses.find(r => r.id === id);
-    alert(`Scheduling call with ${site.siteName}`);
+    showNotification(`Scheduling call with ${site.siteName}`, 'info');
 }
 
 function viewFullQuestionnaire(id) {
@@ -795,7 +1017,25 @@ function viewFullQuestionnaire(id) {
 
 function exportResponse(id) {
     const site = allResponses.find(r => r.id === id);
-    alert(`Exporting ${site.siteName} response to PDF`);
+    const responses = [site];
+    exportToExcel(responses, `${site.siteName.replace(/\s+/g, '-').toLowerCase()}-response`);
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">✕</button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
 }
 
 // Close modal on outside click
