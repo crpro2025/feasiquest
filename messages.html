@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - FeasiQuest℠</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="messages.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="protocol-upload.html">Upload Protocol</a>
+                <a href="responses.html">Responses</a>
+                <a href="messages.html" class="active">Messages</a>
+                <a href="help-center.html">Help</a>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuBtn">
+                        <span class="user-avatar">SP</span>
+                        <span class="user-name">Sponsor</span>
+                        <span class="notification-badge" id="notificationBadge">5</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="messages-container">
+        <!-- Messages Layout: 3 columns -->
+        <div class="messages-layout">
+            
+            <!-- Column 1: Conversation List -->
+            <div class="conversations-panel">
+                <div class="panel-header">
+                    <h2>💬 Messages</h2>
+                    <button class="btn-icon" onclick="composeMessage()">✏️</button>
+                </div>
+                
+                <!-- Search & Filters -->
+                <div class="conversations-search">
+                    <input type="text" id="conversationSearch" placeholder="Search messages..." onkeyup="searchConversations()">
+                    <button class="search-btn">🔍</button>
+                </div>
+                
+                <div class="conversations-filters">
+                    <button class="filter-btn active" data-filter="all" onclick="filterConversations('all')">
+                        All
+                    </button>
+                    <button class="filter-btn" data-filter="unread" onclick="filterConversations('unread')">
+                        Unread <span class="count">5</span>
+                    </button>
+                    <button class="filter-btn" data-filter="starred" onclick="filterConversations('starred')">
+                        ⭐ Starred
+                    </button>
+                    <button class="filter-btn" data-filter="archived" onclick="filterConversations('archived')">
+                        📦 Archived
+                    </button>
+                </div>
+                
+                <!-- Conversation List -->
+                <div class="conversations-list" id="conversationsList">
+                    <!-- Conversations will be dynamically loaded -->
+                </div>
+            </div>
+            
+            <!-- Column 2: Message Thread -->
+            <div class="messages-panel">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">💬</div>
+                    <h3>Select a conversation</h3>
+                    <p>Choose a conversation from the list to view messages</p>
+                </div>
+                
+                <div class="message-thread" id="messageThread" style="display: none;">
+                    <!-- Thread Header -->
+                    <div class="thread-header">
+                        <div class="thread-info">
+                            <div class="thread-avatar">MR</div>
+                            <div class="thread-details">
+                                <h3 id="threadTitle">Metro Research Institute</h3>
+                                <p id="threadSubtitle">Phase III Oncology Trial - Advanced NSCLC</p>
+                            </div>
+                        </div>
+                        <div class="thread-actions">
+                            <button class="btn-icon" onclick="toggleStar()" id="starBtn">☆</button>
+                            <button class="btn-icon" onclick="archiveConversation()">📦</button>
+                            <button class="btn-icon" onclick="deleteConversation()">🗑️</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Messages -->
+                    <div class="messages-area" id="messagesArea">
+                        <!-- Messages will be dynamically loaded -->
+                    </div>
+                    
+                    <!-- Message Input -->
+                    <div class="message-input-area">
+                        <div class="input-toolbar">
+                            <button class="toolbar-btn" onclick="attachFile()">📎</button>
+                            <button class="toolbar-btn" onclick="insertTemplate()">📋</button>
+                            <button class="toolbar-btn" onclick="insertEmoji()">😊</button>
+                        </div>
+                        <div class="input-container">
+                            <textarea id="messageInput" placeholder="Type your message..." rows="3"></textarea>
+                            <button class="send-btn" onclick="sendMessage()">
+                                Send →
+                            </button>
+                        </div>
+                        <div class="attachments-preview" id="attachmentsPreview"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 3: Info Panel -->
+            <div class="info-panel">
+                <div class="empty-state" id="infoEmptyState">
+                    <div class="empty-icon">ℹ️</div>
+                    <h3>Conversation Details</h3>
+                    <p>Select a conversation to view details</p>
+                </div>
+                
+                <div class="info-content" id="infoContent" style="display: none;">
+                    <!-- Site/Sponsor Info -->
+                    <div class="info-section">
+                        <h3>Contact Information</h3>
+                        <div class="contact-card">
+                            <div class="contact-avatar">MR</div>
+                            <div class="contact-details">
+                                <h4 id="contactName">Metro Research Institute</h4>
+                                <p id="contactLocation">📍 Boston, MA</p>
+                                <p id="contactEmail">📧 contact@metroresearch.com</p>
+                                <p id="contactPhone">📞 (617) 555-0123</p>
+                            </div>
+                        </div>
+                        <button class="btn-secondary full-width" onclick="viewProfile()">
+                            View Full Profile
+                        </button>
+                    </div>
+                    
+                    <!-- Study Info -->
+                    <div class="info-section">
+                        <h3>Study Information</h3>
+                        <div class="study-info-card">
+                            <p><strong>Study:</strong> Phase III Oncology Trial</p>
+                            <p><strong>Protocol:</strong> ABC-123-2025</p>
+                            <p><strong>Status:</strong> <span class="status-badge complete">Active</span></p>
+                            <p><strong>Questionnaire:</strong> <a href="#" onclick="viewQuestionnaire()">View Response</a></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="info-section">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="scheduleCall()">
+                                📞 Schedule Call
+                            </button>
+                            <button class="action-btn" onclick="sendQuestionnaire()">
+                                📋 Send Questionnaire
+                            </button>
+                            <button class="action-btn" onclick="requestDocuments()">
+                                📄 Request Documents
+                            </button>
+                            <button class="action-btn" onclick="addToShortlist()">
+                                ⭐ Add to Shortlist
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Attachments -->
+                    <div class="info-section">
+                        <h3>Shared Files</h3>
+                        <div class="shared-files" id="sharedFiles">
+                            <!-- Files will be dynamically loaded -->
+                        </div>
+                    </div>
+                    
+                    <!-- Tags -->
+                    <div class="info-section">
+                        <h3>Tags</h3>
+                        <div class="tags-container">
+                            <span class="tag">High Priority</span>
+                            <span class="tag">Follow Up</span>
+                            <span class="tag">Oncology</span>
+                        </div>
+                        <button class="btn-link" onclick="manageTags()">+ Add Tag</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compose Message Modal -->
+    <div class="modal" id="composeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New Message</h2>
+                <button class="modal-close" onclick="closeModal('composeModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>To:</label>
+                    <select id="recipientSelect" multiple>
+                        <option value="1">Metro Research Institute</option>
+                        <option value="2">Pacific Clinical Trials</option>
+                        <option value="3">Northeast Medical Center</option>
+                        <option value="4">Midwest Research Group</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Study:</label>
+                    <select id="studySelect">
+                        <option value="study1">Phase III Oncology Trial - Advanced NSCLC</option>
+                        <option value="study2">Phase II Cardiovascular Study</option>
+                        <option value="study3">Phase III Diabetes Trial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject:</label>
+                    <input type="text" id="subjectInput" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea id="composeMessage" rows="8" placeholder="Type your message..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Attachments:</label>
+                    <input type="file" id="composeAttachments" multiple>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeModal('composeModal')">Cancel</button>
+                    <button class="btn-primary" onclick="sendNewMessage()">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Selector Modal -->
+    <div class="modal" id="templateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Message Templates</h2>
+                <button class="modal-close" onclick="closeModal('templateModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="template-list">
+                    <div class="template-item" onclick="useTemplate('followup')">
+                        <h4>Follow-up Request</h4>
+                        <p>Request additional information from site</p>
+                    </div>
+                    <div class="template-item" onclick="useTemplate('clarification')">
+                        <h4>Clarification Needed</h4>
+                        <p>Ask for clarification on questionnaire response</p>
+                    </div>
+                    <div class="template-item" onclick="useTemplate('schedule')">
+                        <h4>Schedule Call</h4>
+                        <p>Propose times for a phone call</p>
+                    </div>
+                    <div class="template-item" onclick="useTemplate('documents')">
+                        <h4>Request Documents</h4>
+                        <p>Request additional documentation</p>
+                    </div>
+                    <div class="template-item" onclick="useTemplate('thankyou')">
+                        <h4>Thank You</h4>
+                        <p>Thank site for their response</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="footer-logo">
+                    <p class="footer-description">
+                        AI-powered clinical trial feasibility assessment platform.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="protocol-upload.html">Upload Protocol</a></li>
+                        <li><a href="responses.html">View Responses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com">www.clinicalresearchpro.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">HIPAA Compliant</span>
+                    <span class="badge">SOC 2 Certified</span>
+                    <span class="badge">FDA Aligned</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="messages.js"></script>
+</body>
+</html>

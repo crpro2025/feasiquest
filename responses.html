@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Responses - FeasiQuest℠</title>
+    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="responses.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="protocol-upload.html">Upload Protocol</a>
+                <a href="responses.html" class="active">Responses</a>
+                <a href="messages.html">Messages</a>
+                <a href="help-center.html">Help</a>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuBtn">
+                        <span class="user-avatar">SP</span>
+                        <span class="user-name">Sponsor</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="responses-container">
+        <!-- Header -->
+        <div class="responses-header">
+            <div class="header-content">
+                <h1>📊 Questionnaire Responses</h1>
+                <p class="header-description">
+                    Review and compare site responses for your feasibility questionnaires
+                </p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" onclick="exportResponses()">
+                    📥 Export All
+                </button>
+                <button class="btn-primary" onclick="compareSelected()">
+                    🔄 Compare Selected
+                </button>
+            </div>
+        </div>
+
+        <!-- Study Selector -->
+        <div class="study-selector">
+            <label for="studySelect">Select Study:</label>
+            <select id="studySelect" onchange="loadResponses()">
+                <option value="study1">Phase III Oncology Trial - Advanced NSCLC</option>
+                <option value="study2">Phase II Cardiovascular Study</option>
+                <option value="study3">Phase III Diabetes Trial</option>
+            </select>
+            <div class="study-stats">
+                <span class="stat-item">
+                    <strong id="totalSent">156</strong> Sent
+                </span>
+                <span class="stat-item">
+                    <strong id="totalReceived">89</strong> Received
+                </span>
+                <span class="stat-item">
+                    <strong id="responseRate">57%</strong> Response Rate
+                </span>
+            </div>
+        </div>
+
+        <!-- Filters & Controls -->
+        <div class="controls-bar">
+            <div class="filter-group">
+                <label>Status:</label>
+                <select id="statusFilter" onchange="filterResponses()">
+                    <option value="all">All Responses</option>
+                    <option value="complete">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Match Score:</label>
+                <select id="scoreFilter" onchange="filterResponses()">
+                    <option value="all">All Scores</option>
+                    <option value="90">90+ (Excellent)</option>
+                    <option value="80">80-89 (Very Good)</option>
+                    <option value="70">70-79 (Good)</option>
+                    <option value="60">60-69 (Fair)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Location:</label>
+                <select id="locationFilter" onchange="filterResponses()">
+                    <option value="all">All Locations</option>
+                    <option value="northeast">Northeast</option>
+                    <option value="southeast">Southeast</option>
+                    <option value="midwest">Midwest</option>
+                    <option value="west">West</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input type="text" id="searchInput" placeholder="Search sites..." onkeyup="searchResponses()">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="list" onclick="switchView('list')">
+                    📋 List
+                </button>
+                <button class="view-btn" data-view="cards" onclick="switchView('cards')">
+                    🗂️ Cards
+                </button>
+            </div>
+        </div>
+
+        <!-- Bulk Actions -->
+        <div class="bulk-actions" id="bulkActions" style="display: none;">
+            <span class="selection-count">
+                <strong id="selectedCount">0</strong> responses selected
+            </span>
+            <button class="btn-secondary" onclick="shortlistSelected()">
+                ⭐ Add to Shortlist
+            </button>
+            <button class="btn-secondary" onclick="scheduleCallsSelected()">
+                📞 Schedule Calls
+            </button>
+            <button class="btn-secondary" onclick="exportSelected()">
+                📥 Export Selected
+            </button>
+            <button class="btn-secondary" onclick="deselectAll()">
+                ✕ Deselect All
+            </button>
+        </div>
+
+        <!-- List View -->
+        <div class="responses-list-view" id="listView">
+            <table class="responses-table">
+                <thead>
+                    <tr>
+                        <th width="40">
+                            <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                        </th>
+                        <th width="60">Score</th>
+                        <th>Site Name</th>
+                        <th>Location</th>
+                        <th>Completion</th>
+                        <th>Experience</th>
+                        <th>Capacity</th>
+                        <th>Submitted</th>
+                        <th>Status</th>
+                        <th width="200">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="responsesTableBody">
+                    <!-- Rows will be dynamically generated -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cards View -->
+        <div class="responses-cards-view" id="cardsView" style="display: none;">
+            <div class="response-cards" id="responseCards">
+                <!-- Cards will be dynamically generated -->
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" onclick="previousPage()">← Previous</button>
+            <div class="page-numbers" id="pageNumbers"></div>
+            <button class="page-btn" onclick="nextPage()">Next →</button>
+        </div>
+    </div>
+
+    <!-- Response Detail Modal -->
+    <div class="modal" id="responseDetailModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Response Details</h2>
+                <button class="modal-close" onclick="closeModal('responseDetailModal')">×</button>
+            </div>
+            <div class="modal-body" id="responseDetailBody">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="modal" id="comparisonModal">
+        <div class="modal-content extra-large">
+            <div class="modal-header">
+                <h2>Site Comparison</h2>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="exportComparison()">📥 Export</button>
+                    <button class="modal-close" onclick="closeModal('comparisonModal')">×</button>
+                </div>
+            </div>
+            <div class="modal-body" id="comparisonBody">
+                <!-- Comparison content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <img src="New CRPro Logo.png" alt="Clinical Research Pro" class="footer-logo">
+                    <p class="footer-description">
+                        AI-powered clinical trial feasibility assessment platform.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="app.html">Dashboard</a></li>
+                        <li><a href="protocol-upload.html">Upload Protocol</a></li>
+                        <li><a href="responses.html">View Responses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@clinicalresearchpro.com">info@clinicalresearchpro.com</a></li>
+                        <li><a href="https://www.clinicalresearchpro.com">www.clinicalresearchpro.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clinical Research Pro Corporation. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">HIPAA Compliant</span>
+                    <span class="badge">SOC 2 Certified</span>
+                    <span class="badge">FDA Aligned</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="responses.js"></script>
+</body>
+</html>
