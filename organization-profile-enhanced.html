@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Profile - FeasiQuest℠</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="organization-profile-enhanced.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column;">
+                    <span style="font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 0.5px;">FeasiQuest℠</span>
+                    <span style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); margin-top: -0.25rem; letter-spacing: 0.5px;">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="organization-profile-enhanced.html" class="active">Profile</a>
+                <a href="messages-viewer.html">Messages</a>
+                <div class="user-menu">
+                    <button class="user-menu-btn">
+                        <span>Research Site</span>
+                        <span class="user-avatar">RS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <button class="btn btn-secondary btn-sm upload-cover-btn" onclick="uploadCover()">
+                        <span class="icon">📷</span> Change Cover
+                    </button>
+                </div>
+                <div class="profile-main">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar">
+                            <img id="profileImage" src="https://via.placeholder.com/150" alt="Profile">
+                            <button class="avatar-upload-btn" onclick="uploadAvatar()">
+                                <span class="icon">📷</span>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h1 id="organizationName">Johns Hopkins Medical Center</h1>
+                            <p class="profile-type">Research Site • Academic Medical Center</p>
+                            <p class="profile-location">📍 Baltimore, MD, United States</p>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="stat-value">150</span>
+                                    <span class="stat-label">Studies</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">4.8</span>
+                                    <span class="stat-label">Rating</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">98%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-secondary" onclick="previewProfile()">
+                            <span class="icon">👁️</span> Preview
+                        </button>
+                        <button class="btn btn-primary" onclick="saveProfile()">
+                            <span class="icon">💾</span> Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="basic" onclick="switchTab('basic')">
+                    <span class="icon">ℹ️</span> Basic Information
+                </button>
+                <button class="tab-btn" data-tab="capabilities" onclick="switchTab('capabilities')">
+                    <span class="icon">⚡</span> Capabilities
+                </button>
+                <button class="tab-btn" data-tab="team" onclick="switchTab('team')">
+                    <span class="icon">👥</span> Team
+                </button>
+                <button class="tab-btn" data-tab="facilities" onclick="switchTab('facilities')">
+                    <span class="icon">🏢</span> Facilities
+                </button>
+                <button class="tab-btn" data-tab="media" onclick="switchTab('media')">
+                    <span class="icon">📸</span> Photos & Videos
+                </button>
+                <button class="tab-btn" data-tab="documents" onclick="switchTab('documents')">
+                    <span class="icon">📄</span> Documents
+                </button>
+                <button class="tab-btn" data-tab="certifications" onclick="switchTab('certifications')">
+                    <span class="icon">🏆</span> Certifications
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Basic Information Tab -->
+                <div class="tab-pane active" id="basicTab">
+                    <div class="form-section">
+                        <h2>Organization Details</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required">Organization Name</label>
+                                <input type="text" class="form-control" value="Johns Hopkins Medical Center" placeholder="Enter organization name">
+                            </div>
+                            <div class="form-group">
+                                <label class="required">Organization Type</label>
+                                <select class="form-control">
+                                    <option value="academic">Academic Medical Center</option>
+                                    <option value="community">Community Hospital</option>
+                                    <option value="private">Private Practice</option>
+                                    <option value="dedicated">Dedicated Research Site</option>
+                                    <option value="sponsor">Sponsor/Pharma</option>
+                                    <option value="cro">CRO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required">Primary Contact Name</label>
+                                <input type="text" class="form-control" placeholder="Dr. John Smith">
+                            </div>
+                            <div class="form-group">
+                                <label class="required">Primary Contact Title</label>
+                                <input type="text" class="form-control" placeholder="Principal Investigator">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required">Email</label>
+                                <input type="email" class="form-control" placeholder="contact@organization.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="required">Phone</label>
+                                <input type="tel" class="form-control" placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">Website</label>
+                            <input type="url" class="form-control" placeholder="https://www.organization.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">Address</label>
+                            <input type="text" class="form-control" placeholder="Street address">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required">City</label>
+                                <input type="text" class="form-control" placeholder="City">
+                            </div>
+                            <div class="form-group">
+                                <label class="required">State/Province</label>
+                                <input type="text" class="form-control" placeholder="State">
+                            </div>
+                            <div class="form-group">
+                                <label class="required">ZIP/Postal Code</label>
+                                <input type="text" class="form-control" placeholder="12345">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">Country</label>
+                            <select class="form-control">
+                                <option value="">Select country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="JP">Japan</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>About Organization</label>
+                            <textarea class="form-control" rows="6" placeholder="Describe your organization, history, mission, and values..."></textarea>
+                            <small class="form-help">This will be displayed on your public profile</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Year Established</label>
+                                <input type="number" class="form-control" placeholder="1990">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Employees</label>
+                                <select class="form-control">
+                                    <option value="">Select range</option>
+                                    <option value="1-10">1-10</option>
+                                    <option value="11-50">11-50</option>
+                                    <option value="51-200">51-200</option>
+                                    <option value="201-500">201-500</option>
+                                    <option value="501-1000">501-1,000</option>
+                                    <option value="1000+">1,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Operating Hours</label>
+                            <div class="operating-hours">
+                                <div class="hours-row">
+                                    <span class="day">Monday - Friday:</span>
+                                    <input type="time" class="form-control" value="08:00">
+                                    <span>to</span>
+                                    <input type="time" class="form-control" value="17:00">
+                                </div>
+                                <div class="hours-row">
+                                    <span class="day">Saturday:</span>
+                                    <input type="time" class="form-control" value="09:00">
+                                    <span>to</span>
+                                    <input type="time" class="form-control" value="13:00">
+                                </div>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Closed on Sundays</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Languages Spoken</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>English</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Spanish</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>French</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>German</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Chinese</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Japanese</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Social Media</label>
+                            <div class="social-media-inputs">
+                                <div class="social-input">
+                                    <span class="social-icon">🔗</span>
+                                    <input type="url" class="form-control" placeholder="LinkedIn URL">
+                                </div>
+                                <div class="social-input">
+                                    <span class="social-icon">🐦</span>
+                                    <input type="url" class="form-control" placeholder="Twitter URL">
+                                </div>
+                                <div class="social-input">
+                                    <span class="social-icon">📘</span>
+                                    <input type="url" class="form-control" placeholder="Facebook URL">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capabilities Tab -->
+                <div class="tab-pane" id="capabilitiesTab">
+                    <div class="form-section">
+                        <h2>Research Capabilities</h2>
+                        
+                        <div class="form-group">
+                            <label>Clinical Trial Phases</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Phase I</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Phase II</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Phase III</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Phase IV</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Therapeutic Areas</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Cardiology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Oncology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Neurology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Diabetes/Endocrinology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Respiratory</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Gastroenterology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Rheumatology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Dermatology</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Infectious Disease</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Psychiatry</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Pediatrics</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Rare Diseases</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Patient Population Size</label>
+                            <input type="number" class="form-control" placeholder="e.g., 50000">
+                            <small class="form-help">Total active patients in your database</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Average Monthly Enrollment Capacity</label>
+                            <input type="number" class="form-control" placeholder="e.g., 20">
+                            <small class="form-help">Average number of patients you can enroll per month</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Total Studies Conducted</label>
+                            <input type="number" class="form-control" placeholder="e.g., 150">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Currently Active Studies</label>
+                            <input type="number" class="form-control" placeholder="e.g., 12">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Tab -->
+                <div class="tab-pane" id="teamTab">
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2>Team Members</h2>
+                            <button class="btn btn-primary" onclick="addTeamMember()">
+                                <span class="icon">➕</span> Add Team Member
+                            </button>
+                        </div>
+
+                        <div class="team-members-list" id="teamMembersList">
+                            <!-- Team members will be dynamically added here -->
+                            <div class="team-member-card">
+                                <div class="team-member-avatar">
+                                    <img src="https://via.placeholder.com/80" alt="Team Member">
+                                </div>
+                                <div class="team-member-info">
+                                    <h3>Dr. Sarah Johnson</h3>
+                                    <p class="member-title">Principal Investigator</p>
+                                    <p class="member-email">sjohnson@jhmi.edu</p>
+                                    <div class="member-badges">
+                                        <span class="badge">GCP Certified</span>
+                                        <span class="badge">15 Years Experience</span>
+                                    </div>
+                                </div>
+                                <div class="team-member-actions">
+                                    <button class="btn btn-secondary btn-sm" onclick="editTeamMember(1)">
+                                        <span class="icon">✏️</span> Edit
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="removeTeamMember(1)">
+                                        <span class="icon">🗑️</span> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities Tab -->
+                <div class="tab-pane" id="facilitiesTab">
+                    <div class="form-section">
+                        <h2>Facilities & Equipment</h2>
+                        
+                        <div class="form-group">
+                            <label>On-Site Facilities</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Clinical Laboratory</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Pharmacy</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Imaging Center</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>ICU/Critical Care</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>24/7 Emergency Services</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Surgical Suites</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Dedicated Research Space</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Patient Waiting Area</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Medical Equipment</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>ECG/EKG Machine</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Holter Monitor</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Echocardiography</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>MRI Scanner</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>CT Scanner</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>X-Ray Equipment</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Ultrasound</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Spirometry</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Storage Capabilities</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Refrigerated Storage (2-8°C)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Frozen Storage (-20°C)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Ultra-cold Storage (-80°C)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Liquid Nitrogen Storage</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Total Square Footage</label>
+                            <input type="number" class="form-control" placeholder="e.g., 50000">
+                            <small class="form-help">Total facility size in square feet</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of Exam Rooms</label>
+                            <input type="number" class="form-control" placeholder="e.g., 20">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Parking Availability</label>
+                            <select class="form-control">
+                                <option value="">Select option</option>
+                                <option value="free">Free Parking Available</option>
+                                <option value="paid">Paid Parking Available</option>
+                                <option value="street">Street Parking Only</option>
+                                <option value="none">No Parking</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Public Transportation Access</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Bus Stop Nearby</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Metro/Subway Access</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Train Station Nearby</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Tab -->
+                <div class="tab-pane" id="mediaTab">
+                    <div class="form-section">
+                        <h2>Photos & Videos</h2>
+                        
+                        <div class="media-section">
+                            <h3>Site Photos</h3>
+                            <div class="upload-area" onclick="uploadPhotos()">
+                                <div class="upload-icon">📸</div>
+                                <div class="upload-text">
+                                    <strong>Click to upload photos</strong>
+                                    <span>or drag and drop</span>
+                                    <span class="upload-limit">JPG, PNG, GIF up to 10MB each</span>
+                                </div>
+                            </div>
+                            <div class="media-grid" id="photosGrid">
+                                <!-- Photos will be displayed here -->
+                                <div class="media-item">
+                                    <img src="https://via.placeholder.com/300x200" alt="Site Photo">
+                                    <div class="media-overlay">
+                                        <button class="btn btn-sm btn-danger" onclick="removeMedia(1)">
+                                            <span class="icon">🗑️</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media-section">
+                            <h3>Site Videos</h3>
+                            <div class="upload-area" onclick="uploadVideos()">
+                                <div class="upload-icon">🎥</div>
+                                <div class="upload-text">
+                                    <strong>Click to upload videos</strong>
+                                    <span>or drag and drop</span>
+                                    <span class="upload-limit">MP4, MOV, AVI up to 100MB each</span>
+                                </div>
+                            </div>
+                            <div class="media-grid" id="videosGrid">
+                                <!-- Videos will be displayed here -->
+                            </div>
+                        </div>
+
+                        <div class="media-section">
+                            <h3>Virtual Tour Link</h3>
+                            <input type="url" class="form-control" placeholder="https://www.youtube.com/watch?v=...">
+                            <small class="form-help">Link to YouTube, Vimeo, or other video platform</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Tab -->
+                <div class="tab-pane" id="documentsTab">
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2>Documents Library</h2>
+                            <button class="btn btn-primary" onclick="uploadDocument()">
+                                <span class="icon">📤</span> Upload Document
+                            </button>
+                        </div>
+
+                        <div class="documents-list" id="documentsList">
+                            <!-- Documents will be listed here -->
+                            <div class="document-item">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <h4>CV_1572.pdf</h4>
+                                    <p>Form 1572 • 2.5 MB • Uploaded Jan 15, 2025</p>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-secondary btn-sm">
+                                        <span class="icon">⬇️</span> Download
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <span class="icon">🗑️</span> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Tab -->
+                <div class="tab-pane" id="certificationsTab">
+                    <div class="form-section">
+                        <h2>Certifications & Accreditations</h2>
+                        
+                        <div class="form-group">
+                            <label>Regulatory Certifications</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>GCP Certified</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>FDA Inspected (No 483s)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>IRB/EC Approved</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>HIPAA Compliant</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>ISO 9001 Certified</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>CAP Accredited</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>CLIA Certified</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Joint Commission Accredited</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="certifications-upload">
+                            <h3>Upload Certification Documents</h3>
+                            <div class="upload-area" onclick="uploadCertification()">
+                                <div class="upload-icon">🏆</div>
+                                <div class="upload-text">
+                                    <strong>Click to upload certifications</strong>
+                                    <span>PDF, JPG, PNG up to 5MB each</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certifications-list" id="certificationsList">
+                            <!-- Certifications will be listed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="organization-profile-enhanced.js"></script>
+</body>
+</html>
