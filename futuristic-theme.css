@@ -680,3 +680,326 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gradient-accent);
 }
+
+/* ==================== OVERRIDE EXISTING STYLES ==================== */
+/* Ensure futuristic theme takes precedence */
+
+/* Override any existing navigation styles */
+nav, .nav, .navbar, .navigation {
+    background: rgba(10, 14, 39, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: var(--border-neon) !important;
+}
+
+/* Override any existing button styles */
+button:not(.modal-close):not(.toolbar-btn):not(.filter-btn),
+.button,
+.btn:not(.btn-futuristic) {
+    background: var(--gradient-primary) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.875rem 2rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all var(--transition-normal) !important;
+}
+
+/* Override any existing card styles */
+.card:not(.futuristic-card):not(.stat-card):not(.feature-card),
+.panel,
+.box {
+    background: var(--bg-card) !important;
+    border: var(--border-neon) !important;
+    border-radius: var(--radius-lg) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Override any existing input styles */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    background: var(--bg-glass) !important;
+    border: var(--border-neon) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+    padding: 1rem 1.5rem !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--text-neon) !important;
+    box-shadow: var(--shadow-neon) !important;
+}
+
+/* Override any existing table styles */
+table {
+    background: var(--bg-card) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+}
+
+table thead {
+    background: var(--gradient-dark) !important;
+}
+
+table th {
+    color: var(--text-neon) !important;
+    border-bottom: var(--border-neon) !important;
+}
+
+table td {
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Override any existing link styles */
+a:not(.nav-link):not(.nav-logo):not(.btn-futuristic):not(.footer-links a) {
+    color: var(--text-neon) !important;
+    text-decoration: none !important;
+    transition: all var(--transition-fast) !important;
+}
+
+a:hover {
+    color: var(--primary-purple) !important;
+}
+
+/* Override any existing heading styles */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Override any existing paragraph styles */
+p {
+    color: var(--text-secondary) !important;
+}
+
+/* ==================== ADDITIONAL COMPONENTS ==================== */
+
+/* Sidebar */
+.sidebar {
+    background: var(--bg-secondary) !important;
+    border-right: var(--border-neon) !important;
+}
+
+/* Header */
+header {
+    background: rgba(10, 14, 39, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: var(--border-neon) !important;
+}
+
+/* Footer */
+footer {
+    background: var(--bg-secondary) !important;
+    border-top: var(--border-neon) !important;
+}
+
+/* Section */
+section {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Container */
+.container {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+}
+
+/* Grid */
+.grid {
+    display: grid !important;
+    gap: 2rem !important;
+}
+
+/* Flex */
+.flex {
+    display: flex !important;
+    gap: 1rem !important;
+}
+
+/* ==================== LOADING STATES ==================== */
+.loading {
+    position: relative !important;
+    pointer-events: none !important;
+    opacity: 0.6 !important;
+}
+
+.loading::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 3px solid var(--text-neon) !important;
+    border-top-color: transparent !important;
+    border-radius: 50% !important;
+    animation: spin 1s linear infinite !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==================== TOOLTIPS ==================== */
+[data-tooltip] {
+    position: relative !important;
+    cursor: help !important;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip) !important;
+    position: absolute !important;
+    bottom: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(-8px) !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--bg-card) !important;
+    border: var(--border-neon) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+    font-size: 0.875rem !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: all var(--transition-normal) !important;
+    z-index: 1000 !important;
+}
+
+[data-tooltip]:hover::before {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(-4px) !important;
+}
+
+/* ==================== ALERTS ==================== */
+.alert {
+    padding: 1rem 1.5rem !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 1rem !important;
+    border-left: 4px solid !important;
+}
+
+.alert-success {
+    background: rgba(0, 255, 136, 0.1) !important;
+    border-left-color: #00ff88 !important;
+    color: #00ff88 !important;
+}
+
+.alert-warning {
+    background: rgba(255, 170, 0, 0.1) !important;
+    border-left-color: #ffaa00 !important;
+    color: #ffaa00 !important;
+}
+
+.alert-error {
+    background: rgba(255, 0, 85, 0.1) !important;
+    border-left-color: #ff0055 !important;
+    color: #ff0055 !important;
+}
+
+.alert-info {
+    background: rgba(0, 240, 255, 0.1) !important;
+    border-left-color: var(--text-neon) !important;
+    color: var(--text-neon) !important;
+}
+
+/* ==================== TABS ==================== */
+.tabs {
+    display: flex !important;
+    gap: 0.5rem !important;
+    border-bottom: var(--border-neon) !important;
+    margin-bottom: 2rem !important;
+}
+
+.tab {
+    padding: 1rem 2rem !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+    transition: all var(--transition-normal) !important;
+    position: relative !important;
+}
+
+.tab::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -1px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 2px !important;
+    background: var(--gradient-primary) !important;
+    transform: scaleX(0) !important;
+    transition: transform var(--transition-normal) !important;
+}
+
+.tab:hover,
+.tab.active {
+    color: var(--text-neon) !important;
+}
+
+.tab.active::after {
+    transform: scaleX(1) !important;
+}
+
+/* ==================== ACCORDIONS ==================== */
+.accordion-item {
+    background: var(--bg-card) !important;
+    border: var(--border-neon) !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 1rem !important;
+    overflow: hidden !important;
+}
+
+.accordion-header {
+    padding: 1.5rem !important;
+    cursor: pointer !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all var(--transition-normal) !important;
+}
+
+.accordion-header:hover {
+    background: var(--bg-glass) !important;
+}
+
+.accordion-content {
+    padding: 0 1.5rem !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: all var(--transition-normal) !important;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 1.5rem !important;
+    max-height: 1000px !important;
+}
+
+/* ==================== BREADCRUMBS ==================== */
+.breadcrumbs {
+    display: flex !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    margin-bottom: 2rem !important;
+    color: var(--text-secondary) !important;
+}
+
+.breadcrumbs a {
+    color: var(--text-neon) !important;
+    text-decoration: none !important;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-purple) !important;
+}
+
+.breadcrumbs span {
+    color: var(--text-muted) !important;
+}
