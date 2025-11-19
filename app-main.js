@@ -216,10 +216,15 @@ function getSiteDashboard() {
             </div>
         </div>
         
-        <div class="card">
+        <div class="recent-questionnaires-card">
             <div class="card-header">
                 <h3>📋 Recent Questionnaires</h3>
                 <button class="btn btn-primary btn-sm" onclick="showSection('questionnaires')">View All</button>
+            </div>
+            <div style="margin-bottom: 1rem; padding: 1rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 0.5rem;">
+                <p style="color: #f59e0b; margin: 0; font-weight: 600;">
+                    ⚠️ You have <strong>2 pending questionnaires</strong> that require your attention
+                </p>
             </div>
             <div class="table-container">
                 <table>
@@ -918,56 +923,127 @@ function openQuestionnaire(id) {
 }
 
 function getQuestionnaireFormHTML(questionnaire) {
+    // Get user profile data for pre-population
+    const profileData = getUserProfileData();
+    
     return `
-        <div style="max-height: 60vh; overflow-y: auto;">
-            <div style="background: var(--gray-100); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="max-height: 65vh; overflow-y: auto; padding-right: 1rem;">
+            <div class="questionnaire-header">
                 <h4>${questionnaire.studyTitle}</h4>
-                <p style="margin: 10px 0 0 0; color: var(--gray-600);">
+                <p>
                     <strong>Protocol:</strong> ${questionnaire.protocol} | 
                     <strong>Sponsor:</strong> ${questionnaire.sponsor} | 
                     <strong>Due:</strong> ${formatDate(questionnaire.dueDate)}
                 </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <span style="color: #00f0ff;">ℹ️</span> Fields marked with 
+                    <span class="prefilled-indicator">Pre-filled</span> have been automatically populated from your profile.
+                </p>
             </div>
             
             ${questionnaire.sections.map((section, sIdx) => `
-                <div style="margin-bottom: 30px;">
-                    <h4 style="color: var(--primary); margin-bottom: 20px;">${sIdx + 1}. ${section.title}</h4>
-                    ${section.questions.map((q, qIdx) => `
-                        <div class="form-group">
-                            <label>${qIdx + 1}. ${q.question} ${q.required ? '<span style="color: var(--error);">*</span>' : ''}</label>
-                            ${getQuestionInputHTML(q)}
-                        </div>
-                    `).join('')}
+                <div class="questionnaire-section">
+                    <h4>${sIdx + 1}. ${section.title}</h4>
+                    ${section.questions.map((q, qIdx) => {
+                        const prefilledValue = getPrefilledValue(q.question, profileData);
+                        return `
+                            <div class="form-group">
+                                <label>
+                                    ${qIdx + 1}. ${q.question} 
+                                    ${q.required ? '<span class="required">*</span>' : ''}
+                                    ${prefilledValue ? '<span class="prefilled-indicator">Pre-filled</span>' : ''}
+                                </label>
+                                ${getQuestionInputHTML(q, prefilledValue)}
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
             `).join('')}
         </div>
     `;
 }
 
-function getQuestionInputHTML(question) {
+function getUserProfileData() {
+    // Get user profile data from current user
+    return {
+        siteName: currentUser.organization || '',
+        location: 'Boston, MA, USA', // Would come from profile
+        contactEmail: currentUser.email || '',
+        contactPhone: '+1 (617) 555-0123', // Would come from profile
+        principalInvestigator: 'Dr. Sarah Johnson', // Would come from profile
+        experience: '15+ years',
+        activeStudies: '12',
+        enrollmentCapacity: '250 patients/year',
+        staffCount: '45',
+        certifications: 'ACRP, CAP, CLIA, AAHRPP, ISO 9001:2015'
+    };
+}
+
+function getPrefilledValue(question, profileData) {
+    const q = question.toLowerCase();
+    
+    // Match questions to profile data
+    if (q.includes('site name') || q.includes('facility name')) {
+        return profileData.siteName;
+    }
+    if (q.includes('location') || q.includes('address')) {
+        return profileData.location;
+    }
+    if (q.includes('email') || q.includes('contact email')) {
+        return profileData.contactEmail;
+    }
+    if (q.includes('phone') || q.includes('contact phone')) {
+        return profileData.contactPhone;
+    }
+    if (q.includes('principal investigator') || q.includes('pi name')) {
+        return profileData.principalInvestigator;
+    }
+    if (q.includes('experience') || q.includes('years of experience')) {
+        return profileData.experience;
+    }
+    if (q.includes('active studies') || q.includes('ongoing studies')) {
+        return profileData.activeStudies;
+    }
+    if (q.includes('enrollment capacity') || q.includes('patients per year')) {
+        return profileData.enrollmentCapacity;
+    }
+    if (q.includes('staff') || q.includes('team size')) {
+        return profileData.staffCount;
+    }
+    if (q.includes('certification') || q.includes('accreditation')) {
+        return profileData.certifications;
+    }
+    
+    return null;
+}
+
+function getQuestionInputHTML(question, prefilledValue = null) {
+    const prefilledClass = prefilledValue ? 'prefilled' : '';
+    const value = prefilledValue || '';
+    
     switch(question.type) {
         case 'text':
-            return `<input type="text" class="form-control" placeholder="Enter your answer">`;
+            return `<input type="text" class="form-control ${prefilledClass}" placeholder="Enter your answer" value="${value}">`;
         case 'textarea':
-            return `<textarea class="form-control" rows="4" placeholder="Enter your answer"></textarea>`;
+            return `<textarea class="form-control ${prefilledClass}" rows="4" placeholder="Enter your answer">${value}</textarea>`;
         case 'number':
-            return `<input type="number" class="form-control" placeholder="Enter a number">`;
+            return `<input type="number" class="form-control ${prefilledClass}" placeholder="Enter a number" value="${value}">`;
         case 'select':
-            return `<select class="form-control">
+            return `<select class="form-control ${prefilledClass}">
                 <option value="">Select an option...</option>
-                ${question.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                ${question.options.map(opt => `<option value="${opt}" ${value === opt ? 'selected' : ''}>${opt}</option>`).join('')}
             </select>`;
         case 'multiselect':
             return `<div style="display: flex; flex-direction: column; gap: 10px;">
                 ${question.options.map(opt => `
-                    <label style="display: flex; align-items: center; gap: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px; color: white; cursor: pointer;">
                         <input type="checkbox" value="${opt}">
                         <span>${opt}</span>
                     </label>
                 `).join('')}
             </div>`;
         default:
-            return `<input type="text" class="form-control">`;
+            return `<input type="text" class="form-control ${prefilledClass}" value="${value}">`;
     }
 }
 

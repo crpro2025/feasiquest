@@ -1,0 +1,46 @@
+/* Global Logo Styles - Consistent Across All Pages */
+
+/* Logo gradient - EXACT match to homepage */
+.logo-text,
+.nav-brand .logo-text,
+.logo-link .logo-text {
+    background: linear-gradient(135deg, #dc2626 0%, #7c3aed 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+}
+
+/* Tagline styling */
+.tagline,
+.logo-tagline,
+.nav-brand .tagline {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+    display: block !important;
+    margin-top: 0.25rem !important;
+}
+
+/* Logo link container */
+.logo-link {
+    text-decoration: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+/* Ensure logo is visible on all backgrounds */
+.nav-brand {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Override any conflicting styles */
+.logo-text:hover,
+.nav-brand .logo-text:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
