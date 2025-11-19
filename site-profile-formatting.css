@@ -1,0 +1,586 @@
+/* Site Profile Formatting - Print & Export Styles */
+
+/* Print Styles */
+@media print {
+    /* Hide navigation and interactive elements */
+    .main-nav,
+    .hero-actions,
+    .profile-tabs,
+    .btn-primary,
+    .btn-secondary,
+    .modal {
+        display: none !important;
+    }
+    
+    /* Show all tab content when printing */
+    .tab-content {
+        display: block !important;
+        page-break-after: always;
+    }
+    
+    .tab-content:last-child {
+        page-break-after: auto;
+    }
+    
+    /* Adjust colors for print */
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .profile-hero {
+        background: white !important;
+        border: 2px solid #000 !important;
+        color: black !important;
+    }
+    
+    .card {
+        background: white !important;
+        border: 1px solid #000 !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+    
+    /* Text colors for print */
+    h1, h2, h3, h4, h5, h6,
+    .site-header h1,
+    .card h2,
+    .card h3,
+    p, span, div {
+        color: black !important;
+    }
+    
+    /* Remove gradients for print */
+    .stat-value,
+    .metric-value,
+    .db-value,
+    .score-value {
+        background: none !important;
+        color: black !important;
+        -webkit-text-fill-color: black !important;
+    }
+    
+    /* Simplify backgrounds */
+    .hero-background,
+    .stat-item,
+    .highlight-item,
+    .capability-item,
+    .metric-card,
+    .team-member,
+    .facility-stat {
+        background: white !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    /* Ensure images print */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    /* Page margins */
+    @page {
+        margin: 2cm;
+    }
+}
+
+/* PDF Export Formatting */
+.pdf-export-mode {
+    background: white !important;
+    color: black !important;
+}
+
+.pdf-export-mode .main-nav,
+.pdf-export-mode .hero-actions,
+.pdf-export-mode .profile-tabs,
+.pdf-export-mode .btn-primary,
+.pdf-export-mode .btn-secondary {
+    display: none !important;
+}
+
+.pdf-export-mode .tab-content {
+    display: block !important;
+    margin-bottom: 3rem;
+}
+
+.pdf-export-mode .profile-hero {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%) !important;
+    border: 2px solid #3b82f6 !important;
+}
+
+.pdf-export-mode .card {
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    margin-bottom: 2rem;
+}
+
+.pdf-export-mode h1,
+.pdf-export-mode h2,
+.pdf-export-mode h3,
+.pdf-export-mode h4 {
+    color: #1e293b !important;
+}
+
+.pdf-export-mode p,
+.pdf-export-mode span,
+.pdf-export-mode div {
+    color: #475569 !important;
+}
+
+/* Professional Report Formatting */
+.report-header {
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 3px solid #3b82f6;
+    margin-bottom: 2rem;
+}
+
+.report-header h1 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.report-header .report-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.report-header .report-date {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+}
+
+/* Section Headers */
+.section-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Data Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.data-table th {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #cbd5e1;
+}
+
+.data-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.data-table tr:hover {
+    background: #f8fafc;
+}
+
+/* Key Metrics Summary */
+.metrics-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-box {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+.metric-box .metric-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.metric-box .metric-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Capability Matrix */
+.capability-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.capability-box {
+    padding: 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+}
+
+.capability-box h4 {
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.capability-box .capability-level {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Timeline Visualization */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #cbd5e1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: #3b82f6;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid #3b82f6;
+}
+
+/* Performance Charts */
+.performance-chart {
+    margin: 2rem 0;
+}
+
+.chart-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.chart-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.chart-label {
+    width: 150px;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.chart-bar-wrapper {
+    flex: 1;
+    height: 2rem;
+    background: #f1f5f9;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.chart-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: width 0.5s ease;
+}
+
+.chart-value {
+    width: 80px;
+    text-align: right;
+    color: #475569;
+    font-weight: 600;
+}
+
+/* Contact Information Box */
+.contact-box {
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.contact-box h3 {
+    color: #1e293b;
+    margin: 0 0 1rem 0;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.contact-icon {
+    width: 2rem;
+    height: 2rem;
+    background: #dbeafe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #3b82f6;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Certification Badges */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cert-item {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border: 2px solid #10b981;
+    border-radius: 0.5rem;
+}
+
+.cert-icon {
+    font-size: 2rem;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+.cert-name {
+    font-size: 0.9rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Footer for Reports */
+.report-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 2px solid #e5e7eb;
+    margin-top: 3rem;
+    color: #64748b;
+}
+
+.report-footer .footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.report-footer .footer-text {
+    font-size: 0.85rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .metrics-summary,
+    .capability-matrix,
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-bar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .chart-label {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .chart-value {
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Export Button Styles */
+.export-options {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.export-btn {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.export-btn:active {
+    transform: translateY(0);
+}
+
+/* Loading Spinner for Export */
+.export-loading {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Professional Document Styles */
+.document-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+}
+
+.document-wrapper.a4-size {
+    width: 210mm;
+    min-height: 297mm;
+}
+
+.document-wrapper.letter-size {
+    width: 8.5in;
+    min-height: 11in;
+}
+
+/* Watermark for Draft Documents */
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 8rem;
+    color: rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Page Numbers */
+.page-number {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+}
+
+/* Signature Block */
+.signature-block {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e5e7eb;
+}
+
+.signature-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.signature-field {
+    width: 45%;
+}
+
+.signature-field .line {
+    border-bottom: 2px solid #1e293b;
+    margin-bottom: 0.5rem;
+    height: 3rem;
+}
+
+.signature-field .label {
+    color: #64748b;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Profile - FeasiQuest</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="unified-profile.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="logo-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="site-search.html">Search Sites</a>
+                <a href="help-center.html">Help</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-secondary" onclick="window.location.href='app.html'">Back to Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-header-content">
+                <div class="profile-logo">
+                    <img src="https://via.placeholder.com/120" alt="Organization Logo" id="orgLogo">
+                    <button class="edit-logo-btn" onclick="editLogo()">📷</button>
+                </div>
+                <div class="profile-info">
+                    <h1 id="orgName">Global Pharma Corporation</h1>
+                    <div class="profile-meta">
+                        <span class="org-type" id="orgType">Sponsor</span>
+                        <span class="verified-badge">✓ Verified Organization</span>
+                        <span class="member-since">Member since 2020</span>
+                    </div>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="activeStudies">24</div>
+                            <div class="stat-label">Active Studies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="completedStudies">156</div>
+                            <div class="stat-label">Completed Studies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="partnerSites">89</div>
+                            <div class="stat-label">Partner Sites</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="teamSize">245</div>
+                            <div class="stat-label">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="btn-primary" onclick="editProfile()">
+                    <span>✏️</span> Edit Profile
+                </button>
+                <button class="btn-secondary" onclick="shareProfile()">
+                    <span>🔗</span> Share
+                </button>
+            </div>
+        </div>
+
+        <!-- Organization Type Selector -->
+        <div class="type-selector">
+            <label>Organization Type:</label>
+            <div class="type-options">
+                <button class="type-btn active" data-type="sponsor" onclick="switchType('sponsor')">
+                    Sponsor
+                </button>
+                <button class="type-btn" data-type="cro" onclick="switchType('cro')">
+                    CRO
+                </button>
+                <button class="type-btn" data-type="both" onclick="switchType('both')">
+                    Both
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Tabs -->
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="overview">Overview</button>
+            <button class="tab-btn" data-tab="organization">Organization Details</button>
+            <button class="tab-btn" data-tab="capabilities">Capabilities</button>
+            <button class="tab-btn" data-tab="experience">Experience & Portfolio</button>
+            <button class="tab-btn" data-tab="team">Team</button>
+            <button class="tab-btn" data-tab="certifications">Certifications</button>
+            <button class="tab-btn" data-tab="contact">Contact & Locations</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="profile-content">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="card">
+                    <h2>About Our Organization</h2>
+                    <textarea class="form-control" rows="6" id="orgDescription" placeholder="Describe your organization, mission, and values...">Global Pharma Corporation is a leading pharmaceutical company dedicated to developing innovative treatments for patients worldwide. With over 20 years of experience in clinical research, we have successfully brought 45+ new therapies to market across multiple therapeutic areas.</textarea>
+                </div>
+
+                <div class="card">
+                    <h2>Key Highlights</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🏆</span>
+                            <div class="highlight-content">
+                                <h3>Industry Leader</h3>
+                                <p>Top 10 pharmaceutical company globally</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🌍</span>
+                            <div class="highlight-content">
+                                <h3>Global Reach</h3>
+                                <p>Operations in 75+ countries</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">💡</span>
+                            <div class="highlight-content">
+                                <h3>Innovation Focus</h3>
+                                <p>$2B+ annual R&D investment</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <div class="highlight-content">
+                                <h3>Quality Excellence</h3>
+                                <p>ISO 9001:2015 certified</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CRO-Specific Section -->
+                <div class="card cro-section" style="display: none;">
+                    <h2>CRO Services</h2>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <h4>Full-Service CRO</h4>
+                            <p>End-to-end clinical trial management</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Site Management</h4>
+                            <p>Site identification, selection, and monitoring</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Data Management</h4>
+                            <p>EDC, data cleaning, and database lock</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Regulatory Affairs</h4>
+                            <p>IND/NDA submissions and regulatory strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organization Details Tab -->
+            <div class="tab-content" id="organization">
+                <div class="card">
+                    <h2>Basic Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Legal Name</label>
+                            <input type="text" class="form-control" value="Global Pharma Corporation">
+                        </div>
+                        <div class="form-group">
+                            <label>Trading Name</label>
+                            <input type="text" class="form-control" value="GlobalPharma">
+                        </div>
+                        <div class="form-group">
+                            <label>Registration Number</label>
+                            <input type="text" class="form-control" value="US-12345678">
+                        </div>
+                        <div class="form-group">
+                            <label>Tax ID</label>
+                            <input type="text" class="form-control" value="XX-XXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>Year Founded</label>
+                            <input type="number" class="form-control" value="2000">
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Employees</label>
+                            <input type="number" class="form-control" value="5000">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Company Size & Revenue</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Company Size</label>
+                            <select class="form-control">
+                                <option>1-50 employees</option>
+                                <option>51-200 employees</option>
+                                <option>201-500 employees</option>
+                                <option>501-1000 employees</option>
+                                <option selected>1000+ employees</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Annual Revenue</label>
+                            <select class="form-control">
+                                <option>< $1M</option>
+                                <option>$1M - $10M</option>
+                                <option>$10M - $50M</option>
+                                <option>$50M - $100M</option>
+                                <option selected>$100M+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Website & Social Media</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="url" class="form-control" value="https://www.globalpharma.com">
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn</label>
+                            <input type="url" class="form-control" placeholder="https://linkedin.com/company/...">
+                        </div>
+                        <div class="form-group">
+                            <label>Twitter</label>
+                            <input type="text" class="form-control" placeholder="@company">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="contact@globalpharma.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capabilities Tab -->
+            <div class="tab-content" id="capabilities">
+                <div class="card">
+                    <h2>Therapeutic Areas</h2>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Oncology</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Cardiology</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Neurology</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Diabetes & Endocrinology</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Respiratory</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Immunology</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Infectious Diseases</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Rare Diseases</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Study Phases</h2>
+                    <div class="phase-experience">
+                        <div class="phase-bar">
+                            <div class="phase-label">Phase I</div>
+                            <div class="phase-progress">
+                                <div class="phase-fill" style="width: 75%">75%</div>
+                            </div>
+                            <div class="phase-count">45 studies</div>
+                        </div>
+                        <div class="phase-bar">
+                            <div class="phase-label">Phase II</div>
+                            <div class="phase-progress">
+                                <div class="phase-fill" style="width: 85%">85%</div>
+                            </div>
+                            <div class="phase-count">68 studies</div>
+                        </div>
+                        <div class="phase-bar">
+                            <div class="phase-label">Phase III</div>
+                            <div class="phase-progress">
+                                <div class="phase-fill" style="width: 95%">95%</div>
+                            </div>
+                            <div class="phase-count">89 studies</div>
+                        </div>
+                        <div class="phase-bar">
+                            <div class="phase-label">Phase IV</div>
+                            <div class="phase-progress">
+                                <div class="phase-fill" style="width: 60%">60%</div>
+                            </div>
+                            <div class="phase-count">34 studies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CRO-Specific Capabilities -->
+                <div class="card cro-section" style="display: none;">
+                    <h2>CRO Service Offerings</h2>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Clinical Monitoring</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Data Management</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Biostatistics</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Medical Writing</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Regulatory Affairs</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Pharmacovigilance</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Tab -->
+            <div class="tab-content" id="experience">
+                <div class="card">
+                    <h2>Portfolio Summary</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">236</div>
+                            <div class="metric-label">Total Studies</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">156</div>
+                            <div class="metric-label">Completed</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">24</div>
+                            <div class="metric-label">Active</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">45</div>
+                            <div class="metric-label">Approved Drugs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Recent Studies</h2>
+                    <div class="studies-list">
+                        <div class="study-item">
+                            <div class="study-info">
+                                <h4>Phase III Oncology Trial - ADVANCE-2024</h4>
+                                <p>Non-Small Cell Lung Cancer • 300 patients • 25 sites</p>
+                            </div>
+                            <div class="study-status active">Active</div>
+                        </div>
+                        <div class="study-item">
+                            <div class="study-info">
+                                <h4>Phase II Cardiology Study - HEART-CARE</h4>
+                                <p>Heart Failure • 150 patients • 15 sites</p>
+                            </div>
+                            <div class="study-status active">Active</div>
+                        </div>
+                        <div class="study-item">
+                            <div class="study-info">
+                                <h4>Phase III Neurology Trial - NEURO-PROTECT</h4>
+                                <p>Alzheimer's Disease • 500 patients • 40 sites</p>
+                            </div>
+                            <div class="study-status completed">Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Tab -->
+            <div class="tab-content" id="team">
+                <div class="card">
+                    <h2>Leadership Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/100" alt="Team Member">
+                            <h3>Dr. Sarah Johnson</h3>
+                            <p class="member-title">Chief Medical Officer</p>
+                            <p class="member-credentials">MD, PhD</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/100" alt="Team Member">
+                            <h3>Michael Chen</h3>
+                            <p class="member-title">VP Clinical Operations</p>
+                            <p class="member-credentials">MBA, PMP</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/100" alt="Team Member">
+                            <h3>Dr. Emily Rodriguez</h3>
+                            <p class="member-title">Head of Regulatory Affairs</p>
+                            <p class="member-credentials">PharmD, RAC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Team Statistics</h2>
+                    <div class="team-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">245</div>
+                            <div class="stat-text">Total Employees</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">89</div>
+                            <div class="stat-text">Clinical Team</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">45</div>
+                            <div class="stat-text">Medical Monitors</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">67</div>
+                            <div class="stat-text">Data Managers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Tab -->
+            <div class="tab-content" id="certifications">
+                <div class="card">
+                    <h2>Certifications & Accreditations</h2>
+                    <div class="cert-grid">
+                        <div class="cert-item">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">ISO 9001:2015</div>
+                            <div class="cert-date">Valid until: Dec 2025</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">ICH GCP Compliant</div>
+                            <div class="cert-date">Certified</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">FDA Registered</div>
+                            <div class="cert-date">Active</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">✓</div>
+                            <div class="cert-name">EMA Approved</div>
+                            <div class="cert-date">Active</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Upload Certification Documents</h2>
+                    <div class="upload-area">
+                        <div class="upload-icon">📄</div>
+                        <p>Click to upload or drag and drop</p>
+                        <small>PDF, JPG, PNG (Max 10MB)</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Tab -->
+            <div class="tab-content" id="contact">
+                <div class="card">
+                    <h2>Primary Contact</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Contact Name</label>
+                            <input type="text" class="form-control" value="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" value="Director of Business Development">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="john.smith@globalpharma.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Office Locations</h2>
+                    <div class="locations-list">
+                        <div class="location-item">
+                            <h4>🏢 Headquarters</h4>
+                            <p>123 Pharma Plaza, Boston, MA 02115, USA</p>
+                            <p>Phone: +1 (555) 123-4567</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>🏢 European Office</h4>
+                            <p>45 Medical Street, London, UK</p>
+                            <p>Phone: +44 20 1234 5678</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>🏢 Asia-Pacific Office</h4>
+                            <p>78 Research Road, Singapore</p>
+                            <p>Phone: +65 1234 5678</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="profile-footer">
+            <button class="btn-secondary" onclick="window.location.href='app.html'">Cancel</button>
+            <button class="btn-primary" onclick="saveProfile()">
+                <span>💾</span> Save Changes
+            </button>
+        </div>
+    </div>
+
+    <script src="unified-profile.js"></script>
+</body>
+</html>

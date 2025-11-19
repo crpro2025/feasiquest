@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Management - FeasiQuest</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="document-upload-system.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="logo-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="site-search.html">Search Sites</a>
+                <a href="help-center.html">Help</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-secondary" onclick="window.location.href='app.html'">Back to Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Document Management Container -->
+    <div class="document-container">
+        <!-- Header -->
+        <div class="document-header">
+            <div class="header-content">
+                <h1>Document Management</h1>
+                <p>Upload, organize, and manage all your study documents</p>
+            </div>
+            <button class="btn-primary" onclick="openUploadModal()">
+                <span>📤</span> Upload Documents
+            </button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="document-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📄</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalDocs">127</div>
+                    <div class="stat-label">Total Documents</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📁</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalFolders">8</div>
+                    <div class="stat-label">Folders</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💾</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalSize">2.4 GB</div>
+                    <div class="stat-label">Storage Used</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="recentUploads">12</div>
+                    <div class="stat-label">Recent Uploads</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="document-filters">
+            <div class="filter-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="🔍 Search documents...">
+            </div>
+            <div class="filter-group">
+                <select id="categoryFilter" class="form-control">
+                    <option value="">All Categories</option>
+                    <option value="protocol">Protocols</option>
+                    <option value="icf">Informed Consent</option>
+                    <option value="regulatory">Regulatory</option>
+                    <option value="budget">Budget & Contracts</option>
+                    <option value="reports">Reports</option>
+                    <option value="correspondence">Correspondence</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="typeFilter" class="form-control">
+                    <option value="">All Types</option>
+                    <option value="pdf">PDF</option>
+                    <option value="doc">Word</option>
+                    <option value="xls">Excel</option>
+                    <option value="ppt">PowerPoint</option>
+                    <option value="img">Images</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="sortFilter" class="form-control">
+                    <option value="recent">Most Recent</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="size">Size</option>
+                    <option value="type">Type</option>
+                </select>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid" onclick="switchView('grid')">
+                    <span>⊞</span>
+                </button>
+                <button class="view-btn" data-view="list" onclick="switchView('list')">
+                    <span>☰</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Folder Navigation -->
+        <div class="folder-navigation">
+            <div class="breadcrumb">
+                <a href="#" onclick="navigateToFolder('root')">📁 All Documents</a>
+                <span id="breadcrumbPath"></span>
+            </div>
+            <div class="folder-actions">
+                <button class="btn-secondary btn-sm" onclick="createFolder()">
+                    <span>📁</span> New Folder
+                </button>
+                <button class="btn-secondary btn-sm" onclick="toggleBulkSelect()">
+                    <span>☑</span> Select Multiple
+                </button>
+            </div>
+        </div>
+
+        <!-- Documents Grid/List -->
+        <div class="documents-view grid-view" id="documentsView">
+            <!-- Documents will be loaded here -->
+        </div>
+
+        <!-- Bulk Actions Bar -->
+        <div class="bulk-actions-bar" id="bulkActionsBar">
+            <div class="selected-count">
+                <span id="selectedCount">0</span> items selected
+            </div>
+            <div class="bulk-actions">
+                <button class="btn-secondary btn-sm" onclick="downloadSelected()">
+                    <span>⬇</span> Download
+                </button>
+                <button class="btn-secondary btn-sm" onclick="moveSelected()">
+                    <span>📁</span> Move
+                </button>
+                <button class="btn-secondary btn-sm" onclick="shareSelected()">
+                    <span>🔗</span> Share
+                </button>
+                <button class="btn-secondary btn-sm" onclick="deleteSelected()">
+                    <span>🗑️</span> Delete
+                </button>
+            </div>
+            <button class="btn-secondary btn-sm" onclick="cancelBulkSelect()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Upload Documents</h2>
+                <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Upload Area -->
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">📤</div>
+                    <h3>Drag & Drop Files Here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" multiple hidden>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Choose Files
+                    </button>
+                    <div class="upload-info">
+                        <small>Supported: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, JPG, PNG (Max 25MB each)</small>
+                    </div>
+                </div>
+
+                <!-- Upload Queue -->
+                <div class="upload-queue" id="uploadQueue">
+                    <!-- Upload items will appear here -->
+                </div>
+
+                <!-- Document Details Form -->
+                <div class="document-details" id="documentDetails" style="display: none;">
+                    <h3>Document Details</h3>
+                    <div class="form-group">
+                        <label>Category <span class="required">*</span></label>
+                        <select class="form-control" id="docCategory" required>
+                            <option value="">Select category...</option>
+                            <option value="protocol">Protocol</option>
+                            <option value="icf">Informed Consent Form</option>
+                            <option value="regulatory">Regulatory Document</option>
+                            <option value="budget">Budget & Contract</option>
+                            <option value="report">Report</option>
+                            <option value="correspondence">Correspondence</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Version</label>
+                        <input type="text" class="form-control" id="docVersion" placeholder="e.g., 1.0, 2.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="docDescription" rows="3" placeholder="Brief description of the document..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <input type="text" class="form-control" id="docTags" placeholder="Enter tags separated by commas">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="docConfidential">
+                            <span>Mark as confidential</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeUploadModal()">Cancel</button>
+                    <button class="btn-primary" onclick="startUpload()" id="uploadBtn" disabled>
+                        Upload Files
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2 id="previewTitle">Document Preview</h2>
+                <button class="modal-close" onclick="closeModal('previewModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container" id="previewContainer">
+                    <!-- Preview content will be loaded here -->
+                </div>
+                <div class="preview-actions">
+                    <button class="btn-secondary" onclick="downloadDocument()">
+                        <span>⬇</span> Download
+                    </button>
+                    <button class="btn-secondary" onclick="shareDocument()">
+                        <span>🔗</span> Share
+                    </button>
+                    <button class="btn-secondary" onclick="printDocument()">
+                        <span>🖨️</span> Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Folder Modal -->
+    <div id="folderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Folder</h2>
+                <button class="modal-close" onclick="closeModal('folderModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Folder Name <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="folderName" placeholder="Enter folder name..." required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" id="folderDescription" rows="3" placeholder="Optional description..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeModal('folderModal')">Cancel</button>
+                    <button class="btn-primary" onclick="saveFolderName()">Create Folder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="document-upload-system.js"></script>
+</body>
+</html>
