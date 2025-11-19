@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response Viewer - FeasiQuest℠</title>
+    <link rel="stylesheet" href="responses.css">
+    <link rel="stylesheet" href="responses-dark-theme.css">
+    <link rel="stylesheet" href="response-viewer.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="create-study.html">Create Study</a>
+                <a href="response-viewer.html" class="active">Responses</a>
+                <a href="help-center.html">Help</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-secondary" onclick="window.location.href='app.html'">Back to Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="response-viewer-container">
+        <!-- Header -->
+        <div class="viewer-header">
+            <div class="header-left">
+                <h1>📊 Questionnaire Responses</h1>
+                <p>Review and manage site responses for your feasibility questionnaires</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" onclick="exportAllResponses()">
+                    📥 Export All
+                </button>
+                <button class="btn-primary" onclick="compareSelected()">
+                    🔄 Compare Selected
+                </button>
+            </div>
+        </div>
+
+        <!-- Study Selector -->
+        <div class="study-selector-card">
+            <div class="selector-content">
+                <label for="studySelect">Select Study:</label>
+                <select id="studySelect" onchange="loadResponses()">
+                    <option value="study1">Phase III Oncology Trial - Advanced NSCLC</option>
+                    <option value="study2">Phase II Cardiovascular Study - Heart Failure</option>
+                    <option value="study3">Phase III Diabetes Trial - Type 2 Diabetes</option>
+                </select>
+            </div>
+            <div class="study-stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="totalSent">156</div>
+                    <div class="stat-label">Sent</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="totalReceived">89</div>
+                    <div class="stat-label">Received</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="responseRate">57%</div>
+                    <div class="stat-label">Response Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="avgScore">82</div>
+                    <div class="stat-label">Avg Score</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters & Controls -->
+        <div class="controls-card">
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="statusFilter" onchange="filterResponses()">
+                        <option value="all">All Responses</option>
+                        <option value="complete">Complete</option>
+                        <option value="incomplete">Incomplete</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Match Score:</label>
+                    <select id="scoreFilter" onchange="filterResponses()">
+                        <option value="all">All Scores</option>
+                        <option value="90">90+ (Excellent)</option>
+                        <option value="80">80-89 (Very Good)</option>
+                        <option value="70">70-79 (Good)</option>
+                        <option value="60">60-69 (Fair)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location:</label>
+                    <select id="locationFilter" onchange="filterResponses()">
+                        <option value="all">All Locations</option>
+                        <option value="us">United States</option>
+                        <option value="eu">Europe</option>
+                        <option value="asia">Asia</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Search:</label>
+                    <input type="text" id="searchInput" placeholder="Search sites..." oninput="filterResponses()">
+                </div>
+            </div>
+            <div class="bulk-actions">
+                <button class="btn-secondary" onclick="selectAll()">Select All</button>
+                <button class="btn-secondary" onclick="deselectAll()">Deselect All</button>
+                <button class="btn-secondary" onclick="exportSelected()">Export Selected</button>
+            </div>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button class="toggle-btn active" data-view="grid" onclick="switchView('grid')">
+                📊 Grid View
+            </button>
+            <button class="toggle-btn" data-view="table" onclick="switchView('table')">
+                📋 Table View
+            </button>
+        </div>
+
+        <!-- Responses Grid View -->
+        <div id="responsesGrid" class="responses-grid">
+            <!-- Responses will be loaded here -->
+        </div>
+
+        <!-- Responses Table View -->
+        <div id="responsesTable" class="responses-table" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" onclick="toggleAllCheckboxes(this)"></th>
+                        <th>Site Name</th>
+                        <th>Location</th>
+                        <th>Match Score</th>
+                        <th>Status</th>
+                        <th>Submitted</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="responsesTableBody">
+                    <!-- Table rows will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="btn-secondary" onclick="previousPage()" id="prevPageBtn">← Previous</button>
+            <span id="pageInfo">Page 1 of 5</span>
+            <button class="btn-secondary" onclick="nextPage()" id="nextPageBtn">Next →</button>
+        </div>
+    </div>
+
+    <!-- Response Detail Modal -->
+    <div id="responseDetailModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modalSiteName">Site Response Details</h2>
+                <button class="modal-close" onclick="closeResponseModal()">×</button>
+            </div>
+            <div class="modal-body" id="responseDetailBody">
+                <!-- Response details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeResponseModal()">Close</button>
+                <button class="btn-secondary" onclick="exportResponse()">📥 Export</button>
+                <button class="btn-primary" onclick="contactSite()">📧 Contact Site</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal" class="modal">
+        <div class="modal-content extra-large">
+            <div class="modal-header">
+                <h2>Site Comparison</h2>
+                <button class="modal-close" onclick="closeComparisonModal()">×</button>
+            </div>
+            <div class="modal-body" id="comparisonBody">
+                <!-- Comparison will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeComparisonModal()">Close</button>
+                <button class="btn-secondary" onclick="exportComparison()">📥 Export Comparison</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="response-viewer.js"></script>
+</body>
+</html>

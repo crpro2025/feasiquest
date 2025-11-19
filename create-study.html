@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Study - FeasiQuest</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="create-study.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="logo-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="site-search.html">Search Sites</a>
+                <a href="help-center.html">Help</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-secondary" onclick="saveDraft()">💾 Save Draft</button>
+                <button class="btn-secondary" onclick="window.location.href='app.html'">Cancel</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Study Creation Container -->
+    <div class="study-creation-container">
+        <!-- Progress Header -->
+        <div class="progress-header">
+            <h1>Create New Study</h1>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Basic Info</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Protocol</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Patient Criteria</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Site Requirements</div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Budget & Timeline</div>
+                </div>
+                <div class="step" data-step="6">
+                    <div class="step-number">6</div>
+                    <div class="step-label">Team</div>
+                </div>
+                <div class="step" data-step="7">
+                    <div class="step-number">7</div>
+                    <div class="step-label">Documents</div>
+                </div>
+                <div class="step" data-step="8">
+                    <div class="step-number">8</div>
+                    <div class="step-label">Questionnaire</div>
+                </div>
+                <div class="step" data-step="9">
+                    <div class="step-number">9</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="studyForm">
+                <!-- Step 1: Basic Information -->
+                <div class="form-step active" data-step="1">
+                    <h2>Basic Study Information</h2>
+                    <p class="step-description">Provide essential details about your clinical study</p>
+
+                    <div class="form-group">
+                        <label>Study Title <span class="required">*</span></label>
+                        <input type="text" class="form-control" name="studyTitle" required placeholder="Enter full study title...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Short Title / Acronym</label>
+                        <input type="text" class="form-control" name="shortTitle" placeholder="e.g., ADVANCE-2024">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Study Phase <span class="required">*</span></label>
+                            <select class="form-control" name="studyPhase" required>
+                                <option value="">Select phase...</option>
+                                <option value="1">Phase I</option>
+                                <option value="2">Phase II</option>
+                                <option value="3">Phase III</option>
+                                <option value="4">Phase IV</option>
+                                <option value="observational">Observational</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Study Type <span class="required">*</span></label>
+                            <select class="form-control" name="studyType" required>
+                                <option value="">Select type...</option>
+                                <option value="interventional">Interventional</option>
+                                <option value="observational">Observational</option>
+                                <option value="expanded-access">Expanded Access</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Therapeutic Area <span class="required">*</span></label>
+                        <select class="form-control" name="therapeuticArea" required>
+                            <option value="">Select area...</option>
+                            <option value="oncology">Oncology</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="diabetes">Diabetes & Endocrinology</option>
+                            <option value="respiratory">Respiratory</option>
+                            <option value="immunology">Immunology</option>
+                            <option value="infectious">Infectious Diseases</option>
+                            <option value="rare">Rare Diseases</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Indication / Condition <span class="required">*</span></label>
+                        <input type="text" class="form-control" name="indication" required placeholder="e.g., Non-Small Cell Lung Cancer">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Description</label>
+                        <textarea class="form-control" name="studyDescription" rows="4" placeholder="Brief overview of the study objectives and design..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sponsor Name <span class="required">*</span></label>
+                            <input type="text" class="form-control" name="sponsorName" required placeholder="Your organization name">
+                        </div>
+                        <div class="form-group">
+                            <label>CRO (if applicable)</label>
+                            <input type="text" class="form-control" name="croName" placeholder="Contract Research Organization">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Protocol Details -->
+                <div class="form-step" data-step="2">
+                    <h2>Protocol Details</h2>
+                    <p class="step-description">Provide detailed protocol information</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Protocol Number</label>
+                            <input type="text" class="form-control" name="protocolNumber" placeholder="e.g., ABC-123-2024">
+                        </div>
+                        <div class="form-group">
+                            <label>Protocol Version</label>
+                            <input type="text" class="form-control" name="protocolVersion" placeholder="e.g., 2.0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Objective</label>
+                        <textarea class="form-control" name="primaryObjective" rows="3" placeholder="State the primary objective of the study..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Secondary Objectives</label>
+                        <textarea class="form-control" name="secondaryObjectives" rows="3" placeholder="List secondary objectives..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Design <span class="required">*</span></label>
+                        <select class="form-control" name="studyDesign" required>
+                            <option value="">Select design...</option>
+                            <option value="parallel">Parallel Assignment</option>
+                            <option value="crossover">Crossover Assignment</option>
+                            <option value="factorial">Factorial Assignment</option>
+                            <option value="single-group">Single Group Assignment</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Randomization</label>
+                            <select class="form-control" name="randomization">
+                                <option value="">Select...</option>
+                                <option value="randomized">Randomized</option>
+                                <option value="non-randomized">Non-Randomized</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Blinding</label>
+                            <select class="form-control" name="blinding">
+                                <option value="">Select...</option>
+                                <option value="open">Open Label</option>
+                                <option value="single">Single Blind</option>
+                                <option value="double">Double Blind</option>
+                                <option value="triple">Triple Blind</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Number of Arms</label>
+                            <input type="number" class="form-control" name="numberOfArms" min="1" placeholder="e.g., 2">
+                        </div>
+                        <div class="form-group">
+                            <label>Study Duration (months)</label>
+                            <input type="number" class="form-control" name="studyDuration" min="1" placeholder="e.g., 24">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Endpoint</label>
+                        <textarea class="form-control" name="primaryEndpoint" rows="2" placeholder="Describe the primary endpoint..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Secondary Endpoints</label>
+                        <textarea class="form-control" name="secondaryEndpoints" rows="3" placeholder="List secondary endpoints..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 3: Patient Criteria -->
+                <div class="form-step" data-step="3">
+                    <h2>Patient Eligibility Criteria</h2>
+                    <p class="step-description">Define inclusion and exclusion criteria</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Minimum Age <span class="required">*</span></label>
+                            <input type="number" class="form-control" name="minAge" required min="0" placeholder="e.g., 18">
+                        </div>
+                        <div class="form-group">
+                            <label>Maximum Age</label>
+                            <input type="number" class="form-control" name="maxAge" min="0" placeholder="e.g., 75 (leave blank for no limit)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <select class="form-control" name="gender" required>
+                            <option value="">Select...</option>
+                            <option value="all">All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Key Inclusion Criteria <span class="required">*</span></label>
+                        <textarea class="form-control" name="inclusionCriteria" rows="6" required placeholder="List key inclusion criteria (one per line)..."></textarea>
+                        <small class="form-text">Enter each criterion on a new line</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Key Exclusion Criteria <span class="required">*</span></label>
+                        <textarea class="form-control" name="exclusionCriteria" rows="6" required placeholder="List key exclusion criteria (one per line)..."></textarea>
+                        <small class="form-text">Enter each criterion on a new line</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Prior/Concurrent Therapy Restrictions</label>
+                        <textarea class="form-control" name="therapyRestrictions" rows="3" placeholder="Describe any restrictions on prior or concurrent therapies..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Lab Values/Tests</label>
+                        <textarea class="form-control" name="requiredTests" rows="3" placeholder="List required lab values or diagnostic tests..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 4: Site Requirements -->
+                <div class="form-step" data-step="4">
+                    <h2>Site Requirements</h2>
+                    <p class="step-description">Specify requirements for participating sites</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Target Number of Sites <span class="required">*</span></label>
+                            <input type="number" class="form-control" name="targetSites" required min="1" placeholder="e.g., 25">
+                        </div>
+                        <div class="form-group">
+                            <label>Target Enrollment <span class="required">*</span></label>
+                            <input type="number" class="form-control" name="targetEnrollment" required min="1" placeholder="e.g., 300">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Geographic Regions <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="north-america">
+                                <span>North America</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="europe">
+                                <span>Europe</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="asia-pacific">
+                                <span>Asia-Pacific</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="latin-america">
+                                <span>Latin America</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="middle-east">
+                                <span>Middle East</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="regions" value="africa">
+                                <span>Africa</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Site Capabilities</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="24-7-monitoring">
+                                <span>24/7 Patient Monitoring</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="pharmacy">
+                                <span>On-site Pharmacy</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="imaging">
+                                <span>Advanced Imaging (MRI/CT/PET)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="lab">
+                                <span>Central Lab Services</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="biomarker">
+                                <span>Biomarker Analysis</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="capabilities" value="genetic">
+                                <span>Genetic Testing</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Certifications</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certifications" value="acrp">
+                                <span>ACRP Certified</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certifications" value="cap">
+                                <span>CAP Accredited</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certifications" value="clia">
+                                <span>CLIA Certified</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certifications" value="aahrpp">
+                                <span>AAHRPP Accredited</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Minimum Site Experience</label>
+                        <select class="form-control" name="minExperience">
+                            <option value="">No minimum...</option>
+                            <option value="5">5+ completed studies</option>
+                            <option value="10">10+ completed studies</option>
+                            <option value="25">25+ completed studies</option>
+                            <option value="50">50+ completed studies</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Site Requirements</label>
+                        <textarea class="form-control" name="additionalRequirements" rows="4" placeholder="Describe any additional requirements for sites..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 5: Budget & Timeline -->
+                <div class="form-step" data-step="5">
+                    <h2>Budget & Timeline</h2>
+                    <p class="step-description">Define study budget and timeline</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Planned Start Date <span class="required">*</span></label>
+                            <input type="date" class="form-control" name="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Planned End Date</label>
+                            <input type="date" class="form-control" name="endDate">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Enrollment Period (months)</label>
+                            <input type="number" class="form-control" name="enrollmentPeriod" min="1" placeholder="e.g., 12">
+                        </div>
+                        <div class="form-group">
+                            <label>Follow-up Period (months)</label>
+                            <input type="number" class="form-control" name="followupPeriod" min="0" placeholder="e.g., 6">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Study Budget</label>
+                        <input type="number" class="form-control" name="totalBudget" min="0" placeholder="e.g., 5000000">
+                        <small class="form-text">Enter amount in USD</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Per-Patient Budget</label>
+                        <input type="number" class="form-control" name="perPatientBudget" min="0" placeholder="e.g., 15000">
+                        <small class="form-text">Enter amount in USD</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site Startup Payment</label>
+                        <input type="number" class="form-control" name="startupPayment" min="0" placeholder="e.g., 10000">
+                        <small class="form-text">Enter amount in USD</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Key Milestones</label>
+                        <textarea class="form-control" name="milestones" rows="4" placeholder="List key study milestones and dates..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 6: Study Team -->
+                <div class="form-step" data-step="6">
+                    <h2>Study Team</h2>
+                    <p class="step-description">Identify key study personnel</p>
+
+                    <div class="form-group">
+                        <label>Principal Investigator <span class="required">*</span></label>
+                        <input type="text" class="form-control" name="piName" required placeholder="Full name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>PI Email <span class="required">*</span></label>
+                            <input type="email" class="form-control" name="piEmail" required placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>PI Phone</label>
+                            <input type="tel" class="form-control" name="piPhone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Study Director</label>
+                        <input type="text" class="form-control" name="directorName" placeholder="Full name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Director Email</label>
+                            <input type="email" class="form-control" name="directorEmail" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Director Phone</label>
+                            <input type="tel" class="form-control" name="directorPhone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Medical Monitor</label>
+                        <input type="text" class="form-control" name="monitorName" placeholder="Full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Team Members</label>
+                        <textarea class="form-control" name="teamMembers" rows="4" placeholder="List additional team members and their roles..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 7: Documents -->
+                <div class="form-step" data-step="7">
+                    <h2>Study Documents</h2>
+                    <p class="step-description">Upload required study documents</p>
+
+                    <div class="upload-section">
+                        <div class="upload-item">
+                            <label>Protocol Document</label>
+                            <div class="file-upload-area" data-type="protocol">
+                                <div class="upload-icon">📄</div>
+                                <p>Click to upload or drag and drop</p>
+                                <small>PDF, DOC, DOCX (Max 25MB)</small>
+                                <input type="file" accept=".pdf,.doc,.docx" hidden>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Informed Consent Form</label>
+                            <div class="file-upload-area" data-type="icf">
+                                <div class="upload-icon">📄</div>
+                                <p>Click to upload or drag and drop</p>
+                                <small>PDF, DOC, DOCX (Max 25MB)</small>
+                                <input type="file" accept=".pdf,.doc,.docx" hidden>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Investigator Brochure</label>
+                            <div class="file-upload-area" data-type="ib">
+                                <div class="upload-icon">📄</div>
+                                <p>Click to upload or drag and drop</p>
+                                <small>PDF, DOC, DOCX (Max 25MB)</small>
+                                <input type="file" accept=".pdf,.doc,.docx" hidden>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Budget Template</label>
+                            <div class="file-upload-area" data-type="budget">
+                                <div class="upload-icon">📊</div>
+                                <p>Click to upload or drag and drop</p>
+                                <small>PDF, XLS, XLSX (Max 10MB)</small>
+                                <input type="file" accept=".pdf,.xls,.xlsx" hidden>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Additional Documents</label>
+                            <div class="file-upload-area" data-type="additional">
+                                <div class="upload-icon">📎</div>
+                                <p>Click to upload or drag and drop</p>
+                                <small>Any file type (Max 25MB each)</small>
+                                <input type="file" multiple hidden>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 8: Create Questionnaire -->
+                <div class="form-step" data-step="8">
+                    <h2>📋 Create Feasibility Questionnaire</h2>
+                    <p class="step-description">Customize the questionnaire that will be sent to research sites</p>
+
+                    <div class="questionnaire-builder-section">
+                        <div class="builder-header">
+                            <div class="auto-generate-section">
+                                <h3>🤖 AI-Generated Questions</h3>
+                                <p>We've automatically generated questions based on your study details. Review and customize as needed.</p>
+                                <button type="button" class="btn-secondary" onclick="regenerateQuestionnaire()">
+                                    🔄 Regenerate Questions
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="questionnairePreview" class="questionnaire-preview">
+                            <!-- Questions will be generated dynamically -->
+                        </div>
+
+                        <div class="add-question-section">
+                            <button type="button" class="btn-secondary" onclick="addCustomQuestion()">
+                                ➕ Add Custom Question
+                            </button>
+                        </div>
+
+                        <div class="questionnaire-settings">
+                            <h3>Questionnaire Settings</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Response Deadline</label>
+                                    <input type="date" class="form-control" name="questionnaireDueDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Send To</label>
+                                    <select class="form-control" name="sendTo">
+                                        <option value="all">All Sites in Database</option>
+                                        <option value="selected">Selected Sites Only</option>
+                                        <option value="later">Save for Later</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 9: Review & Submit -->
+                <div class="form-step" data-step="9">
+                    <h2>✅ Review & Submit</h2>
+                    <p class="step-description">Review all information before creating your study</p>
+
+                    <div id="reviewSummary" class="review-summary">
+                        <!-- Summary will be generated dynamically -->
+                    </div>
+
+                    <div class="questionnaire-summary-box">
+                        <h3>📋 Questionnaire Summary</h3>
+                        <div id="questionnaireSummary">
+                            <!-- Questionnaire summary will be shown here -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="confirmAccuracy" required>
+                            <span>I confirm that all information provided is accurate and complete</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreeTerms" required>
+                            <span>I agree to the FeasiQuest Terms of Service and Privacy Policy</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn-secondary" id="prevBtn" onclick="previousStep()">
+                        ← Previous
+                    </button>
+                    <button type="button" class="btn-primary" id="nextBtn" onclick="nextStep()">
+                        Next →
+                    </button>
+                    <button type="submit" class="btn-primary" id="submitBtn" style="display: none;">
+                        🚀 Create Study
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="create-study.js"></script>
+</body>
+</html>

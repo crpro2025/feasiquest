@@ -997,10 +997,18 @@ function closeModal() {
 }
 
 // ===== PLACEHOLDER FUNCTIONS =====
-function openCreateStudyModal() { showToast('Create Study feature coming soon!', 'info'); }
-function openQuestionnaireBuilder() { showToast('Questionnaire Builder coming soon!', 'info'); }
-function viewStudyDetails(id) { showToast('Study details view coming soon!', 'info'); }
-function viewResponses(id) { showToast('Response viewer coming soon!', 'info'); }
+function openCreateStudyModal() { 
+    window.location.href = 'create-study.html';
+}
+function openQuestionnaireBuilder() { 
+    window.location.href = 'create-study.html';
+}
+function viewStudyDetails(id) { 
+    showToast('Study details view coming soon!', 'info'); 
+}
+function viewResponses(id) { 
+    window.location.href = 'response-viewer.html';
+}
 function sendQuestionnaire(id) { showToast('Questionnaire sent successfully!', 'success'); }
 function viewQuestionnaireResponse(id) { showToast('Response viewer coming soon!', 'info'); }
 function viewSiteProfile(id) { showToast('Site profile viewer coming soon!', 'info'); }
