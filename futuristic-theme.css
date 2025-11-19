@@ -3,6 +3,17 @@
    Advanced, Unique, Consistent Design
    ======================================== */
 
+/* ==================== FORCE BLACK BACKGROUND ==================== */
+body {
+    background: #000000 !important;
+    background-color: #000000 !important;
+}
+
+html {
+    background: #000000 !important;
+    background-color: #000000 !important;
+}
+
 /* ==================== COLOR SYSTEM ==================== */
 :root {
     /* Primary Colors - Neon Cyber Theme */
