@@ -43,8 +43,7 @@
                 <div class="demo-accounts">
                     <p><strong>Demo Accounts:</strong></p>
                     <button onclick="loginAsDemo('site')" class="btn-demo">Login as Research Site</button>
-                    <button onclick="loginAsDemo('sponsor')" class="btn-demo">Login as Sponsor</button>
-                    <button onclick="loginAsDemo('cro')" class="btn-demo">Login as CRO</button>
+                    <button onclick="loginAsDemo('sponsor')" class="btn-demo">Login as Sponsor/CRO</button>
                 </div>
             </div>
 
@@ -89,7 +88,7 @@
         <!-- Top Navigation -->
         <nav class="top-nav">
             <div class="nav-left">
-                <h1>🎯 FeasiQuest</h1>
+                   <h1>FeasiQuest℠ <span style="font-size: 0.5em; color: rgba(255,255,255,0.6);">by Clinical Research Pro®</span></h1>
             </div>
             <div class="nav-center">
                 <button class="nav-btn active" onclick="showDashboard()">
@@ -104,6 +103,9 @@
                 <button class="nav-btn" onclick="showSection('studies')" id="navStudies" style="display: none;">
                     <span class="icon">🧪</span> Studies
                 </button>
+                   <button class="nav-btn" onclick="window.location.href='create-study.html'" id="navCreateStudy" style="display: none;">
+                       <span class="icon">➕</span> Create Study
+                   </button>
                 <button class="nav-btn" onclick="showSection('messages')">
                     <span class="icon">💬</span> Messages
                     <span class="badge" id="messageBadge">3</span>

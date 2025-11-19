@@ -110,9 +110,11 @@ function configureNavigation() {
     // Show/hide navigation items based on role
     if (currentUser.role === 'sponsor' || currentUser.role === 'cro') {
         document.getElementById('navSearch').style.display = 'flex';
+        document.getElementById('navCreateStudy').style.display = 'flex';
         document.getElementById('navQuestionnairesText').textContent = 'Questionnaires';
     } else {
         document.getElementById('navSearch').style.display = 'none';
+        document.getElementById('navCreateStudy').style.display = 'none';
         document.getElementById('navQuestionnairesText').textContent = 'Questionnaires';
     }
     
@@ -997,7 +999,9 @@ function closeModal() {
 }
 
 // ===== PLACEHOLDER FUNCTIONS =====
-function openCreateStudyModal() { showToast('Create Study feature coming soon!', 'info'); }
+function openCreateStudyModal() { 
+    window.location.href = 'create-study.html'; 
+}
 function openQuestionnaireBuilder() { showToast('Questionnaire Builder coming soon!', 'info'); }
 function viewStudyDetails(id) { showToast('Study details view coming soon!', 'info'); }
 function viewResponses(id) { showToast('Response viewer coming soon!', 'info'); }
