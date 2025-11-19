@@ -1,0 +1,164 @@
+/* Dark Theme Overrides for Response Viewer */
+
+/* Force dark backgrounds on all elements */
+.responses-container,
+.responses-header,
+.study-selector,
+.controls-bar,
+.responses-grid,
+.response-card,
+.comparison-modal,
+.modal-content,
+.filter-group select,
+.search-box input,
+.btn-secondary,
+.btn-primary {
+    background: rgba(10, 14, 39, 0.8) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cards with glass effect */
+.response-card,
+.study-selector,
+.controls-bar {
+    background: rgba(26, 31, 58, 0.6) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.1);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-secondary {
+    background: rgba(176, 38, 255, 0.1) !important;
+    border: 1px solid #b026ff !important;
+    color: #b026ff !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.4);
+}
+
+.btn-secondary:hover {
+    background: rgba(176, 38, 255, 0.2) !important;
+}
+
+/* Inputs and selects */
+select,
+input[type="text"],
+input[type="search"] {
+    background: rgba(10, 14, 39, 0.8) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(0, 240, 255, 0.3) !important;
+}
+
+select:focus,
+input:focus {
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.1) !important;
+}
+
+/* Status badges */
+.status-badge {
+    background: rgba(0, 240, 255, 0.1) !important;
+    color: #00f0ff !important;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.status-badge.complete {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #10b981 !important;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.incomplete {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #f59e0b !important;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Score badges */
+.score-badge {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Modal */
+.modal {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.modal-content {
+    background: rgba(10, 14, 39, 0.95) !important;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
+}
+
+/* Tables */
+table {
+    background: rgba(10, 14, 39, 0.6) !important;
+}
+
+th {
+    background: rgba(26, 31, 58, 0.8) !important;
+    color: #00f0ff !important;
+    border-bottom: 2px solid rgba(0, 240, 255, 0.3);
+}
+
+td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff !important;
+}
+
+tr:hover {
+    background: rgba(0, 240, 255, 0.05) !important;
+}
+
+/* Pagination */
+.pagination button {
+    background: rgba(26, 31, 58, 0.6) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pagination button.active {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%) !important;
+    border-color: transparent;
+}
+
+/* Notification */
+.notification {
+    background: rgba(10, 14, 39, 0.95) !important;
+    border-left: 4px solid #00f0ff;
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+}
+
+/* Stats */
+.stat-item strong {
+    color: #00f0ff !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Links */
+a {
+    color: #00f0ff !important;
+}
+
+a:hover {
+    color: #b026ff !important;
+}

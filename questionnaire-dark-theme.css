@@ -1,0 +1,228 @@
+/* Dark Theme Overrides for Questionnaire */
+
+/* Force dark backgrounds on all elements */
+.questionnaire-container,
+.questionnaire-header,
+.progress-container,
+.questionnaire-form,
+.form-section,
+.form-group,
+.info-box,
+.modal-content,
+.preview-modal,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    background: rgba(10, 14, 39, 0.8) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Form sections with glass effect */
+.form-section,
+.info-box {
+    background: rgba(26, 31, 58, 0.6) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.1);
+}
+
+/* Progress bar */
+.progress-bar {
+    background: rgba(26, 31, 58, 0.6) !important;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #00f0ff 0%, #b026ff 100%) !important;
+}
+
+/* Steps */
+.step {
+    background: rgba(26, 31, 58, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step.active {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%) !important;
+    border-color: transparent;
+}
+
+.step.completed {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10b981;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-secondary {
+    background: rgba(176, 38, 255, 0.1) !important;
+    border: 1px solid #b026ff !important;
+    color: #b026ff !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.4);
+}
+
+.btn-secondary:hover {
+    background: rgba(176, 38, 255, 0.2) !important;
+}
+
+.back-button {
+    background: rgba(26, 31, 58, 0.6) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-button:hover {
+    background: rgba(0, 240, 255, 0.1) !important;
+    border-color: #00f0ff;
+}
+
+/* Inputs with focus */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.1) !important;
+    background: rgba(10, 14, 39, 0.9) !important;
+}
+
+/* Pre-filled fields */
+.prefilled {
+    background: rgba(0, 240, 255, 0.05) !important;
+    border-color: rgba(0, 240, 255, 0.3) !important;
+}
+
+.prefilled::placeholder {
+    color: rgba(0, 240, 255, 0.5) !important;
+}
+
+/* File upload areas */
+.file-upload-area {
+    background: rgba(26, 31, 58, 0.6) !important;
+    border: 2px dashed rgba(0, 240, 255, 0.3) !important;
+}
+
+.file-upload-area:hover {
+    background: rgba(0, 240, 255, 0.05) !important;
+    border-color: #00f0ff !important;
+}
+
+.file-upload-area.dragover {
+    background: rgba(0, 240, 255, 0.1) !important;
+    border-color: #00f0ff !important;
+}
+
+/* File list */
+.file-list-item {
+    background: rgba(26, 31, 58, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Labels */
+label {
+    color: #ffffff !important;
+}
+
+.required {
+    color: #ef4444 !important;
+}
+
+/* Help text */
+.help-text {
+    color: #a0aec0 !important;
+}
+
+/* Character counter */
+.char-counter {
+    color: #718096 !important;
+}
+
+/* Radio and checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+    border-color: rgba(0, 240, 255, 0.3) !important;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%) !important;
+    border-color: transparent !important;
+}
+
+/* Modal */
+.modal {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.modal-content {
+    background: rgba(10, 14, 39, 0.95) !important;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
+}
+
+/* Auto-save indicator */
+.auto-save-indicator {
+    color: #10b981 !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Study info */
+.study-info {
+    color: #a0aec0 !important;
+}
+
+.study-info strong {
+    color: #00f0ff !important;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    background: rgba(10, 14, 39, 0.8) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltips */
+.tooltip {
+    background: rgba(10, 14, 39, 0.95) !important;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    color: #ffffff !important;
+}
+
+/* Validation messages */
+.error-message {
+    color: #ef4444 !important;
+}
+
+.success-message {
+    color: #10b981 !important;
+}
+
+/* Section headers */
+.section-header {
+    background: rgba(26, 31, 58, 0.6) !important;
+    border-bottom: 2px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Dividers */
+hr {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
