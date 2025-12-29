@@ -1,0 +1,48 @@
+<!-- FeasiQuest Logo Component - Consistent across all pages -->
+<style>
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: translateY(-2px);
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: -0.25rem;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .brand-text {
+        font-size: 1.25rem;
+    }
+    
+    .brand-tagline {
+        font-size: 0.65rem;
+    }
+}
+</style>
+
+<!-- Logo HTML -->
+<a href="index.html" class="nav-logo">
+    <span class="brand-text">FeasiQuest℠</span>
+    <span class="brand-tagline">by Clinical Research Pro®</span>
+</a>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Details - FeasiQuest℠</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="info-cards-detail.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Pending Questionnaires Modal -->
+    <div id="questionnairesModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2>Pending Questionnaires</h2>
+                <button class="modal-close" onclick="closeModal('questionnairesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-header">
+                    <div class="detail-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">8</span>
+                            <span class="stat-label">Total Pending</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">Overdue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5</span>
+                            <span class="stat-label">Due This Week</span>
+                        </div>
+                    </div>
+                    <div class="detail-actions">
+                        <button class="btn btn-secondary" onclick="sendReminders()">
+                            <span class="icon">📧</span> Send Reminders
+                        </button>
+                        <button class="btn btn-primary" onclick="sendNewQuestionnaire()">
+                            <span class="icon">➕</span> Send New
+                        </button>
+                    </div>
+                </div>
+
+                <div class="detail-filters">
+                    <select class="form-control" onchange="filterQuestionnaires(this.value)">
+                        <option value="all">All Status</option>
+                        <option value="sent">Sent</option>
+                        <option value="viewed">Viewed</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="overdue">Overdue</option>
+                    </select>
+                    <select class="form-control" onchange="sortQuestionnaires(this.value)">
+                        <option value="date">Sort by Date</option>
+                        <option value="site">Sort by Site</option>
+                        <option value="status">Sort by Status</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Search sites..." oninput="searchQuestionnaires(this.value)">
+                </div>
+
+                <div class="questionnaires-list">
+                    <!-- Questionnaire items will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Studies Modal -->
+    <div id="studiesModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2>Active Studies</h2>
+                <button class="modal-close" onclick="closeModal('studiesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-header">
+                    <div class="detail-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Total Active</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5</span>
+                            <span class="stat-label">Recruiting</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">7</span>
+                            <span class="stat-label">In Progress</span>
+                        </div>
+                    </div>
+                    <div class="detail-actions">
+                        <button class="btn btn-secondary" onclick="exportStudies()">
+                            <span class="icon">📊</span> Export Report
+                        </button>
+                        <button class="btn btn-primary" onclick="createNewStudy()">
+                            <span class="icon">➕</span> Create Study
+                        </button>
+                    </div>
+                </div>
+
+                <div class="detail-filters">
+                    <select class="form-control" onchange="filterStudies(this.value)">
+                        <option value="all">All Phases</option>
+                        <option value="phase1">Phase I</option>
+                        <option value="phase2">Phase II</option>
+                        <option value="phase3">Phase III</option>
+                        <option value="phase4">Phase IV</option>
+                    </select>
+                    <select class="form-control" onchange="filterStudiesByStatus(this.value)">
+                        <option value="all">All Status</option>
+                        <option value="recruiting">Recruiting</option>
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Search studies..." oninput="searchStudies(this.value)">
+                </div>
+
+                <div class="studies-grid">
+                    <!-- Study cards will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrolled Patients Modal -->
+    <div id="patientsModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2>Enrolled Patients Analytics</h2>
+                <button class="modal-close" onclick="closeModal('patientsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-header">
+                    <div class="detail-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">1,247</span>
+                            <span class="stat-label">Total Enrolled</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">156</span>
+                            <span class="stat-label">This Month</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">94%</span>
+                            <span class="stat-label">Retention Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">87%</span>
+                            <span class="stat-label">On Target</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Enrollment Trend</h3>
+                        <div class="chart-placeholder">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 60%">
+                                    <span class="bar-label">Jan</span>
+                                    <span class="bar-value">120</span>
+                                </div>
+                                <div class="chart-bar" style="height: 75%">
+                                    <span class="bar-label">Feb</span>
+                                    <span class="bar-value">145</span>
+                                </div>
+                                <div class="chart-bar" style="height: 85%">
+                                    <span class="bar-label">Mar</span>
+                                    <span class="bar-value">156</span>
+                                </div>
+                                <div class="chart-bar" style="height: 70%">
+                                    <span class="bar-label">Apr</span>
+                                    <span class="bar-value">138</span>
+                                </div>
+                                <div class="chart-bar" style="height: 90%">
+                                    <span class="bar-label">May</span>
+                                    <span class="bar-value">167</span>
+                                </div>
+                                <div class="chart-bar" style="height: 80%">
+                                    <span class="bar-label">Jun</span>
+                                    <span class="bar-value">152</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Demographics</h3>
+                        <div class="demographics-list">
+                            <div class="demo-item">
+                                <span class="demo-label">Age 18-30</span>
+                                <div class="demo-bar">
+                                    <div class="demo-fill" style="width: 25%"></div>
+                                </div>
+                                <span class="demo-value">25%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-label">Age 31-50</span>
+                                <div class="demo-bar">
+                                    <div class="demo-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="demo-value">45%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-label">Age 51-70</span>
+                                <div class="demo-bar">
+                                    <div class="demo-fill" style="width: 30%"></div>
+                                </div>
+                                <span class="demo-value">30%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-label">Male</span>
+                                <div class="demo-bar">
+                                    <div class="demo-fill" style="width: 52%"></div>
+                                </div>
+                                <span class="demo-value">52%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-label">Female</span>
+                                <div class="demo-bar">
+                                    <div class="demo-fill" style="width: 48%"></div>
+                                </div>
+                                <span class="demo-value">48%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>By Study</h3>
+                        <div class="study-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-header">
+                                    <span class="breakdown-name">CARDIO-2024-001</span>
+                                    <span class="breakdown-value">456 patients</span>
+                                </div>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 37%"></div>
+                                </div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-header">
+                                    <span class="breakdown-name">ONCO-2024-002</span>
+                                    <span class="breakdown-value">389 patients</span>
+                                </div>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 31%"></div>
+                                </div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-header">
+                                    <span class="breakdown-name">NEURO-2024-003</span>
+                                    <span class="breakdown-value">402 patients</span>
+                                </div>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 32%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Retention Metrics</h3>
+                        <div class="metrics-list">
+                            <div class="metric-item">
+                                <span class="metric-icon">✓</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Completed Visits</span>
+                                    <span class="metric-value">1,156 / 1,247</span>
+                                </div>
+                                <span class="metric-percent success">93%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-icon">⏰</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">On Schedule</span>
+                                    <span class="metric-value">1,089 / 1,247</span>
+                                </div>
+                                <span class="metric-percent success">87%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-icon">⚠️</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Dropouts</span>
+                                    <span class="metric-value">75 / 1,247</span>
+                                </div>
+                                <span class="metric-percent warning">6%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-icon">📋</span>
+                                <div class="metric-info">
+                                    <span class="metric-label">Protocol Deviations</span>
+                                    <span class="metric-value">34 / 1,247</span>
+                                </div>
+                                <span class="metric-percent success">3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Rating Modal -->
+    <div id="ratingModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Site Rating Breakdown</h2>
+                <button class="modal-close" onclick="closeModal('ratingModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="rating-overview">
+                    <div class="rating-score">
+                        <div class="score-large">4.8</div>
+                        <div class="score-stars">★★★★★</div>
+                        <div class="score-label">Based on 156 reviews</div>
+                    </div>
+                    <div class="rating-distribution">
+                        <div class="rating-row">
+                            <span class="rating-label">5 stars</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="rating-count">117</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">4 stars</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 18%"></div>
+                            </div>
+                            <span class="rating-count">28</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">3 stars</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 5%"></div>
+                            </div>
+                            <span class="rating-count">8</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">2 stars</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">2</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">1 star</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rating-categories">
+                    <h3>Rating by Category</h3>
+                    <div class="categories-grid">
+                        <div class="category-item">
+                            <span class="category-name">Enrollment Speed</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★★</span>
+                                <span class="category-score">4.9</span>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Data Quality</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★★</span>
+                                <span class="category-score">4.8</span>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Communication</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★☆</span>
+                                <span class="category-score">4.7</span>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Compliance</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★★</span>
+                                <span class="category-score">4.9</span>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Facilities</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★★</span>
+                                <span class="category-score">4.8</span>
+                            </div>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Staff Expertise</span>
+                            <div class="category-rating">
+                                <span class="category-stars">★★★★★</span>
+                                <span class="category-score">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-reviews">
+                    <h3>Recent Reviews</h3>
+                    <div class="reviews-list">
+                        <!-- Review items will be inserted here -->
+                    </div>
+                    <button class="btn btn-secondary btn-block" onclick="viewAllReviews()">
+                        View All Reviews
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="info-cards-detail.js"></script>
+</body>
+</html>

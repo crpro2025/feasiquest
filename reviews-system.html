@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Reviews - FeasiQuest</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="reviews-system.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">FeasiQuest℠</span>
+                    <span class="logo-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="site-search.html">Search Sites</a>
+                <a href="help-center.html">Help</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-secondary" onclick="window.location.href='app.html'">Back to Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reviews Container -->
+    <div class="reviews-container">
+        <!-- Header -->
+        <div class="reviews-header">
+            <div class="header-content">
+                <h1>Site Reviews & Ratings</h1>
+                <p>Share your experience working with research sites</p>
+            </div>
+            <button class="btn-primary" onclick="openReviewModal()">
+                <span>✍️</span> Write a Review
+            </button>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="reviews-filters">
+            <div class="filter-group">
+                <label>Search Reviews</label>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by site name, reviewer, or content...">
+            </div>
+            <div class="filter-group">
+                <label>Filter by Rating</label>
+                <select id="ratingFilter" class="form-control">
+                    <option value="">All Ratings</option>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select id="sortFilter" class="form-control">
+                    <option value="recent">Most Recent</option>
+                    <option value="helpful">Most Helpful</option>
+                    <option value="rating-high">Highest Rating</option>
+                    <option value="rating-low">Lowest Rating</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Therapeutic Area</label>
+                <select id="therapeuticFilter" class="form-control">
+                    <option value="">All Areas</option>
+                    <option value="oncology">Oncology</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="diabetes">Diabetes</option>
+                    <option value="respiratory">Respiratory</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Reviews Stats -->
+        <div class="reviews-stats">
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-content">
+                    <div class="stat-value">4.6</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-content">
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-label">Total Reviews</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✓</div>
+                <div class="stat-content">
+                    <div class="stat-value">892</div>
+                    <div class="stat-label">Verified Reviews</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-content">
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Top-Rated Sites</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviewsList">
+            <!-- Reviews will be dynamically loaded here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="pagination-btn" id="prevBtn" disabled>← Previous</button>
+            <div class="pagination-info">
+                <span>Page <span id="currentPage">1</span> of <span id="totalPages">10</span></span>
+            </div>
+            <button class="pagination-btn" id="nextBtn">Next →</button>
+        </div>
+    </div>
+
+    <!-- Write Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Write a Review</h2>
+                <button class="modal-close" onclick="closeReviewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm">
+                    <!-- Site Selection -->
+                    <div class="form-group">
+                        <label>Select Site <span class="required">*</span></label>
+                        <select id="siteSelect" class="form-control" required>
+                            <option value="">Choose a site...</option>
+                            <option value="site1">Advanced Clinical Research Center</option>
+                            <option value="site2">Boston Medical Research Institute</option>
+                            <option value="site3">Precision Clinical Trials</option>
+                            <option value="site4">Metro Health Research Center</option>
+                            <option value="site5">Coastal Clinical Studies</option>
+                        </select>
+                    </div>
+
+                    <!-- Study Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Study Phase</label>
+                            <select class="form-control">
+                                <option value="">Select phase...</option>
+                                <option value="1">Phase I</option>
+                                <option value="2">Phase II</option>
+                                <option value="3">Phase III</option>
+                                <option value="4">Phase IV</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Therapeutic Area</label>
+                            <select class="form-control">
+                                <option value="">Select area...</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="diabetes">Diabetes</option>
+                                <option value="respiratory">Respiratory</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Overall Rating -->
+                    <div class="form-group">
+                        <label>Overall Rating <span class="required">*</span></label>
+                        <div class="star-rating" id="overallRating">
+                            <span class="star" data-rating="1">☆</span>
+                            <span class="star" data-rating="2">☆</span>
+                            <span class="star" data-rating="3">☆</span>
+                            <span class="star" data-rating="4">☆</span>
+                            <span class="star" data-rating="5">☆</span>
+                        </div>
+                        <input type="hidden" id="ratingValue" required>
+                    </div>
+
+                    <!-- Detailed Ratings -->
+                    <div class="detailed-ratings">
+                        <h3>Detailed Ratings</h3>
+                        <div class="rating-item">
+                            <label>Enrollment Speed</label>
+                            <div class="star-rating small" data-category="enrollment">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                        <div class="rating-item">
+                            <label>Data Quality</label>
+                            <div class="star-rating small" data-category="data">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                        <div class="rating-item">
+                            <label>Communication</label>
+                            <div class="star-rating small" data-category="communication">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                        <div class="rating-item">
+                            <label>Protocol Compliance</label>
+                            <div class="star-rating small" data-category="compliance">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                        <div class="rating-item">
+                            <label>Startup Time</label>
+                            <div class="star-rating small" data-category="startup">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Title -->
+                    <div class="form-group">
+                        <label>Review Title <span class="required">*</span></label>
+                        <input type="text" class="form-control" placeholder="Summarize your experience..." required>
+                    </div>
+
+                    <!-- Review Content -->
+                    <div class="form-group">
+                        <label>Your Review <span class="required">*</span></label>
+                        <textarea class="form-control" rows="6" placeholder="Share your detailed experience working with this site..." required></textarea>
+                        <div class="char-count">0 / 2000 characters</div>
+                    </div>
+
+                    <!-- Pros & Cons -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Pros</label>
+                            <textarea class="form-control" rows="3" placeholder="What did this site do well?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Cons</label>
+                            <textarea class="form-control" rows="3" placeholder="What could be improved?"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Would Recommend -->
+                    <div class="form-group">
+                        <label>Would you work with this site again?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="yes" required>
+                                <span>Yes, definitely</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="maybe">
+                                <span>Maybe</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Anonymous Option -->
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="anonymousReview">
+                            <span>Post this review anonymously</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeReviewModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Detail Modal -->
+    <div id="reviewDetailModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Review Details</h2>
+                <button class="modal-close" onclick="closeModal('reviewDetailModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="reviewDetailContent">
+                <!-- Review details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="reviews-system.js"></script>
+</body>
+</html>

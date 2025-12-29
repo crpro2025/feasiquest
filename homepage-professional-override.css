@@ -1,0 +1,374 @@
+/**
+ * Homepage Professional Theme Override
+ * Transforms futuristic gaming aesthetic to professional healthcare design
+ */
+
+/* ============================================
+   GLOBAL OVERRIDES
+   ============================================ */
+
+/* Force white background */
+body,
+html,
+.hero,
+.section,
+main {
+    background: var(--bg-white) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Remove animated background */
+.animated-background,
+.gradient-orb,
+.particle {
+    display: none !important;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.header {
+    background: var(--bg-white) !important;
+    border-bottom: 1px solid var(--bg-dark-gray) !important;
+    box-shadow: var(--shadow-sm) !important;
+    backdrop-filter: none !important;
+}
+
+.nav-brand {
+    color: var(--primary-navy) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
+.nav-link {
+    color: var(--text-primary) !important;
+}
+
+.nav-link:hover {
+    color: var(--secondary-blue) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-navy) !important;
+    font-weight: var(--font-semibold) !important;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    padding: 80px 0 !important;
+    background: var(--bg-white) !important;
+}
+
+.hero h1 {
+    color: var(--primary-navy) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow: none !important;
+}
+
+.hero p {
+    color: var(--text-secondary) !important;
+}
+
+.hero .tagline {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary,
+.cta-button,
+.primary-button {
+    background: var(--primary-navy) !important;
+    color: var(--text-white) !important;
+    border: none !important;
+    box-shadow: var(--shadow-sm) !important;
+    text-shadow: none !important;
+}
+
+.btn-primary:hover,
+.cta-button:hover,
+.primary-button:hover {
+    background: var(--primary-navy-light) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-1px) !important;
+}
+
+.btn-secondary,
+.secondary-button {
+    background: var(--secondary-blue) !important;
+    color: var(--text-white) !important;
+    border: none !important;
+}
+
+.btn-outline {
+    background: transparent !important;
+    color: var(--primary-navy) !important;
+    border: 2px solid var(--primary-navy) !important;
+}
+
+.btn-outline:hover {
+    background: var(--primary-navy) !important;
+    color: var(--text-white) !important;
+}
+
+/* ============================================
+   STAT CARDS
+   ============================================ */
+
+.stat-card,
+.stats-card {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+    box-shadow: var(--shadow-md) !important;
+    backdrop-filter: none !important;
+}
+
+.stat-number {
+    color: var(--primary-navy) !important;
+    text-shadow: none !important;
+}
+
+.stat-label {
+    color: var(--text-secondary) !important;
+}
+
+.stat-description {
+    color: var(--text-muted) !important;
+}
+
+/* ============================================
+   FEATURE CARDS
+   ============================================ */
+
+.feature-card,
+.features-card {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+    box-shadow: var(--shadow-md) !important;
+    backdrop-filter: none !important;
+}
+
+.feature-card:hover,
+.features-card:hover {
+    box-shadow: var(--shadow-lg) !important;
+    border-color: var(--secondary-blue) !important;
+}
+
+.feature-icon {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-navy)) !important;
+    box-shadow: none !important;
+}
+
+.feature-title,
+.feature-card h3 {
+    color: var(--primary-navy) !important;
+    text-shadow: none !important;
+}
+
+.feature-description,
+.feature-card p {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section {
+    background: var(--bg-white) !important;
+}
+
+.section-alt {
+    background: var(--bg-light-gray) !important;
+}
+
+.section h2 {
+    color: var(--primary-navy) !important;
+    text-shadow: none !important;
+}
+
+.section p {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+
+.testimonial-card {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.testimonial-text {
+    color: var(--text-primary) !important;
+}
+
+.testimonial-author {
+    color: var(--text-secondary) !important;
+}
+
+.testimonial-rating {
+    color: var(--warning) !important;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+
+.faq-item {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+}
+
+.faq-question {
+    color: var(--primary-navy) !important;
+}
+
+.faq-answer {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+
+.trust-badges,
+.compliance-badges {
+    background: var(--bg-light-gray) !important;
+}
+
+.badge-item {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: var(--bg-light-gray) !important;
+    border-top: 1px solid var(--bg-dark-gray) !important;
+}
+
+.footer h4 {
+    color: var(--primary-navy) !important;
+}
+
+.footer a {
+    color: var(--text-secondary) !important;
+}
+
+.footer a:hover {
+    color: var(--secondary-blue) !important;
+}
+
+.footer p {
+    color: var(--text-muted) !important;
+}
+
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+
+.pricing-card {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.pricing-card.featured {
+    border: 3px solid var(--secondary-blue) !important;
+}
+
+.pricing-card h3 {
+    color: var(--primary-navy) !important;
+}
+
+.pricing-amount {
+    color: var(--primary-navy) !important;
+}
+
+.pricing-features li {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   COMPARISON TABLE
+   ============================================ */
+
+.comparison-table {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+}
+
+.comparison-table th {
+    background: var(--bg-light-gray) !important;
+    color: var(--text-primary) !important;
+}
+
+.comparison-table td {
+    color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   MODALS
+   ============================================ */
+
+.modal {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--bg-dark-gray) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--bg-dark-gray) !important;
+}
+
+.modal-title {
+    color: var(--primary-navy) !important;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form-input,
+.form-select,
+.form-textarea {
+    background: var(--bg-white) !important;
+    border: 2px solid var(--bg-dark-gray) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--secondary-blue) !important;
+    box-shadow: 0 0 0 3px rgba(0, 119, 200, 0.1) !important;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0 !important;
+    }
+    
+    .hero h1 {
+        font-size: 36px !important;
+    }
+}

@@ -1,0 +1,369 @@
+/* ===================================
+   MODERN LIGHT COLOR THEME
+   =================================== */
+
+:root {
+    /* Primary Colors - Soft Indigo/Blue */
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #4338CA;
+    --primary-gradient: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+    
+    /* Secondary Colors - Teal */
+    --secondary: #14B8A6;
+    --secondary-light: #2DD4BF;
+    --secondary-dark: #0D9488;
+    
+    /* Accent Colors - Coral/Orange */
+    --accent: #F97316;
+    --accent-light: #FB923C;
+    --accent-dark: #EA580C;
+    
+    /* Success/Info/Warning/Error */
+    --success: #10B981;
+    --info: #3B82F6;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    
+    /* Neutral Colors - Light Theme */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9FAFB;
+    --bg-tertiary: #F3F4F6;
+    --bg-hover: #E5E7EB;
+    
+    /* Text Colors */
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-tertiary: #9CA3AF;
+    --text-inverse: #FFFFFF;
+    
+    /* Border Colors */
+    --border-light: #E5E7EB;
+    --border-medium: #D1D5DB;
+    --border-dark: #9CA3AF;
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    /* Gradient Backgrounds */
+    --gradient-hero: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 50%, #DBEAFE 100%);
+    --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+    --gradient-button: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+    --gradient-accent: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+}
+
+/* Override dark theme elements */
+body {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Navbar - Light Theme */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-cta {
+    background: var(--gradient-button);
+    color: var(--text-inverse);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* Hero Section - Light Theme */
+.hero-section {
+    background: var(--gradient-hero);
+}
+
+.hero-title {
+    color: var(--text-primary);
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    color: var(--text-secondary);
+}
+
+.hero-badge {
+    background: rgba(79, 70, 229, 0.1);
+    border: 1px solid var(--primary-light);
+    color: var(--primary);
+}
+
+/* Buttons - Light Theme */
+.primary-btn {
+    background: var(--gradient-button);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-md);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+.secondary-btn {
+    background: var(--bg-primary);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.secondary-btn:hover {
+    background: var(--primary);
+    color: var(--text-inverse);
+}
+
+/* Stats Bar */
+.stats-bar {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-value {
+    color: var(--primary);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+}
+
+/* Impact Section */
+.impact-section {
+    background: var(--bg-primary);
+}
+
+.impact-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.impact-icon {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+.impact-stat {
+    color: var(--primary);
+}
+
+.impact-label {
+    color: var(--text-primary);
+}
+
+.impact-description {
+    color: var(--text-secondary);
+}
+
+/* Features Section */
+.features-section {
+    background: var(--bg-secondary);
+}
+
+.section-title {
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+}
+
+.feature-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.feature-icon-wrapper {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+.feature-icon {
+    filter: grayscale(0);
+}
+
+.feature-title {
+    color: var(--text-primary);
+}
+
+.feature-description {
+    color: var(--text-secondary);
+}
+
+/* Module Cards */
+.modules-section {
+    background: var(--bg-primary);
+}
+
+.module-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.module-number {
+    background: var(--primary-gradient);
+    color: var(--text-inverse);
+}
+
+.module-title {
+    color: var(--text-primary);
+}
+
+.module-description {
+    color: var(--text-secondary);
+}
+
+.module-meta {
+    color: var(--text-tertiary);
+}
+
+/* AI Section */
+.ai-section {
+    background: var(--gradient-hero);
+}
+
+/* Footer - Light Theme */
+.footer {
+    background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+    color: var(--text-inverse);
+}
+
+.footer-logo .logo-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-tagline {
+    color: var(--primary-light);
+}
+
+.footer-column a {
+    color: #D1D5DB;
+}
+
+.footer-column a:hover {
+    color: var(--primary-light);
+}
+
+/* Assessment Section */
+.assessment-section {
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-xl);
+}
+
+.option-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+}
+
+.option-card:hover {
+    border-color: var(--primary);
+    background: var(--bg-primary);
+}
+
+.option-card input:checked + .option-content {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+    border-color: var(--primary);
+}
+
+/* Dashboard */
+.dashboard-section {
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-xl);
+}
+
+.module-card.unlocked {
+    border-color: var(--success);
+}
+
+.module-card.locked {
+    opacity: 0.6;
+    background: var(--bg-tertiary);
+}
+
+/* Badges and XP */
+.xp-display,
+.level-display {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+    border: 1px solid var(--primary-light);
+}
+
+.xp-value,
+.level-value {
+    color: var(--primary);
+}
+
+/* Animated Background - Lighter */
+.gradient-orb {
+    opacity: 0.3;
+}
+
+.orb-1 {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.4) 0%, transparent 70%);
+}
+
+.orb-2 {
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.4) 0%, transparent 70%);
+}
+
+.orb-3 {
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, transparent 70%);
+}
+
+/* Particles - Lighter */
+.particle {
+    background: rgba(79, 70, 229, 0.3);
+}
+</new_str>

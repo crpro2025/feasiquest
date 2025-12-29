@@ -1,0 +1,486 @@
+/* Help Center Styles */
+
+.help-container {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+/* Hero Section */
+.help-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 40px 60px;
+    text-align: center;
+}
+
+.help-hero h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 18px 25px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+    background: #2563eb;
+}
+
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.quick-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    transition: all 0.2s ease;
+}
+
+.quick-links a:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: white;
+}
+
+/* Help Content */
+.help-content {
+    max-width: 1200px;
+    margin: -40px auto 0;
+    padding: 0 40px 60px;
+}
+
+.help-section {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.help-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #1f2937;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.help-card {
+    padding: 30px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.help-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.help-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+.help-card p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Article List */
+.article-list {
+    display: grid;
+    gap: 15px;
+}
+
+.article-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.article-item:hover {
+    background: #eff6ff;
+    transform: translateX(5px);
+}
+
+.article-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.article-info {
+    flex: 1;
+}
+
+.article-info h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #1f2937;
+}
+
+.article-info p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.article-arrow {
+    font-size: 24px;
+    color: #3b82f6;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.video-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    padding-left: 5px;
+}
+
+.video-card h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.video-card p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* FAQ List */
+.faq-list {
+    display: grid;
+    gap: 15px;
+}
+
+.faq-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background: white;
+    transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+    background: #f9fafb;
+}
+
+.faq-question h4 {
+    font-size: 16px;
+    color: #1f2937;
+    margin: 0;
+}
+
+.faq-toggle {
+    font-size: 24px;
+    color: #3b82f6;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p,
+.faq-answer ul {
+    padding: 0 20px 20px;
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.faq-answer ul {
+    padding-left: 40px;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.contact-method {
+    text-align: center;
+    padding: 30px;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.contact-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.contact-method h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+.contact-method p {
+    font-size: 16px;
+    color: #3b82f6;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-method small {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* Contact Form */
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.contact-form-container h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #1f2937;
+}
+
+.support-form .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.support-form .form-group {
+    margin-bottom: 20px;
+}
+
+.support-form label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.support-form input,
+.support-form select,
+.support-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.support-form input:focus,
+.support-form select:focus,
+.support-form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    padding: 25px;
+    background: #f9fafb;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.resource-card:hover {
+    background: #eff6ff;
+    transform: translateY(-3px);
+}
+
+.resource-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.resource-card h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.resource-card p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .help-hero {
+        padding: 60px 20px 40px;
+    }
+
+    .help-hero h1 {
+        font-size: 32px;
+    }
+
+    .help-content {
+        padding: 0 20px 40px;
+    }
+
+    .help-section {
+        padding: 25px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

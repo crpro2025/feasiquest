@@ -1,0 +1,35 @@
+<!-- Updated Navigation for app.html -->
+<nav class="top-nav">
+    <div class="nav-left">
+        <a href="index.html" class="nav-logo" style="text-decoration: none; display: flex; flex-direction: column;">
+            <span style="font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #00f0ff 0%, #b026ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 0.5px;">FeasiQuest℠</span>
+            <span style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); margin-top: -0.25rem; letter-spacing: 0.5px;">by Clinical Research Pro®</span>
+        </a>
+    </div>
+    <div class="nav-center">
+        <button class="nav-btn active" onclick="showDashboard()">
+            <span class="icon">📊</span> Dashboard
+        </button>
+        <button class="nav-btn" onclick="showSection('questionnaires')" id="navQuestionnaires">
+            <span class="icon">📋</span> <span id="navQuestionnairesText">Questionnaires</span>
+        </button>
+        <button class="nav-btn" onclick="showSection('studies')" id="navStudies">
+            <span class="icon">🔬</span> <span id="navStudiesText">Studies</span>
+        </button>
+        <button class="nav-btn" onclick="showSection('sites')" id="navSites">
+            <span class="icon">🏥</span> <span id="navSitesText">Sites</span>
+        </button>
+        <button class="nav-btn" onclick="showSection('messages')">
+            <span class="icon">💬</span> Messages
+        </button>
+    </div>
+    <div class="nav-right">
+        <button class="nav-btn" onclick="showProfile()">
+            <span class="icon">👤</span> <span id="userName">User</span>
+        </button>
+        <button class="nav-btn" onclick="logout()">
+            <span class="icon">🚪</span> Logout
+        </button>
+    </div>
+</nav>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - FeasiQuest℠ by Clinical Research Pro®</title>
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Professional Healthcare Theme -->
+    <link rel="stylesheet" href="professional-healthcare-theme.css">
+    
+    <style>
+        /* Page-specific styles */
+        .pricing-hero {
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #DEE2E6;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #0077C8;
+            box-shadow: 0 8px 24px rgba(0, 119, 200, 0.15);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0077C8;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .pricing-tier {
+            color: #1B365D;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-amount {
+            color: #1B365D;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-period {
+            color: #6C757D;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-annual {
+            color: #4A7C59;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-description {
+            color: #6C757D;
+            font-size: 16px;
+            margin-bottom: 32px;
+            min-height: 48px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            color: #6C757D;
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            color: #4A7C59;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .roi-calculator {
+            background: #F8F9FA;
+            border-radius: 16px;
+            padding: 48px;
+            margin: 64px 0;
+        }
+        
+        .roi-result {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        
+        .roi-savings {
+            color: #4A7C59;
+            font-size: 48px;
+            font-weight: 800;
+            margin: 16px 0;
+        }
+        
+        .comparison-section {
+            margin: 80px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comparison-table th {
+            background: #F8F9FA;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #212529;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .comparison-table td {
+            padding: 16px;
+            border-top: 1px solid #DEE2E6;
+            color: #6C757D;
+        }
+        
+        .comparison-table tbody tr:hover {
+            background: #F8F9FA;
+        }
+        
+        .check-icon {
+            color: #4A7C59;
+            font-weight: 700;
+        }
+        
+        .cross-icon {
+            color: #DC3545;
+        }
+        
+        .faq-section {
+            margin: 80px 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #DEE2E6;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
+            color: #1B365D;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #6C757D;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 16px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-brand">
+                <span style="font-size: 28px; font-weight: 800;">FeasiQuest℠</span>
+                <span style="font-size: 14px; color: #6C757D; display: block; margin-top: -4px;">by Clinical Research Pro®</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="pricing.html" class="nav-link active">Pricing</a>
+                <a href="help-center.html" class="nav-link">Support</a>
+                <a href="app.html" class="btn btn-primary">Start Free Trial</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1 style="color: #1B365D; font-size: 48px; font-weight: 800; margin-bottom: 16px;">
+                Simple, Transparent Pricing
+            </h1>
+            <p style="color: #6C757D; font-size: 20px; max-width: 700px; margin: 0 auto 24px;">
+                Choose the plan that fits your needs. All plans include a 30-day free trial with no credit card required.
+            </p>
+            <p style="color: #4A7C59; font-size: 16px; font-weight: 600;">
+                💰 Save 20% with annual billing
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Starter</div>
+                    <div class="pricing-amount">$999</div>
+                    <div class="pricing-period">/month</div>
+                    <div class="pricing-annual">$9,990/year (save $2,000)</div>
+                    <div class="pricing-description">
+                        Perfect for small biotech companies getting started
+                    </div>
+                    <ul class="pricing-features">
+                        <li>5 active studies</li>
+                        <li>AI site matching (50 sites per study)</li>
+                        <li>Automated questionnaire generation</li>
+                        <li>Basic DEI recruitment tools</li>
+                        <li>Email support (48-72hr response)</li>
+                        <li>Standard analytics dashboard</li>
+                    </ul>
+                    <a href="app.html" class="btn btn-outline" style="width: 100%;">Start Free Trial</a>
+                </div>
+
+                <!-- Professional Plan (Most Popular) -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="pricing-tier">Professional</div>
+                    <div class="pricing-amount">$1,999</div>
+                    <div class="pricing-period">/month</div>
+                    <div class="pricing-annual">$19,990/year (save $4,000)</div>
+                    <div class="pricing-description">
+                        Ideal for mid-size pharma/biotech with 5-10 concurrent trials
+                    </div>
+                    <ul class="pricing-features">
+                        <li>10 active studies</li>
+                        <li>Unlimited AI site matching (95%+ accuracy)</li>
+                        <li>Automated questionnaire generation</li>
+                        <li>Full DEI recruitment tools suite</li>
+                        <li>Predictive enrollment analytics (85% accuracy)</li>
+                        <li>AI protocol analyzer</li>
+                        <li>Over-enrollment risk assessment</li>
+                        <li>Downstream impact analysis</li>
+                        <li>Response viewer with comparison</li>
+                        <li>Messaging system</li>
+                        <li>24/7 email support (24-48hr response)</li>
+                        <li>Advanced analytics dashboard</li>
+                    </ul>
+                    <a href="app.html" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-amount">$3,999</div>
+                    <div class="pricing-period">/month</div>
+                    <div class="pricing-annual">$39,990/year (save $8,000)</div>
+                    <div class="pricing-description">
+                        For large pharma and CROs with 15-25 concurrent trials
+                    </div>
+                    <ul class="pricing-features">
+                        <li>25 active studies</li>
+                        <li>Everything in Professional</li>
+                        <li>Priority support (phone + email, 12hr response)</li>
+                        <li>Dedicated account manager</li>
+                        <li>Custom integrations (API access)</li>
+                        <li>Advanced analytics dashboard</li>
+                        <li>White-label options</li>
+                        <li>Quarterly business reviews</li>
+                        <li>Custom training sessions</li>
+                        <li>SLA guarantee (99.9% uptime)</li>
+                    </ul>
+                    <a href="app.html" class="btn btn-outline" style="width: 100%;">Start Free Trial</a>
+                </div>
+            </div>
+
+            <!-- For Sites -->
+            <div style="text-align: center; margin-top: 64px; padding: 48px; background: #F8F9FA; border-radius: 16px;">
+                <h3 style="color: #1B365D; font-size: 32px; font-weight: 700; margin-bottom: 16px;">
+                    For Research Sites: FREE Forever
+                </h3>
+                <p style="color: #6C757D; font-size: 18px; max-width: 700px; margin: 0 auto 24px;">
+                    Create your profile, respond to unlimited questionnaires, and connect with sponsors at no cost.
+                </p>
+                <a href="site-registration.html" class="btn btn-success btn-lg">Create Free Site Profile</a>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="roi-calculator">
+                <h2 style="text-align: center; color: #1B365D; font-size: 36px; font-weight: 800; margin-bottom: 16px;">
+                    Calculate Your ROI
+                </h2>
+                <p style="text-align: center; color: #6C757D; font-size: 18px; margin-bottom: 32px;">
+                    See how much you can save with FeasiQuest Professional
+                </p>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-group">
+                        <label class="form-label">Number of Studies per Year</label>
+                        <input type="number" class="form-input" value="10" id="numStudies" min="1" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Traditional Site Selection Cost per Study</label>
+                        <input type="number" class="form-input" value="500000" id="traditionalCost" min="10000" step="10000">
+                    </div>
+                    <div class="roi-result">
+                        <div style="color: #6C757D; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                            Annual Savings with FeasiQuest Professional
+                        </div>
+                        <div class="roi-savings" id="savings">
+                            $4,980,010
+                        </div>
+                        <div style="color: #6C757D; font-size: 16px; margin-top: 8px;">
+                            ROI: <span style="color: #4A7C59; font-weight: 700; font-size: 20px;" id="roi">24,900%</span>
+                        </div>
+                        <div style="color: #6C757D; font-size: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #DEE2E6;">
+                            FeasiQuest Cost: <span style="font-weight: 600;">$19,990/year</span> | 
+                            Traditional Cost: <span style="font-weight: 600;" id="totalTraditional">$5,000,000/year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-section">
+                <h2 style="text-align: center; color: #1B365D; font-size: 36px; font-weight: 800; margin-bottom: 48px;">
+                    How We Compare
+                </h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>FeasiQuest Professional</th>
+                            <th>Veeva SiteVault</th>
+                            <th>Florence Healthcare</th>
+                            <th>WCG ClinSphere</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Annual Cost</strong></td>
+                            <td><strong>$19,990</strong></td>
+                            <td>Undisclosed (Enterprise)</td>
+                            <td>Undisclosed (Enterprise)</td>
+                            <td>Undisclosed (Enterprise)</td>
+                        </tr>
+                        <tr>
+                            <td>AI Site Matching (95%+ accuracy)</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td>⚠️ Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Automated Questionnaire Generation</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Comprehensive DEI Tools</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td>⚠️ Basic</td>
+                        </tr>
+                        <tr>
+                            <td>Predictive Enrollment Analytics</td>
+                            <td><span class="check-icon">✓ 85% accuracy</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td>⚠️ Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Over-Enrollment Risk Assessment</td>
+                            <td><span class="check-icon">✓ Unique</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Downstream Impact Analysis</td>
+                            <td><span class="check-icon">✓ Full</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Setup Time</td>
+                            <td><strong>&lt; 1 day</strong></td>
+                            <td>2-4 weeks</td>
+                            <td>4-8 weeks</td>
+                            <td>8-12 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Target Users</td>
+                            <td>Sponsors & CROs</td>
+                            <td>Sites only</td>
+                            <td>Sites + Sponsors</td>
+                            <td>Large pharma only</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>24/7 email + phone</td>
+                            <td>24/7</td>
+                            <td>Business hours</td>
+                            <td>Enterprise only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 style="text-align: center; color: #1B365D; font-size: 36px; font-weight: 800; margin-bottom: 48px;">
+                    Frequently Asked Questions
+                </h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's included in the 30-day free trial?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        The free trial includes full access to all features of your selected plan with no credit card required. You can create studies, use AI matching, generate questionnaires, and explore all platform capabilities. At the end of 30 days, you can choose to subscribe or your account will simply expire with no charges.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I change plans later?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! You can upgrade or downgrade your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, changes take effect at the start of your next billing cycle, and you'll retain access to your current plan features until then.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens if I exceed my study limit?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        If you approach your study limit, we'll notify you in advance. You can either upgrade to a higher tier or archive completed studies to make room for new ones. We'll never interrupt your active studies or charge surprise fees.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my data secure and compliant?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. FeasiQuest is HIPAA compliant, SOC 2 certified, FDA aligned, and GDPR compliant. All data is encrypted in transit and at rest. We undergo regular security audits and maintain strict access controls. Your data is yours and will never be shared without your explicit permission.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer discounts for multiple years?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Annual billing already includes a 20% discount. For multi-year commitments (2-3 years), we offer additional discounts of 5-10%. Contact our sales team for custom pricing for long-term partnerships.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What kind of support do you provide?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        All plans include email support with response times based on your tier (48-72hr for Starter, 24-48hr for Professional, 12hr for Enterprise). Enterprise customers also get phone support, a dedicated account manager, and quarterly business reviews. We also provide comprehensive documentation, video tutorials, and a knowledge base.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div style="text-align: center; margin: 80px 0; padding: 64px; background: linear-gradient(135deg, #1B365D, #0077C8); border-radius: 16px; color: white;">
+                <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 16px;">
+                    Ready to Transform Your Feasibility Process?
+                </h2>
+                <p style="font-size: 20px; margin-bottom: 32px; opacity: 0.9;">
+                    Start your 30-day free trial today. No credit card required.
+                </p>
+                <a href="app.html" class="btn btn-success btn-lg" style="background: white; color: #1B365D;">
+                    Start Free Trial →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #F8F9FA; padding: 48px 0; border-top: 1px solid #DEE2E6;">
+        <div class="container text-center">
+            <img src="New CRPro Logo.png" alt="Clinical Research Pro" style="height: 60px; margin-bottom: 24px;">
+            <p style="color: #6C757D; margin-bottom: 16px;">
+                © 2025 Clinical Research Pro Corporation. All rights reserved.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px;">
+                <span style="color: #6C757D; font-size: 14px;">🔒 HIPAA Compliant</span>
+                <span style="color: #6C757D; font-size: 14px;">✓ SOC 2 Certified</span>
+                <span style="color: #6C757D; font-size: 14px;">🏛️ FDA Aligned</span>
+                <span style="color: #6C757D; font-size: 14px;">🌍 GDPR Compliant</span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+                <a href="#" style="color: #6C757D; text-decoration: none;">Privacy Policy</a>
+                <a href="#" style="color: #6C757D; text-decoration: none;">Terms of Service</a>
+                <a href="help-center.html" style="color: #6C757D; text-decoration: none;">Support</a>
+                <a href="mailto:info@clinicalresearchpro.com" style="color: #6C757D; text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ROI Calculator
+        function calculateROI() {
+            const numStudies = parseInt(document.getElementById('numStudies').value) || 10;
+            const traditionalCost = parseInt(document.getElementById('traditionalCost').value) || 500000;
+            const feasiquestCost = 19990; // Annual cost
+            
+            const totalTraditionalCost = numStudies * traditionalCost;
+            const savings = totalTraditionalCost - feasiquestCost;
+            const roi = ((savings / feasiquestCost) * 100).toFixed(0);
+            
+            document.getElementById('savings').textContent = '$' + savings.toLocaleString();
+            document.getElementById('roi').textContent = roi.toLocaleString() + '%';
+            document.getElementById('totalTraditional').textContent = '$' + totalTraditionalCost.toLocaleString() + '/year';
+        }
+        
+        document.getElementById('numStudies').addEventListener('input', calculateROI);
+        document.getElementById('traditionalCost').addEventListener('input', calculateROI);
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const wasActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response Viewer - FeasiQuest℠</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="response-viewer-enhanced.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span class="brand-text">FeasiQuest℠</span>
+                    <span class="brand-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="protocol-upload.html">Protocol Upload</a>
+                <a href="response-viewer-enhanced.html" class="active">Responses</a>
+                <a href="messages.html">Messages</a>
+                <div class="user-menu">
+                    <button class="user-menu-btn">
+                        <span>John Sponsor</span>
+                        <span class="user-avatar">JS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Header -->
+            <div class="page-header">
+                <div class="header-left">
+                    <h1>Study Responses</h1>
+                    <p class="subtitle">Manage and compare site feasibility responses</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-secondary" onclick="exportToExcel()">
+                        <span class="icon">📊</span> Export Excel
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportToPDF()">
+                        <span class="icon">📄</span> Export PDF
+                    </button>
+                    <button class="btn btn-primary" onclick="compareSelected()">
+                        <span class="icon">⚖️</span> Compare Selected
+                    </button>
+                </div>
+            </div>
+
+            <!-- Study Selector -->
+            <div class="study-selector">
+                <label for="studySelect">Select Study:</label>
+                <select id="studySelect" onchange="loadResponses()">
+                    <option value="study1">CARDIO-2024-001 - Phase III Cardiovascular Study</option>
+                    <option value="study2">ONCO-2024-002 - Phase II Oncology Trial</option>
+                    <option value="study3">NEURO-2024-003 - Phase III Neurology Study</option>
+                </select>
+                <div class="study-stats">
+                    <span class="stat">
+                        <strong id="totalResponses">24</strong> Total Responses
+                    </span>
+                    <span class="stat">
+                        <strong id="pendingResponses">8</strong> Pending
+                    </span>
+                    <span class="stat">
+                        <strong id="avgScore">78</strong> Avg Score
+                    </span>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="statusFilter" onchange="applyFilters()">
+                        <option value="all">All Statuses</option>
+                        <option value="submitted">Submitted</option>
+                        <option value="under-review">Under Review</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Score Range:</label>
+                    <select id="scoreFilter" onchange="applyFilters()">
+                        <option value="all">All Scores</option>
+                        <option value="90-100">90-100 (Excellent)</option>
+                        <option value="80-89">80-89 (Good)</option>
+                        <option value="70-79">70-79 (Fair)</option>
+                        <option value="0-69">Below 70 (Poor)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location:</label>
+                    <select id="locationFilter" onchange="applyFilters()">
+                        <option value="all">All Locations</option>
+                        <option value="north-america">North America</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Search:</label>
+                    <input type="text" id="searchInput" placeholder="Search sites..." oninput="applyFilters()">
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="clearFilters()">Clear Filters</button>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="cards" onclick="switchView('cards')">
+                    <span class="icon">📋</span> Cards
+                </button>
+                <button class="view-btn" data-view="table" onclick="switchView('table')">
+                    <span class="icon">📊</span> Table
+                </button>
+                <button class="view-btn" data-view="map" onclick="switchView('map')">
+                    <span class="icon">🗺️</span> Map
+                </button>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div class="bulk-actions" id="bulkActions" style="display: none;">
+                <span class="selected-count">
+                    <strong id="selectedCount">0</strong> selected
+                </span>
+                <button class="btn btn-secondary btn-sm" onclick="bulkApprove()">
+                    <span class="icon">✓</span> Approve
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="bulkReject()">
+                    <span class="icon">✗</span> Reject
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="bulkExport()">
+                    <span class="icon">📥</span> Export
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="clearSelection()">
+                    Clear Selection
+                </button>
+            </div>
+
+            <!-- Responses Container -->
+            <div id="responsesContainer">
+                <!-- Cards View (Default) -->
+                <div id="cardsView" class="responses-grid">
+                    <!-- Response cards will be dynamically inserted here -->
+                </div>
+
+                <!-- Table View -->
+                <div id="tableView" class="responses-table" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" onchange="toggleSelectAll(this)"></th>
+                                <th onclick="sortBy('site')">Site Name ↕</th>
+                                <th onclick="sortBy('location')">Location ↕</th>
+                                <th onclick="sortBy('score')">Score ↕</th>
+                                <th onclick="sortBy('status')">Status ↕</th>
+                                <th onclick="sortBy('date')">Submitted ↕</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Table rows will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Map View -->
+                <div id="mapView" class="responses-map" style="display: none;">
+                    <div class="map-placeholder">
+                        <p>🗺️ Interactive map view coming soon</p>
+                        <p class="text-muted">Sites will be displayed on a world map with clustering</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-secondary btn-sm" onclick="previousPage()" id="prevBtn">
+                    ← Previous
+                </button>
+                <span class="page-info">
+                    Page <strong id="currentPage">1</strong> of <strong id="totalPages">3</strong>
+                </span>
+                <button class="btn btn-secondary btn-sm" onclick="nextPage()" id="nextBtn">
+                    Next →
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Response Detail Modal -->
+    <div id="responseModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modalSiteName">Site Details</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="response-detail">
+                    <!-- Site Overview -->
+                    <div class="detail-section">
+                        <h3>Site Overview</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Site Name:</label>
+                                <span id="detailSiteName"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Location:</label>
+                                <span id="detailLocation"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Principal Investigator:</label>
+                                <span id="detailPI"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Contact:</label>
+                                <span id="detailContact"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Feasibility Score:</label>
+                                <span id="detailScore" class="score-badge"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Status:</label>
+                                <span id="detailStatus" class="status-badge"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capabilities -->
+                    <div class="detail-section">
+                        <h3>Site Capabilities</h3>
+                        <div class="capabilities-grid" id="detailCapabilities">
+                            <!-- Capabilities will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="detail-section">
+                        <h3>Experience & Track Record</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Total Studies:</label>
+                                <span id="detailTotalStudies"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Similar Studies:</label>
+                                <span id="detailSimilarStudies"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Enrollment Rate:</label>
+                                <span id="detailEnrollmentRate"></span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Retention Rate:</label>
+                                <span id="detailRetentionRate"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Questionnaire Responses -->
+                    <div class="detail-section">
+                        <h3>Questionnaire Responses</h3>
+                        <div class="questionnaire-responses" id="detailQuestionnaire">
+                            <!-- Questionnaire responses will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Documents -->
+                    <div class="detail-section">
+                        <h3>Supporting Documents</h3>
+                        <div class="documents-list" id="detailDocuments">
+                            <!-- Documents will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn btn-primary" onclick="approveResponse()">
+                    <span class="icon">✓</span> Approve
+                </button>
+                <button class="btn btn-danger" onclick="rejectResponse()">
+                    <span class="icon">✗</span> Reject
+                </button>
+                <button class="btn btn-primary" onclick="sendMessage()">
+                    <span class="icon">💬</span> Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2>Site Comparison</h2>
+                <button class="modal-close" onclick="closeComparisonModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="comparison-container" id="comparisonContainer">
+                    <!-- Comparison table will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeComparisonModal()">Close</button>
+                <button class="btn btn-primary" onclick="exportComparison()">
+                    <span class="icon">📥</span> Export Comparison
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="response-viewer-enhanced.js"></script>
+</body>
+</html>

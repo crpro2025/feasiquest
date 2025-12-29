@@ -1,0 +1,356 @@
+/* Color Accuracy & Readability Fixes */
+
+/* Override any hard-to-read text colors */
+:root {
+    /* Ensure minimum contrast ratios */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --text-disabled: rgba(255, 255, 255, 0.45);
+    
+    /* Background colors with proper contrast */
+    --bg-primary: #0a0e27;
+    --bg-secondary: rgba(255, 255, 255, 0.05);
+    --bg-tertiary: rgba(255, 255, 255, 0.08);
+    
+    /* Accent colors - ensure readability */
+    --accent-cyan: #00f0ff;
+    --accent-purple: #b026ff;
+    --accent-pink: #ff006e;
+    
+    /* Status colors with good contrast */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+}
+
+/* Fix navigation text */
+.main-nav .nav-links a {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.main-nav .nav-links a:hover {
+    color: var(--accent-cyan) !important;
+}
+
+/* Fix button text */
+.btn {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+/* Fix card text */
+.card,
+.info-card,
+.stat-card {
+    color: var(--text-primary);
+}
+
+.card h3,
+.info-card h3,
+.stat-card h3 {
+    color: var(--accent-cyan);
+}
+
+.card p,
+.info-card p,
+.stat-card p {
+    color: var(--text-secondary);
+}
+
+/* Fix form labels */
+label {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+/* Fix input text */
+input,
+select,
+textarea {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Fix table text */
+table th {
+    color: var(--accent-cyan) !important;
+}
+
+table td {
+    color: var(--text-secondary) !important;
+}
+
+/* Fix modal text */
+.modal-content {
+    color: var(--text-primary);
+}
+
+.modal-header h2 {
+    color: var(--accent-cyan);
+}
+
+/* Fix footer text */
+footer,
+.footer {
+    color: var(--text-secondary);
+}
+
+footer a,
+.footer a {
+    color: var(--text-primary);
+}
+
+footer a:hover,
+.footer a:hover {
+    color: var(--accent-cyan);
+}
+
+/* Fix badge text */
+.badge,
+.status-badge {
+    font-weight: 600;
+}
+
+/* Fix notification text */
+.notification {
+    color: #0a0e27 !important;
+}
+
+.notification-title {
+    color: #0a0e27 !important;
+    font-weight: 700;
+}
+
+.notification-message {
+    color: rgba(10, 14, 39, 0.8) !important;
+}
+
+/* Fix dropdown text */
+.dropdown-menu {
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-cyan);
+}
+
+/* Fix breadcrumb text */
+.breadcrumb {
+    color: var(--text-muted);
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-cyan);
+}
+
+/* Fix tab text */
+.tab-btn {
+    color: var(--text-secondary);
+}
+
+.tab-btn.active {
+    color: var(--accent-cyan);
+}
+
+/* Fix accordion text */
+.accordion-header {
+    color: var(--text-primary);
+}
+
+.accordion-content {
+    color: var(--text-secondary);
+}
+
+/* Fix tooltip text */
+.tooltip {
+    background: rgba(10, 14, 39, 0.95);
+    color: var(--text-primary);
+}
+
+/* Fix alert text */
+.alert {
+    color: var(--text-primary);
+}
+
+/* Ensure all headings are readable */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+/* Fix link colors */
+a {
+    color: var(--accent-cyan);
+}
+
+a:hover {
+    color: var(--accent-purple);
+}
+
+/* Fix disabled state */
+.disabled,
+:disabled {
+    color: var(--text-disabled) !important;
+    opacity: 0.6;
+}
+
+/* Fix placeholder text in all contexts */
+::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: var(--text-muted) !important;
+}
+
+::-ms-input-placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Fix selection colors */
+::selection {
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+}
+
+::-moz-selection {
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+}
+
+/* Fix scrollbar for better visibility */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.5);
+}
+
+/* Fix code blocks */
+code,
+pre {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Fix blockquotes */
+blockquote {
+    border-left: 4px solid var(--accent-cyan);
+    color: var(--text-secondary);
+}
+
+/* Fix hr elements */
+hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix progress bars */
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+}
+
+/* Fix skeleton loaders */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+}
+
+/* Fix empty states */
+.empty-state {
+    color: var(--text-muted);
+}
+
+.empty-state h3 {
+    color: var(--text-secondary);
+}
+
+/* Fix loading spinners */
+.spinner {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-cyan);
+}
+
+/* Ensure proper contrast on hover states */
+.hover-effect:hover {
+    background: rgba(0, 240, 255, 0.1);
+}
+
+/* Fix focus states for accessibility */
+*:focus {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
+/* Fix active states */
+.active {
+    color: var(--accent-cyan) !important;
+}
+
+/* Fix visited links */
+a:visited {
+    color: var(--accent-purple);
+}
+
+/* Ensure proper contrast in dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.85);
+    }
+}
+
+/* Print styles - ensure readability */
+@media print {
+    * {
+        color: #000 !important;
+        background: #fff !important;
+    }
+}

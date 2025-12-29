@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feasibility Questionnaire - FeasiQuest℠</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="questionnaire-updated.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span class="brand-text">FeasiQuest℠</span>
+                    <span class="brand-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="site-registration.html">Site Profile</a>
+                <a href="questionnaire-updated.html" class="active">Questionnaire</a>
+                <a href="messages.html">Messages</a>
+                <div class="user-menu">
+                    <button class="user-menu-btn">
+                        <span>Research Site</span>
+                        <span class="user-avatar">RS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Header -->
+            <div class="page-header">
+                <div class="header-left">
+                    <h1>Feasibility Questionnaire</h1>
+                    <p class="subtitle">CARDIO-2024-001 - Phase III Cardiovascular Study</p>
+                    <div class="study-info">
+                        <span class="info-badge">📋 50 Questions</span>
+                        <span class="info-badge">⏱️ ~30 minutes</span>
+                        <span class="info-badge">💾 Auto-save enabled</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-secondary" onclick="saveDraft()">
+                        <span class="icon">💾</span> Save Draft
+                    </button>
+                    <button class="btn btn-secondary" onclick="previewResponse()">
+                        <span class="icon">👁️</span> Preview
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Overall Progress</span>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span><strong id="answeredCount">0</strong> of <strong>50</strong> answered</span>
+                    <span class="auto-save-status" id="autoSaveStatus">
+                        <span class="status-dot"></span> Last saved: Never
+                    </span>
+                </div>
+            </div>
+
+            <!-- Section Navigation -->
+            <div class="section-nav">
+                <button class="section-nav-btn active" data-section="1" onclick="goToSection(1)">
+                    <span class="section-number">1</span>
+                    <span class="section-title">Site Information</span>
+                    <span class="section-progress" id="section1Progress">0/7</span>
+                </button>
+                <button class="section-nav-btn" data-section="2" onclick="goToSection(2)">
+                    <span class="section-number">2</span>
+                    <span class="section-title">Patient Population</span>
+                    <span class="section-progress" id="section2Progress">0/8</span>
+                </button>
+                <button class="section-nav-btn" data-section="3" onclick="goToSection(3)">
+                    <span class="section-number">3</span>
+                    <span class="section-title">Capabilities</span>
+                    <span class="section-progress" id="section3Progress">0/10</span>
+                </button>
+                <button class="section-nav-btn" data-section="4" onclick="goToSection(4)">
+                    <span class="section-number">4</span>
+                    <span class="section-title">Experience</span>
+                    <span class="section-progress" id="section4Progress">0/8</span>
+                </button>
+                <button class="section-nav-btn" data-section="5" onclick="goToSection(5)">
+                    <span class="section-number">5</span>
+                    <span class="section-title">Resources</span>
+                    <span class="section-progress" id="section5Progress">0/7</span>
+                </button>
+                <button class="section-nav-btn" data-section="6" onclick="goToSection(6)">
+                    <span class="section-number">6</span>
+                    <span class="section-title">Timeline & Budget</span>
+                    <span class="section-progress" id="section6Progress">0/6</span>
+                </button>
+                <button class="section-nav-btn" data-section="7" onclick="goToSection(7)">
+                    <span class="section-number">7</span>
+                    <span class="section-title">Documents</span>
+                    <span class="section-progress" id="section7Progress">0/4</span>
+                </button>
+            </div>
+
+            <!-- Questionnaire Form -->
+            <form id="questionnaireForm" class="questionnaire-form">
+                <!-- Section 1: Site Information -->
+                <div class="form-section active" id="section1">
+                    <div class="section-header">
+                        <h2>Section 1: Site Information</h2>
+                        <p class="section-description">Basic information about your research site</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Site Name</label>
+                        <input type="text" name="siteName" class="form-control" placeholder="Enter site name" required>
+                        <small class="form-help">Official name of your research facility</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Principal Investigator</label>
+                            <input type="text" name="piName" class="form-control" placeholder="Dr. John Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">PI Email</label>
+                            <input type="email" name="piEmail" class="form-control" placeholder="pi@site.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Site Address</label>
+                        <input type="text" name="address" class="form-control" placeholder="Street address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">City</label>
+                            <input type="text" name="city" class="form-control" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">State/Province</label>
+                            <input type="text" name="state" class="form-control" placeholder="State" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Country</label>
+                            <select name="country" class="form-control" required>
+                                <option value="">Select country</option>
+                                <option value="USA">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Site Type</label>
+                        <select name="siteType" class="form-control" required>
+                            <option value="">Select site type</option>
+                            <option value="academic">Academic Medical Center</option>
+                            <option value="community">Community Hospital</option>
+                            <option value="private">Private Practice</option>
+                            <option value="dedicated">Dedicated Research Site</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Years of Research Experience</label>
+                        <select name="yearsExperience" class="form-control" required>
+                            <option value="">Select experience</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="6-10">6-10 years</option>
+                            <option value="11-20">11-20 years</option>
+                            <option value="20+">20+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 2: Patient Population -->
+                <div class="form-section" id="section2">
+                    <div class="section-header">
+                        <h2>Section 2: Patient Population</h2>
+                        <p class="section-description">Information about your patient database and recruitment capabilities</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Total Active Patients in Database</label>
+                        <input type="number" name="totalPatients" class="form-control" placeholder="e.g., 5000" required>
+                        <small class="form-help">Total number of active patients in your system</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Patients Meeting Inclusion Criteria (Estimated)</label>
+                        <input type="number" name="eligiblePatients" class="form-control" placeholder="e.g., 500" required>
+                        <small class="form-help">Estimated number of patients who meet the study criteria</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Can you enroll 50 patients in 12 months?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="canEnroll50" value="yes" required>
+                                <span>Yes, definitely</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="canEnroll50" value="probably">
+                                <span>Probably, with some effort</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="canEnroll50" value="maybe">
+                                <span>Maybe, it would be challenging</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="canEnroll50" value="no">
+                                <span>No, not feasible</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Expected Monthly Enrollment Rate</label>
+                        <input type="number" name="monthlyEnrollment" class="form-control" placeholder="e.g., 5" required>
+                        <small class="form-help">Average number of patients you expect to enroll per month</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Historical Screen Failure Rate</label>
+                        <select name="screenFailureRate" class="form-control" required>
+                            <option value="">Select rate</option>
+                            <option value="0-10">0-10%</option>
+                            <option value="11-20">11-20%</option>
+                            <option value="21-30">21-30%</option>
+                            <option value="31-40">31-40%</option>
+                            <option value="40+">40%+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Patient Demographics Available</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="demographics" value="age">
+                                <span>Age Distribution</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="demographics" value="gender">
+                                <span>Gender Distribution</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="demographics" value="ethnicity">
+                                <span>Ethnicity/Race</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="demographics" value="comorbidities">
+                                <span>Comorbidities</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Recruitment Methods Available</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="recruitmentMethods" value="database">
+                                <span>Patient Database Search</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="recruitmentMethods" value="referrals">
+                                <span>Physician Referrals</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="recruitmentMethods" value="advertising">
+                                <span>Advertising/Marketing</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="recruitmentMethods" value="community">
+                                <span>Community Outreach</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Patient Population Notes</label>
+                        <textarea name="patientNotes" class="form-control" rows="4" placeholder="Any additional information about your patient population..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 3: Capabilities -->
+                <div class="form-section" id="section3">
+                    <div class="section-header">
+                        <h2>Section 3: Site Capabilities</h2>
+                        <p class="section-description">Your site's capabilities and infrastructure</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Clinical Trial Phases Experienced In</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="phases" value="phase1" required>
+                                <span>Phase I</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="phases" value="phase2">
+                                <span>Phase II</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="phases" value="phase3">
+                                <span>Phase III</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="phases" value="phase4">
+                                <span>Phase IV</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Therapeutic Areas of Expertise</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="cardiology" required>
+                                <span>Cardiology</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="oncology">
+                                <span>Oncology</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="neurology">
+                                <span>Neurology</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="diabetes">
+                                <span>Diabetes/Endocrinology</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="respiratory">
+                                <span>Respiratory</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="therapeuticAreas" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Do you have experience with cardiovascular trials?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="cardioExperience" value="extensive" required>
+                                <span>Yes, extensive (10+ studies)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="cardioExperience" value="moderate">
+                                <span>Yes, moderate (5-9 studies)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="cardioExperience" value="limited">
+                                <span>Yes, limited (1-4 studies)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="cardioExperience" value="none">
+                                <span>No experience</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">On-Site Facilities Available</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="facilities" value="lab" required>
+                                <span>Clinical Laboratory</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="facilities" value="pharmacy">
+                                <span>Pharmacy</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="facilities" value="imaging">
+                                <span>Imaging Center</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="facilities" value="icu">
+                                <span>ICU/Critical Care</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="facilities" value="emergency">
+                                <span>24/7 Emergency Services</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Cardiovascular-Specific Equipment</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardioEquipment" value="ecg" required>
+                                <span>ECG/EKG Machine</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardioEquipment" value="holter">
+                                <span>Holter Monitor</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardioEquipment" value="echo">
+                                <span>Echocardiography</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardioEquipment" value="stress">
+                                <span>Stress Test Equipment</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardioEquipment" value="cath">
+                                <span>Cardiac Catheterization Lab</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Storage Capabilities</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="storage" value="refrigerated" required>
+                                <span>Refrigerated Storage (2-8°C)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="storage" value="frozen">
+                                <span>Frozen Storage (-20°C)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="storage" value="ultracold">
+                                <span>Ultra-cold Storage (-80°C)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="storage" value="ln2">
+                                <span>Liquid Nitrogen Storage</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Quality Management Systems</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qms" value="sops" required>
+                                <span>Written SOPs</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qms" value="training">
+                                <span>Staff Training Program</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qms" value="audit">
+                                <span>Internal Audit System</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qms" value="capa">
+                                <span>CAPA System</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Electronic Systems Available</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="electronicSystems" value="ehr" required>
+                                <span>Electronic Health Records (EHR)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="electronicSystems" value="edc">
+                                <span>EDC System Experience</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="electronicSystems" value="ctms">
+                                <span>CTMS</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="electronicSystems" value="ivrs">
+                                <span>IVRS/IWRS</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Regulatory Compliance</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="compliance" value="gcp" required>
+                                <span>GCP Certified</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="compliance" value="fda">
+                                <span>FDA Inspected (No 483s)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="compliance" value="irb">
+                                <span>IRB/EC Approved</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="compliance" value="hipaa">
+                                <span>HIPAA Compliant</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Capabilities Notes</label>
+                        <textarea name="capabilitiesNotes" class="form-control" rows="4" placeholder="Any additional information about your capabilities..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 4: Experience -->
+                <div class="form-section" id="section4">
+                    <div class="section-header">
+                        <h2>Section 4: Research Experience</h2>
+                        <p class="section-description">Your site's track record and experience</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Total Number of Clinical Trials Conducted</label>
+                        <input type="number" name="totalTrials" class="form-control" placeholder="e.g., 150" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Number of Cardiovascular Trials Completed</label>
+                        <input type="number" name="cardioTrials" class="form-control" placeholder="e.g., 25" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Number of Phase III Trials Completed</label>
+                        <input type="number" name="phase3Trials" class="form-control" placeholder="e.g., 40" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Average Enrollment Rate (Historical)</label>
+                        <select name="historicalEnrollment" class="form-control" required>
+                            <option value="">Select rate</option>
+                            <option value="95-100">95-100%</option>
+                            <option value="90-94">90-94%</option>
+                            <option value="85-89">85-89%</option>
+                            <option value="80-84">80-84%</option>
+                            <option value="below80">Below 80%</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Average Retention Rate (Historical)</label>
+                        <select name="historicalRetention" class="form-control" required>
+                            <option value="">Select rate</option>
+                            <option value="95-100">95-100%</option>
+                            <option value="90-94">90-94%</option>
+                            <option value="85-89">85-89%</option>
+                            <option value="80-84">80-84%</option>
+                            <option value="below80">Below 80%</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Protocol Deviations Rate</label>
+                        <select name="deviationsRate" class="form-control" required>
+                            <option value="">Select rate</option>
+                            <option value="0-5">0-5% (Excellent)</option>
+                            <option value="6-10">6-10% (Good)</option>
+                            <option value="11-15">11-15% (Fair)</option>
+                            <option value="16-20">16-20% (Needs Improvement)</option>
+                            <option value="20+">20%+ (Poor)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Have you ever been a top enrolling site?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="topEnroller" value="yes-multiple" required>
+                                <span>Yes, multiple times</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="topEnroller" value="yes-once">
+                                <span>Yes, once</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="topEnroller" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notable Achievements or Awards</label>
+                        <textarea name="achievements" class="form-control" rows="4" placeholder="List any notable achievements, awards, or recognitions..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 5: Resources -->
+                <div class="form-section" id="section5">
+                    <div class="section-header">
+                        <h2>Section 5: Staff & Resources</h2>
+                        <p class="section-description">Information about your team and resources</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Number of Study Coordinators</label>
+                        <input type="number" name="coordinators" class="form-control" placeholder="e.g., 5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Number of Sub-Investigators</label>
+                        <input type="number" name="subInvestigators" class="form-control" placeholder="e.g., 3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Number of Research Nurses</label>
+                        <input type="number" name="researchNurses" class="form-control" placeholder="e.g., 4" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Dedicated Study Space Available</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="studySpace" value="dedicated" required>
+                                <span>Yes, dedicated research space</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="studySpace" value="shared">
+                                <span>Shared clinical space</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="studySpace" value="limited">
+                                <span>Limited space available</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Can you dedicate staff to this study?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="dedicatedStaff" value="yes-full" required>
+                                <span>Yes, full-time dedicated staff</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="dedicatedStaff" value="yes-part">
+                                <span>Yes, part-time dedicated staff</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="dedicatedStaff" value="shared">
+                                <span>Staff will be shared across studies</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Current Study Load</label>
+                        <select name="currentLoad" class="form-control" required>
+                            <option value="">Select current load</option>
+                            <option value="0-5">0-5 active studies</option>
+                            <option value="6-10">6-10 active studies</option>
+                            <option value="11-15">11-15 active studies</option>
+                            <option value="16-20">16-20 active studies</option>
+                            <option value="20+">20+ active studies</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Resources Notes</label>
+                        <textarea name="resourcesNotes" class="form-control" rows="4" placeholder="Any additional information about your resources..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 6: Timeline & Budget -->
+                <div class="form-section" id="section6">
+                    <div class="section-header">
+                        <h2>Section 6: Timeline & Budget</h2>
+                        <p class="section-description">Timeline expectations and budget considerations</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">How quickly can you complete site initiation?</label>
+                        <select name="initiationTime" class="form-control" required>
+                            <option value="">Select timeframe</option>
+                            <option value="2-4">2-4 weeks</option>
+                            <option value="4-6">4-6 weeks</option>
+                            <option value="6-8">6-8 weeks</option>
+                            <option value="8-12">8-12 weeks</option>
+                            <option value="12+">12+ weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Time to first patient enrolled (after activation)</label>
+                        <select name="firstPatientTime" class="form-control" required>
+                            <option value="">Select timeframe</option>
+                            <option value="1-2">1-2 weeks</option>
+                            <option value="2-4">2-4 weeks</option>
+                            <option value="4-8">4-8 weeks</option>
+                            <option value="8-12">8-12 weeks</option>
+                            <option value="12+">12+ weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">IRB/EC Review Timeline</label>
+                        <select name="irbTimeline" class="form-control" required>
+                            <option value="">Select timeline</option>
+                            <option value="2-4">2-4 weeks</option>
+                            <option value="4-6">4-6 weeks</option>
+                            <option value="6-8">6-8 weeks</option>
+                            <option value="8-12">8-12 weeks</option>
+                            <option value="12+">12+ weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Contract Negotiation Timeline</label>
+                        <select name="contractTimeline" class="form-control" required>
+                            <option value="">Select timeline</option>
+                            <option value="1-2">1-2 weeks</option>
+                            <option value="2-4">2-4 weeks</option>
+                            <option value="4-6">4-6 weeks</option>
+                            <option value="6-8">6-8 weeks</option>
+                            <option value="8+">8+ weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Budget Expectations (per patient)</label>
+                        <select name="budgetExpectations" class="form-control" required>
+                            <option value="">Select range</option>
+                            <option value="5000-10000">$5,000 - $10,000</option>
+                            <option value="10000-15000">$10,000 - $15,000</option>
+                            <option value="15000-20000">$15,000 - $20,000</option>
+                            <option value="20000-25000">$20,000 - $25,000</option>
+                            <option value="25000+">$25,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Timeline/Budget Notes</label>
+                        <textarea name="timelineBudgetNotes" class="form-control" rows="4" placeholder="Any additional information about timeline or budget..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 7: Documents -->
+                <div class="form-section" id="section7">
+                    <div class="section-header">
+                        <h2>Section 7: Supporting Documents</h2>
+                        <p class="section-description">Upload supporting documents to strengthen your response</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">CV/Resume (Form 1572)</label>
+                        <div class="file-upload-area" onclick="document.getElementById('cv1572').click()">
+                            <input type="file" id="cv1572" name="cv1572" accept=".pdf,.doc,.docx" style="display: none" onchange="handleFileUpload(this, 'cv1572Preview')" required>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text">
+                                <strong>Click to upload CV/Form 1572</strong>
+                                <span>PDF, DOC, DOCX (Max 10MB)</span>
+                            </div>
+                        </div>
+                        <div id="cv1572Preview" class="file-preview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">GCP Certificate</label>
+                        <div class="file-upload-area" onclick="document.getElementById('gcpCert').click()">
+                            <input type="file" id="gcpCert" name="gcpCert" accept=".pdf,.jpg,.jpeg,.png" style="display: none" onchange="handleFileUpload(this, 'gcpCertPreview')" required>
+                            <div class="upload-icon">📜</div>
+                            <div class="upload-text">
+                                <strong>Click to upload GCP Certificate</strong>
+                                <span>PDF, JPG, PNG (Max 5MB)</span>
+                            </div>
+                        </div>
+                        <div id="gcpCertPreview" class="file-preview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site Photos/Videos</label>
+                        <div class="file-upload-area" onclick="document.getElementById('siteMedia').click()">
+                            <input type="file" id="siteMedia" name="siteMedia" accept="image/*,video/*" multiple style="display: none" onchange="handleFileUpload(this, 'siteMediaPreview')">
+                            <div class="upload-icon">📸</div>
+                            <div class="upload-text">
+                                <strong>Click to upload site photos/videos</strong>
+                                <span>Images, Videos (Max 100MB total)</span>
+                            </div>
+                        </div>
+                        <div id="siteMediaPreview" class="file-preview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Documents</label>
+                        <div class="file-upload-area" onclick="document.getElementById('additionalDocs').click()">
+                            <input type="file" id="additionalDocs" name="additionalDocs" multiple style="display: none" onchange="handleFileUpload(this, 'additionalDocsPreview')">
+                            <div class="upload-icon">📎</div>
+                            <div class="upload-text">
+                                <strong>Click to upload additional documents</strong>
+                                <span>Any format (Max 50MB total)</span>
+                            </div>
+                        </div>
+                        <div id="additionalDocsPreview" class="file-preview"></div>
+                        <small class="form-help">Examples: Licenses, accreditations, facility photos, equipment lists, etc.</small>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousSection()" style="display: none;">
+                        ← Previous Section
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextSection()">
+                        Next Section →
+                    </button>
+                    <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">
+                        <span class="icon">✓</span> Submit Response
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <div class="modal-header">
+                <h2>Response Preview</h2>
+                <button class="modal-close" onclick="closePreviewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="previewContent" class="preview-content">
+                    <!-- Preview content will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePreviewModal()">Close</button>
+                <button class="btn btn-primary" onclick="exportPreview()">
+                    <span class="icon">📥</span> Export PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="questionnaire-updated.js"></script>
+</body>
+</html>

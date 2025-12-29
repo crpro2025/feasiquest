@@ -1,0 +1,50 @@
+<svg width="500" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b91c1c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="textShadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#dc2626" flood-opacity="0.3"/>
+    </filter>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Text - FeasiQuest -->
+  <text x="250" y="50" 
+        font-family="'Georgia', 'Times New Roman', serif" 
+        font-size="56" 
+        font-weight="bold" 
+        font-style="italic"
+        fill="url(#textGrad)" 
+        text-anchor="middle"
+        filter="url(#textShadow)"
+        letter-spacing="2">
+    FeasiQuest
+  </text>
+  
+  <!-- Decorative underline -->
+  <line x1="50" y1="65" x2="450" y2="65" 
+        stroke="url(#accentGrad)" 
+        stroke-width="3" 
+        stroke-linecap="round"/>
+  
+  <!-- Small accent dots -->
+  <circle cx="40" cy="65" r="4" fill="#dc2626"/>
+  <circle cx="460" cy="65" r="4" fill="#dc2626"/>
+  
+  <!-- Tagline -->
+  <text x="250" y="85" 
+        font-family="'Arial', 'Helvetica', sans-serif" 
+        font-size="12" 
+        font-weight="600" 
+        fill="#666" 
+        text-anchor="middle"
+        letter-spacing="3">
+    MASTERING CLINICAL TRIAL FEASIBILITY
+  </text>
+</svg>

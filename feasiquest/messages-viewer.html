@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - FeasiQuest℠</title>
+    <link rel="stylesheet" href="futuristic-theme.css">
+    <link rel="stylesheet" href="color-fixes.css">
+    <link rel="stylesheet" href="messages-viewer.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span class="brand-text">FeasiQuest℠</span>
+                    <span class="brand-tagline">by Clinical Research Pro®</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="app.html">Dashboard</a>
+                <a href="protocol-upload.html">Studies</a>
+                <a href="response-viewer-enhanced.html">Responses</a>
+                <a href="messages-viewer.html" class="active">Messages</a>
+                <div class="user-menu">
+                    <button class="user-menu-btn">
+                        <span>John Sponsor</span>
+                        <span class="user-avatar">JS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="messages-container">
+            <!-- Conversations Sidebar -->
+            <div class="conversations-sidebar">
+                <div class="sidebar-header">
+                    <h2>Messages</h2>
+                    <button class="btn btn-primary btn-sm" onclick="composeNewMessage()">
+                        <span class="icon">✉️</span> New Message
+                    </button>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="sidebar-search">
+                    <input type="text" id="conversationSearch" placeholder="Search conversations..." oninput="searchConversations()">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all" onclick="filterConversations('all')">
+                            All <span class="count">12</span>
+                        </button>
+                        <button class="filter-tab" data-filter="unread" onclick="filterConversations('unread')">
+                            Unread <span class="count">3</span>
+                        </button>
+                        <button class="filter-tab" data-filter="starred" onclick="filterConversations('starred')">
+                            Starred <span class="count">2</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conversations List -->
+                <div class="conversations-list" id="conversationsList">
+                    <!-- Conversations will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Message Thread -->
+            <div class="message-thread">
+                <div class="thread-header">
+                    <div class="thread-info">
+                        <div class="thread-avatar">JH</div>
+                        <div class="thread-details">
+                            <h3 id="threadTitle">Johns Hopkins Medical Center</h3>
+                            <p id="threadSubtitle">Dr. Sarah Johnson • CARDIO-2024-001</p>
+                        </div>
+                    </div>
+                    <div class="thread-actions">
+                        <button class="btn-icon" onclick="toggleStar()" title="Star conversation">
+                            <span id="starIcon">☆</span>
+                        </button>
+                        <button class="btn-icon" onclick="archiveConversation()" title="Archive">
+                            <span>📦</span>
+                        </button>
+                        <button class="btn-icon" onclick="deleteConversation()" title="Delete">
+                            <span>🗑️</span>
+                        </button>
+                        <button class="btn-icon" onclick="toggleThreadInfo()" title="Info">
+                            <span>ℹ️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages -->
+                <div class="messages-area" id="messagesArea">
+                    <!-- Messages will be dynamically inserted here -->
+                </div>
+
+                <!-- Message Input -->
+                <div class="message-input-area">
+                    <div class="input-toolbar">
+                        <button class="toolbar-btn" onclick="attachFile()" title="Attach file">
+                            <span>📎</span>
+                        </button>
+                        <button class="toolbar-btn" onclick="insertEmoji()" title="Insert emoji">
+                            <span>😊</span>
+                        </button>
+                        <button class="toolbar-btn" onclick="useTemplate()" title="Use template">
+                            <span>📋</span>
+                        </button>
+                    </div>
+                    <div class="input-container">
+                        <textarea id="messageInput" placeholder="Type your message..." rows="3" onkeydown="handleKeyPress(event)"></textarea>
+                        <button class="btn btn-primary send-btn" onclick="sendMessage()">
+                            <span class="icon">📤</span> Send
+                        </button>
+                    </div>
+                    <div id="attachmentPreview" class="attachment-preview"></div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel" id="infoPanel">
+                <div class="panel-header">
+                    <h3>Conversation Details</h3>
+                    <button class="btn-icon" onclick="toggleThreadInfo()">
+                        <span>✕</span>
+                    </button>
+                </div>
+
+                <div class="panel-content">
+                    <!-- Participant Info -->
+                    <div class="panel-section">
+                        <h4>Participant</h4>
+                        <div class="participant-card">
+                            <div class="participant-avatar">JH</div>
+                            <div class="participant-info">
+                                <h5>Johns Hopkins Medical Center</h5>
+                                <p>Dr. Sarah Johnson</p>
+                                <p class="text-muted">sjohnson@jhmi.edu</p>
+                            </div>
+                        </div>
+                        <div class="participant-actions">
+                            <button class="btn btn-secondary btn-sm" onclick="viewProfile()">
+                                <span class="icon">👤</span> View Profile
+                            </button>
+                            <button class="btn btn-secondary btn-sm" onclick="scheduleCall()">
+                                <span class="icon">📞</span> Schedule Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Related Study -->
+                    <div class="panel-section">
+                        <h4>Related Study</h4>
+                        <div class="study-card">
+                            <div class="study-badge">Phase III</div>
+                            <h5>CARDIO-2024-001</h5>
+                            <p>Phase III Cardiovascular Study</p>
+                            <button class="btn btn-secondary btn-sm" onclick="viewStudy()">
+                                View Study Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Shared Files -->
+                    <div class="panel-section">
+                        <h4>Shared Files <span class="count">(5)</span></h4>
+                        <div class="files-list">
+                            <div class="file-item">
+                                <span class="file-icon">📄</span>
+                                <div class="file-info">
+                                    <p class="file-name">Protocol_v2.pdf</p>
+                                    <p class="file-meta">2.5 MB • Jan 15</p>
+                                </div>
+                                <button class="btn-icon" onclick="downloadFile('protocol')">
+                                    <span>⬇️</span>
+                                </button>
+                            </div>
+                            <div class="file-item">
+                                <span class="file-icon">📊</span>
+                                <div class="file-info">
+                                    <p class="file-name">Budget_Estimate.xlsx</p>
+                                    <p class="file-meta">1.2 MB • Jan 14</p>
+                                </div>
+                                <button class="btn-icon" onclick="downloadFile('budget')">
+                                    <span>⬇️</span>
+                                </button>
+                            </div>
+                            <div class="file-item">
+                                <span class="file-icon">📝</span>
+                                <div class="file-info">
+                                    <p class="file-name">Site_CV.pdf</p>
+                                    <p class="file-meta">3.1 MB • Jan 12</p>
+                                </div>
+                                <button class="btn-icon" onclick="downloadFile('cv')">
+                                    <span>⬇️</span>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-block" onclick="viewAllFiles()">
+                            View All Files
+                        </button>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="panel-section">
+                        <h4>Quick Actions</h4>
+                        <div class="quick-actions">
+                            <button class="btn btn-secondary btn-sm btn-block" onclick="sendQuestionnaire()">
+                                <span class="icon">📋</span> Send Questionnaire
+                            </button>
+                            <button class="btn btn-secondary btn-sm btn-block" onclick="scheduleVisit()">
+                                <span class="icon">📅</span> Schedule Site Visit
+                            </button>
+                            <button class="btn btn-secondary btn-sm btn-block" onclick="requestDocuments()">
+                                <span class="icon">📎</span> Request Documents
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Conversation Settings -->
+                    <div class="panel-section">
+                        <h4>Settings</h4>
+                        <div class="settings-list">
+                            <label class="setting-item">
+                                <input type="checkbox" checked>
+                                <span>Notifications</span>
+                            </label>
+                            <label class="setting-item">
+                                <input type="checkbox">
+                                <span>Mute conversation</span>
+                            </label>
+                            <label class="setting-item">
+                                <input type="checkbox">
+                                <span>Auto-archive</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Compose Message Modal -->
+    <div id="composeModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>New Message</h2>
+                <button class="modal-close" onclick="closeComposeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>To:</label>
+                    <select id="recipientSelect" class="form-control">
+                        <option value="">Select recipient...</option>
+                        <option value="1">Johns Hopkins Medical Center</option>
+                        <option value="2">Mayo Clinic</option>
+                        <option value="3">Cleveland Clinic</option>
+                        <option value="4">Massachusetts General Hospital</option>
+                        <option value="5">Stanford Medical Center</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Study (Optional):</label>
+                    <select id="studySelect" class="form-control">
+                        <option value="">Select study...</option>
+                        <option value="1">CARDIO-2024-001 - Phase III Cardiovascular</option>
+                        <option value="2">ONCO-2024-002 - Phase II Oncology</option>
+                        <option value="3">NEURO-2024-003 - Phase III Neurology</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject:</label>
+                    <input type="text" id="subjectInput" class="form-control" placeholder="Enter subject...">
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea id="composeMessageInput" class="form-control" rows="8" placeholder="Type your message..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Template (Optional):</label>
+                    <select id="templateSelect" class="form-control" onchange="applyTemplate()">
+                        <option value="">Select template...</option>
+                        <option value="intro">Introduction</option>
+                        <option value="questionnaire">Questionnaire Request</option>
+                        <option value="followup">Follow-up</option>
+                        <option value="approval">Site Approval</option>
+                        <option value="rejection">Site Rejection</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeComposeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="sendNewMessage()">
+                    <span class="icon">📤</span> Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Attachment Modal -->
+    <div id="attachmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Attach Files</h2>
+                <button class="modal-close" onclick="closeAttachmentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" multiple style="display: none" onchange="handleFileSelect(this)">
+                    <div class="upload-icon">📎</div>
+                    <div class="upload-text">
+                        <strong>Click to select files</strong>
+                        <span>or drag and drop here</span>
+                    </div>
+                </div>
+                <div id="selectedFiles" class="selected-files"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAttachmentModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmAttachment()">
+                    <span class="icon">✓</span> Attach Files
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="messages-viewer.js"></script>
+</body>
+</html>
